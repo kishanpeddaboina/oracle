@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns2="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname namespaceURI="http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0"
+                     localpart="BaseYearEventRulesService_ep"/>
+      <port-info>
+         <wsdl-port namespaceURI="http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0"
+                    localpart="BaseYearEventRulesService_pt"/>
+         <runtime/>
+         <operations>
+            <operation name="validateBaseYearEevent"/>
+            <operation name="factoredBaseYearValue"/>
+            <operation name="deriveEscalationPath"/>
+            <operation name="identifyCleanDirtyAO"/>
+            <operation name="trendBaseYearValue"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>

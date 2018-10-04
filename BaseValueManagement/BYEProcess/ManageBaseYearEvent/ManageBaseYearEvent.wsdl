@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"  xmlns:tns6="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" >
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent">
+            <xsd:import namespace="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" schemaLocation="oramds:/apps/amp/xsd/bvm/ManageBYE.xsd"/>
+            <xsd:element name="ManageBYEResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="tns6:manageBYEResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ManageBYE">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="tns6:manageBYERequest"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="ManageBYEResponse">
+        <wsdl:part name="parameters" element="tns:ManageBYEResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ManageBYE">
+        <wsdl:part name="parameters" element="tns:ManageBYE"/>
+    </wsdl:message>
+    <wsdl:portType name="ManageBaseYearEventPortType">
+        <wsdl:operation name="ManageBYE">
+            <wsdl:input message="tns:ManageBYE"/>
+            <wsdl:output message="tns:ManageBYEResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <plnk:partnerLinkType name="ManageBaseYearEventPortTypePartnerLinkType">
+        <plnk:role name="ManageBaseYearEventPortTypeProvider">
+            <plnk:portType name="tns:ManageBaseYearEventPortType"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+</wsdl:definitions>

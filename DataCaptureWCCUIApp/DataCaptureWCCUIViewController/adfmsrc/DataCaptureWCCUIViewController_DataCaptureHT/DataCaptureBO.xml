@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.16.48" id="DataCaptureBO"
+          Package="DataCaptureWCCUIViewController_DataCaptureHT"
+          BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.DataCaptureBO" isJavaBased="false">
+  <Attribute Name="barCode" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="nextSibling" Value="dca_Id"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Bar Code"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="barCode"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="dca_Id" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="nextSibling" Value="wcc_Id"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Dca Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="dca_Id"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="wcc_Id" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="nextSibling" Value="aggredatedid"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Wcc Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="wcc_Id"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="aggredatedid" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="nextSibling" Value="eventDate"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Aggredatedid"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="aggredatedid"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventDate" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="nextSibling" Value="message"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Event Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="eventDate"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="message" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="nextSibling" Value="isValidation_Required"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Message"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="message"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="isValidation_Required" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="nextSibling" Value="category"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Is Validation Required"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="isValidation_Required"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="category" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="nextSibling" Value="subCategory"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Category"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="category"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="subCategory" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="nextSibling" Value="documentID"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Sub Category"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="subCategory"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="documentID" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Document ID"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="documentID"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="ainList" IsCollection="true" BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.ainList"
+                     CollectionBeanClass="DataCaptureWCCUIViewController_DataCaptureHT.ainList_ainList_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+      <Property Name="nextSibling" Value="barCode"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Ain List"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="ainList"/>
+      <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

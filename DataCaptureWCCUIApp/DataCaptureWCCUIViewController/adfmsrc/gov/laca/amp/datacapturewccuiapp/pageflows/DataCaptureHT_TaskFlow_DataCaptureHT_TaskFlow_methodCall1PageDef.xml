@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_methodCall1PageDef"
+                Package="gov.laca.amp.datacapturewccuiapp.pageflows" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                    RangeSize="25" BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.task" id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.DataCaptureHTPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="AMPWorkTask" RangeSize="10"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.AMPWorkTask" id="AMPWorkTaskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes" RangeSize="25"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="customActions" RangeSize="25"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.actionType" id="customActionsIterator"/>
+    <accessorIterator id="PropertyIdentificationListIterator" MasterBinding="AMPWorkTaskIterator"
+                      Binds="PropertyIdentificationList" RangeSize="25"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.PropertyIdentificationList"/>
+    <accessorIterator id="PropertyIdentificationIterator" MasterBinding="PropertyIdentificationListIterator"
+                      Binds="PropertyIdentification" RangeSize="25"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.PropertyIdentificationType"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.DataCaptureWCCUIViewController_DataCaptureHT.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Category">
+      <AttrNames>
+        <Item Value="Category"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Subcategory">
+      <AttrNames>
+        <Item Value="Subcategory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="DocumentId">
+      <AttrNames>
+        <Item Value="DocumentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="IsValidationRequired">
+      <AttrNames>
+        <Item Value="IsValidationRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist ListOperMode="navigation" IterBinding="customActionsIterator" id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.9.0.1.7" build="1.7" fullName="Data.RetriveBYEDetails" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails" elementFormDefault="qualified" xmlns:ns5="http://xmlns.oracle.com/bpm/bpmobject/Data/UIStateBO"  xmlns:ns3="http://xmlns.oracle.com/bpm/bpmobject/Data/AssignToUserOrGroupBO"  xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"  xmlns:ns2="http://xmlns.oracle.com/bpm/bpmobject/Data/SortBYEBO"  xmlns="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"  xmlns:ns4="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/Data/AssignToUserOrGroupBO" schemaLocation="AssignToUserOrGroupBO.xsd"/>
+    <xs:import namespace="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0" schemaLocation="oramds:/apps/amp/xsd/bvm/RetrieveBYE.xsd"/>
+    <xs:import namespace="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" schemaLocation="oramds:/apps/amp/xsd/bvm/ManageBYE.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/Data/SortBYEBO" schemaLocation="SortBYEBO.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/Data/UIStateBO" schemaLocation="UIStateBO.xsd"/>
+    <xs:complexType name="RetriveBYEDetailsType">
+        <xs:sequence>
+            <xs:element ref="ns1:RetrieveBYEDetails" bpmo:name="baseYearEventDetails"/>
+            <xs:element name="sortBYE" nillable="true" type="ns2:SortBYEBOType"/>
+            <xs:element name="assignTo_UserID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                In - User Id for the Submit Task
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="assignTo_GroupID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                In - Group ID for Review Task
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="assignTo_ManagerID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                In - User Id for the Manage Task
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="role" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                In - It’s a value passed by BPM to UI, based on which Role need to work on the human task - Appraiser, Supervisor, Principal Appraiser and Chief Appraiser
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ownerID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                In - Person who initiated the process from BVM screen.
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="clientID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                In - Client Id will be derived from the security and is passed to UI as Client Id need to travel to DB for any SOA to DB interactions.
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="checkBYE" nillable="true" type="xs:boolean">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                Vijay asked for it on 23 March
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="userType" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                OUT - User Type is the value supplied by the user-interface. Permissible user type values are - Appraiser,Supervisor,Principal Appraiser and Chief Appraiser.
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="acquiredBy" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                Out - User who claim the task from the pool (group) and have acted on it.
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="returnTo" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                Out - Return to OD (Owning District), DM (Direct Manager) or AM (Assigning Manager)
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="assignmentBox" nillable="true" type="ns3:AssignToUserOrGroupBOType"/>
+            <xs:element name="assignedBy" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                In - UI need to check the value and show actions on that basis. For example if AssignedBy = PRINCIPAL APPRAISER then Supervisor cannot Approve/Reject it. He/she can only Submit it.
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="submitBy" nillable="true" type="xs:string"/>
+            <xs:element ref="ns4:manageBYERequest" bpmo:name="manageBYEReqBO"/>
+            <xs:element name="uiStateBO" nillable="true" type="ns5:UIStateBOType"/>
+            <xs:element name="updatedBy" nillable="true" type="xs:string"/>
+            <xs:element name="claimedBy" nillable="true" type="xs:string"/>
+            <xs:element name="approvedBy" nillable="true" type="xs:string"/>
+            <xs:element name="actionPerformedBy" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="RetriveBYEDetails" type="RetriveBYEDetailsType"/>
+</xs:schema>

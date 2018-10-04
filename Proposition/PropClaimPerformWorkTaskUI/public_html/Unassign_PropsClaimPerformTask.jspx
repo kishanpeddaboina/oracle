@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:AmpAddrValidn="/AddressValidnDeclCompTagLib" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="propclaimperformworktaskuiBundle"
+           value="#{adfBundle['propclaimperformworktaskui.PropClaimPerformWorkTaskUIBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:trh="http://myfaces.apache.org/trinidad/html"
+            xmlns:wf="http://xmlns.oracle.com/bpel/workflow/workflow-taglib.tld"
+            xmlns:wlc="http://xmlns.oracle.com/bpel/workflow/worklist">
+       
+            
+            
+            
+             <af:document id="d1" title="Unassign Props Claim Perform Task"  
+                     clientComponent="true" onunload="performUnloadEvent"> 
+                  <af:messages id="m1"/>
+            <af:resource type="javascript" source="/jsLibs/taskDetails.js"/>
+            <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>
+            <af:resource type="javascript" source="/resources/js/ampbpmutil.js"/>
+            <af:serverListener type="handleOnUnload" method="#{propClaimPerformBean.onUnload}"/> 
+            <af:form id="f1" usesUpload="true">
+                <af:panelGroupLayout id="pgl7" layout="scroll" inlineStyle="height:1000px! important">
+                    <af:panelGroupLayout id="pgl30" layout="horizontal" styleClass="padding-top-10 padding-bottom-10"
+                                         halign="left">
+                        <f:facet name="separator">
+                            <af:spacer width="25px" id="s2"/>
+                        </f:facet>
+                        <af:panelGroupLayout id="pgl3" layout="horizontal">
+                            <af:outputFormatted value="Proposition&#160;-&#160;" id="plam1"
+                                                inlineStyle="font-weight:bold; font-size:x-large;"/>
+                            <!--<af:outputFormatted value="#{bindings.AIN.inputValue}" id="of5"
+                            inlineStyle="font-weight:bold;font-size:large;"/>-->
+                            <af:outputFormatted value="Claim Type:&#160;" id="of1"
+                                                inlineStyle="font-weight:lighter; font-size:large;"/>
+                            <af:outputFormatted value="#{bindings.Subcategory.inputValue}" id="of6"
+                                                inlineStyle="font-weight:bold; font-size:large;"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl5" layout="horizontal">
+                            <!--<af:outputFormatted value="#{bindings.claimType.inputValue}" id="of2"
+                                                    inlineStyle="font-weight:bold; font-size:large;"/>-->
+                            <af:outputFormatted value=" AIN:&#160;" id="plam2"
+                                                inlineStyle="font-weight:lighter; font-size:large;"/>
+                            <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                                 rendered="#{fn:length(bindings.AIN.inputValue)>9}">
+                                <af:outputFormatted value="#{fn:substring(bindings.AIN.inputValue,0,4)}" id="of5"
+                                                    inlineStyle="font-weight:bold;font-size:large;"/>
+                                <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,4,7)}" id="of7"
+                                                    inlineStyle="font-weight:bold;font-size:large;"/>
+                                <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,7,10)}" id="of8"
+                                                    inlineStyle="font-weight:bold;font-size:large;"/>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl4" layout="horizontal">
+                            <af:outputFormatted value="Scanned Date:&#160;" id="of3"
+                                                inlineStyle="font-weight:lighter; font-size:large;"/>
+                            <af:outputFormatted value="#{bindings.EventDate.inputValue}" id="of4"
+                                                inlineStyle="font-weight:bold; font-size:large;">
+                                <af:convertDateTime pattern="MM/dd/yyyy"/>
+                            </af:outputFormatted>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl6" layout="horizontal" styleClass="AFStrtechWidth" halign="right">
+                            <af:button text="View Proposition" id="remBtn" clientComponent="true" partialSubmit="true">
+                                <af:showPopupBehavior popupId="propDetailsPopup" triggerType="click"/>
+                                <af:setPropertyListener from="#{pageFlowScope.propsid}" to="#{pageFlowScope.propsrowid}"
+                                                        type="action"/>
+                                <af:setPropertyListener from="#{bindings.WorkUnitId.inputValue}"
+                                                        to="#{pageFlowScope.wuid}" type="action"/>
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    <af:showDetailHeader size="2" text="Comments" disclosed="true" contentStyle="padding: 5px;"
+                                         partialTriggers="commentSubmit" id="sdh1">
+                        <af:panelGroupLayout layout="scroll" inlineStyle="padding:10px;" id="dc_pgl1"
+                                             partialTriggers="commentSubmit"
+                                             binding="#{propClaimPerformBean.commentsPgl}">
+                            <af:panelGroupLayout id="pgl1" layout="horizontal">
+                                <af:inputText id="cmtBox_2" rows="2" columns="140" wrap="off"
+                                              partialTriggers="commentSubmit" value="#{commentBean.value}"
+                                              visible="#{actionAvailable.isCommentUpdatable}" maximumLength="2000"
+                                              label="" inlineStyle="text-align:left;"/>
+                                <af:spacer height="5" rendered="#{actionAvailable.isCommentUpdatable}" id="s9"/>
+                                <af:toolbar rendered="#{actionAvailable.isCommentUpdatable}" id="t4">
+                                    <!--<af:commandButton id="commentSubmit" text="Post Comments" partialSubmit="true"
+                                                  actionListener="#{bindings.CreateInsert2.execute}"
+                                                  action="#{commentBean.addComment}"/>-->
+                                    <af:commandButton id="commentSubmit" text="Post Comments" partialSubmit="true"
+                                                      action="#{propClaimPerformBean.postComment}"/>
+                                    <af:panelGroupLayout id="pgl0" layout="horizontal">
+                                        <af:forEach var="childNode2" items="#{actionAvailable.redirectActions}">
+                                            <af:commandButton textAndAccessKey="#{resources[childNode2]}"
+                                                              text="Reassign"
+                                                              actionListener="#{invokeActionBean.setAction}"
+                                                              action="#{invokeActionBean.action}" partialSubmit="true"
+                                                              id="cmbbb1">
+                                                <f:attribute name="ACTION_MENU_ITEM" value="#{childNode2}"/>
+                                                <af:setPropertyListener from="Reassign"
+                                                                        to="#{pageFlowScope.lstbpmaction}"
+                                                                        type="action"/>
+                                            </af:commandButton>
+                                        </af:forEach>
+                                    </af:panelGroupLayout>
+                                </af:toolbar>
+                            </af:panelGroupLayout>
+                            <af:spacer height="10" id="dc_s7" rendered="#{actionAvailable.isCommentUpdatable}"/>
+                            <af:outputText value="#{resources.NO_ROWS_YET}"
+                                           rendered="#{(actionAvailable.isCommentUpdatable) and (empty bindings.userComment)}"
+                                           id="ot19"/>
+                            <af:forEach items="#{bindings.userComment.children}" var="row">
+                                <af:panelGroupLayout id="pgl11" layout="horizontal" valign="top">
+                                    <af:image source="/images/simple_16x16.png" id="i19"/>
+                                    <af:spacer width="10" height="10" id="s27"/>
+                                    <af:panelGroupLayout id="pgl19" layout="vertical">
+                                        <af:panelGroupLayout id="pgl69" layout="horizontal">
+                                            <af:switcher facetName="#{row.updatedBy.displayName != null}" id="s17">
+                                                <f:facet name="true">
+                                                    <af:group id="g12">
+                                                        <af:outputText value="#{row.updatedBy.displayName}" id="ot59"
+                                                                       inlineStyle="font-weight:bold;"/>
+                                                        <af:spacer width="10" height="10" id="s129"/>
+                                                        <af:outputText value="#{row.updatedDate}" id="ot119"
+                                                                       inlineStyle="font-size:x-small; color:Gray;">
+                                                            <f:converter converterId="dateTimeConvertor"/>
+                                                        </af:outputText>
+                                                    </af:group>
+                                                </f:facet>
+                                                <f:facet name="false">
+                                                    <af:group id="g11">
+                                                        <af:outputText value="#{pageFlowScope.ADFHumanTaskBean.workflowContext.user}"
+                                                                       inlineStyle="font-weight:bold;" id="ot20"/>
+                                                        <af:spacer width="10" height="10" id="s32"/>
+                                                        <af:outputText value="#{resources.TODAY}" id="ot21"/>
+                                                    </af:group>
+                                                </f:facet>
+                                            </af:switcher>
+                                        </af:panelGroupLayout>
+                                        <af:spacer width="10" height="5" id="s59"/>
+                                        <af:outputText value="#{row.comment}" id="ot419"/>
+                                    </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                            </af:forEach>
+                        </af:panelGroupLayout>
+                    </af:showDetailHeader>
+                </af:panelGroupLayout>
+                <af:popup id="propDetailsPopup" autoCancel="disabled" launcherVar="source"
+                              contentDelivery="lazyUncached" eventContext="launcher" childCreation="immediate">
+                        <af:dialog id="dprop2" resize="on" stretchChildren="first" title=" Prop Details"
+                                   closeIconVisible="true" type="ok" modal="true" styleClass="AMPReadOnlyDialog"
+                                   contentWidth="1350" contentHeight="600" affirmativeTextAndAccessKey="Done">
+                            <!--<af:outputFormatted value="#{pageFlowScope.wuid}" id="of6"/>
+                             <af:outputFormatted value="#{pageFlowScope.propsrowid}" id="of6_del"/>-->
+                            <af:panelGroupLayout id="pglp41" layout="scroll">
+                                <af:region value="#{bindings.amppropositiondtlsbtf1.regionModel}" id="r1"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+                    
+                <af:popup id="reassignPopup" contentDelivery="lazyUncached" childCreation="deferred">
+                    <af:dialog id="reAsDg" dialogListener="#{invokeActionBean.reassignAction}"
+                               cancelTextAndAccessKey="#{resources.CANCEL_AK}"
+                               affirmativeTextAndAccessKey="#{resources.OK_AK}" title="#{resources.REASSIGNPAGE}">
+                        <wlc:identityBrowser identityBrowserView="#{pageFlowScope.identityBrowserView}"
+                                             workflowContext="#{pageFlowScope.taskFlowReassignBean.workflowContext}"
+                                             id="reAsIdB" mode="REASSIGN" showActionButtons="false"
+                                             selectedTaskIds="#{pageFlowScope.taskFlowReassignBean.selectedTaskIds}"/>
+                    </af:dialog>
+                </af:popup>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

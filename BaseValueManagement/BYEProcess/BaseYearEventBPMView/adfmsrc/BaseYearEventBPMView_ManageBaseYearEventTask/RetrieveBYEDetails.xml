@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="RetrieveBYEDetails"
+          Package="BaseYearEventBPMView_ManageBaseYearEventTask"
+          BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.RetrieveBYEDetails"
+          isJavaBased="false">
+  <AccessorAttribute id="BYEDetailsOriginal" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BYEDetailsType"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BYEDetailsType_BYEDetailsOriginal_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+      <Property Name="nextSibling" Value="BYEDetailsUserModified"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="BYE Details Original"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="BYEDetailsOriginal"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="BYEDetailsUserModified" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BYEDetailsType"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BYEDetailsType_BYEDetailsUserModified_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="BYE Details User Modified"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="BYEDetailsUserModified"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

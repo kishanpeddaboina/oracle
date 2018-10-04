@@ -1,0 +1,951 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core" >
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <c:set var="labels" value="#{adfBundle['propclaimperformworktaskui.PropClaimPerformWorkTaskUIBundle']}"/>
+    <af:panelGroupLayout id="pgl3" layout="scroll" styleClass="AFStretchWidth">
+        <af:panelGridLayout id="pgl17"
+                            rendered="#{(bindings.claimResult.inputValue eq 'Approved') and (bindings.approvalType.inputValue ne 'Partial Interest Approved')}">
+            <af:gridRow marginTop="5px" height="auto" id="gr12" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc65">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_RESULT}" id="plam381"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc66">
+                    <af:outputText value="#{bindings.claimResult.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot46"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc67">
+                    <af:panelLabelAndMessage label="#{labels.TYPE_APPROVAL}" id="plam28"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc68">
+                    <af:outputText value="#{bindings.approvalType.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot47"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc69">
+                    <af:panelLabelAndMessage label="#{labels.DATE_TRANSFER}:" id="plam21"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc70">
+                    <af:outputText value="#{bindings.transferDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot48">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr13" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc71">
+                    <af:panelLabelAndMessage label="#{labels.EFFECT_DATE}" id="plam29"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc73">
+                    <af:outputText value="#{bindings.reliefDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot50">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc72">
+                    <af:panelLabelAndMessage label="#{labels.RELIEF_TYPE}" id="plam30"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc75">
+                    <af:outputText value="#{bindings.reliefType.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot49"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc74">
+                    <af:panelLabelAndMessage label="#{labels.EXCLUSION_AMOUNT}" id="plam31"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc76">
+                    <af:outputText value="#{bindings.exclusionAmount.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:right;font-weight:normal;"
+                                   id="ot51">
+                         <f:convertNumber groupingUsed="true" integerOnly="true" type="currency" currencySymbol="$"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr14" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc77">
+                    <af:panelLabelAndMessage label="#{labels.TRANSFER_STATUS}" id="plam32"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc78">
+                    <af:outputText value="#{bindings.transferStatus.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot52"/>
+                </af:gridCell>
+                <!--  <af:gridCell marginStart="5px" width="220px" id="gc15">
+	  <af:panelLabelAndMessage label="#{labels.PRIMARY_SUPP}" id="plam381" labelStyle="text-align:left;white-space:nowrap;"/>
+	  </af:gridCell>
+      <af:gridCell marginStart="5px" width="220px" id="gc16">
+	  </af:gridCell>
+      <af:gridCell marginStart="5px" width="220px" id="gc17">
+	  <af:panelLabelAndMessage label="#{labels.PRIMARY_SUPP}" id="plam381" labelStyle="text-align:left;white-space:nowrap;"/>
+	  </af:gridCell>
+      <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc18">
+	  </af:gridCell>-->
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr15" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc79">
+                    <af:panelLabelAndMessage label="#{labels.LAND_FBV}" id="plam33"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc80">
+                    <af:outputText value="#{bindings.landFBV.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:right;font-weight:normal;"
+                                   id="ot53">
+                        <f:convertNumber groupingUsed="true" integerOnly="true" type="currency" currencySymbol="$"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc81">
+                    <af:panelLabelAndMessage label="#{labels.IMP_FBV}" id="plam34"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc82">
+                    <af:outputText value="#{bindings.impFBV.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:right;font-weight:normal;"
+                                   id="ot54">
+                       <f:convertNumber groupingUsed="true" integerOnly="true" type="currency" currencySymbol="$"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc83">
+                    <af:panelLabelAndMessage label="#{labels.TOTAL_FBV}" id="plam35"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc85">
+                    <af:outputText value="#{bindings.totalFBV.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:right;font-weight:normal;"
+                                   id="ot55">
+                       <f:convertNumber groupingUsed="true" integerOnly="true" type="currency" currencySymbol="$"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr16" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc84">
+                    <af:panelLabelAndMessage label="#{labels.FLAG_VALUATION}" id="plam36"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc86">
+                    <af:outputText value="#{bindings.valuationFlag.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot56"/>
+                </af:gridCell>
+                <!--<af:gridCell marginStart="5px" width="220px" id="gc27">
+	  <af:panelLabelAndMessage label="#{labels.PRIMARY_SUPP}" id="plam381" labelStyle="text-align:left;white-space:nowrap;"/>
+	  </af:gridCell>
+      <af:gridCell marginStart="5px" width="220px" id="gc28">
+	  </af:gridCell>
+      <af:gridCell marginStart="5px" width="220px" id="gc29">
+	  <af:panelLabelAndMessage label="#{labels.PRIMARY_SUPP}" id="plam381" labelStyle="text-align:left;white-space:nowrap;"/>
+	  </af:gridCell>
+      <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc30">
+	  </af:gridCell>-->
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr17" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc87">
+                    <af:panelLabelAndMessage label="#{labels.VAL_INSTRUCTIONS}" id="plam37"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc88" inlineStyle="column-span:all;">
+                    <af:outputText value="#{bindings.valuationInstructions.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot57"/>
+                </af:gridCell>
+                <!--<af:gridCell marginStart="5px" width="220px" id="gc33">
+	  <af:panelLabelAndMessage label="#{labels.PRIMARY_SUPP}" id="plam381" labelStyle="text-align:left;white-space:nowrap;"/>
+      </af:gridCell>
+	  <af:gridCell marginStart="5px" width="220px" id="gc34">
+	  </af:gridCell>
+      <af:gridCell marginStart="5px" width="220px" id="gc35">
+	  <af:panelLabelAndMessage label="#{labels.PRIMARY_SUPP}" id="plam381" labelStyle="text-align:left;white-space:nowrap;"/>
+      </af:gridCell>
+	  <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc36">
+	  </af:gridCell>-->
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr18" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc89">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_REC_DATE}" id="plam38"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc90">
+                    <af:outputText value="#{bindings.claimReceivedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot58">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc91">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_COMPLE_DATE}" id="plam39"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc92">
+                    <af:outputText value="#{bindings.claimCompletionDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot59">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc93">
+                    <af:panelLabelAndMessage label="#{labels.COMPLETE_BY}" id="plam40"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc95">
+                    <af:outputText value="#{bindings.completedBy.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot65"/>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr19" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc96">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_SIGNATURE_DATE}:" id="plam45"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc94">
+                    <af:outputText value="#{bindings.claimSignedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot60">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc45">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_APPROVAL_DATE}" id="plam42"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc46">
+                    <af:outputText value="#{bindings.claimApprovalDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot61">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc47">
+                    <af:panelLabelAndMessage label="#{labels.ASSIGNED_TO}" id="plam44"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc48">
+                    <af:outputText value="#{bindings.assignedTo.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot64"/>
+                </af:gridCell>
+            </af:gridRow>
+            <!-- <af:gridRow marginTop="5px" height="auto" marginBottom="10px" id="gr9">
+            <af:gridCell marginStart="5px" width="220px" id="gc49">
+                <af:panelLabelAndMessage label="#{labels.NOTIFICATION_METHOD}" id="plam43"
+                                         labelStyle="text-align:left;white-space:nowrap;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="220px" id="gc50">
+                <af:outputText value="#{bindings.notificationMethod.inputValue}"
+                               inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                               id="ot63"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="220px" id="gc51">
+                <af:panelLabelAndMessage label="#{labels.NOTIFICATION_DATE}" id="plam41"
+                                         labelStyle="text-align:left;white-space:nowrap;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="220px" id="gc52">
+                <af:outputText value="#{bindings.notificationDate.inputValue}"
+                               inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                               id="ot62">
+                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                </af:outputText>
+            </af:gridCell> -->
+            <!-- <af:gridCell marginStart="5px" width="220px" id="gc53">
+	  <af:panelLabelAndMessage label="#{labels.PRIMARY_SUPP}" id="plam381" labelStyle="text-align:left;white-space:nowrap;"/>
+      </af:gridCell>
+	  <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc54">
+	  </af:gridCell>-->
+            <!-- </af:gridRow> -->
+        </af:panelGridLayout>
+        <af:panelGridLayout id="pgl20"
+                            rendered="#{(bindings.claimResult.inputValue eq 'Approved') and (bindings.approvalType.inputValue eq 'Partial Interest Approved')}">
+            <af:gridRow marginTop="5px" height="auto" id="gr40" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc195">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_RESULT}" id="plam95"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc196">
+                    <af:outputText value="#{bindings.claimResult.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot110"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc197">
+                    <af:panelLabelAndMessage label="#{labels.TYPE_APPROVAL}" id="plam96"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc199">
+                    <af:outputText value="#{bindings.approvalType.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot111"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc198">
+                    <af:panelLabelAndMessage label="% Partial Interest Approved:" id="plam97"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc201">
+                    <af:outputText value="#{bindings.partialInterestApproved.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot114">
+                        <af:convertNumber maxFractionDigits="4" pattern="##.####;(###,###,###,###)"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr41" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc205">
+                    <af:panelLabelAndMessage label="#{labels.DATE_TRANSFER}:" id="plam98"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc203">
+                    <af:outputText value="#{bindings.transferDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot113">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc202">
+                    <af:panelLabelAndMessage label="#{labels.EFFECT_DATE}" id="plam99"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc204">
+                    <af:outputText value="#{bindings.reliefDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot112">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc200">
+                    <af:panelLabelAndMessage label="#{labels.RELIEF_TYPE}" id="plam100"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc206">
+                    <af:outputText value="#{bindings.reliefType.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot115"/>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr42" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc207">
+                    <af:panelLabelAndMessage label="#{labels.EXCLUSION_AMOUNT}" id="plam101"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc208">
+                    <af:outputText value="#{bindings.exclusionAmount.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:right;font-weight:normal;"
+                                   id="ot116">
+                        <f:convertNumber groupingUsed="true" integerOnly="true" type="currency" currencySymbol="$"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc210">
+                    <af:panelLabelAndMessage label="#{labels.TRANSFER_STATUS}" id="plam103"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc209">
+                    <af:outputText value="#{bindings.transferStatus.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot117"/>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr43" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc211">
+                    <af:panelLabelAndMessage label="#{labels.LAND_FBV}" id="plam1"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc2">
+                    <af:outputText value="#{bindings.landFBV.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:right;font-weight:normal;"
+                                   id="ot2">
+                        <f:convertNumber groupingUsed="true" integerOnly="true" type="currency" currencySymbol="$"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc1">
+                    <af:panelLabelAndMessage label="#{labels.IMP_FBV}" id="plam2"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc3">
+                    <af:outputText value="#{bindings.impFBV.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:right;font-weight:normal;"
+                                   id="ot1">
+                        <f:convertNumber groupingUsed="true" integerOnly="true" type="currency" currencySymbol="$"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc4">
+                    <af:panelLabelAndMessage label="#{labels.TOTAL_FBV}" id="plam3"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc5">
+                    <af:outputText value="#{bindings.totalFBV.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:right;font-weight:normal;"
+                                   id="ot4">
+                        <f:convertNumber groupingUsed="true" integerOnly="true" type="currency" currencySymbol="$"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr2" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc8">
+                    <af:panelLabelAndMessage label="#{labels.FLAG_VALUATION}" id="plam5"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc6">
+                    <af:outputText value="#{bindings.valuationFlag.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot3"/>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr1" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc7">
+                    <af:panelLabelAndMessage label="#{labels.VAL_INSTRUCTIONS}" id="plam4"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc9" inlineStyle="column-span:all;">
+                    <af:outputText value="#{bindings.valuationInstructions.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot5"/>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr3" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc10">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_REC_DATE}" id="plam6"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc11">
+                    <af:outputText value="#{bindings.claimReceivedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot7">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc12">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_COMPLE_DATE}" id="plam7"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc13">
+                    <af:outputText value="#{bindings.claimCompletionDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot6">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc14">
+                    <af:panelLabelAndMessage label="#{labels.COMPLETE_BY}" id="plam8"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc15">
+                    <af:outputText value="#{bindings.completedBy.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot8"/>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr4" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc16">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_SIGNATURE_DATE}:" id="plam9"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc17">
+                    <af:outputText value="#{bindings.claimSignedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot9">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc18">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_APPROVAL_DATE}" id="plam10"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc19">
+                    <af:outputText value="#{bindings.claimApprovalDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot10">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc20">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_DATE}" id="plam11"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc21">
+                    <af:outputText value="#{bindings.notificationDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot11">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" marginBottom="10px" id="gr5">
+                <af:gridCell marginStart="5px" width="220px" id="gc22">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_METHOD}" id="plam12"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc23">
+                    <af:outputText value="#{bindings.notificationMethod.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot12"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc24">
+                    <af:panelLabelAndMessage label="#{labels.ASSIGNED_TO}" id="plam13"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc25">
+                    <af:outputText value="#{bindings.assignedTo.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot13"/>
+                </af:gridCell>
+                <!-- <af:gridCell marginStart="5px" width="220px" id="gc53">
+	  <af:panelLabelAndMessage label="#{labels.PRIMARY_SUPP}" id="plam381" labelStyle="text-align:left;white-space:nowrap;"/>
+      </af:gridCell>
+	  <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc54">
+	  </af:gridCell>-->
+            </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelGridLayout rendered="#{bindings.claimResult.inputValue == 'Denied'}" id="pgl1">
+            <af:gridRow marginTop="5px" height="auto" id="gr32" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc155">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_RESULT}" id="plam76"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc158">
+                    <af:outputText value="#{bindings.claimResult.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot93"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc159">
+                    <af:panelLabelAndMessage label="Reason For Denial" id="plam77"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc162">
+                    <af:outputText value="#{bindings.reason.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot94"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc160">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_REC_DATE}" id="plam78"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc163">
+                    <af:outputText value="#{bindings.claimReceivedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot95">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr34" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc165">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_COMPLE_DATE}" id="plam80"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc161">
+                    <af:outputText value="#{bindings.claimCompletionDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot97">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc166">
+                    <af:panelLabelAndMessage label="#{labels.COMPLETE_BY}" id="plam81"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc164">
+                    <af:outputText value="#{bindings.completedBy.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot15"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc167">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_SIGNATURE_DATE}:" id="plam79"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc168">
+                    <af:outputText value="#{bindings.claimSignedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot96">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr33" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc169">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_APPROVAL_DATE}" id="plam82"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc170">
+                    <af:outputText value="#{bindings.claimApprovalDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot98">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc171">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_DATE}" id="plam83"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc172">
+                    <af:outputText value="#{bindings.notificationDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot99">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc173">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_METHOD}" id="plam84"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc174">
+                    <af:outputText value="#{bindings.notificationMethod.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot100"/>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr35" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc175">
+                    <af:panelLabelAndMessage label="#{labels.ASSIGNED_TO}" id="plam85"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc176">
+                    <af:outputText value="#{bindings.assignedTo.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot101"/>
+                </af:gridCell>
+            </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelGridLayout rendered="#{bindings.claimResult.inputValue == 'Claim Not Required'}" id="pgl18">
+            <af:gridRow marginTop="5px" height="auto" id="gr20" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc97">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_RESULT}" id="plam46"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc98">
+                    <af:outputText value="#{bindings.claimResult.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot66"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc99">
+                    <af:panelLabelAndMessage label="Not required Reason" id="plam47"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc100">
+                    <af:outputText value="#{bindings.reason.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot67"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc101">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_REC_DATE}" id="plam48"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc102">
+                    <af:outputText value="#{bindings.claimReceivedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot68">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr21" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc103">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_COMPLE_DATE}" id="plam49"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc104">
+                    <af:outputText value="#{bindings.claimCompletionDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot69">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc105">
+                    <af:panelLabelAndMessage label="#{labels.COMPLETE_BY}" id="plam50"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc106">
+                    <af:outputText value="#{bindings.completedBy.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot16"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc108">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_SIGNATURE_DATE}:" id="plam51"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc107">
+                    <af:outputText value="#{bindings.claimSignedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot70">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr22" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc109">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_APPROVAL_DATE}" id="plam75"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc157">
+                    <af:outputText value="#{bindings.claimApprovalDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot71">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc156">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_DATE}" id="plam72"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc111">
+                    <af:outputText value="#{bindings.notificationDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot72">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc112">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_METHOD}" id="plam52"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc113">
+                    <af:outputText value="#{bindings.notificationMethod.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot73"/>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr23" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc114">
+                    <af:panelLabelAndMessage label="#{labels.ASSIGNED_TO}" id="plam53"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc110">
+                    <af:outputText value="#{bindings.assignedTo.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot74"/>
+                </af:gridCell>
+            </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelGridLayout rendered="#{bindings.claimResult.inputValue == 'Cancelled'}" id="pglc3">
+            <af:gridRow marginTop="5px" height="auto" id="gr24" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc115">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_RESULT}:" id="plam54"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc116">
+                    <af:outputText value="#{bindings.claimResult.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot75"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc117">
+                    <af:panelLabelAndMessage label="Claim Cancellation Reason:" id="plam55"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc118">
+                    <af:outputText value="#{bindings.reason.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot76"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc119">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_REC_DATE}" id="plam56"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc120">
+                    <af:outputText value="#{bindings.claimReceivedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot77">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr25" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc122">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_COMPLE_DATE}" id="plam58"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc123">
+                    <af:outputText value="#{bindings.claimCompletionDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot78">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc121">
+                    <af:panelLabelAndMessage label="#{labels.COMPLETE_BY}" id="plam57"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc124">
+                    <af:outputText value="#{bindings.completedBy.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot17"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc125">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_SIGNATURE_DATE}:" id="plam59"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc126">
+                    <af:outputText value="#{bindings.claimSignedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot79">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr26" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc127">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_APPROVAL_DATE}" id="plam60"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc128">
+                    <af:outputText value="#{bindings.claimApprovalDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot92">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc129">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_DATE}" id="plam61"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc130">
+                    <af:outputText value="#{bindings.notificationDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot80">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc131">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_METHOD}" id="plam62"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc132">
+                    <af:outputText value="#{bindings.notificationMethod.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot81"/>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr27" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc133">
+                    <af:panelLabelAndMessage label="#{labels.ASSIGNED_TO}" id="plam63"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc134">
+                    <af:outputText value="#{bindings.assignedTo.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot82"/>
+                </af:gridCell>
+            </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelGridLayout rendered="#{bindings.claimResult.inputValue == 'Pending'}" id="pgl19">
+            <af:gridRow marginTop="5px" height="auto" id="gr37" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc179">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_RESULT}" id="plam87"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc180">
+                    <af:outputText value="#{bindings.claimResult.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot103"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc181">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_REC_DATE}" id="plam89"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc182">
+                    <af:outputText value="#{bindings.claimReceivedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot104">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc183">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_COMPLE_DATE}" id="plam88"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc184">
+                    <af:outputText value="#{bindings.claimCompletionDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot105">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr38" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc185">
+                    <af:panelLabelAndMessage label="#{labels.COMPLETE_BY}" id="plam90"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc186">
+                    <af:outputText value="#{bindings.completedBy.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot18"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc187">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_SIGNATURE_DATE}:" id="plam91"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc188">
+                    <af:outputText value="#{bindings.claimSignedDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot106">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc190">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_APPROVAL_DATE}" id="plam92"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc189">
+                    <af:outputText value="#{bindings.claimApprovalDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot107">
+                        <af:convertDateTime pattern="#{bindings.claimApprovalDate.format}"/>
+                    </af:outputText>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" id="gr36" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc177">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_DATE}" id="plam86"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc178">
+                    <af:outputText value="#{bindings.notificationDate.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot102">
+                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                    </af:outputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc191">
+                    <af:panelLabelAndMessage label="#{labels.NOTIFICATION_METHOD}" id="plam93"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc192">
+                    <af:outputText value="#{bindings.notificationMethod.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot108"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc33">
+                    <af:panelLabelAndMessage label="#{labels.ASSIGNED_TO}" id="plam94"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc32">
+                    <af:outputText value="#{bindings.assignedTo.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot109"/>
+                </af:gridCell>
+            </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelGridLayout id="pgl2" rendered="#{bindings.claimResult.inputValue == 'Provisionally Approved'}">
+            <af:gridRow marginTop="5px" height="auto" id="gr6" marginBottom="10px">
+                <af:gridCell marginStart="5px" width="220px" id="gc26">
+                    <af:panelLabelAndMessage label="#{labels.CLAIM_RESULT}" id="plam14"
+                                             labelStyle="text-align:left;white-space:nowrap;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc27">
+                    <af:outputText value="#{bindings.claimResult.inputValue}"
+                                   inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                   id="ot14"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="220px" id="gc29"/>
+                <af:gridCell marginStart="5px" width="220px" id="gc28"/>
+                <af:gridCell marginStart="5px" width="220px" id="gc30"/>
+                <af:gridCell marginStart="5px" width="220px" id="gc31"/>
+            </af:gridRow>
+        </af:panelGridLayout>
+    </af:panelGroupLayout>
+</jsp:root>

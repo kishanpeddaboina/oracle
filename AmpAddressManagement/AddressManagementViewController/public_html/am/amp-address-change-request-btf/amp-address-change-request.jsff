@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:smartAddressComp="/SmartAddressCompLib">
+    <c:set var="labels" value="#{adfBundle['gov.laca.amp.modules.am.view.AMViewControllerBundle']}"/>
+   <af:resource type="javascript" source="/resources/js/inputmask.js"/>
+   <af:resource type="javascript" >
+    function maScReset(inputEvent) {
+      window.scrollTo(0,0);
+    }
+    </af:resource>
+    <af:resource type="javascript" source="/resources/js/defaultButton.js"/>
+    
+     <af:panelGroupLayout id="pgl2" layout="vertical" styleClass="AFStretchWidth">
+    
+    <af:panelHeader text="#{labels.PANEL_HEADER}" id="ph1">
+            <af:panelGroupLayout id="pgl1" layout="horizontal">
+            <af:outputFormatted value="#{labels.ADDRESS_CHANGE_MSG}" id="of1" />
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pg13" layout="vertical">
+            <af:panelGridLayout id="pgl4" styleClass="AFStretchWidth">
+                    <af:gridRow marginTop="5px" height="auto" id="gr4">
+                        <af:gridCell marginStart="5px" width="17%" id="gc10" halign="stretch">
+                            <af:panelGroupLayout id="pgl5" layout="horizontal">
+                             <af:outputLabel value="#{labels.ASSESSOR_NUM}" id="ol1"/>
+                                <af:inputText simple="true" id="ainInput" autoSubmit="true"
+                                              maximumLength="12"
+                                              binding="#{OnlineAddressChgReqBean.inputAin}" shortDesc="#{labels.TTD_AIN}">
+                                <!--<af:clientListener method="onFieldEnterKey" type="keyUp"/>
+                                <f:validator validatorId="ValidateAIN"/>-->
+                                </af:inputText>
+                                <af:spacer width="10" height="10" id="s16"/>
+                                <af:button text="#{labels.ADD_AIN}" id="b1" shortDesc="#{labels.TTP_ADDAIN}"
+                                           action="#{OnlineAddressChgReqBean.addAIN}" partialSubmit="true"/>
+                                <af:spacer width="10" height="10" id="s1"/>
+                                <af:button text="#{labels.FIND_AIN}" id="b5" shortDesc="#{labels.TTP_FINDAIN}"
+                                           useWindow="true" action="findAIN" immediate="true" windowHeight="725"
+                                           windowWidth="1250" windowModalityType="applicationModal"/>
+                                <f:facet name="separator"/>
+                            </af:panelGroupLayout>
+                          
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr5">
+                        <af:gridCell marginStart="5px" width="17%" id="gc11" halign="stretch"/>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                        <af:gridCell marginStart="5px" width="17%" id="gc9" halign="stretch">
+                            <af:table value="#{bindings.ainsPojo.collectionModel}" var="row"
+                                      rows="#{bindings.ainsPojo.rangeSize}"
+                                      emptyText="#{bindings.ainsPojo.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0" fetchSize="#{bindings.ainsPojo.rangeSize}" id="t1"
+                                      styleClass=" AFStretchWidth AMPLightWeightTable margin-top-15"
+                                      selectionListener="#{bindings.ainsPojo.collectionModel.makeCurrent}"
+                                      visible="#{bindings.ainsPojoIterator.estimatedRowCount>0}"
+                                      columnStretching="multiple" autoHeightRows="0" rowSelection="single"
+                                      partialTriggers="b7" binding="#{OnlineAddressChgReqBean.ainTable}"
+                                      selectedRowKeys="#{bindings.ainsPojo.collectionModel.selectedRow}">
+                                <af:column headerText="#{labels.AIN}" id="c1" width="18%">
+                                    <af:panelGroupLayout id="pgl33" layout="horizontal">
+                                        <af:outputText value="#{row.bindings.ainDisplay.inputValue}"
+                                                       shortDesc="#{bindings.ainsPojo.hints.ain.tooltip}" id="ot8"/>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10" height="10" id="s4"/>
+                                        </f:facet>
+                                        <af:outputText value="#{row.primary == 'Yes' ? 'PRIMARY' : ''}"
+                                                       styleClass="primary" rendered="#{row.primary == 'Yes'}"
+                                                       id="ot49"/>
+                                    </af:panelGroupLayout>
+                                </af:column>
+                                <af:column headerText="#{labels.PROP_ADDRESS}" id="c8" width="55%">
+                                    <af:outputText value="#{row.propertyAddress}"
+                                                   shortDesc="#{bindings.ainsPojo.hints.propertyAddress.tooltip}"
+                                                   id="ot7"/>
+                                </af:column>
+                                <af:column headerText="" align="center" id="c7" width="12%">
+                                    <af:commandImageLink id="b7" immediate="true" rendered="#{row.primary != 'Yes'}"
+                                                         icon="#{WCAppContext.applicationURL}/content/conn/ucmserver/path/spaces/assessorportal/app-icons/remove-ownership.png"
+                                                         action="#{OnlineAddressChgReqBean.removeAin}"
+                                                         partialSubmit="true" shortDesc="#{labels.TTP_REMOVE_AIN}"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.ainsPojo.hints.primary.label}" id="c2"
+                                           rendered="false">
+                                    <af:outputText value="#{row.primary}"
+                                                   shortDesc="#{bindings.ainsPojo.hints.primary.tooltip}" id="ot10"/>
+                                </af:column>
+                            </af:table>
+                        </af:gridCell>
+                        </af:gridRow>
+                        
+                </af:panelGridLayout>
+                </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl3" layout="vertical" partialTriggers="b2">
+                             <!--<af:panelGridLayout id="pgl13">
+                    <af:gridRow marginTop="5px" height="auto" id="gr7">
+                       <af:gridCell marginStart="5px" width="100%" id="gc13" halign="stretch">-->
+                                <smartAddressComp:SmartAddressSearchComp id="sasc1"
+                                                                         contentStyle="width:1200px;text-transform:uppercase;" label="#{labels.NEW_MAILING_ADDRESS}"
+                                                    labelAlignement="top"
+                                                                         binding="#{OnlineAddressChgReqBean.inputNewMailingAddr}"/>
+                                
+                           <!-- </af:gridCell>
+                            </af:gridRow>
+                            </af:panelGridLayout>-->
+                <af:panelGridLayout id="pgl6" partialTriggers="b2" styleClass="AFStretchWidth">
+                 <af:gridRow marginTop="5px" height="auto" id="gr1" rendered="false">
+                        <af:gridCell marginStart="5px" width="17%" id="gc4">
+                            <af:panelGroupLayout id="pgl8" layout="horizontal">
+                                <af:selectBooleanCheckbox value="#{bindings.isAuthorizedAgent.inputValue}"
+                                                          shortDesc="#{bindings.isAuthorizedAgent.hints.tooltip}"
+                                                          id="sbc1" autoSubmit="true"
+                                                          valueChangeListener="#{OnlineAddressChgReqBean.isAuthorizedAgent}"/>
+                                
+                              <af:outputText value="#{labels.AUTHORIZED_AGENT}" id="ot1"/>                         
+                            </af:panelGroupLayout>
+                            </af:gridCell>
+                            </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr6">
+                        <af:gridCell marginStart="5px" width="25%" id="gc1" rendered="false">
+                         <af:panelGroupLayout id="pgl7" layout="vertical">
+                                <af:panelGroupLayout id="pgl9" layout="horizontal">
+                                <af:outputText id="ot27" inlineStyle="color:Red;"
+                                 value="#{labels.AM_REQUIRED_INDICATOR}"/>
+                                <af:outputText value="#{labels.AGENT_NAME}" id="ot13"/>
+                                </af:panelGroupLayout>
+                                <af:inputText value="#{bindings.agentName.inputValue}" simple="true"
+                                              required="false" requiredMessageDetail="#{labels.AGENT_NAME_REQUIRED}"
+                                              columns="#{bindings.agentName.hints.displayWidth}"
+                                              maximumLength="#{bindings.agentName.hints.precision}"
+                                              shortDesc="#{labels.TTP_AGENTNAME}" id="it1"
+                                              disabled="#{!OnlineAddressChgReqBean.isSelected}" partialTriggers="sbc1"
+                                              showRequired="true" binding="#{OnlineAddressChgReqBean.agentName}">
+                                    <f:validator binding="#{bindings.agentName.validator}" />
+                                </af:inputText>
+                            </af:panelGroupLayout>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="25%" id="gc2">
+                            <af:panelGroupLayout id="pgl10" layout="horizontal">
+                            <af:outputText id="ot16" inlineStyle="color:Red;"
+                                 value="#{labels.AM_REQUIRED_INDICATOR}"/>
+                            <af:outputText value="#{labels.PROPERTY_OWNER}" id="ot2"/>
+                            </af:panelGroupLayout>
+                            <af:inputText value="#{bindings.propertyOwnerName.inputValue}" simple="true"
+                                          columns="#{bindings.propertyOwnerName.hints.displayWidth}"
+                                          maximumLength="#{bindings.propertyOwnerName.hints.precision}"
+                                          shortDesc="#{labels.TTP_PROPERTYOWNERNAME}" id="it2"
+                                          required="false" requiredMessageDetail="#{labels.PROPERTY_OWNER_REQUIRED}"
+                                          showRequired="true" binding="#{OnlineAddressChgReqBean.propOwnerName}">
+                                <f:validator binding="#{bindings.propertyOwnerName.validator}"/>
+                            </af:inputText>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="25%" id="gc3">
+                        <af:panelGroupLayout id="pgl14" layout="horizontal">
+                       <!-- <af:outputText id="ot8" inlineStyle="color:Red;"
+                                 value="#{labels.AM_REQUIRED_INDICATOR}"/>-->
+                            <af:outputText value="#{labels.DAYTIME_PHONE}" id="ot3"/>
+                            </af:panelGroupLayout>
+                            <af:inputText value="#{bindings.daytimePhone.inputValue}" 
+                                          simple="true" immediate="true"
+                                          columns="#{bindings.daytimePhone.hints.displayWidth}"
+                                          maximumLength="#{bindings.daytimePhone.hints.precision}"
+                                          shortDesc="#{labels.TTP_PHONE}" id="it3"
+                                           binding="#{OnlineAddressChgReqBean.dayPhone}"
+                                          placeholder="Eg: 123 456 7890, 4081231234, +1 1234567890, +12 123456789">
+                           <!--<af:clientListener method="handleNumberFormatConversion('xxx-xxx-xxxx','-')"
+                                       type="keyDown"/>-->
+                                <f:validator binding="#{bindings.daytimePhone.validator}"/>
+                            </af:inputText>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc12">
+                        <af:panelGroupLayout id="pgl15" layout="horizontal">
+                            <af:outputText value="#{labels.EMAIL}" id="ot4"/>
+                            </af:panelGroupLayout>
+                            <af:inputText value="#{bindings.email.inputValue}" simple="true"
+                                          required="#{bindings.email.hints.mandatory}"
+                                          columns="#{bindings.email.hints.displayWidth}"
+                                          maximumLength="#{bindings.email.hints.precision}"
+                                          shortDesc="#{labels.TTP_EMAIL}" id="it4"
+                                           disabled="true">
+                                <f:validator binding="#{bindings.email.validator}"/>
+                            </af:inputText>
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                        <af:gridCell marginStart="5px" width="25%" id="gc5" rendered="false">
+                            <af:panelGroupLayout id="pgl11" layout="horizontal">
+                          <!-- <af:outputText id="ot14" inlineStyle="color:Red;"
+                                 value="#{labels.AM_REQUIRED_INDICATOR}"/>-->
+                            <af:outputText value="#{labels.DIGITAL_SIGNATURE}" id="ot5"/>
+                            </af:panelGroupLayout>
+                            <af:inputText value="#{bindings.digitalSignature.inputValue}" simple="true"
+                                          required="false" requiredMessageDetail="#{labels.DIGITAL_SIGNATURE_REQUIRED}"
+                                          columns="#{bindings.digitalSignature.hints.displayWidth}"
+                                          maximumLength="#{bindings.digitalSignature.hints.precision}"
+                                          id="it5"
+                                          binding="#{OnlineAddressChgReqBean.digitalSignature}">
+                                <f:validator binding="#{bindings.digitalSignature.validator}"/>
+                            </af:inputText>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="25%" id="gc6">
+                            <af:panelGroupLayout id="pgl12" layout="horizontal">
+                            <!--<af:outputText id="ot15" inlineStyle="color:Red;"
+                                 value="#{labels.AM_REQUIRED_INDICATOR}"/>-->
+                            <af:outputText value="#{labels.DATE}" id="ot6"/>
+                            </af:panelGroupLayout>
+                            <af:inputText value="#{bindings.enteredDate.inputValue}" simple="true"
+                                          required="false" requiredMessageDetail="#{labels.DATE_REQUIRED}"
+                                          columns="#{bindings.enteredDate.hints.displayWidth}"
+                                          shortDesc="#{labels.TTP_DATE}" id="id2"
+                                          showRequired="false" 
+                                          disabled="true">
+                                <f:validator binding="#{bindings.enteredDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.enteredDate.format}"/>
+                            </af:inputText>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="25%" id="gc7"/>
+                        <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc8"/>
+                    </af:gridRow>
+                </af:panelGridLayout>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pg3" layout="horizontal" halign="right"
+                                 styleClass="AFStetchWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-5">
+                <f:facet name="separator"/>
+                <af:button text="#{labels.CANCEL}" immediate="true" id="b2" shortDesc="#{labels.TTP_CANCEL}"
+                          action="#{OnlineAddressChgReqBean.onClose}" partialSubmit="true">
+                    <af:resetActionListener/>
+                </af:button>
+                <af:spacer width="10" id="s8"/>
+                <af:button text="#{labels.SUBMIT}" id="b4" action="#{OnlineAddressChgReqBean.onSubmit}"
+                           actionListener="#{OnlineAddressChgReqBean.validateAddressChange}" shortDesc="#{labels.TTP_SUBMIT}">
+                    <af:clientListener method="maScReset" type="click"/>
+                </af:button>
+                <af:spacer width="50" height="10" id="s2"/>
+            </af:panelGroupLayout>
+    </af:panelHeader>
+    </af:panelGroupLayout>
+</jsp:root>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="amp_review_pdcr_btf_amp_review_pdcr_btf_retrieveRealPropertyInfoPageDef"
+                Package="gov.laca.amp.pdcr.review.view.btf"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                    RangeSize="25"
+                    BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.task"
+                      id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.ReviewPropertyDataChangeRequestPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="PDCRHumanTaskBO"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.PDCRHumanTaskBOType"
+                      id="PDCRHumanTaskBOIterator"/>
+    <accessorIterator MasterBinding="PDCRHumanTaskBOIterator"
+                      Binds="managePDCRRequest" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.managePDCRRequest"
+                      id="managePDCRRequestIterator"/>
+    <accessorIterator MasterBinding="managePDCRRequestIterator"
+                      Binds="originalRealPropertyInfo" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.RealPropertyInfo"
+                      id="originalRealPropertyInfoIterator"/>
+    <accessorIterator MasterBinding="originalRealPropertyInfoIterator"
+                      Binds="subPartList" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.subPartList"
+                      id="subPartListIterator"/>
+    <accessorIterator MasterBinding="subPartListIterator" Binds="subPart"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.subPart"
+                      id="subPartIterator"/>
+    <accessorIterator MasterBinding="originalRealPropertyInfoIterator"
+                      Binds="composite" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.composite"
+                      id="compositeIterator"/>
+    <accessorIterator MasterBinding="originalRealPropertyInfoIterator"
+                      Binds="land" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.land"
+                      id="landIterator"/>
+    <accessorIterator MasterBinding="managePDCRRequestIterator"
+                      Binds="userEnteredRealPropertyInfo" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.RealPropertyInfo"
+                      id="userEnteredRealPropertyInfoIterator"/>
+    <accessorIterator MasterBinding="userEnteredRealPropertyInfoIterator"
+                      Binds="subPartList" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.subPartList"
+                      id="subPartListIterator1"/>
+    <accessorIterator MasterBinding="subPartListIterator1" Binds="subPart"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.subPart"
+                      id="subPartIterator1"/>
+    <accessorIterator MasterBinding="userEnteredRealPropertyInfoIterator"
+                      Binds="composite" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.composite"
+                      id="compositeIterator1"/>
+    <accessorIterator MasterBinding="userEnteredRealPropertyInfoIterator"
+                      Binds="land" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.land"
+                      id="landIterator1"/>
+    <accessorIterator MasterBinding="managePDCRRequestIterator"
+                      Binds="finalRealPropertyInfo" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.RealPropertyInfo"
+                      id="finalRealPropertyInfoIterator"/>
+    <accessorIterator MasterBinding="finalRealPropertyInfoIterator"
+                      Binds="subPartList" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.subPartList"
+                      id="subPartListIterator2"/>
+    <accessorIterator MasterBinding="subPartListIterator2" Binds="subPart"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.subPart"
+                      id="subPartIterator2"/>
+    <accessorIterator MasterBinding="finalRealPropertyInfoIterator"
+                      Binds="composite" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.composite"
+                      id="compositeIterator2"/>
+    <accessorIterator MasterBinding="finalRealPropertyInfoIterator" Binds="land"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.land"
+                      id="landIterator2"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails"
+                  InstanceName="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                  DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getTaskDetails" IsViewObjectMethod="false"
+                  ReturnName="data.ReviewPDCRView_ReviewPropertyDataChangeRequest.methodResults.getTaskDetails_ReviewPDCRView_ReviewPropertyDataChangeRequest_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="RetrieveRealPropertyInfo"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="RetrieveRealPropertyInfo"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="ain" NDValue="" NDType="java.lang.String"/>
+      <NamedData NDName="dataSource" NDValue="BPM" NDType="java.lang.String"/>
+      <NamedData NDName="sourceType" NDValue="EditPDCR"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="isExternalUser" NDValue="false"
+                 NDType="java.lang.Boolean"/>
+      <NamedData NDName="isClericalUser" NDValue="false"
+                 NDType="java.lang.Boolean"/>
+      <NamedData NDName="isCheckLock" NDValue="false"
+                 NDType="java.lang.Boolean"/>
+      <NamedData NDName="userGroups" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

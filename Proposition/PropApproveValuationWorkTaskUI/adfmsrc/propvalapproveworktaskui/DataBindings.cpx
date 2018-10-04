@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="propvalapproveworktaskui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/PropValApproveWorkTask_TaskDetails.jspx"
+          usageId="propvalapproveworktaskui_PropValApproveWorkTask_TaskDetailsPageDef"/>
+    <page path="/PropValApproveWorkTask_TaskNotification.jspx"
+          usageId="propvalapproveworktaskui_PropValApproveWorkTask_TaskNotificationPageDef"/>
+    <page path="/review-proposition-btf/reviewProposition.jspx"
+          usageId="propvalapproveworktaskui_reviewPropositionPageDef"/>
+    <page path="/review-proposition-btf/reviewProposition.jsff"
+          usageId="propvalapproveworktaskui_reviewPropositionPageDef1"/>
+    <page path="/testApprove.jspx" usageId="propvalapproveworktaskui_testApprovePageDef"/>
+    <page path="/WEB-INF/btf/review_proposition_btf.xml#review_proposition_btf@loadProposition"
+          usageId="propvalapproveworktaskui_review_proposition_btf_review_proposition_btf_loadPropositionPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="propvalapproveworktaskui_PropValApproveWorkTask_TaskDetailsPageDef"
+          path="propvalapproveworktaskui.pageDefs.PropValApproveWorkTask_TaskDetailsPageDef"/>
+    <page id="propvalapproveworktaskui_PropValApproveWorkTask_TaskNotificationPageDef"
+          path="propvalapproveworktaskui.pageDefs.PropValApproveWorkTask_TaskNotificationPageDef"/>
+    <page id="propvalapproveworktaskui_reviewPropositionPageDef"
+          path="review_proposition_btf.reviewPropositionPageDef"/>
+    <page id="propvalapproveworktaskui_reviewPropositionPageDef1"
+          path="review_proposition_btf.reviewPropositionPageDef1"/>
+    <page id="propvalapproveworktaskui_testApprovePageDef" path="propvalapproveworktaskui.pageDefs.testApprovePageDef"/>
+    <page id="propvalapproveworktaskui_review_proposition_btf_review_proposition_btf_loadPropositionPageDef"
+          path="btf.review_proposition_btf_review_proposition_btf_loadPropositionPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="PropsDC" path="gov.laca.amp.common.model.PropsDC"/>
+    <dc id="PropValApproveWorkTaskUI_PropValApproveWorkTask"
+        path="propvalapproveworktaskui.PropValApproveWorkTaskUI_PropValApproveWorkTask"/>
+  </dataControlUsages>
+</Application>

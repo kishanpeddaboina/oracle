@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="wcc-docDtl-flow">
+    <default-activity>populateAttributeModel</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>documentId</name>
+      <value>#{pageFlowScope.documentId}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__2">
+      <name>category</name>
+      <value>#{pageFlowScope.category}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__3">
+      <name>subCategory</name>
+      <value>#{pageFlowScope.subCategory}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__9">
+      <name>bpmValidate</name>
+      <value>#{pageFlowScope.bpmValidate}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__7">
+      <name>isRequired</name>
+      <value>#{pageFlowScope.isRequired}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__8">
+      <name>isSubmitVis</name>
+      <value>#{pageFlowScope.isSubmitVis}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <managed-bean id="__6">
+      <managed-bean-name>docDtlBean</managed-bean-name>
+      <managed-bean-class>gov.laca.amp.datacapturewccuiapp.view.beans.DocDetailbean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <method-call id="populateAttributeModel">
+      <method>#{docDtlBean.populateAttrModel}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="wccDocDtl">
+      <page>/gov/laca/amp/datacapturewccuiapp/view/fragement/wccDocDtl.jsff</page>
+    </view>
+    <parent-action id="parentAction1">
+      <parent-outcome>closeTaskFlow</parent-outcome>
+      <outcome>closeTaskFlow</outcome>
+    </parent-action>
+    <view id="wccErr">
+      <page>/gov/laca/amp/datacapturewccuiapp/view/fragement/wccErr.jsff</page>
+    </view>
+    <parent-action id="parentAction2">
+      <parent-outcome>submit</parent-outcome>
+      <outcome>submit</outcome>
+    </parent-action>
+    <control-flow-rule id="__4">
+      <from-activity-id>populateAttributeModel</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>continue</from-outcome>
+        <to-activity-id>wccDocDtl</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>error</from-outcome>
+        <to-activity-id>wccErr</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>close</from-outcome>
+        <to-activity-id>parentAction1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>wccDocDtl</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>onSubmit</from-outcome>
+        <to-activity-id>parentAction2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="datacapturewccuiviewcontrollerBundle"
+           value="#{adfBundle['gov.laca.amp.datacapturewccuiapp.view.DataCaptureWCCUIViewControllerBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="#{datacapturewccuiviewcontrollerBundle.DATA_CAPTURE_ASSISTANT} #{pageFlowScope.category} #{pageFlowScope.subCategory}" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1">
+                <af:panelStretchLayout id="psl1" topHeight="150px" dimensionsFrom="parent" >
+                   
+                    <f:facet name="top">
+                        <af:panelFormLayout id="pfl1" rows="3">
+                            <af:panelLabelAndMessage label="#{datacapturewccuiviewcontrollerBundle.AIN}" id="plam1">
+                                <af:outputText value="#{pageFlowScope.ainList}"
+                                               shortDesc="#{bindings.ain.hints.tooltip}" id="ot1"/>
+                            </af:panelLabelAndMessage>
+                            <af:inputText value="#{bindings.Category.inputValue}"
+                                          label="#{datacapturewccuiviewcontrollerBundle.CATEGORY}"
+                                          required="#{bindings.Category.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.Category.hints.displayWidth}"
+                                          maximumLength="#{bindings.Category.hints.precision}"
+                                          shortDesc="#{bindings.Category.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.Category.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.EventDate.inputValue}"
+                                          label="#{datacapturewccuiviewcontrollerBundle.EVENT_DATE}"
+                                          required="#{bindings.EventDate.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.EventDate.hints.displayWidth}"
+                                          maximumLength="#{bindings.EventDate.hints.precision}"
+                                          shortDesc="#{bindings.EventDate.hints.tooltip}" id="it1"
+                                          >
+                                <f:validator binding="#{bindings.EventDate.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Subcategory.inputValue}"
+                                          label="#{datacapturewccuiviewcontrollerBundle.SUBCATEGORY}"
+                                          required="#{bindings.Subcategory.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.Subcategory.hints.displayWidth}"
+                                          maximumLength="#{bindings.Subcategory.hints.precision}"
+                                          shortDesc="#{bindings.Subcategory.hints.tooltip}" id="it4">
+                                <f:validator binding="#{bindings.Subcategory.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DocumentId.inputValue}"
+                                          label="#{datacapturewccuiviewcontrollerBundle.DOCUMENT_ID}"
+                                          required="#{bindings.DocumentId.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.DocumentId.hints.displayWidth}"
+                                          maximumLength="#{bindings.DocumentId.hints.precision}"
+                                          shortDesc="#{bindings.DocumentId.hints.tooltip}" id="it5">
+                                <f:validator binding="#{bindings.DocumentId.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Message.inputValue}"
+                                          label="#{datacapturewccuiviewcontrollerBundle.MESSAGE}"
+                                          required="#{bindings.Message.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.Message.hints.displayWidth}"
+                                          maximumLength="#{bindings.Message.hints.precision}"
+                                          shortDesc="#{bindings.Message.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.Message.validator}"/>
+                            </af:inputText>
+                        </af:panelFormLayout>
+                    </f:facet>
+                    <f:facet name="bottom"/>
+                    <f:facet name="center">
+                        <af:region value="#{bindings.wccdocDtlflow1.regionModel}" id="r1"/>
+                    </f:facet>
+                </af:panelStretchLayout>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

@@ -1,0 +1,219 @@
+<!-- BPM Scripts -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>amp.bpm</groupId>
+	<artifactId>ManagePDCRView</artifactId>
+	<packaging>pom</packaging>
+	<version>${ASSESSOR_PORTAL_VERSION}</version>
+
+<!--	<parent>
+		<groupId>amp.bpm</groupId>
+		<artifactId>ampbpm</artifactId>
+		<relativePath>../../../.</relativePath>
+		<version>${ASSESSOR_PORTAL_VERSION}</version>
+	</parent> -->
+
+	<parent>
+	    <groupId>com.oracle.adf</groupId>
+	    <artifactId>adf-parent</artifactId>
+	    <version>12.2.1-2-0</version>
+	    <relativePath/>
+	</parent>
+
+
+	<properties>
+		<apploc>${env.LACA_JDEV_WS_ROOT}/AMPBPMUI/PropertyInfo/PDCRProcess</apploc>
+		<appname>PDCRProcess</appname>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>  
+
+	<dependencies>
+		<dependency>
+			<groupId>amp.wcp</groupId>
+			<artifactId>amp.wcp.build</artifactId>
+			<version>${env.ASSESSOR_PORTAL_VERSION}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			  <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>unpack-dependencies</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<includes>**/*</includes>
+							<outputDirectory>${env.LACA_JDEV_WS_ROOT}</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>		
+
+			<!-- USE OJDEPLOY TO MAKE THE EAR -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.5.0</version>
+				<configuration>
+					<executable>${env.LACA_JDEV_INST_ROOT}/jdeveloper/jdev/bin/ojdeploy</executable>
+					<arguments>
+						<argument>-workspace</argument>
+						<argument>${apploc}/${appname}.jws</argument>
+						<argument>-profile</argument>
+						<argument>${project.artifactId}</argument>
+						<argument>-clean</argument>
+					</arguments>
+				</configuration>
+				<executions>
+					<execution>
+						<id>ojdeploy</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- ANT PLUGIN -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<!-- DISPLAYING VARIABLES -->
+					<execution>
+						<id>display</id>
+						<phase>initialize</phase>
+						<configuration>
+							<target>
+								<echo>---------------------------------------------------------</echo>
+								<echo>Application: ${apploc}/${appname}.jws</echo>
+								<echo>Project: ${project.artifactId}</echo>
+								<echo>Server: ${env.LACA_ADMIN_URL}</echo>
+								<echo>Target: ${env.LACA_SOA_CLUSTER}</echo>
+								<echo>---------------------------------------------------------</echo>
+							</target>	
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<!-- COPY hwtaskflow.xml FILE FROM THE BUILD ARTIFACTS -->
+					<execution>
+						<id>copy_hwtaskflow</id>
+						<phase>initialize</phase>
+						<configuration>
+							<target>
+								<echo>copying hwtaskflow_${env.LACA_ENV_NAME}.xml</echo>
+								<copy file="${basedir}/adfmsrc/hwtaskflow_${env.LACA_ENV_NAME}.xml" tofile="${basedir}/adfmsrc/hwtaskflow.xml" overwrite="true" />
+								<echo>End of copy_hwtaskflow target</echo>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<!-- UPDATING EAR WITH ENV SPECIFIC FILES: ADF-CONFIG.XML CONNECTIONS.XML -->
+					<execution>
+						<id>updateear</id>
+						<phase>compile</phase>
+						<configuration>
+							<target>
+								<echo>apploc:${apploc}</echo>
+								<echo>connections.xml:${apploc}/build/connections_${env.LACA_ENV_NAME}.xml</echo>
+								<copy file="${apploc}/build/connections_${env.LACA_ENV_NAME}.xml" tofile="${apploc}/build/artifacts/adf/META-INF/connections.xml" overwrite="true" />
+								<copy file="${apploc}/build/adf-config_jndi.xml" tofile="${apploc}/build/artifacts/adf/META-INF/adf-config.xml" overwrite="true" />
+								<sleep seconds="3"/>
+								<touch file="${apploc}/build/artifacts/adf/META-INF/adf-config.xml" />
+								<touch file="${apploc}/build/artifacts/adf/META-INF/connections.xml" />
+								<ear destfile="${apploc}/deploy/${project.artifactId}.ear" update="true" basedir="${apploc}/build/artifacts" />
+								<echo>End of updateear target</echo>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>				  
+			<!-- WEBLOGIC MAVEN PLUGIN CONFIG - TO DEPLOY THE EAR -->
+			<plugin>
+				<groupId>com.oracle.weblogic</groupId>
+				<artifactId>weblogic-maven-plugin</artifactId>
+				<version>12.2.1-2-0</version>
+				<configuration>
+					<adminurl>${env.LACA_ADMIN_URL}</adminurl>
+					<user>${env.LACA_WS_USER_SOA}</user>
+					<password>${env.LACA_WS_PASSWORD_SOA}</password>
+					<name>${project.artifactId}</name>
+					<remote>true</remote>
+					<upload>true</upload>
+					<targets>${env.LACA_SOA_CLUSTER}</targets>
+					<source>${apploc}/deploy/${project.artifactId}.ear</source>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+						<configuration>
+							<adminurl>${env.LACA_ADMIN_URL}</adminurl>
+							<user>${env.LACA_WS_USER_SOA}</user>
+							<password>${env.LACA_WS_PASSWORD_SOA}</password>
+							<name>${project.artifactId}</name>
+							<remote>true</remote>
+							<upload>true</upload>
+							<targets>${env.LACA_SOA_CLUSTER}</targets>
+							<source>${apploc}/deploy/${project.artifactId}.ear</source>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<descriptor>pom-assembly.xml</descriptor>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>amp</id>
+			<url>http://campbldsn01.assessor.lacounty.gov:9081/repository/amp/</url>
+		</snapshotRepository>
+		<repository>
+			<id>amp</id>
+			<name>AMP Repository</name>
+			<url>http://campbldsn01.assessor.lacounty.gov:9081/repository/amp/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>		
+	</distributionManagement>
+</project>

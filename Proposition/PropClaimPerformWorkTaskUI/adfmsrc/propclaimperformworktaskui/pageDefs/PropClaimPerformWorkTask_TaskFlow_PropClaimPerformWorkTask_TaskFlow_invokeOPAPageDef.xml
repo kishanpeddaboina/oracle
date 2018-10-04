@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_invokeOPAPageDef"
+                Package="propclaimperformworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="root" RangeSize="25" DataControl="PropsDC" id="PropsDCIterator"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsPojo" RangeSize="10" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsPojo" id="propsPojoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="qualification" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsQualificationPojo"
+                      id="qualificationIterator"/>
+    <accessorIterator MasterBinding="qualificationIterator" Binds="qualifyQuestionnaireList" RangeSize="10"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire"
+                      id="qualifyQuestionnaireListIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="conclusion" RangeSize="10" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsConclusionPojo" id="conclusionIterator"/>
+    <accessorIterator id="claimInfoIterator" MasterBinding="propsPojoIterator" Binds="claimInfo" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsClaimInfoPojo"/>
+  </executables>
+  <bindings>
+    <methodAction id="invokeOPA" RequiresUpdateModel="true" Action="invokeMethod" MethodName="invokeOPA"
+                  IsViewObjectMethod="false" DataControl="PropsDC"
+                  InstanceName="bindings.invokeOPA.dataControl.dataProvider">
+      <NamedData NDName="p0" NDValue="#{pageFlowScope.wuId}" NDType="java.lang.Integer"/>
+      <NamedData NDName="p1" NDValue="#{pageFlowScope.propsType}" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="propsPojoIterator" id="propsPojo">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsPojo" Name="propsPojo0">
+        <AttrNames>
+          <Item Value="ain"/>
+          <Item Value="aoid"/>
+          <Item Value="documentRefId"/>
+          <Item Value="propertyType"/>
+          <Item Value="propsID"/>
+          <Item Value="source"/>
+          <Item Value="wuid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="qualifyQuestionnaireListIterator" id="qualifyQuestionnaireList">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire"
+                      Name="qualifyQuestionnaireList0">
+        <AttrNames>
+          <Item Value="question"/>
+          <Item Value="answer"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="conclusionIterator" id="conclusion">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsConclusionPojo" Name="conclusion0">
+        <AttrNames>
+          <Item Value="claimResult"/>
+          <Item Value="approvalType"/>
+          <Item Value="assignedTo"/>
+          <Item Value="claimApprovalDate"/>
+          <Item Value="claimCompletionDate"/>
+          <Item Value="claimReceivedDate"/>
+          <Item Value="claimSignedDate"/>
+          <Item Value="completedBy"/>
+          <Item Value="exclusionAmount"/>
+          <Item Value="impFBV"/>
+          <Item Value="landFBV"/>
+          <Item Value="notificationDate"/>
+          <Item Value="notificationMethod"/>
+          <Item Value="partialInterestApproved"/>
+          <Item Value="reason"/>
+          <Item Value="reliefDate"/>
+          <Item Value="reliefType"/>
+          <Item Value="totalFBV"/>
+          <Item Value="transferDate"/>
+          <Item Value="transferStatus"/>
+          <Item Value="valuationFlag"/>
+          <Item Value="valuationInstructions"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="claimInfoIterator" id="claimType">
+      <AttrNames>
+        <Item Value="claimType"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="gov.laca.amp.tam.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/TamAssignment.jsff"
+          usageId="gov_laca_amp_tam_view_TamAssignmentPageDef"/>
+    <page path="/tests/testTamAssignment-btf.jspx"
+          usageId="gov_laca_amp_tam_view_testTamAssignment_btfPageDef"/>
+    <page path="/WEB-INF/btf/amp-tam-manage-unverified-ain-btf.xml#amp-tam-manage-unverified-ain-btf@executeInitializations"
+          usageId="gov_laca_amp_tam_view_amp_tam_manage_unverified_ain_btf_amp_tam_manage_unverified_ain_btf_executeInitializationsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="gov_laca_amp_tam_view_TamAssignmentPageDef"
+          path="gov.laca.amp.tam.view.pageDefs.TamAssignmentPageDef"/>
+    <page id="gov_laca_amp_tam_view_testTamAssignment_btfPageDef"
+          path="tests.testTamAssignment_btfPageDef"/>
+    <page id="gov_laca_amp_tam_view_amp_tam_manage_unverified_ain_btf_amp_tam_manage_unverified_ain_btf_executeInitializationsPageDef"
+          path="btf.amp_tam_manage_unverified_ain_btf_amp_tam_manage_unverified_ain_btf_executeInitializationsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="TAMAssignedDC" path="gov.laca.amp.tam.model.TAMAssignedDC"/>
+    <dc id="TAMAssignmentDC" path="gov.laca.amp.tam.model.TAMAssignmentDC"/>
+  </dataControlUsages>
+</Application>

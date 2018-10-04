@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="EditPDCRPageDef"
+                Package="gov.laca.amp.pdcr.initiate.view.amp_edit_change_request_btf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ChangeRequestDC"
+              id="ChangeRequestDCIterator"/>
+    <accessorIterator id="subPartListDOIterator"
+                      MasterBinding="ChangeRequestDCIterator"
+                      Binds="subPartListDO" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.SubPartDO"
+                      Refresh="ifNeeded"/>
+    <accessorIterator id="userEnteredRPIIterator"
+                      MasterBinding="ChangeRequestDCIterator"
+                      Binds="userEnteredRPI" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO"/>
+    <accessorIterator id="tempSubPartDOIterator"
+                      MasterBinding="ChangeRequestDCIterator"
+                      Binds="tempSubPartDO" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.SubPartDO"
+                      Refresh="ifNeeded"/>
+    <accessorIterator id="tempCompositeDOIterator"
+                      MasterBinding="ChangeRequestDCIterator"
+                      Binds="tempCompositeDO" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.CompositeDO"
+                      Refresh="ifNeeded"/>
+    <accessorIterator id="tempLandDOIterator"
+                      MasterBinding="ChangeRequestDCIterator" Binds="tempLandDO"
+                      RangeSize="25" DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.LandDO"
+                      Refresh="ifNeeded"/>
+    <accessorIterator id="landDOIterator"
+                      MasterBinding="ChangeRequestDCIterator" Binds="landDO"
+                      RangeSize="25" DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.LandDO"
+                      Refresh="ifNeeded"/>
+    <accessorIterator id="compositeDOIterator"
+                      MasterBinding="ChangeRequestDCIterator"
+                      Binds="compositeDO" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.CompositeDO"
+                      Refresh="ifNeeded"/>
+    <accessorIterator MasterBinding="ChangeRequestDCIterator"
+                      Binds="originalRPI" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO"
+                      id="originalRPIIterator"/>
+    <accessorIterator MasterBinding="originalRPIIterator" Binds="land"
+                      RangeSize="25" DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.Land"
+                      id="landIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="subPartListDOIterator" id="subPartListDO">
+      <nodeDefinition DefName="gov.laca.amp.pdcr.common.model.data.SubPartDO"
+                      Name="subPartListDO0">
+        <AttrNames>
+          <Item Value="dbUniqueId"/>
+          <Item Value="addedDepreciationPercent"/>
+          <Item Value="addedDepreciationPercentUserEntered"/>
+          <Item Value="addedDepreciationTypeKey"/>
+          <Item Value="addedDepreciationTypeKeyUserEntered"/>
+          <Item Value="addedDepreciationTypeLegend"/>
+          <Item Value="addedDepreciationTypeLegendUserEntered"/>
+          <Item Value="addedDepreciationTypeRef"/>
+          <Item Value="addedDepreciationTypeRefUserEntered"/>
+          <Item Value="ain"/>
+          <Item Value="aoid"/>
+          <Item Value="bathroomCount"/>
+          <Item Value="bathroomCountUserEntered"/>
+          <Item Value="bedroomCount"/>
+          <Item Value="bedroomCountUserEntered"/>
+          <Item Value="costFactor"/>
+          <Item Value="costFactorUserEntered"/>
+          <Item Value="depreciationTable"/>
+          <Item Value="depreciationTableUserEntered"/>
+          <Item Value="designTypeKey"/>
+          <Item Value="designTypeKeyUserEntered"/>
+          <Item Value="designTypeLegend"/>
+          <Item Value="designTypeLegendUserEntered"/>
+          <Item Value="designTypeRef"/>
+          <Item Value="designTypeRefUserEntered"/>
+          <Item Value="effectiveYearBuilt"/>
+          <Item Value="effectiveYearBuiltUserEntered"/>
+          <Item Value="improvementNumber"/>
+          <Item Value="improvementNumberUserEntered"/>
+          <Item Value="improvementSizeSqft"/>
+          <Item Value="improvementSizeSqftUserEntered"/>
+          <Item Value="numberOfUnits"/>
+          <Item Value="numberOfUnitsUserEntered"/>
+          <Item Value="percentGood"/>
+          <Item Value="percentGoodUserEntered"/>
+          <Item Value="qualityClass"/>
+          <Item Value="qualityClassUserEntered"/>
+          <Item Value="rcnLessDepreciation"/>
+          <Item Value="rcnLessDepreciationUserEntered"/>
+          <Item Value="rcnMain"/>
+          <Item Value="rcnMainUserEntered"/>
+          <Item Value="rcnOtherTotal"/>
+          <Item Value="rcnOtherTotalUserEntered"/>
+          <Item Value="rcnYearChange"/>
+          <Item Value="rcnYearChangeUserEntered"/>
+          <Item Value="subPartNumber"/>
+          <Item Value="subPartNumberUserEntered"/>
+          <Item Value="transactionType"/>
+          <Item Value="yearBuilt"/>
+          <Item Value="yearBuiltUserEntered"/>
+          <Item Value="subPartNumberDisplay"/>
+          <Item Value="transactionTypeUserEntered"/>
+          <Item Value="dbUniqueIdUserEntered"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="AddComposite" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="AddComposite"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="AddLand" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="AddLand"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="AddSubPart" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="AddSubPart"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.ChangeRequestDC.methodResults.AddSubPart_ChangeRequestDC_dataProvider_AddSubPart_result"/>
+    <methodAction id="CancelComposite"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CancelComposite"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="CancelLand" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CancelLand"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="CancelSubPart" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CancelSubPart"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="CancelTrasaction"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CancelTrasaction"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="CheckLock" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CheckLock"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.ChangeRequestDC.methodResults.CheckLock_ChangeRequestDC_dataProvider_CheckLock_result">
+      <NamedData NDName="ain" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="DeleteComposite"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="DeleteComposite"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="compositeID" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="DeleteSubPart" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="DeleteSubPart"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="subPartID" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="EditComposite" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="EditComposite"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="compositeID" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="EditLand" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="EditLand"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="landID" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="subPartCount">
+      <AttrNames>
+        <Item Value="subPartCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeDOIterator" id="dbUniqueId_comp">
+      <AttrNames>
+        <Item Value="dbUniqueId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeDOIterator"
+                     id="transactionType_comp">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeDOIterator" id="sqft">
+      <AttrNames>
+        <Item Value="sqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeDOIterator" id="sqftUserEntered">
+      <AttrNames>
+        <Item Value="sqftUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="dbUniqueId_land">
+      <AttrNames>
+        <Item Value="dbUniqueId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="transactionType_land">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="width">
+      <AttrNames>
+        <Item Value="width"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="depth">
+      <AttrNames>
+        <Item Value="depth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="sizeSqft">
+      <AttrNames>
+        <Item Value="sizeSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="sizeUsableSqft">
+      <AttrNames>
+        <Item Value="sizeUsableSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="sizeAcreAge">
+      <AttrNames>
+        <Item Value="sizeAcreAge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="corner">
+      <AttrNames>
+        <Item Value="corner"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="sewer">
+      <AttrNames>
+        <Item Value="sewer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="traffic">
+      <AttrNames>
+        <Item Value="traffic"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="freewayProximity">
+      <AttrNames>
+        <Item Value="freewayProximity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="flightPath">
+      <AttrNames>
+        <Item Value="flightPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="golfFront">
+      <AttrNames>
+        <Item Value="golfFront"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="horses">
+      <AttrNames>
+        <Item Value="horses"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="codeSplit">
+      <AttrNames>
+        <Item Value="codeSplit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="viewCodeKey">
+      <AttrNames>
+        <Item Value="viewCodeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="widthUserEntered">
+      <AttrNames>
+        <Item Value="widthUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="depthUserEntered">
+      <AttrNames>
+        <Item Value="depthUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="sizeSqftUserEntered">
+      <AttrNames>
+        <Item Value="sizeSqftUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator"
+                     id="sizeUsableSqftUserEntered">
+      <AttrNames>
+        <Item Value="sizeUsableSqftUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="sizeAcreAgeUserEntered">
+      <AttrNames>
+        <Item Value="sizeAcreAgeUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="cornerUserEntered">
+      <AttrNames>
+        <Item Value="cornerUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="sewerUserEntered">
+      <AttrNames>
+        <Item Value="sewerUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="trafficUserEntered">
+      <AttrNames>
+        <Item Value="trafficUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator"
+                     id="freewayProximityUserEntered">
+      <AttrNames>
+        <Item Value="freewayProximityUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="flightPathUserEntered">
+      <AttrNames>
+        <Item Value="flightPathUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="golfFrontUserEntered">
+      <AttrNames>
+        <Item Value="golfFrontUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="horsesUserEntered">
+      <AttrNames>
+        <Item Value="horsesUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="codeSplitUserEntered">
+      <AttrNames>
+        <Item Value="codeSplitUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="subPartNumberUserEntered">
+      <AttrNames>
+        <Item Value="subPartNumberUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="rcnYearChangeUserEntered">
+      <AttrNames>
+        <Item Value="rcnYearChangeUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="qualityClassUserEntered">
+      <AttrNames>
+        <Item Value="qualityClassUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="yearBuiltUserEntered">
+      <AttrNames>
+        <Item Value="yearBuiltUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="effectiveYearBuiltUserEntered">
+      <AttrNames>
+        <Item Value="effectiveYearBuiltUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="depreciationTableUserEntered">
+      <AttrNames>
+        <Item Value="depreciationTableUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="numberOfUnitsUserEntered">
+      <AttrNames>
+        <Item Value="numberOfUnitsUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="bedroomCountUserEntered">
+      <AttrNames>
+        <Item Value="bedroomCountUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="bathroomCountUserEntered">
+      <AttrNames>
+        <Item Value="bathroomCountUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="improvementSizeSqftUserEntered">
+      <AttrNames>
+        <Item Value="improvementSizeSqftUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="rcnOtherTotalUserEntered">
+      <AttrNames>
+        <Item Value="rcnOtherTotalUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="costFactorUserEntered">
+      <AttrNames>
+        <Item Value="costFactorUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="rcnMainUserEntered">
+      <AttrNames>
+        <Item Value="rcnMainUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="percentGoodUserEntered">
+      <AttrNames>
+        <Item Value="percentGoodUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="addedDepreciationPercentUserEntered">
+      <AttrNames>
+        <Item Value="addedDepreciationPercentUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="rcnLessDepreciationUserEntered">
+      <AttrNames>
+        <Item Value="rcnLessDepreciationUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="designTypeKeyUserEntered">
+      <AttrNames>
+        <Item Value="designTypeKeyUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="addedDepreciationTypeKeyUserEntered">
+      <AttrNames>
+        <Item Value="addedDepreciationTypeKeyUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="dbUniqueId_sp">
+      <AttrNames>
+        <Item Value="dbUniqueId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="subPartNumber">
+      <AttrNames>
+        <Item Value="subPartNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="rcnYearChange">
+      <AttrNames>
+        <Item Value="rcnYearChange"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="qualityClass">
+      <AttrNames>
+        <Item Value="qualityClass"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="yearBuilt">
+      <AttrNames>
+        <Item Value="yearBuilt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="effectiveYearBuilt">
+      <AttrNames>
+        <Item Value="effectiveYearBuilt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="depreciationTable">
+      <AttrNames>
+        <Item Value="depreciationTable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="numberOfUnits">
+      <AttrNames>
+        <Item Value="numberOfUnits"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="bedroomCount">
+      <AttrNames>
+        <Item Value="bedroomCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="bathroomCount">
+      <AttrNames>
+        <Item Value="bathroomCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="improvementSizeSqft">
+      <AttrNames>
+        <Item Value="improvementSizeSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="rcnOtherTotal">
+      <AttrNames>
+        <Item Value="rcnOtherTotal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="costFactor">
+      <AttrNames>
+        <Item Value="costFactor"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="rcnMain">
+      <AttrNames>
+        <Item Value="rcnMain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="percentGood">
+      <AttrNames>
+        <Item Value="percentGood"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="addedDepreciationPercent">
+      <AttrNames>
+        <Item Value="addedDepreciationPercent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="rcnLessDepreciation">
+      <AttrNames>
+        <Item Value="rcnLessDepreciation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="designTypeKey">
+      <AttrNames>
+        <Item Value="designTypeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="addedDepreciationTypeKey">
+      <AttrNames>
+        <Item Value="addedDepreciationTypeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempCompositeDOIterator"
+                     id="sqftUserEntered1">
+      <AttrNames>
+        <Item Value="sqftUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator" id="widthUserEntered1">
+      <AttrNames>
+        <Item Value="widthUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator" id="depthUserEntered1">
+      <AttrNames>
+        <Item Value="depthUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator" id="sizeSqftUserEntered1">
+      <AttrNames>
+        <Item Value="sizeSqftUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator"
+                     id="sizeUsableSqftUserEntered1">
+      <AttrNames>
+        <Item Value="sizeUsableSqftUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator"
+                     id="sizeAcreAgeUserEntered1">
+      <AttrNames>
+        <Item Value="sizeAcreAgeUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator" id="cornerUserEntered1">
+      <AttrNames>
+        <Item Value="cornerUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator" id="sewerUserEntered1">
+      <AttrNames>
+        <Item Value="sewerUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator" id="trafficUserEntered1">
+      <AttrNames>
+        <Item Value="trafficUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator"
+                     id="freewayProximityUserEntered1">
+      <AttrNames>
+        <Item Value="freewayProximityUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator"
+                     id="flightPathUserEntered1">
+      <AttrNames>
+        <Item Value="flightPathUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator"
+                     id="golfFrontUserEntered1">
+      <AttrNames>
+        <Item Value="golfFrontUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator" id="horsesUserEntered1">
+      <AttrNames>
+        <Item Value="horsesUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator"
+                     id="codeSplitUserEntered1">
+      <AttrNames>
+        <Item Value="codeSplitUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempLandDOIterator"
+                     id="viewCodeKeyUserEntered1">
+      <AttrNames>
+        <Item Value="viewCodeKeyUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator"
+                     id="transactionMessage">
+      <AttrNames>
+        <Item Value="transactionMessage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="ain">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="sourceType">
+      <AttrNames>
+        <Item Value="sourceType"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="InitiatePropertyDataCR"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="InitiatePropertyDataCR"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.ChangeRequestDC.methodResults.InitiatePropertyDataCR_ChangeRequestDC_dataProvider_InitiatePropertyDataCR_result">
+      <NamedData NDName="ain" NDType="java.lang.String"/>
+      <NamedData NDName="userID" NDType="java.lang.String"/>
+      <NamedData NDName="userType" NDType="java.lang.String"/>
+      <NamedData NDName="sourceType" NDValue="EditPDCR"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="dataSource" NDValue="soa" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="landDOIterator" id="viewCodeDisplay">
+      <AttrNames>
+        <Item Value="viewCodeDisplay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator"
+                     id="viewCodeDisplayUserEntered">
+      <AttrNames>
+        <Item Value="viewCodeDisplayUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator"
+                     id="originalSubPartCount">
+      <AttrNames>
+        <Item Value="originalSubPartCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="aoid">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeDOIterator"
+                     id="transactionTypeUserEntered">
+      <AttrNames>
+        <Item Value="transactionTypeUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator"
+                     id="transactionTypeUserEntered1">
+      <AttrNames>
+        <Item Value="transactionTypeUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="ainDisplay">
+      <AttrNames>
+        <Item Value="ainDisplay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="useTypeIcon">
+      <AttrNames>
+        <Item Value="useTypeIcon"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="isPDCRInitiated">
+      <AttrNames>
+        <Item Value="isPDCRInitiated"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="isValidDistrict">
+      <AttrNames>
+        <Item Value="isValidDistrict"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator"
+                     id="isShowDisaplyMessage">
+      <AttrNames>
+        <Item Value="isShowDisaplyMessage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="dataSource">
+      <AttrNames>
+        <Item Value="dataSource"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="region">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="propertyAddress">
+      <AttrNames>
+        <Item Value="propertyAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="useType">
+      <AttrNames>
+        <Item Value="useType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="useCode">
+      <AttrNames>
+        <Item Value="useCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="district">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="cluster">
+      <AttrNames>
+        <Item Value="cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="EditSubPart" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="EditSubPart"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="subPartID" NDType="java.lang.String"/>
+      <NamedData NDName="rpiType" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="SaveComposite" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SaveComposite"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.ChangeRequestDC.methodResults.SaveComposite_ChangeRequestDC_dataProvider_SaveComposite_result">
+      <NamedData NDName="rpiType" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="SaveLand" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SaveLand"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.ChangeRequestDC.methodResults.SaveLand_ChangeRequestDC_dataProvider_SaveLand_result">
+      <NamedData NDName="rpiType" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="SaveSubPart" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SaveSubPart"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.ChangeRequestDC.methodResults.SaveSubPart_ChangeRequestDC_dataProvider_SaveSubPart_result">
+      <NamedData NDName="rpiType" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="ValidateDuplicateSubPart"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="ValidateDuplicateSubPart"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.ChangeRequestDC.methodResults.ValidateDuplicateSubPart_ChangeRequestDC_dataProvider_ValidateDuplicateSubPart_result">
+      <NamedData NDName="subPartId" NDType="java.lang.String"/>
+      <NamedData NDName="subPartNumber" NDType="java.lang.String"/>
+      <NamedData NDName="rpiType" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="isNoLand">
+      <AttrNames>
+        <Item Value="isNoLand"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="actionType">
+      <AttrNames>
+        <Item Value="actionType"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <note
+      id="note3">
+      <property
+         name="sdm:nodeHeight">101.0</property>
+      <property
+         name="label">
+         <![CDATA[<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top: 0">
+      <font color="#000000" size="3" face="Dialog">This taskflow is to 
+      Initiattes a </font>
+    </p>
+    <p style="margin-top: 0">
+      <font color="#000000" size="3" face="Dialog">BVM process after user 
+      reviews </font>
+    </p>
+    <p style="margin-top: 0">
+      <font color="#000000" size="3" face="Dialog">BaseYearEvents for the 
+      property. </font>
+    </p>
+    <p style="margin-top: 0">
+      
+    </p>
+    <p style="margin-top: 0">
+      <font color="#000000" size="3" face="Dialog">Input: AIN number is passed 
+      as argument. </font>
+    </p>
+  </body>
+</html>]]>
+      </property>
+      <property
+         name="y">377.5</property>
+      <property
+         name="sdm:nodeWidth">227.0</property>
+      <property
+         name="x">239.5</property>
+   </note>
+   <View
+      id="View7">
+      <property
+         name="activityId">InitiateBaseYearEvent</property>
+      <property
+         name="start">true</property>
+      <property
+         name="page">/gov/laca/amp/bvm/view/amp-initiate-base-year-event-btf/BaseYearEventsTaskDetails.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>InitiateBaseYearEvent&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="thumbnailExpanded">true</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-63.109375</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">183.37012</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn8">
+      <property
+         name="activityId">Return</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Return&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  Return&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-63.70703</property>
+      <property
+         name="x">505.5</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="View7"
+      to="TaskFlowReturn8">
+      <property
+         name="fromOutcome">return</property>
+      <property
+         name="sdm:polyPoints">R50,291.87012,-63.45996,464.5,-64.05762,L50</property>
+   </ControlFlowCase>
+</SDM>

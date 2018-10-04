@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="DataCaptureHT_TaskDetailsPageDef" Package="gov.laca.amp.datacapturewccuiapp.view.page">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                    RangeSize="25" BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.task" id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.DataCaptureHTPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="AMPWorkTask" RangeSize="25"
+                      DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                      BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.AMPWorkTask"
+                      id="AMPWorkTaskIterator"/>
+    <taskFlow id="wccdocDtlflow1"
+              taskFlowId="/WEB-INF/gov/laca/amp/datacapturewccuiapp/pageflows/wcc-docDtl-flow.xml#wcc-docDtl-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="documentId" value="#{pageFlowScope.documentId}"/>
+        <parameter id="category" value="#{pageFlowScope.category}"/>
+        <parameter id="subCategory" value="#{pageFlowScope.subCategory}"/>
+        <parameter id="isRequired" value="#{pageFlowScope.isValidationReq}"/>
+        <parameter id="isSubmitVis" value="#{pageFlowScope.isSubmitVis}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="DataCaptureWCCUIViewController_DataCaptureHT"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.DataCaptureWCCUIViewController_DataCaptureHT.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="EventDate">
+      <AttrNames>
+        <Item Value="EventDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Category">
+      <AttrNames>
+        <Item Value="Category"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Subcategory">
+      <AttrNames>
+        <Item Value="Subcategory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="DocumentId">
+      <AttrNames>
+        <Item Value="DocumentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Message">
+      <AttrNames>
+        <Item Value="Message"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

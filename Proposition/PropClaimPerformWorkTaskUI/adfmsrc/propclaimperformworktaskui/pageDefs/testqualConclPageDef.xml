@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="testqualConclPageDef"
+                Package="propclaimperformworktaskui.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PropsDC" id="PropsDCIterator"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsLOV" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.lov.PropsLOV" id="propsLOVIterator"/>
+    <accessorIterator id="propsApprovalTypeLovIterator" MasterBinding="propsLOVIterator" Binds="propsApprovalTypeLov"
+                      RangeSize="-1" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.lov.PropsApprovalTypeLov"/>
+    <accessorIterator id="propsPojoIterator" MasterBinding="PropsDCIterator" Binds="propsPojo" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsPojo"/>
+    <accessorIterator id="conclusionIterator" MasterBinding="propsPojoIterator" Binds="conclusion" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsConclusionPojo"/>
+    <accessorIterator id="qualificationIterator" MasterBinding="propsPojoIterator" Binds="qualification" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsQualificationPojo"/>
+    <accessorIterator id="propsQnrAnswersValPojoIterator" MasterBinding="PropsDCIterator" Binds="propsQnrAnswersValPojo"
+                      RangeSize="-1" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsQnrAnswersValPojo"/>
+    <accessorIterator id="qualifyQuestionnaireListIterator" MasterBinding="qualificationIterator"
+                      Binds="qualifyQuestionnaireList" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire"/>
+    <accessorIterator MasterBinding="propsLOVIterator" Binds="propsClaimResultLov" RangeSize="-1" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.lov.PropsClaimResultLov"
+                      id="propsClaimResultLovIterator"/>
+    <accessorIterator MasterBinding="propsLOVIterator" Binds="propsClaimCancelReasonLov" RangeSize="-1"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.lov.PropsClaimCancelReasonLov"
+                      id="propsClaimCancelReasonLovIterator"/>
+    <accessorIterator MasterBinding="propsLOVIterator" Binds="propsClaimDenialReasonLov" RangeSize="-1"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.lov.PropsClaimDenialReasonLov"
+                      id="propsClaimDenialReasonLovIterator"/>
+    <accessorIterator MasterBinding="propsLOVIterator" Binds="propsClaimNotReqdReasonLov" RangeSize="-1"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.lov.PropsClaimNotReqdReasonLov"
+                      id="propsClaimNotReqdReasonLovIterator"/>
+    <accessorIterator MasterBinding="propsLOVIterator" Binds="propsReliefTypeLov" RangeSize="-1" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.lov.PropsReliefTypeLov"
+                      id="propsReliefTypeLovIterator"/>
+    <accessorIterator MasterBinding="propsLOVIterator" Binds="propsTransferStatusLov" RangeSize="-1"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.lov.PropsTransferStatusLov"
+                      id="propsTransferStatusLovIterator"/>
+  </executables>
+  <bindings>
+    <list StaticList="false" IterBinding="conclusionIterator" ListIter="propsApprovalTypeLovIterator" id="approvalType">
+      <AttrNames>
+        <Item Value="approvalType"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="legend"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="propsApprovalTypeLovIterator" ListOperMode="navigation" ListIter="propsApprovalTypeLovIterator"
+          id="propsApprovalTypeLov" DTSupportsMRU="false" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="legend"/>
+      </AttrNames>
+    </list>
+    <tree IterBinding="qualifyQuestionnaireListIterator" id="qualifyQuestionnaireList">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire"
+                      Name="qualifyQuestionnaireList0">
+        <AttrNames>
+          <Item Value="question"/>
+          <Item Value="answer"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list StaticList="false" IterBinding="qualifyQuestionnaireListIterator" ListIter="propsQnrAnswersValPojoIterator"
+          id="answer">
+      <AttrNames>
+        <Item Value="answer"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="key"/>
+      </ListDisplayAttrNames>
+    </list>
+    <methodAction id="upsertProps" RequiresUpdateModel="true" Action="invokeMethod" MethodName="upsertProps"
+                  IsViewObjectMethod="false" DataControl="PropsDC"
+                  InstanceName="bindings.upsertProps.dataControl.dataProvider">
+      <NamedData NDName="p0" NDType="java.lang.Integer"/>
+    </methodAction>
+    <list IterBinding="propsQnrAnswersValPojoIterator" ListOperMode="navigation"
+          ListIter="propsQnrAnswersValPojoIterator" id="propsQnrAnswersValPojo" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="key"/>
+      </AttrNames>
+    </list>
+    <attributeValues IterBinding="conclusionIterator" id="impFBV">
+      <AttrNames>
+        <Item Value="impFBV"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="landFBV">
+      <AttrNames>
+        <Item Value="landFBV"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="totalFBV">
+      <AttrNames>
+        <Item Value="totalFBV"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="propsClaimResultLovIterator" ListOperMode="navigation" ListIter="propsClaimResultLovIterator"
+          id="propsClaimResultLov" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="legend"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="propsClaimCancelReasonLovIterator" ListOperMode="navigation"
+          ListIter="propsClaimCancelReasonLovIterator" id="propsClaimCancelReasonLov" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="legend"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="propsClaimDenialReasonLovIterator" ListOperMode="navigation"
+          ListIter="propsClaimDenialReasonLovIterator" id="propsClaimDenialReasonLov" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="legend"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="propsClaimNotReqdReasonLovIterator" ListOperMode="navigation"
+          ListIter="propsClaimNotReqdReasonLovIterator" id="propsClaimNotReqdReasonLov" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="legend"/>
+      </AttrNames>
+    </list>
+    <list StaticList="false" IterBinding="conclusionIterator" ListIter="propsClaimResultLovIterator" id="claimResult">
+      <AttrNames>
+        <Item Value="claimResult"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="legend"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="conclusionIterator" ListIter="propsClaimCancelReasonLovIterator" id="reason">
+      <AttrNames>
+        <Item Value="reason"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="legend"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="conclusionIterator" ListIter="propsClaimNotReqdReasonLovIterator"
+          id="reason1">
+      <AttrNames>
+        <Item Value="reason"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="legend"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="conclusionIterator" ListIter="propsClaimDenialReasonLovIterator" id="reason2">
+      <AttrNames>
+        <Item Value="reason"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="legend"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="conclusionIterator" id="partialInterestApproved">
+      <AttrNames>
+        <Item Value="partialInterestApproved"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="transferDate">
+      <AttrNames>
+        <Item Value="transferDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="reliefDate">
+      <AttrNames>
+        <Item Value="reliefDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="propsReliefTypeLovIterator" ListOperMode="navigation" ListIter="propsReliefTypeLovIterator"
+          id="propsReliefTypeLov" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="legend"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="propsTransferStatusLovIterator" ListOperMode="navigation"
+          ListIter="propsTransferStatusLovIterator" id="propsTransferStatusLov" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="legend"/>
+      </AttrNames>
+    </list>
+    <list StaticList="false" IterBinding="conclusionIterator" ListIter="propsReliefTypeLovIterator" id="reliefType">
+      <AttrNames>
+        <Item Value="reliefType"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="legend"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="conclusionIterator" ListIter="propsTransferStatusLovIterator"
+          id="transferStatus">
+      <AttrNames>
+        <Item Value="transferStatus"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="legend"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="conclusionIterator" id="exclusionAmount">
+      <AttrNames>
+        <Item Value="exclusionAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="conclusionIterator" id="valuationFlag" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="valuationFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Yes"/>
+        <Item Value="No"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="conclusionIterator" id="valuationInstructions">
+      <AttrNames>
+        <Item Value="valuationInstructions"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

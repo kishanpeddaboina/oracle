@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.2
+Created-By: 1.8.0_101-b13 (Oracle Corporation)
+Weblogic-Application-Version: 2.1.1.0
+Extension-Name: ManageBvm
+Specification-Title: ManageBvm
+Specification-Version: 2.1.1.0
+Implementation-Title: ManageBvm
+Implementation-Version: 2.1.1.0
+Built-By: andrew
+Implementation-Label: 2.1.1.0
+

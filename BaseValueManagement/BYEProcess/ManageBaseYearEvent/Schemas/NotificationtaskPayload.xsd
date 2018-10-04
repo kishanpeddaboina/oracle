@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails">
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails" schemaLocation="../businessCatalog/Data/RetriveBYEDetails.xsd"/>
+   <complexType name="NotificationtaskPayloadType">
+      <sequence>
+         <element ref="ns0:RetriveBYEDetails"/>
+         <element name="errorMsg" type="xsd:string"/>
+         <element name="errorName" type="xsd:string"/>
+         <element name="errorNS" type="xsd:string"/>
+         <element name="instanceId" type="xsd:string"/>
+      </sequence>
+   </complexType>
+</schema>

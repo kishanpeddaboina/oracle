@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Weblogic-Application-Version: R3.2016.05.25
+Extension-Name: AmpAddressManagement
+Specification-Title: AmpAddressManagement
+Specification-Version: 2.1
+Implementation-Title: AmpAddressManagement
+Implementation-Version: 2.1.0.14

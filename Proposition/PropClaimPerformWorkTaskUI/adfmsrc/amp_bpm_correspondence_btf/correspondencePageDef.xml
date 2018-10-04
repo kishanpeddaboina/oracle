@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="correspondencePageDef"
+                Package="amp_bpm_correspondence_btf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="ampcorrespondencesbtf1" taskFlowId="/WEB-INF/btf/amp-correspondences-btf.xml#amp-correspondences-btf"
+            Refresh="ifNeeded"  activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+       <parameter id="propsId" value="#{pageFlowScope.propsId}"/>
+        <parameter id="readOnlyMode" value="#{pageFlowScope.readOnlyMode}"/>
+        <parameter id="category" value="#{pageFlowScope.category}"/>
+        <parameter id="subcategory" value="#{pageFlowScope.subcategory}"/>
+        <parameter id="WorkUnitId" value="#{pageFlowScope.WorkUnitId}"/>
+        <parameter id="viewLinks" value="#{pageFlowScope.viewLinks}"/>
+      </parameters>
+    </taskFlow>
+    <methodIterator Binds="getTaskDetails.result" DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                    RangeSize="25" BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="10"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.task" id="taskIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PropsDC" id="PropsDCIterator"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsPojo" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsPojo" id="propsPojoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="correspondence" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsCorrespondencePojo"
+                      id="correspondenceIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="CorrespondencesDC" id="CorrespondencesDCIterator"/>
+    <accessorIterator id="correspondencesPojoListIterator" MasterBinding="CorrespondencesDCIterator"
+                      Binds="correspondencesPojoList" RangeSize="25" DataControl="CorrespondencesDC"
+                      BeanClass="gov.laca.amp.common.model.correspondences.pojo.CorrespondencesPojo"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="SubmitForCorrespondenceApproval" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SubmitForCorrespondenceApproval" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="SubmitForCorrespondenceRelease" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SubmitForCorrespondenceRelease" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="correspondenceIterator" id="pojoRowId">
+      <AttrNames>
+        <Item Value="pojoRowId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="correspondenceIterator" id="investigatorName">
+      <AttrNames>
+        <Item Value="investigatorName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="correspondenceIterator" id="investigatorPhone">
+      <AttrNames>
+        <Item Value="investigatorPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="correspondenceIterator" id="investigatorLocation">
+      <AttrNames>
+        <Item Value="investigatorLocation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="correspondencesPojoListIterator" id="dispSubFrCorrRel">
+      <AttrNames>
+        <Item Value="dispSubFrCorrRel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="correspondencesPojoListIterator" id="dispSubFrCorrApprv">
+      <AttrNames>
+        <Item Value="dispSubFrCorrApprv"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

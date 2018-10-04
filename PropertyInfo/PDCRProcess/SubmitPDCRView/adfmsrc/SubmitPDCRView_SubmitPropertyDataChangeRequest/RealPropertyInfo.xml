@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="RealPropertyInfo"
+          Package="SubmitPDCRView_SubmitPropertyDataChangeRequest"
+          BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.RealPropertyInfo"
+          isJavaBased="false">
+  <Attribute Name="ain" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="aoid"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Ain"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ain"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="aoid" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="region"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Aoid"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="aoid"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="region" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="cluster"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Region"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="region"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="cluster" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="propertyAddress"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Cluster"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="cluster"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="propertyAddress" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="district"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Property Address"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="propertyAddress"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="district" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="subPartList"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="District"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="district"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="subPartList" IsCollection="true"
+                     BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.subPartList"
+                     CollectionBeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.subPartList_subPartList_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+      <Property Name="nextSibling" Value="composite"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Sub Part List"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="subPartList"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="composite" IsCollection="true"
+                     BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.composite"
+                     CollectionBeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.composite_composite_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+      <Property Name="nextSibling" Value="land"/>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Composite"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="composite"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="land" IsCollection="true"
+                     BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.land"
+                     CollectionBeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.land_land_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Land"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="land"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

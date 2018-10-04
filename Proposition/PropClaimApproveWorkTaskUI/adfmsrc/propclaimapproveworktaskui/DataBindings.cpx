@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="propclaimapproveworktaskui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/PropClaimApproveWorkTask_TaskDetails.jspx"
+          usageId="propclaimapproveworktaskui_PropClaimApproveWorkTask_TaskDetailsPageDef"/>
+    <page path="/PropClaimApproveWorkTask_TaskNotification.jspx"
+          usageId="propclaimapproveworktaskui_PropClaimApproveWorkTask_TaskNotificationPageDef"/>
+    <page path="/WEB-INF/PropClaimApproveWorkTask_TaskFlow.xml#PropClaimApproveWorkTask_TaskFlow@loadData"
+          usageId="propclaimapproveworktaskui_PropClaimApproveWorkTask_TaskFlow_PropClaimApproveWorkTask_TaskFlow_loadDataPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="propclaimapproveworktaskui_PropClaimApproveWorkTask_TaskDetailsPageDef"
+          path="propclaimapproveworktaskui.pageDefs.PropClaimApproveWorkTask_TaskDetailsPageDef"/>
+    <page id="propclaimapproveworktaskui_PropClaimApproveWorkTask_TaskNotificationPageDef"
+          path="propclaimapproveworktaskui.pageDefs.PropClaimApproveWorkTask_TaskNotificationPageDef"/>
+    <page id="propclaimapproveworktaskui_PropClaimApproveWorkTask_TaskFlow_PropClaimApproveWorkTask_TaskFlow_loadDataPageDef"
+          path="propclaimapproveworktaskui.pageDefs.PropClaimApproveWorkTask_TaskFlow_PropClaimApproveWorkTask_TaskFlow_loadDataPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="PropsDC" path="gov.laca.amp.common.model.PropsDC"/>
+    <dc id="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask"
+        path="propclaimapproveworktaskui.PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask"/>
+  </dataControlUsages>
+</Application>

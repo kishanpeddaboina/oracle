@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="AssignPageDef"
+                Package="gov.laca.amp.bvm.view.page">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                    RangeSize="25"
+                    BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.task"
+                      id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.ManageBaseYearEventTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="RetriveBYEDetails"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.RetriveBYEDetailsType"
+                      id="RetriveBYEDetailsIterator"/>
+    <accessorIterator MasterBinding="RetriveBYEDetailsIterator"
+                      Binds="assignmentBox" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.AssignToUserOrGroupBOType"
+                      id="assignmentBoxIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  ReturnName="data.BaseYearEventBPMView_ManageBaseYearEventTask.methodResults.getTaskDetails_BaseYearEventBPMView_ManageBaseYearEventTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="assignmentBoxIterator"
+                     id="assignmentBox_GroupId">
+      <AttrNames>
+        <Item Value="assignmentBox_GroupId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="assignmentBoxIterator"
+                     id="assignmentBox_UserId">
+      <AttrNames>
+        <Item Value="assignmentBox_UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="assignmentBoxIterator" id="userType">
+      <AttrNames>
+        <Item Value="userType"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="BYEDetailsType"
+          Package="BaseYearEventBPMView_ManageBaseYearEventTask"
+          BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BYEDetailsType"
+          isJavaBased="false">
+  <Attribute Name="ain" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="aoid"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Ain"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ain"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="processStatus" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="ecid"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Process Status"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="processStatus"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="dbLockStatus" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="lockedByUserId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Db Lock Status"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="dbLockStatus"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="lockedByUserId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="districtId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Locked By User Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="lockedByUserId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="region" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="regionName"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Region"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="region"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="aoid" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="ainType"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Aoid"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="aoid"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ecid" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="dbLockStatus"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Ecid"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ecid"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="districtId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="districtName"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="District Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="districtId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="districtName" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="region"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="District Name"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="districtName"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="regionName" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="clusterRouteId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Region Name"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="regionName"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="clusterRouteId" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="clusterRoute"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Cluster Route Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="clusterRouteId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="clusterRoute" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="clusterRouteName"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Cluster Route"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="clusterRoute"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="clusterRouteName" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="isDirty"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Cluster Route Name"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="clusterRouteName"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ainType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="reviewRequired"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Ain Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ainType"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="reviewRequired" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="processStatus"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Review Required"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="reviewRequired"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="isDirty" Type="java.lang.Boolean">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="nextSibling" Value="baseYearEventList"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Is Dirty"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="isDirty"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+        <Property Name="type" Value="java.lang.Boolean"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="header" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.responseHeader"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.responseHeader_header_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+      <Property Name="nextSibling" Value="ain"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Header"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="header"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="baseYearEventList" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BaseYearEventList"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BaseYearEventList_baseYearEventList_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Base Year Event List"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="baseYearEventList"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

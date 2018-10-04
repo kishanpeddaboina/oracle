@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14"
+                id="testQualConcl_testQualConcl_loadPropsLOVPageDef" Package="propclaimperformworktaskui.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="loadLOVData" RequiresUpdateModel="true" Action="invokeMethod" MethodName="loadLOVData"
+                  IsViewObjectMethod="false" DataControl="PropsDC"
+                  InstanceName="bindings.loadLOVData.dataControl.dataProvider">
+      <NamedData NDName="p0" NDValue="2900" NDType="java.lang.String"/>
+      <NamedData NDName="p1" NDValue="2433111" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

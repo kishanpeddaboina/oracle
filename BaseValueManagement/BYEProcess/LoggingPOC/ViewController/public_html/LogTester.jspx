@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelGroupLayout layout="scroll" id="pgl1" halign="center"
+                             valign="middle">
+          <af:spacer width="10" height="100" id="s5"/>
+          <af:spacer width="10" height="10" id="s2"/>
+          <af:spacer width="10" height="10" id="s3"/>
+          <af:spacer width="10" height="10" id="s4"/>
+          <af:panelFormLayout id="pfl1" maxColumns="2" rows="2">
+            <f:facet name="footer"/>
+            <af:commandButton text="Test All Log methods" id="cb3"
+                              actionListener="#{LoggingBean.testmyAccountLogger}"
+                              inlineStyle="height:100px; width:500.0px; font-weight:bolder; font-size:xx-large;"
+                              />
+            <af:commandButton text="Test Trace method" id="cb4"
+                              actionListener="#{LoggingBean.testTrace}"
+                              inlineStyle="height:100px; width:500.0px; font-weight:bolder; font-size:xx-large;"/>
+            <af:commandButton text="Test Debug method" id="cb5"
+                              actionListener="#{LoggingBean.testDebug}"
+                              inlineStyle="height:100px; width:500.0px; font-weight:bolder; font-size:xx-large;"/>
+            <af:commandButton text="Test Info method" id="cb6"
+                              actionListener="#{LoggingBean.testInfo}"
+                              inlineStyle="height:100px; width:500.0px; font-weight:bolder; font-size:xx-large;"/>
+            <af:commandButton text="Test Warn method" id="cb7"
+                              actionListener="#{LoggingBean.testWarn}"
+                              inlineStyle="height:100px; width:500.0px; font-weight:bolder; font-size:xx-large;"/>
+            <af:commandButton text="Test Error method" id="cb8"
+                              actionListener="#{LoggingBean.testError}"
+                              inlineStyle="height:100px; width:500.0px; font-weight:bolder; font-size:xx-large;"/>
+            <af:commandButton text="Test Fatal method" id="cb9"
+                              actionListener="#{LoggingBean.testFatal}"
+                              inlineStyle="height:100px; width:500.0px; font-weight:bolder; font-size:xx-large;"/>
+                              
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

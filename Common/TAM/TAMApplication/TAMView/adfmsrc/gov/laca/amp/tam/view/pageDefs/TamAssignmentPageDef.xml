@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="TamAssignmentPageDef"
+                Package="gov.laca.amp.tam.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="searchAINs_ain"
+                IsQueriable="false"/>
+      <variable Type="java.lang.Boolean" Name="searchAINs_isAssigned"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="searchAINs_assignedTo"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="searchAINs_district"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="searchAINs_region"
+                IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="searchAINs_cluster"
+                IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="root" RangeSize="100" DataControl="TAMAssignmentDC"
+              id="TAMAssignmentDCIterator"/>
+    <accessorIterator MasterBinding="TAMAssignmentDCIterator"
+                      Binds="tamAssignmentPojoList" RangeSize="100"
+                      DataControl="TAMAssignmentDC"
+                      BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                      id="tamAssignmentPojoListIterator" CacheResults="true"/>
+    <searchRegion Binds="tamAssignmentPojoListIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="tamAssignmentPojoListQuery"/>
+    <methodIterator Binds="searchAINs.result" DataControl="TAMAssignmentDC"
+                    RangeSize="100"
+                    BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                    id="searchAINsIterator"/>
+    <iterator Binds="root" RangeSize="100" DataControl="TAMAssignedDC"
+              id="TAMAssignedDCIterator"/>
+    <accessorIterator MasterBinding="TAMAssignedDCIterator"
+                      Binds="tamAssigedPojoList" RangeSize="1000"
+                      DataControl="TAMAssignedDC"
+                      BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                      id="tamAssigedPojoListIterator"/>
+    <searchRegion Binds="tamAssigedPojoListIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="tamAssigedPojoListQuery"/>
+    <accessorIterator MasterBinding="TAMAssignmentDCIterator"
+                      Binds="tamSelectedAINsPojoList" RangeSize="100"
+                      DataControl="TAMAssignmentDC"
+                      BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                      id="tamSelectedAINsPojoListIterator"
+                      CacheResults="true"/>
+    <accessorIterator MasterBinding="TAMAssignedDCIterator"
+                      Binds="userDistricts" RangeSize="25"
+                      DataControl="TAMAssignedDC" BeanClass="java.lang.String"
+                      id="userDistrictsIterator"/>
+    <accessorIterator MasterBinding="TAMAssignedDCIterator"
+                      Binds="userDistrictsToInitiate" RangeSize="25"
+                      DataControl="TAMAssignedDC" BeanClass="java.lang.String"
+                      id="userDistrictsToInitiateIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="tamAssignmentPojoListIterator"
+          id="tamAssignmentPojoList">
+      <nodeDefinition DefName="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                      Name="tamAssignmentPojoList0">
+        <AttrNames>
+          <Item Value="selected"/>
+          <Item Value="tamAssignedStatus"/>
+          <Item Value="tamAssignedTo"/>
+          <Item Value="ain"/>
+          <Item Value="districtName"/>
+          <Item Value="region"/>
+          <Item Value="clusterRoute"/>
+          <Item Value="clusterRouteName"/>
+          <Item Value="tamSource"/>
+          <Item Value="byeCount"/>
+          <Item Value="useType"/>
+          <Item Value="useCodeKey"/>
+          <Item Value="tamAssignedToRole"/>
+          <Item Value="tamAssignedByRole"/>
+          <Item Value="tamAssignedBy"/>
+          <Item Value="tamCreatedDateTime"/>
+          <Item Value="tamModifiedDateTime"/>
+          <Item Value="regionRef"/>
+          <Item Value="regionName"/>
+          <Item Value="clusterRouteRef"/>
+          <Item Value="useCodeRef"/>
+          <Item Value="tamId"/>
+          <Item Value="useCodeDescription"/>
+          <Item Value="tamProcessType"/>
+          <Item Value="tamCreatedBy"/>
+          <Item Value="tamModifiedBy"/>
+          <Item Value="aoid"/>
+          <Item Value="isReassignAllowed"/>
+          <Item Value="message"/>
+          <Item Value="tamCreatedDateTimeStr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="variables" id="ain">
+      <AttrNames>
+        <Item Value="searchAINs_ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="isAssigned">
+      <AttrNames>
+        <Item Value="searchAINs_isAssigned"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="assignedTo">
+      <AttrNames>
+        <Item Value="searchAINs_assignedTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="district">
+      <AttrNames>
+        <Item Value="searchAINs_district"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="region">
+      <AttrNames>
+        <Item Value="searchAINs_region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="cluster">
+      <AttrNames>
+        <Item Value="searchAINs_cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="tamAssigedPojoListIterator" id="tamAssigedPojoList">
+      <nodeDefinition DefName="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                      Name="tamAssigedPojoList0">
+        <AttrNames>
+          <Item Value="selected"/>
+          <Item Value="tamAssignedStatus"/>
+          <Item Value="tamAssignedTo"/>
+          <Item Value="tamAssignedBy"/>
+          <Item Value="ain"/>
+          <Item Value="aoid"/>
+          <Item Value="districtName"/>
+          <Item Value="region"/>
+          <Item Value="regionName"/>
+          <Item Value="clusterRoute"/>
+          <Item Value="clusterRouteName"/>
+          <Item Value="tamSource"/>
+          <Item Value="byeCount"/>
+          <Item Value="useType"/>
+          <Item Value="useCodeKey"/>
+          <Item Value="tamProcessType"/>
+          <Item Value="tamAssignedToRole"/>
+          <Item Value="tamAssignedByRole"/>
+          <Item Value="tamCreatedDateTime"/>
+          <Item Value="tamModifiedDateTime"/>
+          <Item Value="regionRef"/>
+          <Item Value="useCodeRef"/>
+          <Item Value="useCodeDescription"/>
+          <Item Value="clusterRouteRef"/>
+          <Item Value="tamId"/>
+          <Item Value="tamCreatedBy"/>
+          <Item Value="tamModifiedBy"/>
+          <Item Value="tamCreatedDateTimeStr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="TAMAssignedDCIterator" id="userHighestRole">
+      <AttrNames>
+        <Item Value="userHighestRole"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="assignAINsToUser" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="assignAINsToUser"
+                  IsViewObjectMethod="false" DataControl="TAMAssignmentDC"
+                  InstanceName="TAMAssignmentDC.dataProvider">
+      <NamedData NDName="assignmentStatus" NDValue="${'ASSIGNED'}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="assignedTo"
+                 NDValue="#{viewScope.tamAssignmentManagedBean.assignedTo}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="assignedToRole" NDValue="#{viewScope.tamAssignmentManagedBean.assigneeRole}" NDType="java.lang.String"/>
+      <NamedData NDName="assignedBy" NDValue="#{bindings.loggedInUserId}-#{bindings.loggedInUserDisplayName}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="assignedByRole" NDValue="#{bindings.userHighestRole}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="district" NDValue="#{bindings.district}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="reassignAINsToUser" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="reassignAINsToUser"
+                  IsViewObjectMethod="false" DataControl="TAMAssignmentDC"
+                  InstanceName="TAMAssignmentDC.dataProvider">
+      <NamedData NDName="assignmentStatus" NDValue="${'ASSIGNED'}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="assignedTo"
+                 NDValue="#{viewScope.tamAssignmentManagedBean.assignedTo}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="assignedToRole" NDType="java.lang.String" NDValue="#{viewScope.tamAssignmentManagedBean.assigneeRole}"/>
+      <NamedData NDName="assignedBy" NDValue="#{bindings.loggedInUserId}-#{bindings.loggedInUserDisplayName}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="assignedByRole" NDValue="#{bindings.userHighestRole}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="district" NDValue="#{bindings.district}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="unassignAINsToUser" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="unassignAINsToUser"
+                  IsViewObjectMethod="false" DataControl="TAMAssignmentDC"
+                  InstanceName="TAMAssignmentDC.dataProvider">
+      <NamedData NDName="assignmentStatus" NDValue="${'ASSIGNED'}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="assignedTo" NDValue="${'111'}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="assignedToRole" NDValue="#{viewScope.tamAssignmentManagedBean.assigneeRole}" NDType="java.lang.String"/>
+      <NamedData NDName="assignedBy" NDValue="#{bindings.loggedInUserId}-#{bindings.loggedInUserDisplayName}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="assignedByRole" NDValue="#{bindings.userHighestRole}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="district" NDValue="#{bindings.district}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="tamSelectedAINsPojoListIterator"
+          id="tamSelectedAINsPojoList">
+      <nodeDefinition DefName="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                      Name="tamSelectedAINsPojoList0">
+        <AttrNames>
+          <Item Value="aoid"/>
+          <Item Value="ain"/>
+          <Item Value="useType"/>
+          <Item Value="useCodeKey"/>
+          <Item Value="region"/>
+          <Item Value="regionName"/>
+          <Item Value="districtName"/>
+          <Item Value="clusterRoute"/>
+          <Item Value="clusterRouteName"/>
+          <Item Value="tamProcessType"/>
+          <Item Value="tamAssignedStatus"/>
+          <Item Value="tamAssignedTo"/>
+          <Item Value="tamAssignedToRole"/>
+          <Item Value="tamAssignedBy"/>
+          <Item Value="tamAssignedByRole"/>
+          <Item Value="tamSource"/>
+          <Item Value="tamCreatedBy"/>
+          <Item Value="tamCreatedDateTime"/>
+          <Item Value="tamModifiedBy"/>
+          <Item Value="tamModifiedDateTime"/>
+          <Item Value="byeCount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="selectAINs" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="selectAINs"
+                  IsViewObjectMethod="false" DataControl="TAMAssignmentDC"
+                  InstanceName="TAMAssignmentDC.dataProvider"/>
+    <methodAction id="nextSearchAINs" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="nextSearchAINs"
+                  IsViewObjectMethod="false" DataControl="TAMAssignmentDC"
+                  InstanceName="TAMAssignmentDC.dataProvider"
+                  ReturnName="data.TAMAssignmentDC.methodResults.nextSearchAINs_TAMAssignmentDC_dataProvider_nextSearchAINs_result"/>
+    <attributeValues IterBinding="TAMAssignmentDCIterator"
+                     id="currentBatchNumber">
+      <AttrNames>
+        <Item Value="currentBatchNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="previousSearchAINs" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="previousSearchAINs"
+                  IsViewObjectMethod="false" DataControl="TAMAssignmentDC"
+                  InstanceName="TAMAssignmentDC.dataProvider"
+                  ReturnName="data.TAMAssignmentDC.methodResults.previousSearchAINs_TAMAssignmentDC_dataProvider_previousSearchAINs_result"/>
+    <attributeValues IterBinding="TAMAssignedDCIterator" id="loggedInUserId">
+      <AttrNames>
+        <Item Value="loggedInUserId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="getDistrictsByUserId" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getDistrictsByUserId"
+                  IsViewObjectMethod="false" DataControl="TAMAssignmentDC"
+                  InstanceName="TAMAssignmentDC.dataProvider"
+                  ReturnName="data.TAMAssignmentDC.methodResults.getDistrictsByUserId_TAMAssignmentDC_dataProvider_getDistrictsByUserId_result">
+      <NamedData NDName="userId" NDValue="#{bindings.loggedInUserId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="searchAINs" InstanceName="TAMAssignmentDC.dataProvider"
+                  DataControl="TAMAssignmentDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="searchAINs"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.TAMAssignmentDC.methodResults.searchAINs_TAMAssignmentDC_dataProvider_searchAINs_result">
+      <NamedData NDName="ain" NDValue="#{bindings.searchAINs_ain}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="isAssigned" NDValue="#{bindings.searchAINs_isAssigned}"
+                 NDType="java.lang.Boolean"/>
+      <NamedData NDName="assignedTo" NDValue="#{bindings.searchAINs_assignedTo}"
+                 NDType="java.lang.String"/>
+   <NamedData NDName="assignedToRole"
+              NDValue="#{viewScope.tamAssignmentManagedBean.searchRole}"
+                 NDType="java.lang.String"/>                 
+      <NamedData NDName="district" NDValue="#{bindings.searchAINs_district}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="region" NDValue="#{bindings.searchAINs_region}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="cluster" NDValue="#{bindings.searchAINs_cluster}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="loggedInUserId" NDValue="#{bindings.loggedInUserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="highestRole" NDValue="#{bindings.userHighestRole}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="TAMAssignmentDCIterator" id="hasMoreRows">
+      <AttrNames>
+        <Item Value="hasMoreRows"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="selectAllRows" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="selectAllRows"
+                  IsViewObjectMethod="false" DataControl="TAMAssignmentDC"
+                  InstanceName="TAMAssignmentDC.dataProvider"/>
+    <methodAction id="deSelectAllRows" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="deSelectAllRows"
+                  IsViewObjectMethod="false" DataControl="TAMAssignmentDC"
+                  InstanceName="TAMAssignmentDC.dataProvider"/>
+    <attributeValues IterBinding="TAMAssignmentDCIterator"
+                     id="totalAssignedCount">
+      <AttrNames>
+        <Item Value="totalAssignedCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TAMAssignedDCIterator"
+                     id="loggedInUserDisplayName">
+      <AttrNames>
+        <Item Value="loggedInUserDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="userDistrictsIterator" ListOperMode="navigation"
+          ListIter="userDistrictsIterator" id="userDistricts"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="element"/>
+      </AttrNames>
+    </list>
+   <!-- <methodAction id="getUsersListByRole"
+                  InstanceName="TAMAssignmentDC.dataProvider"
+                  DataControl="TAMAssignmentDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getUsersListByRole"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.TAMAssignmentDC.methodResults.getUsersListByRole_TAMAssignmentDC_dataProvider_getUsersListByRole_result">
+      <NamedData NDName="district" NDType="java.lang.String"/>
+      <NamedData NDName="role" NDType="java.lang.String"/>
+      <NamedData NDName="loggedInUserId" NDType="java.lang.String"/>
+    </methodAction>
+    -->
+    <methodAction id="getUsersListByRole"
+                  InstanceName="TAMAssignmentDC.dataProvider"
+                  DataControl="TAMAssignmentDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getUsersListByRole"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.TAMAssignmentDC.methodResults.getUsersListByRole_TAMAssignmentDC_dataProvider_getUsersListByRole_result">
+      <NamedData NDName="district" NDType="java.lang.String"/>
+      <NamedData NDName="role" NDType="java.lang.String"/>
+      <NamedData NDName="loggedInUserId" NDType="java.lang.String"/>
+      <NamedData NDName="userName" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getRegionsByDistrict"
+                  InstanceName="TAMAssignmentDC.dataProvider"
+                  DataControl="TAMAssignmentDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getRegionsByDistrict"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.TAMAssignmentDC.methodResults.getRegionsByDistrict_TAMAssignmentDC_dataProvider_getRegionsByDistrict_result">
+      <NamedData NDName="district" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="verifyBaseYearEvents"
+                  InstanceName="TAMAssignedDC.dataProvider"
+                  DataControl="TAMAssignedDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="verifyBaseYearEvents"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.TAMAssignedDC.methodResults.verifyBaseYearEvents_TAMAssignedDC_dataProvider_verifyBaseYearEvents_result">
+      <NamedData NDName="tamId" NDType="java.math.BigInteger"/>
+      <NamedData NDName="district" NDType="java.lang.String"/>
+      <NamedData NDName="ain" NDType="java.lang.String"/>
+      <NamedData NDName="assignedToId" NDType="java.lang.String"/>
+      <NamedData NDName="assignedById" NDType="java.lang.String"/>
+      <NamedData NDName="processType" NDType="java.lang.String"/>
+      <NamedData NDName="source" NDType="java.lang.String"/>
+    </methodAction>
+    <list IterBinding="userDistrictsToInitiateIterator"
+          ListOperMode="navigation" ListIter="userDistrictsToInitiateIterator"
+          id="userDistrictsToInitiate" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="element"/>
+      </AttrNames>
+    </list>
+    <methodAction id="retrieveAssignedAINs"
+                  InstanceName="TAMAssignedDC.dataProvider"
+                  DataControl="TAMAssignedDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="retrieveAssignedAINs"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.TAMAssignedDC.methodResults.retrieveAssignedAINs_TAMAssignedDC_dataProvider_retrieveAssignedAINs_result">
+      <NamedData NDName="assignedTo" NDType="java.lang.String"/>
+      <NamedData NDName="district" NDType="java.lang.String"/>
+      <NamedData NDName="region" NDType="java.lang.String"/>
+      <NamedData NDName="cluster" NDType="java.lang.String"/>
+      <NamedData NDName="batchNumber" NDType="java.lang.Integer"/>
+    </methodAction>
+    <attributeValues IterBinding="TAMAssignedDCIterator"
+                     id="totalInitiatableAssignedCount">
+      <AttrNames>
+        <Item Value="totalInitiatableAssignedCount"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

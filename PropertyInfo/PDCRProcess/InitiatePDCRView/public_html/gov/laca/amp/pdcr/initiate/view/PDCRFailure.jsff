@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="pdcrviewBundle"
+         value="#{adfBundle['gov.laca.amp.pdcr.common.view.PDCRCommonViewBundle']}"/>
+  <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+    <af:spacer id="s2" width="10" height="30"/>
+    <af:outputText id="ot1" value="#{pdcrviewBundle.PDCR_FAILURE_MESSAGE}"/>
+    <af:spacer id="s1" width="10" height="10"/>
+    <af:panelGroupLayout id="pgl2" halign="center" layout="horizontal">
+      <af:commandButton id="cb1"
+                        rendered="#{!pageFlowScope.PDCRBean.isExternalUser}"
+                        text="#{pdcrviewBundle.RETURN_PROP_DETAILS_BUTTON_LABEL}"
+                        actionListener="#{pageFlowScope.PDCRBean.ReturnFromPDCR}"/>
+      <af:spacer id="s3" rendered="#{!pageFlowScope.PDCRBean.isExternalUser}"
+                 width="10" height="10"/>
+      <af:commandButton id="cb2"
+                        text="#{pdcrviewBundle.RETURN_HOME_BUTTON_LABEL}"
+                        actionListener="#{pageFlowScope.PDCRBean.ReturnToAMPHome}"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="PopupCommonHeaderPageDef"
+                Package="gov.laca.amp.pdcr.review.view.jsff">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ChangeRequestDC"
+              id="ChangeRequestDCIterator"/>
+    <accessorIterator MasterBinding="ChangeRequestDCIterator"
+                      Binds="originalRPI" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO"
+                      id="originalRPIIterator"/>
+    <accessorIterator MasterBinding="originalRPIIterator" Binds="land"
+                      RangeSize="25" DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.Land"
+                      id="landIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="ainDisplay">
+      <AttrNames>
+        <Item Value="ainDisplay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="cluster">
+      <AttrNames>
+        <Item Value="cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="region">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="useType">
+      <AttrNames>
+        <Item Value="useType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="useCode">
+      <AttrNames>
+        <Item Value="useCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="propertyAddress">
+      <AttrNames>
+        <Item Value="propertyAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="district">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

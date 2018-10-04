@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://assessor.lacounty.gov/amp/data/bvm/FactoredBaseYearValue/v1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://assessor.lacounty.gov/amp/data/bvm/FactoredBaseYearValue/v1.0" xmlns:inp1="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0" xmlns:inp2="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0" xmlns:inp3="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0">
+  <xsd:import schemaLocation="RequestHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0"/>
+  <xsd:import schemaLocation="ResponseHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+  <xsd:import schemaLocation="BaseYearEvent.xsd" namespace="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+  <xsd:annotation>
+    <xsd:documentation>This schema defines request and response payload
+                         structures for FactoredBaseYearValue operation of
+                         BaseYearEventRulesService SOA Service.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element name="factoredBaseYearValueRequest">
+    <xsd:annotation>
+      <xsd:documentation>This defines the request payload structure for
+                            FactoredBaseYearValue operation of
+                            BaseYearEventRulesService SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp1:requestHeader" minOccurs="1" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="baseYearEventList" type="tns:BaseYearEventList" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>list of Base Year events matching the input
+                                     criterion</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="factoredBaseYearValueResponse">
+    <xsd:annotation>
+      <xsd:documentation>This defines the response payload structure for
+                            FactoredBaseYearValue SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp2:responseHeader" maxOccurs="1" minOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Response Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="prop13ImprovementValue" type="xsd:integer">
+          <xsd:annotation>
+            <xsd:documentation>Base value of improvements.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="prop13LandImprovementSum" type="xsd:integer">
+          <xsd:annotation>
+            <xsd:documentation>land Improvement Sum</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="prop13LandValue" type="xsd:double" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Base value of the land.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="errorBYEId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="errorMessage" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="errorReqId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="BaseYearEventList">
+    <xsd:sequence>
+      <xsd:element name="baseYearEvent" type="inp3:baseYearEvent" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

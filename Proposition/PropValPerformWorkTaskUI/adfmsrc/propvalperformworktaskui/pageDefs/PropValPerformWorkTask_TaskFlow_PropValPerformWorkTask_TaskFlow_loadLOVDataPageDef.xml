@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_loadLOVDataPageDef"
+                Package="propvalperformworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <methodIterator Binds="getTaskDetails.result" DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                    RangeSize="25" BeanClass="PropValPerformWorkTaskUI_PropValPerformWorkTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                      BeanClass="PropValPerformWorkTaskUI_PropValPerformWorkTask.task" id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                      BeanClass="PropValPerformWorkTaskUI_PropValPerformWorkTask.PropValPerformWorkTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="AMPWorkTask" RangeSize="10"
+                      DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                      BeanClass="PropValPerformWorkTaskUI_PropValPerformWorkTask.AMPWorkTask" id="AMPWorkTaskIterator"/>
+    <accessorIterator MasterBinding="AMPWorkTaskIterator" Binds="PropertyIdentificationList" RangeSize="25"
+                      DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                      BeanClass="PropValPerformWorkTaskUI_PropValPerformWorkTask.PropertyIdentificationList"
+                      id="PropertyIdentificationListIterator"/>
+    <accessorIterator id="PropertyIdentificationIterator" MasterBinding="PropertyIdentificationListIterator"
+                      Binds="PropertyIdentification" RangeSize="25"
+                      DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                      BeanClass="PropValPerformWorkTaskUI_PropValPerformWorkTask.PropertyIdentificationType"/>
+  </executables>
+  <bindings>
+    <methodAction id="loadLOVData" RequiresUpdateModel="true" Action="invokeMethod" MethodName="loadLOVData"
+                  IsViewObjectMethod="false" DataControl="PropsDC"
+                  InstanceName="bindings.loadLOVData.dataControl.dataProvider">
+      <NamedData NDName="p0" NDValue="#{bindings.WorkUnitId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="p1" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.PropValPerformWorkTaskUI_PropValPerformWorkTask.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="WorkUnitId">
+      <AttrNames>
+        <Item Value="WorkUnitId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PropertyIdentificationIterator" id="AIN">
+      <AttrNames>
+        <Item Value="AIN"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-create-change-request-btf">
+    <template-reference>
+      <document id="__1">/WEB-INF/tftemplates/ampportal-task-flow-template.xml</document>
+      <id id="__2">ampportal-task-flow-template</id>
+    </template-reference>
+    <default-activity id="__3">retrieveRealPropertyInfo</default-activity>
+    <data-control-scope id="__56">
+      <isolated/>
+    </data-control-scope>
+    <managed-bean id="__39">
+      <managed-bean-name id="__38">PDCRBean</managed-bean-name>
+      <managed-bean-class id="__36">gov.laca.amp.pdcr.common.view.bean.PDCRBean</managed-bean-class>
+      <managed-bean-scope id="__37">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <initializer id="__11">#{pageFlowScope.PDCRBean.getUserInformation}</initializer>
+    <view id="CreatePDCR">
+      <page>/gov/laca/amp/pdcr/initiate/view/amp-create-change-request-btf/CreateChangeRequest.jsff</page>
+    </view>
+    <method-call id="retrieveRealPropertyInfo">
+      <method>#{bindings.RetrieveRealPropertyInfo.execute}</method>
+      <outcome id="__17">
+        <fixed-outcome>next</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="PDCRConfirmation">
+      <page>/gov/laca/amp/pdcr/initiate/view/PDCRConfirmation.jsff</page>
+    </view>
+    <view id="PDCRFailure">
+      <page>/gov/laca/amp/pdcr/initiate/view/PDCRFailure.jsff</page>
+    </view>
+    <task-flow-call id="FindAIN">
+      <task-flow-reference>
+        <document>/WEB-INF/gov/laca/amp/pdcr/initiate/view/FindAIN.xml</document>
+        <id>FindAIN</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type id="__4">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__57">
+      <from-activity-id id="__58">retrieveRealPropertyInfo</from-activity-id>
+      <control-flow-case id="__60">
+        <from-outcome id="__61">next</from-outcome>
+        <to-activity-id id="__59">CreatePDCR</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__73">
+      <from-activity-id id="__74">CreatePDCR</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">findAIN</from-outcome>
+        <to-activity-id id="__6">FindAIN</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome id="__9">notSubmitted</from-outcome>
+        <to-activity-id id="__10">PDCRFailure</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome id="__13">submitted</from-outcome>
+        <to-activity-id id="__14">PDCRConfirmation</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

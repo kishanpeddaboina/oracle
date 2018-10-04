@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-bpm-correspondence-btf">
+    <default-activity>correspondence</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__3">
+      <name>propsId</name>
+      <value>#{pageFlowScope.propsId}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__4">
+      <name>readOnlyMode</name>
+      <value>#{pageFlowScope.readOnlyMode}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__5">
+      <name>category</name>
+      <value>#{pageFlowScope.category}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__6">
+      <name>subcategory</name>
+      <value>#{pageFlowScope.subcategory}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__7">
+      <name>WorkUnitId</name>
+      <value>#{pageFlowScope.WorkUnitId}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__8">
+      <name>viewLinks</name>
+      <value>#{pageFlowScope.viewLinks}</value>
+    </input-parameter-definition>
+    <managed-bean id="__9">
+      <managed-bean-name>CorrespondenceBPMBean</managed-bean-name>
+      <managed-bean-class>gov.laca.amp.modules.correspondence.backing.CorrespondenceBPMBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="correspondence">
+      <page>/amp-bpm-correspondence-btf/correspondence.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__1">
+      <from-activity-id>correspondence</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

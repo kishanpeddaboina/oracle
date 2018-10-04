@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="CompositeDO" Package="gov.laca.amp.pdcr.common.model.data"
+          BeanClass="gov.laca.amp.pdcr.common.model.data.CompositeDO"
+          isJavaBased="true">
+  <Attribute Name="dbUniqueId" Type="java.lang.String"/>
+  <Attribute Name="ain" Type="java.lang.String"/>
+  <Attribute Name="aoid" Type="java.math.BigInteger"/>
+  <Attribute Name="transactionType" Type="java.lang.String"/>
+  <Attribute Name="sqft" Type="java.lang.Double"/>
+  <Attribute Name="sqftUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="sqftFinal" Type="java.lang.Double"/>
+  <Attribute Name="transactionTypeFinal" Type="java.lang.String"/>
+  <Attribute Name="transactionTypeUserEntered" Type="java.lang.String"/>
+  <Attribute Name="dbUniqueIdUserEntered" Type="java.lang.String"/>
+  <Attribute Name="dbUniqueIdFinal" Type="java.lang.String"/>
+  <Attribute Name="pojoRowId" Type="long"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.pdcr.common.model.data.CompositeDO"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.CompositeDO"
+                     id="CompositeDO"/>
+</JavaBean>

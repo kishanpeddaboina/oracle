@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="11.1.1.66.73" id="DataControls"
+                    Package="gov.laca.amp.pdcr.common.model">
+  <AdapterDataControl id="ChangeRequestDC"
+                      FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="gov.laca.amp.pdcr.common.model.dc.ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.dc.ChangeRequestDC"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.SubPartList.SubPart"/>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.SubPartList"/>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.Composite"/>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.Land"/>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO"/>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.data.RequestorInfoDO"/>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.data.CompositeDO"/>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.data.LandDO"/>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.data.SubPartDO"/>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.dc.ChangeRequestDC"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="gov.laca.amp.pdcr.common.model.dc.ChangeRequestDC"
+                       xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="PDCREventHandler"
+                      FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="gov.laca.amp.pdcr.common.model.dc.PDCREventHandler"
+                      BeanClass="gov.laca.amp.pdcr.common.model.dc.PDCREventHandler"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="gov.laca.amp.pdcr.common.model.dc.PDCREventHandler"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="gov.laca.amp.pdcr.common.model.dc.PDCREventHandler"
+                       xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

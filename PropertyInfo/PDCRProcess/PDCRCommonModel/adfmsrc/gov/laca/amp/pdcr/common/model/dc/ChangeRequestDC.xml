@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="ChangeRequestDC" Package="gov.laca.amp.pdcr.common.model.dc"
+          BeanClass="gov.laca.amp.pdcr.common.model.dc.ChangeRequestDC"
+          isJavaBased="true">
+  <Attribute Name="subPartCount" Type="java.lang.Integer"/>
+  <Attribute Name="transactionType" Type="java.lang.String"/>
+  <Attribute Name="ain" Type="java.lang.String"/>
+  <Attribute Name="actionType" Type="java.lang.String"/>
+  <Attribute Name="transactionMessage" Type="java.lang.String"/>
+  <Attribute Name="isPDCRInitiated" Type="java.lang.Boolean"/>
+  <Attribute Name="isRetrieveSuccess" Type="java.lang.Boolean"/>
+  <Attribute Name="sourceType" Type="java.lang.String"/>
+  <Attribute Name="isPDCREmpty" Type="java.lang.Boolean"/>
+  <Attribute Name="originalSubPartCount" Type="java.lang.Integer"/>
+  <Attribute Name="aoid" Type="java.math.BigInteger"/>
+  <Attribute Name="ainDisplay" Type="java.lang.String"/>
+  <Attribute Name="useTypeIcon" Type="java.lang.String"/>
+  <Attribute Name="pdcrBundle" IsUpdateable="0"
+             Type="java.util.ResourceBundle"/>
+  <Attribute Name="isValidDistrict" Type="java.lang.Boolean"/>
+  <Attribute Name="dataSource" Type="java.lang.String"/>
+  <Attribute Name="isShowDisaplyMessage" Type="java.lang.Boolean"/>
+  <Attribute Name="isInitiateSuccess" Type="java.lang.Boolean"/>
+  <Attribute Name="isNoLand" Type="java.lang.Boolean"/>
+  <AccessorAttribute id="originalRPI" IsCollection="false"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="userEnteredRPI" IsCollection="false"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="requestorInfoDO" IsCollection="false"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.RequestorInfoDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="compositeDO" IsCollection="false"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.CompositeDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="landDO" IsCollection="false"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.LandDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="subPartListDO" IsCollection="true"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.SubPartDO"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="finalRPI" IsCollection="false"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="tempCompositeDO" IsCollection="false"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.CompositeDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="tempLandDO" IsCollection="false"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.LandDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="tempSubPartDO" IsCollection="false"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.SubPartDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <MethodAccessor IsCollection="false" Type="java.lang.Boolean" id="CheckLock"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="PopulateRequestorInfo"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="requestorName" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="email" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="phone" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="AddSubPart"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="DeleteSubPart"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="subPartID" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="CancelSubPart"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="AddComposite"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="EditComposite"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="compositeID" Type="java.lang.String"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="DeleteComposite"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="compositeID" Type="java.lang.String"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="CancelComposite"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="AddLand"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="EditLand"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="landID" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="CancelLand"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="CancelTrasaction"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="ReviewSubPart"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="subPartID" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Boolean"
+                  id="InitiatePropertyDataCR" ReturnNodeName="Return">
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="userID" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="userType" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="sourceType" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="dataSource" Type="java.lang.String"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="RetrieveRealPropertyInfo"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="dataSource" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="sourceType" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="isExternalUser" Type="java.lang.Boolean"
+                   isStructured="false"/>
+    <ParameterInfo id="isClericalUser" Type="java.lang.Boolean"
+                   isStructured="false"/>
+    <ParameterInfo id="isCheckLock" Type="java.lang.Boolean"
+                   isStructured="false"/>
+    <ParameterInfo id="userGroups" Type="java.lang.String"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Boolean"
+                  id="ValidateDuplicateSubPart" ReturnNodeName="Return">
+    <ParameterInfo id="subPartId" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="subPartNumber" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="rpiType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="EditSubPart"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="subPartID" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="rpiType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="SaveSubPart"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="rpiType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="SaveComposite" ReturnNodeName="Return">
+    <ParameterInfo id="rpiType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="SaveLand"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="rpiType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.pdcr.common.model.dc.ChangeRequestDC"
+                     BeanClass="gov.laca.amp.pdcr.common.model.dc.ChangeRequestDC"
+                     id="ChangeRequestDC"/>
+</JavaBean>

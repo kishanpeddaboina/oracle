@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-bpm-correspondence-btf">
+    <default-activity>correspondence</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__2">
+      <name>propsId</name>
+      <value>#{pageFlowScope.propsId}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__3">
+      <name>readOnlyMode</name>
+      <value>#{pageFlowScope.readOnlyMode}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__4">
+      <name>category</name>
+      <value>#{pageFlowScope.category}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__5">
+      <name>subcategory</name>
+      <value>#{pageFlowScope.subcategory}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__6">
+      <name>WorkUnitId</name>
+      <value>#{pageFlowScope.WorkUnitId}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__9">
+      <name>showSubFrCorrApprv</name>
+      <value>#{pageFlowScope.showSubFrCorrApprv}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__10">
+      <name>showSubFrCorrRel</name>
+      <value>#{pageFlowScope.showSubFrCorrRel}</value>
+    </input-parameter-definition>
+    <managed-bean id="__1">
+      <managed-bean-name>RefreshParentComponentBean</managed-bean-name>
+      <managed-bean-class>gov.laca.amp.common.view.backing.bean.RefreshParentComponentBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="correspondence">
+      <page>/amp-bpm-correspondence-btf/correspondence.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__7">
+      <from-activity-id>correspondence</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

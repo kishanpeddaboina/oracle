@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View3">
+      <property
+         name="activityId">reviewProposition</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">541.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>reviewProposition&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">157.49414</property>
+      <property
+         name="page">/review-proposition-btf/reviewProposition.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">loadProposition</property>
+      <property
+         name="x">189.0</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>loadProposition&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">176.44238</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall3"
+      to="View3">
+      <property
+         name="fromOutcome">loadProp</property>
+      <property
+         name="sdm:polyPoints">R50,230.0,176.0918,500.0,157.14355,L50</property>
+   </ControlFlowCase>
+</SDM>

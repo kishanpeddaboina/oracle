@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-initiate-base-year-event-btf">
+<!--    <template-reference>
+      <document id="__1">/WEB-INF/tftemplates/ampportal-task-flow-template.xml</document>
+      <id id="__2">ampportal-task-flow-template</id>
+    </template-reference>
+-->
+    <default-activity id="__54">InitiateBaseYearEvent</default-activity>
+    <input-parameter-definition id="__40">
+      <name id="__41">withdrawAvailable</name>
+      <value>#{pageFlowScope.withdrawAvailable}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <managed-bean id="__23">
+      <managed-bean-name id="__22">filterMB</managed-bean-name>
+      <managed-bean-class id="__21">gov.laca.amp.bvm.view.bean.FilterBean</managed-bean-class>
+      <managed-bean-scope id="__20">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__3">
+      <managed-bean-name id="__2">bvmActionsBean</managed-bean-name>
+      <managed-bean-class id="__5">gov.laca.amp.bvm.view.bean.BVMActionsBean</managed-bean-class>
+      <managed-bean-scope id="__4">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__13">
+      <managed-bean-name id="__14">authorizationBean</managed-bean-name>
+      <managed-bean-class id="__15">gov.laca.amp.bvm.view.bean.AuthorizationBean</managed-bean-class>
+      <managed-bean-scope id="__12">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__17">
+      <managed-bean-name id="__16">bvmTaskDetailsBean</managed-bean-name>
+      <managed-bean-class id="__19">gov.laca.amp.bvm.view.bean.BVMTaskDetailsBean</managed-bean-class>
+      <managed-bean-scope id="__18">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__30">
+      <managed-bean-name id="__29">historicalPopupTaskflowHandler</managed-bean-name>
+      <managed-bean-class id="__28">gov.laca.amp.bvm.view.bean.HistoricalPopupTaskflowHandler</managed-bean-class>
+      <managed-bean-scope id="__31">view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__35">
+      <managed-bean-name id="__32">currentPopupTaskflowHandler</managed-bean-name>
+      <managed-bean-class id="__33">gov.laca.amp.bvm.view.bean.CurrentPopupTaskflowHandler</managed-bean-class>
+      <managed-bean-scope id="__34">view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__25">
+      <managed-bean-name id="__26">lienRollYearOptionsBean</managed-bean-name>
+      <managed-bean-class id="__27">gov.laca.amp.bvm.view.bean.LienRollYearOptions</managed-bean-class>
+      <managed-bean-scope id="__24">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__36">
+      <managed-bean-name id="__38">btvCalculatorHandlerBean</managed-bean-name>
+      <managed-bean-class id="__39">gov.laca.amp.bvm.view.bean.BTVCalculatorHandler</managed-bean-class>
+      <managed-bean-scope id="__37">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="InitiateBaseYearEvent">
+      <page>/gov/laca/amp/bvm/view/amp-initiate-base-year-event-btf/BaseYearEventsTaskDetails.jsff</page>
+    </view>
+    <task-flow-return id="Return">
+      <outcome id="__6">
+        <name>Return</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">InitiateBaseYearEvent</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__11">return</from-outcome>
+        <to-activity-id id="__10">Return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

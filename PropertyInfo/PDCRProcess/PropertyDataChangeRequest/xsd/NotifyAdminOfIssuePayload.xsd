@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0">
+   <import namespace="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0" schemaLocation="oramds:/apps/amp/xsd/ao/ManagePDCR.xsd"/>
+   <complexType name="NotifyAdminOfIssuePayloadType">
+      <sequence>
+         <element ref="ns0:managePDCRRequest"/>
+         <element name="errorMsg" type="xsd:string"/>
+         <element name="faultNS" type="xsd:string"/>
+         <element name="faultName" type="xsd:string"/>
+      </sequence>
+   </complexType>
+</schema>

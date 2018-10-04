@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="wccDocDtlPageDef"
+                Package="gov.laca.amp.datacapturewccuiapp.view.fragement">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="DataCaptureWCCUIDC" id="DataCaptureWCCUIDCIterator"/>
+    <accessorIterator MasterBinding="DataCaptureWCCUIDCIterator" Binds="attrModelList" RangeSize="25"
+                      DataControl="DataCaptureWCCUIDC" BeanClass="gov.laca.amp.datacapturewccuiapp.model.data.Attribute"
+                      id="attrModelListIterator"/>
+    <accessorIterator id="documentDataIterator" MasterBinding="DataCaptureWCCUIDCIterator" Binds="documentData"
+                      RangeSize="25" DataControl="DataCaptureWCCUIDC"
+                      BeanClass="gov.laca.amp.datacapturewccuiapp.model.data.Document"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="attrModelListIterator" id="attrModelList">
+      <nodeDefinition DefName="gov.laca.amp.datacapturewccuiapp.model.data.Attribute" Name="attrModelList0">
+        <AttrNames>
+          <Item Value="attributeType"/>
+          <Item Value="component"/>
+          <Item Value="id"/>
+          <Item Value="name"/>
+          <Item Value="order"/>
+          <Item Value="required"/>
+          <Item Value="validationMessage"/>
+          <Item Value="value"/>
+          <Item Value="visible"/>
+          <Item Value="dataType"/>
+          <Item Value="maxLength"/>
+          <Item Value="optionKey"/>
+          <Item Value="dateValue"/>
+          <Item Value="decValue"/>
+          <Item Value="intValue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="updateWCCDocData" RequiresUpdateModel="true" Action="invokeMethod" MethodName="updateWCCDocData"
+                  IsViewObjectMethod="false" DataControl="DataCaptureWCCUIDC"
+                  InstanceName="bindings.updateWCCDocData.dataControl.dataProvider"/>
+    <attributeValues IterBinding="documentDataIterator" id="docRenderUrl">
+      <AttrNames>
+        <Item Value="docRenderUrl"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

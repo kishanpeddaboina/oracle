@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="propvalperformworktaskui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/PropValPerformWorkTask_TaskDetails.jspx"
+          usageId="propvalperformworktaskui_PropValPerformWorkTask_TaskDetailsPageDef"/>
+    <page path="/PropValPerformWorkTask_TaskNotification.jspx"
+          usageId="propvalperformworktaskui_PropValPerformWorkTask_TaskNotificationPageDef"/>
+    <page path="/valuation.jspx" usageId="propvalperformworktaskui_valuationPageDef"/>
+    <page path="/WEB-INF/PropValPerformWorkTask_TaskFlow.xml#PropValPerformWorkTask_TaskFlow@loadLOVData"
+          usageId="propvalperformworktaskui_PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_loadLOVDataPageDef"/>
+    <page path="/WEB-INF/PropValPerformWorkTask_TaskFlow.xml#PropValPerformWorkTask_TaskFlow@loadCancelationFlag"
+          usageId="propvalperformworktaskui_PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_methodCall1PageDef"/>
+    <page path="/WEB-INF/PropValPerformWorkTask_TaskFlow.xml#PropValPerformWorkTask_TaskFlow@checkmilestone"
+          usageId="propvalperformworktaskui_PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_checkmilestonePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="propvalperformworktaskui_PropValPerformWorkTask_TaskDetailsPageDef"
+          path="propvalperformworktaskui.pageDefs.PropValPerformWorkTask_TaskDetailsPageDef"/>
+    <page id="propvalperformworktaskui_PropValPerformWorkTask_TaskNotificationPageDef"
+          path="propvalperformworktaskui.pageDefs.PropValPerformWorkTask_TaskNotificationPageDef"/>
+    <page id="propvalperformworktaskui_valuationPageDef" path="propvalperformworktaskui.pageDefs.valuationPageDef"/>
+    <page id="propvalperformworktaskui_PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_loadLOVDataPageDef"
+          path="propvalperformworktaskui.pageDefs.PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_loadLOVDataPageDef"/>
+    <page id="propvalperformworktaskui_PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_methodCall1PageDef"
+          path="propvalperformworktaskui.pageDefs.PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_methodCall1PageDef"/>
+    <page id="propvalperformworktaskui_PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_checkmilestonePageDef"
+          path="propvalperformworktaskui.pageDefs.PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_checkmilestonePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+        path="propclaimperformworktaskui.PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"/>
+    <dc id="PropsDC" path="gov.laca.amp.common.model.PropsDC"/>
+    <dc id="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+        path="propvalperformworktaskui.PropValPerformWorkTaskUI_PropValPerformWorkTask"/>
+  </dataControlUsages>
+</Application>

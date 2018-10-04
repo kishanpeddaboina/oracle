@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="11.1.1.66.73" id="DataControls"
+                    Package="gov.laca.amp.bvm.model">
+  <AdapterDataControl id="BaseYearEventDO"
+                      FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.data.BaseYearEventDO"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                       DataControlHandler="oracle.adf.model.adapter.bean.DataFilterHandler" AccessMode="scrollable"
+                       EagerPersist="false" xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="InitiateBaseYearEvent"
+                      FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="gov.laca.amp.bvm.model.InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.InitiateBaseYearEvent"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.data.BaseYearEventDO"/>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.AINLockMgmtServiceWrapper"/>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.InitiateBaseYearEvent"/>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.data.AinDO"/>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.data.Year"/>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.data.Event"/>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.data.Header"/>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.LookupItem"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="gov.laca.amp.bvm.model.InitiateBaseYearEvent"
+                       DataControlHandler="oracle.adf.model.adapter.bean.DataFilterHandler" AccessMode="scrollable"
+                       EagerPersist="false" xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="BVMEventHandler"
+                      FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="gov.laca.amp.bvm.model.BVMEventHandler"
+                      BeanClass="gov.laca.amp.bvm.model.BVMEventHandler"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="gov.laca.amp.bvm.model.BVMEventHandler"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="gov.laca.amp.bvm.model.BVMEventHandler"
+                       DataControlHandler="oracle.adf.model.adapter.bean.DataFilterHandler" AccessMode="scrollable"
+                       EagerPersist="false" xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

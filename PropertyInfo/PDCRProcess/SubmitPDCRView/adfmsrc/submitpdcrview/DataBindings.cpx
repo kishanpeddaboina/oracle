@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="submitpdcrview" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/gov/laca/amp/pdcr/submit/view/jspx/SubmitPDCRView.jspx"
+          usageId="submitpdcrview_SubmitPDCRViewPageDef"/>
+    <page path="/gov/laca/amp/pdcr/submit/view/jsff/submitPDCR.jsff"
+          usageId="submitpdcrview_submitPDCRPageDef"/>
+    <page path="/WEB-INF/gov/laca/amp/pdcr/submit/view/btf/amp-submit-pdcr-btf.xml#amp-submit-pdcr-btf@retrieveRealPropertyInfo"
+          usageId="submitpdcrview_amp_submit_pdcr_btf_amp_submit_pdcr_btf_retrieveRealPropertyPageDef"/>
+    <page path="/gov/laca/amp/pdcr/submit/view/jsff/PopupCommonHeader.jsff"
+          usageId="submitpdcrview_PopupCommonHeaderPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="submitpdcrview_SubmitPDCRViewPageDef"
+          path="gov.laca.amp.pdcr.submit.view.jspx.SubmitPDCRViewPageDef"/>
+    <page id="submitpdcrview_submitPDCRPageDef"
+          path="gov.laca.amp.pdcr.submit.view.jsff.submitPDCRPageDef"/>
+    <page id="submitpdcrview_amp_submit_pdcr_btf_amp_submit_pdcr_btf_retrieveRealPropertyPageDef"
+          path="gov.laca.amp.pdcr.submit.view.btf.amp_submit_pdcr_btf_amp_submit_pdcr_btf_retrieveRealPropertyPageDef"/>
+    <page id="submitpdcrview_PopupCommonHeaderPageDef"
+          path="gov.laca.amp.pdcr.submit.view.jsff.PopupCommonHeaderPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="PDCREventHandler"
+        path="gov.laca.amp.pdcr.common.model.PDCREventHandler"/>
+    <dc id="SubmitPDCRView_SubmitPropertyDataChangeRequest"
+        path="submitpdcrview.SubmitPDCRView_SubmitPropertyDataChangeRequest"/>
+    <dc id="ChangeRequestDC"
+        path="gov.laca.amp.pdcr.common.model.ChangeRequestDC"/>
+  </dataControlUsages>
+</Application>

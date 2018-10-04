@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="SubPartDO" Package="gov.laca.amp.pdcr.common.model.data"
+          BeanClass="gov.laca.amp.pdcr.common.model.data.SubPartDO"
+          isJavaBased="true">
+  <Attribute Name="dbUniqueId" Type="java.lang.String"/>
+  <Attribute Name="ain" Type="java.lang.String"/>
+  <Attribute Name="aoid" Type="java.math.BigInteger"/>
+  <Attribute Name="transactionType" Type="java.lang.String"/>
+  <Attribute Name="improvementNumber" Type="java.math.BigInteger"/>
+  <Attribute Name="subPartNumber" Type="java.lang.String"/>
+  <Attribute Name="subPartNumberUserEntered" Type="java.lang.String"/>
+  <Attribute Name="rcnYearChange" Type="java.math.BigInteger"/>
+  <Attribute Name="rcnYearChangeUserEntered" Type="java.math.BigInteger"/>
+  <Attribute Name="designTypeRef" Type="java.math.BigInteger"/>
+  <Attribute Name="designTypeKey" Type="java.lang.String"/>
+  <Attribute Name="designTypeKeyUserEntered" Type="java.lang.String"/>
+  <Attribute Name="designTypeLegend" Type="java.lang.String"/>
+  <Attribute Name="qualityClass" Type="java.lang.String"/>
+  <Attribute Name="qualityClassUserEntered" Type="java.lang.String"/>
+  <Attribute Name="yearBuilt" Type="java.math.BigInteger"/>
+  <Attribute Name="yearBuiltUserEntered" Type="java.math.BigInteger"/>
+  <Attribute Name="effectiveYearBuilt" Type="java.math.BigInteger"/>
+  <Attribute Name="effectiveYearBuiltUserEntered" Type="java.math.BigInteger"/>
+  <Attribute Name="depreciationTable" Type="java.lang.String"/>
+  <Attribute Name="depreciationTableUserEntered" Type="java.lang.String"/>
+  <Attribute Name="numberOfUnits" Type="java.math.BigInteger"/>
+  <Attribute Name="numberOfUnitsUserEntered" Type="java.math.BigInteger"/>
+  <Attribute Name="bedroomCount" Type="java.math.BigInteger"/>
+  <Attribute Name="bedroomCountUserEntered" Type="java.math.BigInteger"/>
+  <Attribute Name="bathroomCount" Type="java.math.BigInteger"/>
+  <Attribute Name="bathroomCountUserEntered" Type="java.math.BigInteger"/>
+  <Attribute Name="improvementSizeSqft" Type="java.lang.Double"/>
+  <Attribute Name="improvementSizeSqftUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="rcnOtherTotal" Type="java.lang.Double"/>
+  <Attribute Name="rcnOtherTotalUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="costFactor" Type="java.lang.Double"/>
+  <Attribute Name="costFactorUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="rcnMain" Type="java.lang.Double"/>
+  <Attribute Name="rcnMainUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="percentGood" Type="java.math.BigDecimal"/>
+  <Attribute Name="percentGoodUserEntered" Type="java.math.BigDecimal"/>
+  <Attribute Name="addedDepreciationTypeRef" Type="java.math.BigInteger"/>
+  <Attribute Name="addedDepreciationTypeKey" Type="java.lang.String"/>
+  <Attribute Name="addedDepreciationTypeKeyUserEntered"
+             Type="java.lang.String"/>
+  <Attribute Name="addedDepreciationTypeLegend" Type="java.lang.String"/>
+  <Attribute Name="addedDepreciationPercent" Type="java.math.BigDecimal"/>
+  <Attribute Name="addedDepreciationPercentUserEntered"
+             Type="java.math.BigDecimal"/>
+  <Attribute Name="rcnLessDepreciation" Type="java.lang.Double"/>
+  <Attribute Name="rcnLessDepreciationUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="improvementNumberUserEntered" Type="java.math.BigInteger"/>
+  <Attribute Name="designTypeRefUserEntered" Type="java.math.BigInteger"/>
+  <Attribute Name="designTypeLegendUserEntered" Type="java.lang.String"/>
+  <Attribute Name="addedDepreciationTypeRefUserEntered"
+             Type="java.math.BigInteger"/>
+  <Attribute Name="addedDepreciationTypeLegendUserEntered"
+             Type="java.lang.String"/>
+  <Attribute Name="improvementNumberFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="subPartNumberFinal" Type="java.lang.String"/>
+  <Attribute Name="rcnYearChangeFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="designTypeRefFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="designTypeKeyFinal" Type="java.lang.String"/>
+  <Attribute Name="designTypeLegendFinal" Type="java.lang.String"/>
+  <Attribute Name="qualityClassFinal" Type="java.lang.String"/>
+  <Attribute Name="yearBuiltFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="effectiveYearBuiltFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="depreciationTableFinal" Type="java.lang.String"/>
+  <Attribute Name="numberOfUnitsFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="bedroomCountFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="bathroomCountFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="improvementSizeSqftFinal" Type="java.lang.Double"/>
+  <Attribute Name="rcnOtherTotalFinal" Type="java.lang.Double"/>
+  <Attribute Name="costFactorFinal" Type="java.lang.Double"/>
+  <Attribute Name="rcnMainFinal" Type="java.lang.Double"/>
+  <Attribute Name="percentGoodFinal" Type="java.math.BigDecimal"/>
+  <Attribute Name="addedDepreciationTypeRefFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="addedDepreciationTypeKeyFinal" Type="java.lang.String"/>
+  <Attribute Name="addedDepreciationTypeLegendFinal" Type="java.lang.String"/>
+  <Attribute Name="addedDepreciationPercentFinal" Type="java.math.BigDecimal"/>
+  <Attribute Name="rcnLessDepreciationFinal" Type="java.lang.Double"/>
+  <Attribute Name="transactionTypeFinal" Type="java.lang.String"/>
+  <Attribute Name="transactionTypeUserEntered" Type="java.lang.String"/>
+  <Attribute Name="dbUniqueIdUserEntered" Type="java.lang.String"/>
+  <Attribute Name="dbUniqueIdFinal" Type="java.lang.String"/>
+  <Attribute Name="subPartNumberDisplay" Type="java.lang.String"/>
+  <Attribute Name="pojoRowId" Type="long"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.pdcr.common.model.data.SubPartDO"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.SubPartDO"
+                     id="SubPartDO"/>
+</JavaBean>

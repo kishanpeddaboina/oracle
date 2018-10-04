@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>laca.gov.amp.bpm</groupId>
+  <artifactId>PropositionApplication</artifactId>
+  <version>${ASSESSOR_PORTAL_VERSION}</version>
+  <description>Super POM for Proposition</description>
+  <packaging>pom</packaging>
+  <build>
+    <resources>
+      <resource>
+        <directory>src/</directory>
+        <includes>
+          <include>**</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+  <modules>
+	<module>PropClaimPerformWorkTaskUIDeployer</module>
+	<module>PropClaimApproveWorkTaskUIDeployer</module>
+	<module>PropValPerformWorkTaskUIDeployer</module>
+	<module>PropApproveValuationWorkTaskUIDeployer</module>
+  </modules>
+</project>

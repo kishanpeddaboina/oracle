@@ -1,0 +1,640 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="pdcrviewBundle" value="#{adfBundle['gov.laca.amp.pdcr.common.view.PDCRCommonViewBundle']}"/>
+    <af:subform id="s15">
+        <af:resource type="javascript" source="/js/inputmask.js"/>
+        <af:resource type="javascript" source="/js/defaultButton.js"/>
+        <af:group id="createGroup">
+            <!-- Display the proper error message -->
+            <f:subview id="showDisplayMessage"
+                       rendered="#{bindings.isShowDisaplyMessage.inputValue and !pageFlowScope.PDCRBean.isExternalUser}">
+                <jsp:include page="/gov/laca/amp/pdcr/initiate/view/PDCRError.jsff"/>
+            </f:subview>
+            <!-- Display the main edit page when everything is okay -->
+            <af:panelHeader id="ainNotLocked" text=""
+                            rendered="#{!bindings.isShowDisaplyMessage.inputValue or pageFlowScope.PDCRBean.isExternalUser}">
+                <af:panelGroupLayout id="pgl1" layout="scroll">
+                    <af:panelGroupLayout id="changeRequestBody" layout="vertical">
+                        <af:panelGridLayout id="pgl2">
+                            <af:gridRow id="gr1" marginTop="5px" height="25px"
+                                        rendered="#{!pageFlowScope.PDCRBean.isExternalUser}">
+                                <af:gridCell id="gc37" width="20%"/>
+                                <af:gridCell id="gc12" marginStart="5px" width="210px" valign="middle">
+                                    <af:outputText id="ot2" value="#{pdcrviewBundle.DATA_CHANGE_SOURCE_CREATE_PDCR}"
+                                                   shortDesc="#{pdcrviewBundle.DATA_CHANGE_SOURCE_TOOLTIP}"
+                                                   noWrap="true"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc3" columnSpan="4" valign="middle">
+                                    <af:selectOneChoice id="dataChangeSource" autoSubmit="true"
+                                                        value="#{bindings.dataChangeSource.inputValue}"
+                                                        disabled="#{pageFlowScope.PDCRBean.isClericalUser or bindings.isPDCREmpty.inputValue}"
+                                                        simple="true" contentStyle="width:190px; height:24px;"
+                                                        shortDesc="#{pdcrviewBundle.DATA_CHANGE_SOURCE_TOOLTIP}"
+                                                        label="#{pdcrviewBundle.DATA_CHANGE_SOURCE_CREATE_PDCR_LABEL}"
+                                                        valueChangeListener="#{pageFlowScope.PDCRBean.DataChangeSourceValueChangeListener}">
+                                        <f:selectItems id="si3" value="#{pageFlowScope.PDCRBean.dataChangeSource}"/>
+                                    </af:selectOneChoice>
+                                </af:gridCell>
+                                <af:gridCell id="gc69" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr7" marginTop="5px" height="25px">
+                                <af:gridCell id="gc38" width="20%"/>
+                                <af:gridCell id="gc17" marginStart="5px" width="210px" valign="middle">
+                                    <af:outputText id="ot30" value="#{pdcrviewBundle.AIN_CREATE_PDCR}"
+                                                   shortDesc="#{pdcrviewBundle.AIN_TOOLTIP}" noWrap="true"/>
+                                    <af:outputText id="ot27" inlineStyle="color:Red;"
+                                                   value="#{pdcrviewBundle.PDCR_REQUIRED_INDICATOR}"
+                                                   rendered="#{bindings.isPDCREmpty.inputValue}"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc18" columnSpan="4" valign="middle">
+                                    <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                        <af:outputText id="ot36" styleClass="amp-ain-text-bold"
+                                                       value="#{bindings.ainDisplay.inputValue}"
+                                                       rendered="#{!bindings.isPDCREmpty.inputValue}" noWrap="true"/>
+                                        <af:inputText id="ainInput" autoSubmit="true" value="#{bindings.ain.inputValue}"
+                                                      rendered="#{bindings.isPDCREmpty.inputValue}" simple="true"
+                                                      label="#{pdcrviewBundle.AIN_CREATE_PDCR_LABEL}"
+                                                      inlineStyle="font-weight:bold;" maximumLength="12"
+                                                      contentStyle="text-align:left; width:182px; height:20px;"
+                                                      shortDesc="#{pdcrviewBundle.AIN_TOOLTIP}">
+                                            <af:clientListener method="onFieldEnterKey" type="keyUp"/>
+                                            <f:validator validatorId="ValidateAIN"/>
+                                        </af:inputText>
+                                        <af:spacer id="s11" width="10" height="10"/>
+                                        <af:commandButton id="retrieveAIN" text="#{pdcrviewBundle.RETRIEVE_PDCR_BUTTON}"
+                                                          action="#{pageFlowScope.PDCRBean.RetrievePDCRData}"
+                                                          rendered="#{bindings.isPDCREmpty.inputValue}"
+                                                          partialSubmit="true" clientComponent="true"
+                                                          shortDesc="#{pdcrviewBundle.RETRIEVE_AIN_BUTTON_TOOLTIP}"/>
+                                        <af:spacer id="s13" width="5" height="10"/>
+                                        <af:commandButton id="findAIN" text="#{pdcrviewBundle.FIND_MY_AIN_CREATE_PDCR}"
+                                                          rendered="#{bindings.isPDCREmpty.inputValue}" useWindow="true"
+                                                          action="findAIN" immediate="true" windowHeight="725"
+                                                          windowWidth="1250" windowModalityType="applicationModal"
+                                                          shortDesc="#{pdcrviewBundle.FIND_AIN_BUTTON_TOOLTIP}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc77" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr4" marginTop="5px" height="25px">
+                                <af:gridCell id="gc40" width="20%"/>
+                                <af:gridCell id="gc15" marginStart="5px" width="210px" valign="middle">
+                                    <af:outputText id="ot4"
+                                                   value="#{pageFlowScope.PDCRBean.isExternalUser ? pdcrviewBundle.REQUESTOR_NAME_CREATE_PDCR : pdcrviewBundle.REQUESTOR_ON_BEHALF_CREATE_PDCR}"
+                                                   shortDesc="#{pageFlowScope.PDCRBean.isExternalUser ? pdcrviewBundle.REQUESTOR_NAME_CREATE_PDCR_TOOLTIP : pdcrviewBundle.REQUESTOR_ON_BEHALF_CREATE_PDCR_TOOLTIP}"
+                                                   noWrap="true"/>
+                                    <af:outputText id="ot28" inlineStyle="color:Red;"
+                                                   value="#{pdcrviewBundle.PDCR_REQUIRED_INDICATOR}"
+                                                   rendered="#{!pageFlowScope.PDCRBean.disablePublicServiceRelated and !bindings.isPDCREmpty.inputValue}"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc9" width="230px" valign="middle">
+                                    <af:inputText id="it2" autoSubmit="true" required="true"
+                                                  disabled="#{pageFlowScope.PDCRBean.disablePublicServiceRelated or bindings.isPDCREmpty.inputValue}"
+                                                  value="#{bindings.requestorName.inputValue}" simple="true"
+                                                  label="#{pageFlowScope.PDCRBean.isExternalUser ? pdcrviewBundle.REQUESTOR_NAME_CREATE_PDCR_LABEL : pdcrviewBundle.REQUESTOR_ON_BEHALF_CREATE_PDCR_LABEL}"
+                                                  shortDesc="#{pageFlowScope.PDCRBean.isExternalUser ? pdcrviewBundle.REQUESTOR_NAME_CREATE_PDCR_TOOLTIP : pdcrviewBundle.REQUESTOR_ON_BEHALF_CREATE_PDCR_TOOLTIP}"
+                                                  requiredMessageDetail="#{pdcrviewBundle.REQUIRED_INPUT_MESSGAE}"
+                                                  contentStyle="text-align:left; width:182px; height:20px; text-transform:capitalize;"
+                                                  converter="AMPConvertString">
+                                        <f:attribute name="casePattern" value="capitalize"/>
+                                    </af:inputText>
+                                </af:gridCell>
+                                <af:gridCell id="gc68" width="7%"/>
+                                <af:gridCell id="gc16" width="110px" valign="middle">
+                                    <af:outputText id="ot5" value="#{pdcrviewBundle.REQUESTOR_TYPE_CREATE_PDCR}"
+                                                   shortDesc="#{pdcrviewBundle.REQUESTOR_TYPE_TOOLTIP}" noWrap="true"/>
+                                    <af:outputText id="ot29" inlineStyle="color:Red;"
+                                                   value="#{pdcrviewBundle.PDCR_REQUIRED_INDICATOR}"
+                                                   rendered="#{!pageFlowScope.PDCRBean.disablePublicServiceRelated and !bindings.isPDCREmpty.inputValue}"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc11" width="210px" valign="middle">
+                                    <af:selectOneChoice id="soc2" autoSubmit="true" required="true" simple="true"
+                                                        disabled="#{pageFlowScope.PDCRBean.disablePublicServiceRelated or bindings.isPDCREmpty.inputValue}"
+                                                        value="#{bindings.requestorType.inputValue}"
+                                                        unselectedLabel="#{pdcrviewBundle.UNSELECTED_SELECT_ONE_CHOICE}"
+                                                        label="#{pdcrviewBundle.REQUESTOR_TYPE_CREATE_PDCR_LABEL}"
+                                                        shortDesc="#{pdcrviewBundle.REQUESTOR_TYPE_TOOLTIP}"
+                                                        requiredMessageDetail="#{pdcrviewBundle.REQUIRED_SELECTONE_MESSAGE}"
+                                                        contentStyle="width:190px; height:24px;">
+                                        <f:selectItems id="si2" value="#{pageFlowScope.PDCRBean.requesterType}"/>
+                                    </af:selectOneChoice>
+                                </af:gridCell>
+                                <af:gridCell id="gc78" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr3" marginTop="5px" height="35px">
+                                <af:gridCell id="gc45" width="20%"/>
+                                <af:gridCell id="gc8" marginStart="5px" width="210px" valign="middle">
+                                    <af:outputText id="ot6" value="#{pdcrviewBundle.PROPERTY_ADDRESS_CREATE_PDCR}"
+                                                   shortDesc="#{pdcrviewBundle.SITUS_ADDRESS_TOOLTIP}" noWrap="true"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc4" columnSpan="4" valign="stretch" halign="stretch">
+                                    <af:panelGroupLayout id="pgl46" layout="horizontal" inlineStyle="height:35.0px;">
+                                        <af:outputText id="ot35" value="#{bindings.propertyAddress.inputValue}"
+                                                       escape="false"
+                                                       inlineStyle="white-space: pre-wrap; width:200px; display:inline-block;"
+                                                       noWrap="true"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc79" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr5" marginTop="5px" height="25px">
+                                <af:gridCell id="gc73" width="20%"/>
+                                <af:gridCell id="gc14" marginStart="5px" width="210px" valign="middle">
+                                    <af:outputText id="ot8"
+                                                   value="#{pageFlowScope.PDCRBean.isExternalUser ? pdcrviewBundle.PHONE_EXTERNAL_USER_LABEL : pdcrviewBundle.PHONE_INTERNAL_USER_LABEL}"
+                                                   shortDesc="#{pdcrviewBundle.OWNERS_PHONE_TOOLTIP}" noWrap="true"/>
+                                    <af:outputText id="ot32" inlineStyle="color:Red;"
+                                                   value="#{pdcrviewBundle.PDCR_REQUIRED_INDICATOR}"
+                                                   rendered="#{bindings.preferredContact.inputValue eq pdcrviewBundle.PHONE_CONDITION and !pageFlowScope.PDCRBean.disablePublicServiceRelated and !bindings.isPDCREmpty.inputValue}"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc7" width="230px" valign="middle">
+                                    <af:inputText id="it4"
+                                                  disabled="#{pageFlowScope.PDCRBean.disablePublicServiceRelated or bindings.isPDCREmpty.inputValue}"
+                                                  value="#{bindings.phone.inputValue}" simple="true" immediate="true"
+                                                  label="#{pdcrviewBundle.PHONE_EXTERNAL_USER_LABEL}"
+                                                  contentStyle="text-align:left; width:182px; height:20px;"
+                                                  required="#{bindings.preferredContact.inputValue eq pdcrviewBundle.PHONE_CONDITION}"
+                                                  shortDesc="#{pdcrviewBundle.OWNERS_PHONE_TOOLTIP}"
+                                                  requiredMessageDetail="#{pdcrviewBundle.REQUIRED_INPUT_MESSGAE}"
+                                                  placeholder="xxx-xxx-xxxx">
+                                        <af:clientListener method="handleNumberFormatConversion('xxx-xxx-xxxx','-')"
+                                                           type="keyDown"/>
+                                        <f:validator validatorId="ValidatePhone"/>
+                                    </af:inputText>
+                                </af:gridCell>
+                                <af:gridCell id="gc72" width="7%"/>
+                                <af:gridCell id="gc6" width="110px" valign="middle">
+                                    <af:outputText id="ot9" value="#{pdcrviewBundle.EMAIL_LABEL}"
+                                                   shortDesc="#{pdcrviewBundle.OWNERS_EMAIL_TOOLTIP}" noWrap="true"/>
+                                    <af:outputText id="ot33" inlineStyle="color:Red;"
+                                                   value="#{pdcrviewBundle.PDCR_REQUIRED_INDICATOR}"
+                                                   rendered="#{bindings.preferredContact.inputValue eq pdcrviewBundle.EMAIL_CONDITION and !pageFlowScope.PDCRBean.disablePublicServiceRelated and !bindings.isPDCREmpty.inputValue}"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc2" width="210px" valign="middle">
+                                    <af:inputText id="it5" autoSubmit="true"
+                                                  disabled="#{pageFlowScope.PDCRBean.disablePublicServiceRelated or bindings.isPDCREmpty.inputValue}"
+                                                  value="#{bindings.email.inputValue}" simple="true"
+                                                  label="#{pdcrviewBundle.EMAIL_LABEL}"
+                                                  contentStyle="text-align:left; width:182px; height:20px;"
+                                                  required="#{bindings.preferredContact.inputValue eq pdcrviewBundle.EMAIL_CONDITION}"
+                                                  shortDesc="#{pdcrviewBundle.OWNERS_EMAIL_TOOLTIP}"
+                                                  requiredMessageDetail="#{pdcrviewBundle.REQUIRED_INPUT_MESSGAE}"
+                                                  placeholder="Email@Example.com">
+                                        <f:validator validatorId="ValidateEmail"/>
+                                    </af:inputText>
+                                </af:gridCell>
+                                <af:gridCell id="gc80" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr2" marginTop="5px" height="25px">
+                                <af:gridCell id="gc47" width="20%"/>
+                                <af:gridCell id="gc1" marginStart="5px" width="210px" valign="middle">
+                                    <af:outputText id="ot10" value="#{pdcrviewBundle.PREFERED_METHOD_OF_CONTACT_LABEL}"
+                                                   shortDesc="#{pdcrviewBundle.PREFERED_METHOD_OF_CONTACT_TOOLTIP}"
+                                                   noWrap="true"/>
+                                    <af:outputText id="ot12" inlineStyle="color:Red;"
+                                                   value="#{pdcrviewBundle.PDCR_REQUIRED_INDICATOR}"
+                                                   rendered="#{!pageFlowScope.PDCRBean.disablePublicServiceRelated and !bindings.isPDCREmpty.inputValue}"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc10" columnSpan="4" valign="middle" halign="stretch">
+                                    <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                        <af:selectOneRadio id="sor1" required="true"
+                                                           value="#{bindings.preferredContact.inputValue}"
+                                                           disabled="#{pageFlowScope.PDCRBean.disablePublicServiceRelated or bindings.isPDCREmpty.inputValue}"
+                                                           simple="true" immediate="true"
+                                                           label="#{pdcrviewBundle.PREFERED_METHOD_OF_CONTACT_LABEL}"
+                                                           layout="horizontal" autoSubmit="true"
+                                                           valueChangeListener="#{pageFlowScope.PDCRBean.pmocValueChangeListener}"
+                                                           shortDesc="#{pdcrviewBundle.PREFERED_METHOD_OF_CONTACT_TOOLTIP}"
+                                                           styleClass="selectPDCRRadio">
+                                            <af:selectItem id="si9" label="#{pdcrviewBundle.EMAIL_DD_LABEL}"
+                                                           value="#{pdcrviewBundle.EMAIL_CONDITION}"/>
+                                            <af:selectItem id="si8" label="#{pdcrviewBundle.PHONE_DD_LABEL}"
+                                                           value="#{pdcrviewBundle.PHONE_CONDITION}"/>
+                                        </af:selectOneRadio>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc81" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr6" marginTop="5px" height="25px" marginBottom="5px">
+                                <af:gridCell id="gc48" width="20%"/>
+                                <af:gridCell id="gc5" marginStart="5px" width="210px" valign="middle">
+                                    <af:outputText id="ot11" value="#{pdcrviewBundle.REASON_FOR_REQUEST_LABEL}"
+                                                   shortDesc="#{pdcrviewBundle.REASON_FOR_REQUEST_TOOLTIP}"
+                                                   noWrap="true"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc13" columnSpan="4" valign="middle">
+                                    <af:selectOneChoice id="soc3" autoSubmit="true"
+                                                        value="#{bindings.reasonForRequest.inputValue}" simple="true"
+                                                        contentStyle="width:190px; height:24px;"
+                                                        label="#{pdcrviewBundle.REASON_FOR_REQUEST_LABEL}"
+                                                        disabled="#{bindings.isPDCREmpty.inputValue}"
+                                                        unselectedLabel="#{pdcrviewBundle.UNSELECTED_SELECT_ONE_CHOICE}"
+                                                        shortDesc="#{pdcrviewBundle.REASON_FOR_REQUEST_TOOLTIP}">
+                                        <f:selectItems value="#{pageFlowScope.PDCRBean.reasonForRequest}" id="si5"/>
+                                    </af:selectOneChoice>
+                                </af:gridCell>
+                                <af:gridCell id="gc82" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr22" marginTop="15px" height="25px">
+                                <af:gridCell id="gc102" width="20%"/>
+                                <af:gridCell id="gc104" columnSpan="5" valign="bottom" halign="stretch">
+                                    <af:outputText id="ot7" value="#{pdcrviewBundle.CHANGE_REQUESTED_HEADING}"
+                                                   inlineStyle="font-size:14px; color:#003D5B; font-weight:bold;"
+                                                   noWrap="true"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc105" width="20%"/>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                        <af:panelGridLayout id="pgl5" styleClass="AFStretchWidth">
+                            <af:gridRow id="gr19" height="12px">
+                                <af:gridCell id="gc74" width="20%"/>
+                                <af:gridCell id="gc75" valign="top" halign="stretch" columnSpan="3">
+                                    <af:panelGroupLayout id="pgl9" layout="vertical"
+                                                         inlineStyle="border-bottom:solid #E1E1E1 1px; margin:10px; border-width:thin;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc83" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr20">
+                                <af:gridCell id="gc95" width="20%"/>
+                                <af:gridCell id="gc96" width="440px"/>
+                                <af:gridCell id="gc98" width="7%"/>
+                                <af:gridCell id="gc99" width="340px"/>
+                                <af:gridCell id="gc101" width="20%"/>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                        <af:panelGridLayout id="pgl3">
+                            <af:gridRow id="gr12" marginTop="15px" height="25px">
+                                <af:gridCell id="gc49" width="20%"/>
+                                <af:gridCell id="gc19" width="250px" marginStart="5px"/>
+                                <af:gridCell id="gc86" width="115px" halign="stretch"/>
+                                <af:gridCell id="gc31" width="200px" halign="center" marginStart="1px" marginEnd="1px"
+                                             valign="bottom">
+                                    <af:outputText id="ot19" value="#{pdcrviewBundle.ORIGINAL_INFORMATION_HEADER}"
+                                                   inlineStyle="font-weight:bold; text-decoration:underline;"
+                                                   noWrap="true"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc85" width="7%"/>
+                                <af:gridCell id="gc21" width="190px" halign="center" valign="bottom">
+                                    <af:outputText id="ot3" value="#{pdcrviewBundle.USER_INFORMATION_HEADER}"
+                                                   inlineStyle="font-weight:bold; text-decoration:underline;"
+                                                   noWrap="true"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc50" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr16" marginTop="5px" height="30px">
+                                <af:gridCell id="gc51" width="20%"/>
+                                <af:gridCell id="gc41" width="250px" marginStart="5px" halign="stretch" valign="bottom">
+                                    <af:panelGroupLayout id="pgl218" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:spacer width="5" height="10" id="s1"/>
+                                        <af:outputText id="ot13" value="#{pdcrviewBundle.PROPERTY_USE_TYPE_LABEL}"
+                                                       shortDesc="#{pdcrviewBundle.PROPERTY_USE_TYPE_TOOLTIP}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc106" width="115px" halign="stretch" valign="stretch">
+                                    <af:panelGroupLayout id="pgl44" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc42" width="200px" halign="stretch" valign="bottom">
+                                    <af:panelGroupLayout id="pgl8" layout="horizontal" inlineStyle="height:21.0px;"
+                                                         halign="center">
+                                        <af:outputText id="ot31" value="#{bindings.useType.inputValue}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc92" width="7%" halign="stretch" valign="stretch">
+                                    <af:panelGroupLayout id="pgl10" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc43" width="190px" halign="stretch" valign="stretch">
+                                    <af:panelGroupLayout id="pgl11" layout="horizontal" inlineStyle="height:25.0px;"
+                                                         halign="center" valign="top">
+                                        <af:outputText id="ot25" inlineStyle="display:inline-block;"
+                                                       value="#{pdcrviewBundle.PROPERTY_USE_TYPE_DESCRIPTION}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc52" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr11" marginTop="5px" height="25px">
+                                <af:gridCell id="gc53" width="20%"/>
+                                <af:gridCell id="gc25" width="250px" marginStart="5px" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl12" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:spacer width="5" height="10" id="s2"/>
+                                        <af:outputText id="ot14" value="#{pdcrviewBundle.NUMBER_OF_UNITS_LABEL}"
+                                                       shortDesc="#{pdcrviewBundle.NUMBER_OF_UNITS_TOOLTIP}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc87" width="115px" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl13" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc33" width="200px" halign="stretch" valign="middle"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl14" layout="horizontal" inlineStyle="height:25.0px;"
+                                                         halign="center">
+                                        <af:outputText id="ot20" value="#{bindings.numberOfUnits1.inputValue}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc93" width="7%" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl15" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc34" width="190px" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl16" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:inputText id="itNumUnits" autoSubmit="true"
+                                                      value="#{bindings.numberOfUnitsUserEntered1.inputValue}"
+                                                      simple="true" maximumLength="3"
+                                                      label="#{pdcrviewBundle.NUMBER_OF_UNITS_LABEL}"
+                                                      placeholder="#{pdcrviewBundle.NO_CHANGE_PLACEHOLDER}"
+                                                      contentStyle="text-align:left; width:182px; height:20px;"
+                                                      disabled="#{bindings.isPDCREmpty.inputValue}"
+                                                      shortDesc="#{pdcrviewBundle.NUMBER_OF_UNITS_TOOLTIP}">
+                                            <af:convertNumber type="number"/>
+                                            <af:validateLongRange maximum="999" minimum="0"/>
+                                            <!--converter="AMPConvertNumber">
+                      <f:validator validatorId="ValidateWholeNumbers"/>
+                      <f:attribute name="maximum" value="999"/>
+                      <f:attribute name="dataType" value="BigInteger"/>-->
+                                        </af:inputText>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc54" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr10" marginTop="5px" height="25px">
+                                <af:gridCell id="gc55" width="20%"/>
+                                <af:gridCell id="gc36" width="250px" marginStart="5px" halign="stretch"
+                                             valign="stretch">
+                                    <af:panelGroupLayout id="pgl17" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:spacer width="5" height="10" id="s4"/>
+                                        <af:outputText id="ot15" value="#{pdcrviewBundle.BUILDING_SIZE_SQ_FT_LABEL}"
+                                                       shortDesc="#{pdcrviewBundle.BUILDING_SIZE_SQ_FT_TOOLTIP}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc88" width="115px" halign="stretch" valign="stretch">
+                                    <af:panelGroupLayout id="pgl18" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc20" width="200px" halign="stretch" valign="middle">
+                                    <af:panelGroupLayout id="pgl19" layout="horizontal" inlineStyle="height:25.0px;"
+                                                         halign="center">
+                                        <af:outputText id="ot21" value="#{bindings.improvementSizeSqft1.inputValue}">
+                                            <af:convertNumber integerOnly="true"/>
+                                        </af:outputText>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc94" width="7%" halign="stretch" valign="stretch">
+                                    <af:panelGroupLayout id="pgl20" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc23" width="190px" halign="stretch" valign="stretch">
+                                    <af:panelGroupLayout id="pgl21" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:inputText id="itSqFt" autoSubmit="true"
+                                                      value="#{bindings.improvementSizeSqftUserEntered1.inputValue}"
+                                                      simple="true" maximumLength="9"
+                                                      label="#{pdcrviewBundle.BUILDING_SIZE_SQ_FT_LABEL}"
+                                                      placeholder="#{pdcrviewBundle.NO_CHANGE_PLACEHOLDER}"
+                                                      contentStyle="text-align:left; width:182px; height:20px;"
+                                                      disabled="#{bindings.isPDCREmpty.inputValue}"
+                                                      shortDesc="#{pdcrviewBundle.BUILDING_SIZE_SQ_FT_TOOLTIP}">
+                                            <af:convertNumber type="number"/>
+                                            <af:validateLongRange maximum="9999999" minimum="1"/>
+                                            <!--converter="AMPConvertNumber">
+                      <f:validator validatorId="ValidateWholeNumbers"/>
+                      <f:attribute name="maximum" value="9999999"/>
+                      <f:attribute name="pattern" value="###,###,###"/>
+                      <f:attribute name="dataType" value="Double"/>-->
+                                        </af:inputText>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc56" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr13" marginTop="5px" height="25px">
+                                <af:gridCell id="gc57" width="20%"/>
+                                <af:gridCell id="gc29" width="250px" marginStart="5px" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl22" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:spacer width="5" height="10" id="s5"/>
+                                        <af:outputText id="ot16" value="#{pdcrviewBundle.YEAR_BUILT_LABEL}"
+                                                       shortDesc="#{pdcrviewBundle.YEAR_BUILT_TOOLTIP}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc89" width="115px" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl23" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc24" width="200px" halign="stretch" valign="middle"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl24" layout="horizontal" inlineStyle="height:25.0px;"
+                                                         halign="center">
+                                        <af:outputText id="ot22" value="#{bindings.yearBuilt1.inputValue}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc103" width="7%" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl25" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc35" width="190px" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl26" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:inputText id="itYearBuilt" autoSubmit="true"
+                                                      value="#{bindings.yearBuiltUserEntered1.inputValue}" simple="true"
+                                                      maximumLength="4" label="#{pdcrviewBundle.YEAR_BUILT_LABEL}"
+                                                      placeholder="#{pdcrviewBundle.NO_CHANGE_PLACEHOLDER}"
+                                                      contentStyle="text-align:left; width:182px; height:20px;"
+                                                      disabled="#{bindings.isPDCREmpty.inputValue}"
+                                                      shortDesc="#{pdcrviewBundle.YEAR_BUILT_TOOLTIP}"
+                                                      converter="AMPConvertNumber">
+                                            <!--<f:validator validatorId="ValidateYearRange"/>-->
+                                            <af:validateLongRange minimum="1801"
+                                                                  maximum="#{pageFlowScope.PDCRBean.endingYear}"/>
+                                            <af:convertNumber type="number" integerOnly="true"
+                                                              messageDetailConvertCurrency="#{pdcrviewBundle.YEAR_HINT_1} #{pdcrviewBundle.YEAR_HINT_2}"
+                                                              groupingUsed="false"/>
+                                        </af:inputText>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc58" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr8" marginTop="5px" height="25px">
+                                <af:gridCell id="gc59" width="20%"/>
+                                <af:gridCell id="gc27" width="250px" marginStart="5px" halign="stretch"
+                                             valign="stretch">
+                                    <af:panelGroupLayout id="pgl27" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:spacer width="5" height="10" id="s6"/>
+                                        <af:outputText id="ot17" value="#{pdcrviewBundle.NUMBER_OF_BEDROOMS_LABEL}"
+                                                       shortDesc="#{pdcrviewBundle.NUMBER_OF_BEDROOMS_TOOLTIP}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc90" width="115px" halign="stretch" valign="stretch">
+                                    <af:panelGroupLayout id="pgl28" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc22" width="200px" halign="stretch" valign="middle">
+                                    <af:panelGroupLayout id="pgl29" layout="horizontal" inlineStyle="height:25.0px;"
+                                                         halign="center">
+                                        <af:outputText id="ot23" value="#{bindings.bedroomCount1.inputValue}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc97" width="7%" halign="stretch" valign="stretch">
+                                    <af:panelGroupLayout id="pgl30" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc32" width="190px" halign="stretch" valign="stretch">
+                                    <af:panelGroupLayout id="pgl31" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:inputText id="itNumBeds" autoSubmit="true"
+                                                      value="#{bindings.bedroomCountUserEntered1.inputValue}"
+                                                      simple="true" maximumLength="2"
+                                                      label="#{pdcrviewBundle.NUMBER_OF_BEDROOMS_LABEL}"
+                                                      placeholder="#{pdcrviewBundle.NO_CHANGE_PLACEHOLDER}"
+                                                      contentStyle="text-align:left; width:182px; height:20px;"
+                                                      disabled="#{bindings.isPDCREmpty.inputValue}"
+                                                      shortDesc="#{pdcrviewBundle.NUMBER_OF_BEDROOMS_TOOLTIP}">
+                                            <af:convertNumber type="number"/>
+                                            <af:validateLongRange maximum="99" minimum="0"/>
+                                            <!--converter="AMPConvertNumber">
+                      <f:validator validatorId="ValidateWholeNumbers"/>
+                      <f:attribute name="maximum" value="99"/>
+                      <f:attribute name="dataType" value="BigInteger"/>-->
+                                        </af:inputText>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc60" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr9" marginTop="5px" height="25px">
+                                <af:gridCell id="gc61" width="20%"/>
+                                <af:gridCell id="gc30" width="250px" marginStart="5px" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl32" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:spacer width="5" height="10" id="s7"/>
+                                        <af:outputText id="ot18" value="#{pdcrviewBundle.NUMBER_OF_BATHROOMS_LABEL}"
+                                                       shortDesc="#{pdcrviewBundle.NUMBER_OF_BATHROOMS_TOOLTIP}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc91" width="115px" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl33" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc28" width="200px" halign="stretch" valign="middle"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl34" layout="horizontal" inlineStyle="height:25.0px;"
+                                                         halign="center">
+                                        <af:outputText id="ot24" value="#{bindings.bathroomCount1.inputValue}"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc100" width="7%" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl35" layout="horizontal" inlineStyle="height:21.0px;"/>
+                                </af:gridCell>
+                                <af:gridCell id="gc26" width="190px" halign="stretch" valign="stretch"
+                                             inlineStyle="background-color:#f2f2f2;">
+                                    <af:panelGroupLayout id="pgl36" layout="horizontal" inlineStyle="height:21.0px;">
+                                        <af:inputText id="itNumBaths" autoSubmit="true"
+                                                      value="#{bindings.bathroomCountUserEntered1.inputValue}"
+                                                      simple="true" maximumLength="2"
+                                                      label="#{pdcrviewBundle.NUMBER_OF_BATHROOMS_LABEL}"
+                                                      placeholder="#{pdcrviewBundle.NO_CHANGE_PLACEHOLDER}"
+                                                      contentStyle="text-align:left; width:182px; height:20px;"
+                                                      disabled="#{bindings.isPDCREmpty.inputValue}"
+                                                      shortDesc="#{pdcrviewBundle.NUMBER_OF_BATHROOMS_TOOLTIP}">
+                                            <af:convertNumber type="number"/>
+                                            <af:validateLongRange maximum="99" minimum="0"/>
+                                            <!--converter="AMPConvertNumber">
+                      <f:validator validatorId="ValidateWholeNumbers"/>
+                      <f:attribute name="maximum" value="99"/>
+                      <f:attribute name="dataType" value="BigInteger"/>-->
+                                        </af:inputText>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc62" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow marginTop="20px" id="gr14" height="25px">
+                                <af:gridCell width="20%" id="gc65"/>
+                                <af:gridCell id="gc63" marginStart="5px" columnSpan="5" halign="stretch"
+                                             valign="stretch">
+                                    <af:panelGroupLayout id="pgl37" layout="horizontal">
+                                        <af:spacer width="5" height="10" id="s9"/>
+                                        <af:outputText id="ot1" value="#{pdcrviewBundle.REQUESTOR_COMMENTS_LABEL}"
+                                                       shortDesc="#{pdcrviewBundle.REQUESTOR_COMMENTS_TOOLTIP}"
+                                                       inlineStyle="font-size:14px; color:#003D5B; font-weight:bold;"
+                                                       noWrap="true"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc44" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" id="gr18" height="32px">
+                                <af:gridCell width="20%" id="gc70"/>
+                                <af:gridCell id="gc71" marginStart="5px" columnSpan="5" width="750px" halign="stretch"
+                                             valign="stretch">
+                                    <af:panelGroupLayout id="pgl38" layout="horizontal" inlineStyle="height:32.0px;">
+                                        <af:spacer width="5" height="10" id="s10"/>
+                                        <af:outputText id="ot34"
+                                                       value="#{pdcrviewBundle.REQUESTOR_COMMENTS_DESCRIPTION}"
+                                                       inlineStyle="display:inline-block;"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc46" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" id="gr17">
+                                <af:gridCell width="20%" id="gc64"/>
+                                <af:gridCell id="gc66" marginStart="5px" columnSpan="5" halign="stretch"
+                                             valign="stretch">
+                                    <af:panelGroupLayout id="pgl39" layout="horizontal">
+                                        <af:inputText id="itComments" value="#{bindings.comments.inputValue}" rows="4"
+                                                      dimensionsFrom="parent" simple="true" autoSubmit="true"
+                                                      maximumLength="500"
+                                                      label="#{pdcrviewBundle.REQUESTOR_COMMENTS_LABEL}"
+                                                      styleClass="AFInstructionText AFStretchWidth" wrap="hard"
+                                                      inlineStyle="resize:none;"
+                                                      contentStyle="text-align:left; min-width:765px;"
+                                                      disabled="#{bindings.isPDCREmpty.inputValue}" spellCheck="on"/>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc84" width="20%"/>
+                            </af:gridRow>
+                            <af:gridRow id="gr15" marginTop="15px">
+                                <af:gridCell id="gc67" width="20%"/>
+                                <af:gridCell id="gc39" halign="stretch" valign="stretch" marginStart="5px"
+                                             columnSpan="5">
+                                    <af:panelGroupLayout id="pgl45" layout="horizontal" halign="end">
+                                        <af:commandButton id="cancelPDCR" text="#{pdcrviewBundle.CANCEL_BUTTON_LABEL}"
+                                                          immediate="true"
+                                                          actionListener="#{pageFlowScope.PDCRBean.CancelCreate}"
+                                                          rendered="#{adfFacesContext.outputMode != 'printable'}"/>
+                                        <af:spacer id="s8" width="10" height="10"/>
+                                        <af:commandButton id="submitPDCR" text="#{pdcrviewBundle.SUBMIT_BUTTON_LABEL}"
+                                                          action="#{pageFlowScope.PDCRBean.initiatePropertyDataCR}"
+                                                          disabled="#{bindings.isPDCREmpty.inputValue or bindings.isPDCRInitiated.inputValue}"
+                                                          actionListener="#{pageFlowScope.PDCRBean.validatePDCRSubmit}"
+                                                          rendered="#{adfFacesContext.outputMode != 'printable'}">
+                                            <f:attribute name="itNumUnits" value="itNumUnits"/>
+                                            <f:attribute name="itSqFt" value="itSqFt"/>
+                                            <f:attribute name="itYearBuilt" value="itYearBuilt"/>
+                                            <f:attribute name="itNumBeds" value="itNumBeds"/>
+                                            <f:attribute name="itNumBaths" value="itNumBaths"/>
+                                            <f:attribute name="itComments" value="itComments"/>
+                                        </af:commandButton>
+                                    </af:panelGroupLayout>
+                                </af:gridCell>
+                                <af:gridCell id="gc76" width="20%"/>
+                            </af:gridRow>
+                        </af:panelGridLayout>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+                <f:facet name="menuBar">
+                    <af:panelGroupLayout id="pgl6" layout="horizontal"
+                                         rendered="#{adfFacesContext.outputMode != 'printable'}">
+                        <af:commandImageLink text="" accessKey="p"
+                                             shortDesc="#{pdcrviewBundle.PDCR_CREATE_PRINT_ICON_TOOLTIP}"
+                                             id="ctbhPrint1" styleClass="amp-sticky-img"
+                                             icon="#{WCAppContext.applicationURL}#{pageFlowScope.PDCRBean.printIcon}">
+                            <af:showPrintablePageBehavior/>
+                        </af:commandImageLink>
+                        <af:spacer width="55" height="10" id="s18"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:panelHeader>
+            <!-- The Popup Dialog for canceling the PDCR -->
+            <af:popup id="confirm_cancel">
+                <af:dialog id="d1" title="#{pdcrviewBundle.CONFIRM_CANCEL_TITLE}"
+                           dialogListener="#{pageFlowScope.PDCRBean.CancelPDCRDialogListener}">
+                    <af:outputText id="aot1" value="#{pdcrviewBundle.CANCEL_PDCR_CONFIRMATION_QUESTION}"/>
+                </af:dialog>
+            </af:popup>
+        </af:group>
+    </af:subform>
+</jsp:root>

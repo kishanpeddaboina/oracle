@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="LandDO" Package="gov.laca.amp.pdcr.common.model.data"
+          BeanClass="gov.laca.amp.pdcr.common.model.data.LandDO"
+          isJavaBased="true">
+  <Attribute Name="dbUniqueId" Type="java.lang.String"/>
+  <Attribute Name="ain" Type="java.lang.String"/>
+  <Attribute Name="aoid" Type="java.math.BigInteger"/>
+  <Attribute Name="transactionType" Type="java.lang.String"/>
+  <Attribute Name="width" Type="java.lang.Double"/>
+  <Attribute Name="widthUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="depth" Type="java.lang.Double"/>
+  <Attribute Name="depthUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="sizeSqft" Type="java.lang.Double"/>
+  <Attribute Name="sizeSqftUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="sizeUsableSqft" Type="java.lang.Double"/>
+  <Attribute Name="sizeUsableSqftUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="sizeAcreAge" Type="java.lang.Double"/>
+  <Attribute Name="sizeAcreAgeUserEntered" Type="java.lang.Double"/>
+  <Attribute Name="corner" Type="java.lang.String"/>
+  <Attribute Name="cornerUserEntered" Type="java.lang.String"/>
+  <Attribute Name="sewer" Type="java.lang.String"/>
+  <Attribute Name="sewerUserEntered" Type="java.lang.String"/>
+  <Attribute Name="traffic" Type="java.lang.String"/>
+  <Attribute Name="trafficUserEntered" Type="java.lang.String"/>
+  <Attribute Name="freewayProximity" Type="java.lang.String"/>
+  <Attribute Name="freewayProximityUserEntered" Type="java.lang.String"/>
+  <Attribute Name="flightPath" Type="java.lang.String"/>
+  <Attribute Name="flightPathUserEntered" Type="java.lang.String"/>
+  <Attribute Name="golfFront" Type="java.lang.String"/>
+  <Attribute Name="golfFrontUserEntered" Type="java.lang.String"/>
+  <Attribute Name="horses" Type="java.lang.String"/>
+  <Attribute Name="horsesUserEntered" Type="java.lang.String"/>
+  <Attribute Name="viewCodeKey" Type="java.lang.String"/>
+  <Attribute Name="viewCodeKeyUserEntered" Type="java.lang.String"/>
+  <Attribute Name="viewCodeRef" Type="java.math.BigInteger"/>
+  <Attribute Name="viewCodeLegend" Type="java.lang.String"/>
+  <Attribute Name="useCode" Type="java.lang.String"/>
+  <Attribute Name="useCodeUserEntered" Type="java.lang.String"/>
+  <Attribute Name="useType" Type="java.lang.String"/>
+  <Attribute Name="useTypeUserEntered" Type="java.lang.String"/>
+  <Attribute Name="codeSplit" Type="java.lang.String"/>
+  <Attribute Name="codeSplitUserEntered" Type="java.lang.String"/>
+  <Attribute Name="viewCodeRefUserEntered" Type="java.math.BigInteger"/>
+  <Attribute Name="viewCodeLegendUserEntered" Type="java.lang.String"/>
+  <Attribute Name="widthFinal" Type="java.lang.Double"/>
+  <Attribute Name="depthFinal" Type="java.lang.Double"/>
+  <Attribute Name="sizeSqftFinal" Type="java.lang.Double"/>
+  <Attribute Name="sizeUsableSqftFinal" Type="java.lang.Double"/>
+  <Attribute Name="sizeAcreAgeFinal" Type="java.lang.Double"/>
+  <Attribute Name="cornerFinal" Type="java.lang.String"/>
+  <Attribute Name="sewerFinal" Type="java.lang.String"/>
+  <Attribute Name="trafficFinal" Type="java.lang.String"/>
+  <Attribute Name="freewayProximityFinal" Type="java.lang.String"/>
+  <Attribute Name="flightPathFinal" Type="java.lang.String"/>
+  <Attribute Name="golfFrontFinal" Type="java.lang.String"/>
+  <Attribute Name="horsesFinal" Type="java.lang.String"/>
+  <Attribute Name="viewCodeKeyFinal" Type="java.lang.String"/>
+  <Attribute Name="viewCodeRefFinal" Type="java.math.BigInteger"/>
+  <Attribute Name="viewCodeLegendFinal" Type="java.lang.String"/>
+  <Attribute Name="useCodeFinal" Type="java.lang.String"/>
+  <Attribute Name="useTypeFinal" Type="java.lang.String"/>
+  <Attribute Name="codeSplitFinal" Type="java.lang.String"/>
+  <Attribute Name="transactionTypeFinal" Type="java.lang.String"/>
+  <Attribute Name="transactionTypeUserEntered" Type="java.lang.String"/>
+  <Attribute Name="dbUniqueIdUserEntered" Type="java.lang.String"/>
+  <Attribute Name="dbUniqueIdFinal" Type="java.lang.String"/>
+  <Attribute Name="viewCodeDisplay" Type="java.lang.String"/>
+  <Attribute Name="viewCodeDisplayUserEntered" Type="java.lang.String"/>
+  <Attribute Name="viewCodeDisplayFinal" Type="java.lang.String"/>
+  <Attribute Name="pojoRowId" Type="long"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.pdcr.common.model.data.LandDO"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.LandDO"
+                     id="LandDO"/>
+</JavaBean>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://assessor.lacounty.gov/amp/data/bvm/ValidateBaseYearEvent/v1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://assessor.lacounty.gov/amp/data/bvm/ValidateBaseYearEvent/v1.0" xmlns:inp1="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0" xmlns:inp2="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0" xmlns:inp3="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0">
+  <xsd:import schemaLocation="RequestHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0"/>
+  <xsd:import schemaLocation="ResponseHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+  <xsd:import schemaLocation="BaseYearEvent.xsd" namespace="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+  <xsd:annotation>
+    <xsd:documentation>This schema defines request and response payload
+                         structures for ValidateBaseYearEvent operation of
+                         BaseYearEventRulesService SOA Service.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element name="validateBaseYearEventRequest">
+    <xsd:annotation>
+      <xsd:documentation>This defines the request payload structure for
+                            ValidateBaseYearEvent operation of
+                            BaseYearEventRulesService SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp1:requestHeader" minOccurs="1" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="validationType" type="xsd:string" minOccurs="1" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>validationType is OnClose or onSubmit.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="baseYearEventList" type="tns:BaseYearEventList" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>list of Base Year events matching the input
+                                     criterion</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="validateBaseYearEventResponse">
+    <xsd:annotation>
+      <xsd:documentation>This defines the response payload structure for
+                            ValidateBaseYearEvent SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp2:responseHeader" maxOccurs="1" minOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Response Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="baseYearEventList" type="tns:BaseYearEventList">
+          <xsd:annotation>
+            <xsd:documentation>list of Base Year events matching the input
+                                     criterion</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="baseYearEventErrList" type="tns:BaseYearEventErrList" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>list of BaseYearEvents error details</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="BaseYearEventList">
+    <xsd:sequence>
+      <xsd:element name="baseYearEvent" type="inp3:baseYearEvent" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BaseYearEventErrList">
+    <xsd:sequence>
+      <xsd:element name="baseYearEvent" type="tns:baseYearEventErr" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="baseYearEventErr">
+    <xsd:sequence>
+      <xsd:element name="errorBYEId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="errorMessage" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="errorReqId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0">
+  <xsd:complexType name="baseYearEvent">
+    <xsd:annotation>
+      <xsd:documentation>This is a canonical schema for Base Year Event.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="ain" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>AIN Information.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="aoid" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>AOID Information.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="reviewRequired" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Indicator which tells AIN requires review.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="byeId" type="xsd:integer" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>BYE ID</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ownershipCode" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Code in Transfer Code table containing the
+                             Reappraisal Transfer Descriptions and their code
+                             values.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="percentOwnership" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Percentage ownership of property recorded by the
+                             event.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eventNameId" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>EventID.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eventNameKey" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Name of the event. Eg:'New Construction, 'Change of
+                             Ownership', 'Establish 1975 Base Value'.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eventNameLegend" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>EventNameLegend.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eventDescriptionId" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Event description Id.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eventDescriptionKey" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Event description.E.g. New Construction Completion,
+                             Partial Completion, Closeout, 100% Transfer,
+                             Partial Interest Transfer, or NA.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eventDescriptionLegend" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Event description Legend.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eventDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Date of the business event that establishes the
+                             Base Year.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="recordingDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="documentNumber" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>A unique number assigned to a Deed by the
+                             Registrar/Recorder’s office.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="sequenceNumber" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>When multiple documents are recorded on the same
+                             day, the sequence number identifies the order that
+                             they were recorded.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="baseYear" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>The year of the most recent change in value.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="subUnitNumber" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Unique identifier of a subunit.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="subUnitDescription" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Sub Unit Description Information</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="partiallyCompleteNumber" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Partially Complete Number Information used to keep
+                             track of the specific PC value and to link the
+                             subsequent closeout event.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="blendedValueFlag" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>True if the base value for land, imp, and/or
+                             fixtures is a blend of multiple other base values
+                             due to propositions, parcel change, or any business
+                             event situation that cannot easily define a pure
+                             base value for a particular AIN or Assessment
+                             Number.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="percentageAppliedToValue" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Percentage Applied To Value overrides the Percent
+                             Ownership in the calculation of a trended base
+                             value. This % will be used in cases such as blended
+                             values where the ownership % associated with the
+                             BYE may not be 100%.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="landValue" type="xsd:double" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Base value of the land.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="improvementValue" type="xsd:double" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Base value of improvements.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="landReasonCodeId" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>LandReasonCodeId.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="landReasonCodeKey" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Indicates the reason for the change in value of the
+                             land.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="landReasonCodeLegend" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>LandReasonCodeLegend.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="improvementReasonCodeId" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>ImprovementReasonCodeId.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="improvementReasonCodeKey" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>ImprovementReasonCodeKey.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="improvementReasonCodeLegend" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Indicates the reason for the change in value of the
+                             improvement.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fixtureValue" type="xsd:double" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Base value of fixtures.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="retainedLandValue" type="xsd:double" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Percent Ownership applied to the Land Value equals
+                             the Retained Land Value.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="retainedImprovementValue" type="xsd:double" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Percent Ownership applied to the Imp Value equals
+                             the Retained Improvement Value.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="retainedFixtureValue" type="xsd:double" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Percent Ownership applied to the Fixture Value
+                             equals the Retained Fixture Value.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ppAssessmentNumber" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>This 10-digit number, aka Company Number, is the
+                             main identifier for a personal property account.
+                             The first six digits indicate the parent account,
+                             while the last four digits indicate the branch
+                             number.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="personalPropertyType" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>This identifies the category of equipment being
+                             appraised, identifies the recommended economic life
+                             and fixturization to be applied to the equipment
+                             (in some cases), and identifies the trend factor
+                             table to be applied to the historical costs.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ppDescription" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Personal Property Description.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="totalAdjAcquisitionCost" type="xsd:double" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Business’ total reported acquisition cost inclusive
+                             of personal property and fixtures.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="percentageFixture" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Percentage value of given PP Type that is allocated
+                             to fixtures.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="effectiveBeginDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Date that a base year event begins to affect
+                             subsequent roll years.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="effectiveEndDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Date that a base year event ceases to affect
+                             subsequent roll years.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="verificationDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Date on which the record was marked verified.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="eventSource" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Example: HARVEST / BV MONITOR / WCP</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="verifiedBy" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Logged in UserName who verified the record.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="byeLegacySourceSystem" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Legacy Source System Information.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="originalAIN" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Multiple values derived from the orig_bye_id. field
+                             which identifiy the parcel or parcels from which
+                             base value(s) were transferred.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="originalBYEId" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Contains Original BYE ID Information.Used in copy
+                             and paste for creating a combined base year value
+                             from the existing one.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="rollType" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Ex: Secured/Un-Secured.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="transactionType" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Transaction Type Information.Used to Identify the
+                             type of transaction.Possible values are C/U/D.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="userId" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Logged-in User Id.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="newConstructionDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>New Construction Date.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="createBy" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Record created by user id.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="createdDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Record creation date.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="modifiedBy" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Record last modified by user id.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="inactiveDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Record Delete date.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="modifiedDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Record last modified date.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="currentOnClose" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Indicator of which record was the user actively
+                             editing.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="notes" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Notes</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="asmtRollId" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>asmt RollId</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

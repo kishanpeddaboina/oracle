@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.9.0.1.7" build="1.7" fullName="Data.SortBYEBO" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/Data/SortBYEBO" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns="http://xmlns.oracle.com/bpm/bpmobject/Data/SortBYEBO"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:complexType name="SortBYEBOType">
+        <xs:sequence>
+            <xs:element name="ain" nillable="true" type="xs:string"/>
+            <xs:element name="district" nillable="true" type="xs:string"/>
+            <xs:element name="region" nillable="true" type="xs:string"/>
+            <xs:element name="cluster" nillable="true" type="xs:string"/>
+            <xs:element name="noOfEvents" nillable="true" type="xs:string"/>
+            <xs:element name="assignedBy" nillable="true" type="xs:string"/>
+            <xs:element name="updatedBy" nillable="true" type="xs:string"/>
+            <xs:element name="updatedDate" nillable="true" type="xs:dateTime"/>
+            <xs:element name="milestone" nillable="true" type="xs:string"/>
+            <xs:element name="updatedByInfo" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SortBYEBO" type="SortBYEBOType"/>
+</xs:schema>

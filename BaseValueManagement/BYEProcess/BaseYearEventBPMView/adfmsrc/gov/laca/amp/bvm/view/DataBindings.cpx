@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="gov.laca.amp.bvm.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/gov/laca/amp/bvm/view/amp-initiate-base-year-event-btf/BaseYearEventsTaskDetails.jsff"
+          usageId="gov_laca_amp_bvm_view_InitiateBaseYearEventPageDef"/>
+    <page path="/gov/laca/amp/bvm/view/page/BaseYearEventsTaskDetails.jspx"
+          usageId="gov_laca_amp_bvm_view_BaseYearEventsTaskDetailsPageDef"/>
+    <page path="/gov/laca/amp/bvm/view/amp-initiate-base-year-event-btf/ReviewChenages.jsff"
+          usageId="gov_laca_amp_bvm_view_ReviewChenagesPageDef"/>
+    <page path="/gov/laca/amp/bvm/view/page/Assign.jsff"
+          usageId="gov_laca_amp_bvm_view_AssignPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="gov_laca_amp_bvm_view_InitiateBaseYearEventPageDef"
+          path="gov.laca.amp.bvm.view.amp_initiate_base_year_event_btf.BaseYearEventTaskDetailsFragmentPageDef"/>
+    <page id="gov_laca_amp_bvm_view_BaseYearEventsTaskDetailsPageDef"
+          path="gov.laca.amp.bvm.view.page.BaseYearEventsTaskDetailsPageDef"/>
+    <page id="gov_laca_amp_bvm_view_ReviewChenagesPageDef"
+          path="gov.laca.amp.bvm.view.amp_initiate_base_year_event_btf.ReviewChenagesPageDef"/>
+    <page id="gov_laca_amp_bvm_view_AssignPageDef"
+          path="gov.laca.amp.bvm.view.page.AssignPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="BVMEventHandler" path="gov.laca.amp.bvm.model.BVMEventHandler"/>
+    <dc id="BaseYearEventBPMView_ManageBaseYearEventTask"
+        path="baseyeareventbpmview.BaseYearEventBPMView_ManageBaseYearEventTask"/>
+    <dc id="InitiateBaseYearEvent"
+        path="gov.laca.amp.bvm.model.InitiateBaseYearEvent"/>
+  </dataControlUsages>
+</Application>

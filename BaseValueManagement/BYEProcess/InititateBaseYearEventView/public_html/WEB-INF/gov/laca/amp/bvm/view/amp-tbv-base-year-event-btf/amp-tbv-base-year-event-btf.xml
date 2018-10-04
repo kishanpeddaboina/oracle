@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-tbv-base-year-event-btf">
+    <default-activity id="__13">loadData</default-activity>
+    <data-control-scope id="___4">
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name id="__2">ain</name>
+      <value>#{pageFlowScope.ain}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__3">
+      <name id="__4">userId</name>
+      <value>#{pageFlowScope.userId}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__6">
+      <name id="__5">aoid</name>
+      <value>#{pageFlowScope.aoid}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="___23">
+      <managed-bean-name id="___22">initiateBVMBean</managed-bean-name>
+      <managed-bean-class id="___21">gov.laca.amp.bvm.view.bean.InitiateBVMBean</managed-bean-class>
+      <managed-bean-scope id="___20">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="___27">
+      <managed-bean-name id="___26">filterMB</managed-bean-name>
+      <managed-bean-class id="___24">gov.laca.amp.bvm.view.bean.FilterBean</managed-bean-class>
+      <managed-bean-scope id="___25">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="___31">
+      <managed-bean-name id="___28">bvmTaskDetailsBean</managed-bean-name>
+      <managed-bean-class id="___29">gov.laca.amp.bvm.view.bean.BVMTaskDetailsBean</managed-bean-class>
+      <managed-bean-scope id="___30">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="___33">
+      <managed-bean-name id="___35">historicalPopupTaskflowHandler</managed-bean-name>
+      <managed-bean-class id="___34">gov.laca.amp.bvm.view.bean.HistoricalPopupTaskflowHandler</managed-bean-class>
+      <managed-bean-scope id="___32">view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="___37">
+      <managed-bean-name id="___36">bvmActionsBean</managed-bean-name>
+      <managed-bean-class id="___39">gov.laca.amp.bvm.view.bean.BVMActionsBean</managed-bean-class>
+      <managed-bean-scope id="___38">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="___42">
+      <managed-bean-name id="___40">currentPopupTaskflowHandler</managed-bean-name>
+      <managed-bean-class id="___43">gov.laca.amp.bvm.view.bean.CurrentPopupTaskflowHandler</managed-bean-class>
+      <managed-bean-scope id="___41">view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="___45">
+      <managed-bean-name id="___47">lienRollYearOptionsBean</managed-bean-name>
+      <managed-bean-class id="___44">gov.laca.amp.bvm.view.bean.LienRollYearOptions</managed-bean-class>
+      <managed-bean-scope id="___46">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="___10">
+      <managed-bean-name id="___1">scratchTrendBaseEventHandlerBean</managed-bean-name>
+      <managed-bean-class id="___9">gov.laca.amp.bvm.view.bean.BTVCalculatorHandler</managed-bean-class>
+      <managed-bean-scope id="___8">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="BaseYearEventsTBV">
+      <page>/gov/laca/amp/bvm/view/amp-tbv-base-year-event-btf/BaseYearEventsTBV.jsff</page>
+    </view>
+    <method-call id="loadData">
+      <method>#{bindings.loadData.execute}</method>
+      <outcome id="__7">
+        <fixed-outcome>loadData</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">loadData</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">loadData</from-outcome>
+        <to-activity-id id="__12">BaseYearEventsTBV</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

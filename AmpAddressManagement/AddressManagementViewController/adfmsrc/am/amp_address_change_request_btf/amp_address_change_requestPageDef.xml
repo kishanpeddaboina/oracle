@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24"
+                id="amp_address_change_requestPageDef" Package="am.amp_address_change_request_btf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="AddressManagementDC" id="AddressManagementDCIterator"/>
+    <accessorIterator MasterBinding="AddressManagementDCIterator" Binds="addressManagementPojo" RangeSize="25"
+                      DataControl="AddressManagementDC"
+                      BeanClass="gov.laca.amp.modules.am.model.pojo.AddressManagementPojo"
+                      id="addressManagementPojoIterator"/>
+    <accessorIterator MasterBinding="addressManagementPojoIterator" Binds="ainsPojo" RangeSize="-1"
+                      DataControl="AddressManagementDC" BeanClass="gov.laca.amp.modules.am.model.pojo.AinPojo"
+                      id="ainsPojoIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ainsPojoIterator" id="ainsPojo">
+      <nodeDefinition DefName="gov.laca.amp.modules.am.model.pojo.AinPojo" Name="ainsPojo0">
+        <AttrNames>
+          <Item Value="ainDisplay"/>
+          <Item Value="propertyAddress"/>
+          <Item Value="primary"/>
+          <Item Value="ain"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="removeAin" RequiresUpdateModel="true" Action="invokeMethod" MethodName="removeAin"
+                  IsViewObjectMethod="false" DataControl="AddressManagementDC"
+                  InstanceName="bindings.removeAin.dataControl.dataProvider">
+      <NamedData NDName="currentRowIndex" NDType="java.lang.Integer"/>
+    </methodAction>
+    <methodAction id="onPageLoad" RequiresUpdateModel="true" Action="invokeMethod" MethodName="onPageLoad"
+                  IsViewObjectMethod="false" DataControl="AddressManagementDC"
+                  InstanceName="bindings.onPageLoad.dataControl.dataProvider"/>
+    <methodAction id="resetData" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetData"
+                  IsViewObjectMethod="false" DataControl="AddressManagementDC"
+                  InstanceName="bindings.resetData.dataControl.dataProvider"/>
+    <methodAction id="fetchCurrentOwnerShipInfo" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="fetchCurrentOwnerShipInfo" IsViewObjectMethod="false" DataControl="AddressManagementDC"
+                  InstanceName="bindings.fetchCurrentOwnerShipInfo.dataControl.dataProvider"
+                  ReturnName="data.AddressManagementDC.methodResults.fetchCurrentOwnerShipInfo_fetchCurrentOwnerShipInfo_dataControl_dataProvider_fetchCurrentOwnerShipInfo_result">
+      <NamedData NDName="ain" NDType="java.lang.String"/>
+      <NamedData NDName="aoid" NDType="java.lang.String"/>
+      <NamedData NDName="primaryAin" NDType="java.lang.String"/>
+      <NamedData NDName="pageNavigation" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="saveAddressWorkUnit" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="saveAddressWorkUnit" IsViewObjectMethod="false" DataControl="AddressManagementDC"
+                  InstanceName="bindings.saveAddressWorkUnit.dataControl.dataProvider"
+                  ReturnName="data.AddressManagementDC.methodResults.saveAddressWorkUnit_saveAddressWorkUnit_dataControl_dataProvider_saveAddressWorkUnit_result">
+      <NamedData NDName="newMailingAddr" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="addressManagementPojoIterator" id="agentName">
+      <AttrNames>
+        <Item Value="agentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="addressManagementPojoIterator" id="propertyOwnerName">
+      <AttrNames>
+        <Item Value="propertyOwnerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="addressManagementPojoIterator" id="daytimePhone">
+      <AttrNames>
+        <Item Value="daytimePhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="addressManagementPojoIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="addressManagementPojoIterator" id="digitalSignature">
+      <AttrNames>
+        <Item Value="digitalSignature"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="addressManagementPojoIterator" id="enteredDate">
+      <AttrNames>
+        <Item Value="enteredDate"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="addressManagementPojoIterator" id="isAuthorizedAgent" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="isAuthorizedAgent"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <methodAction id="validateAinInForm" RequiresUpdateModel="true" Action="invokeMethod" MethodName="validateAinInForm"
+                  IsViewObjectMethod="false" DataControl="AddressManagementDC"
+                  InstanceName="bindings.validateAinInForm.dataControl.dataProvider"
+                  ReturnName="data.AddressManagementDC.methodResults.validateAinInForm_validateAinInForm_dataControl_dataProvider_validateAinInForm_result"/>
+    <methodAction id="duplicateAinCheck" RequiresUpdateModel="true" Action="invokeMethod" MethodName="duplicateAinCheck"
+                  IsViewObjectMethod="false" DataControl="AddressManagementDC"
+                  InstanceName="bindings.duplicateAinCheck.dataControl.dataProvider"
+                  ReturnName="data.AddressManagementDC.methodResults.duplicateAinCheck_duplicateAinCheck_dataControl_dataProvider_duplicateAinCheck_result">
+      <NamedData NDName="ain" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

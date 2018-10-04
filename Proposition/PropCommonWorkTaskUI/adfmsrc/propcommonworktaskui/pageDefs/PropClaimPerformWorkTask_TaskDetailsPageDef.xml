@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="PropClaimPerformWorkTask_TaskDetailsPageDef" Package="propcommonworktaskui.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="ampbpmcorrespondencebtf1"
+           taskFlowId="/WEB-INF/amp-bpm-correspondence-btf/amp-bpm-correspondence-btf.xml#amp-bpm-correspondence-btf"
+              Refresh="ifNeeded" activation="immediate" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        
+        <parameter id="propsId" value="#{pageFlowScope.propsId}"/>
+        <parameter id="readOnlyMode" value="#{pageFlowScope.readOnlyMode}"/>
+        <parameter id="category" value="#{pageFlowScope.category}"/>
+        <parameter id="subcategory" value="#{pageFlowScope.subcategory}"/>
+        <parameter id="WorkUnitId" value="#{pageFlowScope.WorkUnitId}"/>
+        <parameter id="viewLinks" value="#{pageFlowScope.viewLinks}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

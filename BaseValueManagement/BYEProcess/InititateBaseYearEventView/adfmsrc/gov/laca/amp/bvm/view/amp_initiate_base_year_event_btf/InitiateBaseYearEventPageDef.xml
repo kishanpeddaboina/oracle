@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="InitiateBaseYearEventPageDef"
+                Package="gov.laca.amp.bvm.view.amp_initiate_base_year_event_btf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="effectiveDateBegin" Type="java.util.Date"/>
+      <variable Name="effectiveDateEnd" Type="java.util.Date"/>
+      <variable Name="eventDateBegin" Type="java.util.Date"/>
+      <variable Name="eventDateEnd" Type="java.util.Date"/>
+      <variable Name="rollOver" Type="java.lang.String"/>
+      <variable Name="verified" Type="java.lang.Boolean"/>
+      <variable Name="unverified" Type="java.lang.Boolean"/>
+      <variable Name="active" Type="java.lang.Boolean"/>
+      <variable Name="inactive" Type="java.lang.Boolean"/>
+      <variable Name="effectiveEndDateBegin" Type="java.util.Date"/>
+      <variable Name="effectiveEndDateEnd" Type="java.util.Date"/>
+      <variable Name="tabClicked" Type="java.lang.String"/>
+    </variableIterator>
+    <invokeAction id="invokeLoadData" Binds="loadData" RefreshCondition="#{adfFacesContext.postback==false}"/>
+    
+  
+    
+    <iterator Binds="root" RangeSize="25" DataControl="InitiateBaseYearEvent"
+              id="InitiateBaseYearEventIterator" ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="filteredCurrentEventsList" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="filteredCurrentEventsListIterator" Refresh="ifNeeded"
+                      Sortable="true"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="filteredHistoricalEventsList" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="filteredHistoricalEventsListIterator"
+                      Refresh="ifNeeded"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="ainLockService" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.AINLockMgmtServiceWrapper"
+                      id="ainLockServiceIterator" ChangeEventPolicy="ppr"/>
+    <taskFlow id="editHistorical"
+              taskFlowId="${viewScope.historicalPopupTaskflowHandler.dynamicTaskFlowId}"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="isEdit" value="true"/>
+        <parameter id="eventType" value="historical"/>
+        <parameter id="isRealProperty" value="true"/>
+        <parameter id="isPersonalProperty" value="false"/>
+        <parameter id="isNew" value="false"/>
+        <parameter id="isFixture" value="true"/>
+        <parameter id="isTBV" value="false"/>
+        <parameter id="showOriginal" value="true"/>
+        <parameter id="popupId" value="historicalPopup"/>            
+      </parameters>
+    </taskFlow>
+    <taskFlow id="createHistorical"
+              taskFlowId="${viewScope.historicalPopupTaskflowHandler.dynamicTaskFlowId}"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="isEdit" value="true"/>
+        <parameter id="eventType" value="historical"/>
+        <parameter id="isRealProperty" value="true"/>
+        <parameter id="isPersonalProperty" value="false"/>
+        <parameter id="isNew" value="true"/>
+        <parameter id="isFixture" value="true"/>        
+        <parameter id="isTBV" value="false"/>
+        <parameter id="showOriginal" value="true"/>
+        <parameter id="popupId" value="createHistoricalPopup"/>           
+      </parameters>
+    </taskFlow>    
+    <taskFlow id="editCurrent"
+              taskFlowId="${viewScope.currentPopupTaskflowHandler.dynamicTaskFlowId}"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="isEdit" value="true"/>
+        <parameter id="eventType" value="current"/>
+        <parameter id="isRealProperty" value="true"/>
+        <parameter id="isPersonalProperty" value="false"/>
+        <parameter id="isNew" value="false"/> 
+        <parameter id="isFixture" value="true"/>        
+        <parameter id="isTBV" value="false"/>
+        <parameter id="showOriginal" value="true"/>
+        <parameter id="popupId" value="currentPopup"/>            
+      </parameters>
+    </taskFlow>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="ainDO" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.AinDO"
+                      id="ainDOIterator" ChangeEventPolicy="ppr"
+                      Refresh="ifNeeded"/>
+    <taskFlow id="readHistoricalReal"
+              taskFlowId="/WEB-INF/gov/laca/amp/bvm/view/bye-details-btf/bye-details-btf.xml#bye-details-btf"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="isEdit" value="false"/>
+        <parameter id="eventType" value="historical"/>
+        <parameter id="isRealProperty" value="true"/>
+        <parameter id="isPersonalProperty" value="false"/>
+        <parameter id="isFixture" value="true"/>
+        <parameter id="isTBV" value="false"/>
+        <parameter id="showOriginal" value="false"/>
+      </parameters>
+    </taskFlow>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="selectedCurrentEvent" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="selectedCurrentEventIterator"
+                      ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="selectedHistoricalEvent" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="selectedHistoricalEventIterator"
+                      ChangeEventPolicy="ppr"/>
+    <taskFlow id="readCurrentReal"
+              taskFlowId="/WEB-INF/gov/laca/amp/bvm/view/bye-details-btf/bye-details-btf.xml#bye-details-btf"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="isEdit" value="false"/>
+        <parameter id="eventType" value="current"/>
+        <parameter id="isRealProperty" value="true"/>
+        <parameter id="isPersonalProperty" value="false"/>
+        <parameter id="isFixture" value="true"/>
+        <parameter id="isTBV" value="false"/>
+        <parameter id="showOriginal" value="false"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="amptbvbaseyeareventbtf1"
+              taskFlowId="/WEB-INF/gov/laca/amp/bvm/view/amp-tbv-base-year-event-btf/amp-tbv-base-year-event-btf.xml#amp-tbv-base-year-event-btf"
+              activation="conditional"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              active="#{pageFlowScope.tabClicked=='tbv'}">
+      <parameters>
+        <parameter id="ain" value="#{bindings.ain.inputValue}"/>
+        <parameter id="userId" value="#{bindings.userId.inputValue}"/>
+        <parameter id="aoid" value="#{bindings.aoid.inputValue}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <methodAction id="filterBaseYearEvents"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="filterBaseYearEvents"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.InitiateBaseYearEvent.methodResults.filterBaseYearEvents_InitiateBaseYearEvent_dataProvider_filterBaseYearEvents_result">
+      <NamedData NDName="eventDateBegin" NDType="java.util.Date"/>
+      <NamedData NDName="eventDateEnd" NDType="java.util.Date"/>
+      <NamedData NDName="effectiveDateBegin" NDType="java.util.Date"/>
+      <NamedData NDName="effectiveDateEnd" NDType="java.util.Date"/>
+      <NamedData NDName="effectiveEndDateBegin" NDType="java.util.Date"/>
+      <NamedData NDName="effectiveEndDateEnd" NDType="java.util.Date"/>
+      <NamedData NDName="rollYear" NDType="java.lang.String"/>
+      <NamedData NDName="verified" NDType="java.lang.Boolean"/>
+      <NamedData NDName="unverified" NDType="java.lang.Boolean"/>
+      <NamedData NDName="active" NDType="java.lang.Boolean"/>
+      <NamedData NDName="inactive" NDType="java.lang.Boolean"/>
+    </methodAction>
+   
+    <tree IterBinding="filteredCurrentEventsListIterator"
+          id="filteredCurrentEventsList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      Name="filteredCurrentEventsList0">
+        <AttrNames>
+          <Item Value="selected"/>
+          <Item Value="eventDate"/>
+          <Item Value="baseYear"/>
+          <Item Value="subUnitNumber"/>
+          <Item Value="percentOwnership"/>
+          <Item Value="percentageAppliedToValue"/>
+          <Item Value="landValue"/>
+          <Item Value="improvementValue"/>
+          <Item Value="totalAdjAcquisitionCost"/>
+          <Item Value="fixtureValue"/>
+          <Item Value="effectiveBeginDate"/>
+          <Item Value="effectiveEndDate"/>
+          <Item Value="verificationDate"/>
+          <Item Value="inactiveDate"/>
+          <Item Value="blendedValueFlag"/>
+          <Item Value="recordingDate"/>
+          <Item Value="sequenceNumber"/>
+          <Item Value="documentNumber"/>
+          <Item Value="ownershipCode"/>
+          <Item Value="newConstructionDate"/>
+          <Item Value="partiallyCompleteNumber"/>
+          <Item Value="retainedLandValue"/>
+          <Item Value="retainedImprovementValue"/>
+          <Item Value="retainedFixtureValue"/>
+          <Item Value="subUnitDescription"/>
+          <Item Value="personalPropertyType"/>
+          <Item Value="ppDescription"/>
+          <Item Value="percentageFixture"/>
+          <Item Value="originalAIN"/>
+          <Item Value="ppAssessmentNumber"/>
+          <Item Value="byeId"/>
+          <Item Value="verifiedBy"/>
+          <Item Value="modifiedBy"/>
+          <Item Value="modifiedDate"/>
+          <Item Value="byeLegacySourceSystem"/>
+          <Item Value="eventSource"/>
+          <Item Value="createdData"/>
+          <Item Value="totalValue"/>
+          <Item Value="aoid"/>
+          <Item Value="eventNameLegend"/>
+          <Item Value="eventDescriptionId"/>
+          <Item Value="eventDescriptionKey"/>
+          <Item Value="eventDescriptionLegend"/>
+          <Item Value="landReasonCodeId"/>
+          <Item Value="landReasonCodeKey"/>
+          <Item Value="landReasonCodeLegend"/>
+          <Item Value="improvementReasonCodeId"/>
+          <Item Value="improvementReasonCodeKey"/>
+          <Item Value="improvementReasonCodeLegend"/>
+          <Item Value="reviewRequired"/>
+          <Item Value="currentOnClose"/>
+          <Item Value="notes"/>
+          <Item Value="eventNameId"/>
+          <Item Value="eventNameKey"/>
+          <Item Value="retainedTotalValue"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="filteredHistoricalEventsListIterator"
+          id="filteredHistoricalEventsList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      Name="filteredHistoricalEventsList0">
+        <AttrNames>
+          <Item Value="selected"/>
+          <Item Value="eventDate"/>
+          <Item Value="baseYear"/>
+          <Item Value="subUnitNumber"/>
+          <Item Value="percentOwnership"/>
+          <Item Value="percentageAppliedToValue"/>
+          <Item Value="landValue"/>
+          <Item Value="improvementValue"/>
+          <Item Value="totalAdjAcquisitionCost"/>
+          <Item Value="fixtureValue"/>
+          <Item Value="effectiveBeginDate"/>
+          <Item Value="effectiveEndDate"/>
+          <Item Value="verificationDate"/>
+          <Item Value="inactiveDate"/>
+          <Item Value="blendedValueFlag"/>
+          <Item Value="recordingDate"/>
+          <Item Value="sequenceNumber"/>
+          <Item Value="documentNumber"/>
+          <Item Value="ownershipCode"/>
+          <Item Value="newConstructionDate"/>
+          <Item Value="partiallyCompleteNumber"/>
+          <Item Value="retainedLandValue"/>
+          <Item Value="retainedImprovementValue"/>
+          <Item Value="retainedFixtureValue"/>
+          <Item Value="subUnitDescription"/>
+          <Item Value="personalPropertyType"/>
+          <Item Value="ppDescription"/>
+          <Item Value="percentageFixture"/>
+          <Item Value="originalAIN"/>
+          <Item Value="ppAssessmentNumber"/>
+          <Item Value="byeId"/>
+          <Item Value="verifiedBy"/>
+          <Item Value="modifiedBy"/>
+          <Item Value="modifiedDate"/>
+          <Item Value="byeLegacySourceSystem"/>
+          <Item Value="eventSource"/>
+          <Item Value="createdData"/>
+          <Item Value="totalValue"/>
+          <Item Value="retainedTotalValue"/>
+          <Item Value="aoid"/>
+          <Item Value="eventNameLegend"/>
+          <Item Value="eventDescriptionId"/> 
+          <Item Value="eventDescriptionKey"/>
+          <Item Value="eventDescriptionLegend"/> 
+          <Item Value="landReasonCodeId"/>
+          <Item Value="landReasonCodeKey"/>
+          <Item Value="landReasonCodeLegend"/>
+          <Item Value="improvementReasonCodeId"/>
+          <Item Value="improvementReasonCodeKey"/>
+          <Item Value="improvementReasonCodeLegend"/>
+          <Item Value="reviewRequired"/>
+          <Item Value="currentOnClose"/>
+          <Item Value="notes"/>  
+          <Item Value="eventNameId"/>
+          <Item Value="eventNameKey"/>          
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="variables" id="effectiveDateBegin1">
+      <AttrNames>
+        <Item Value="effectiveDateBegin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="eventDateBegin1">
+      <AttrNames>
+        <Item Value="eventDateBegin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="eventDateEnd1">
+      <AttrNames>
+        <Item Value="eventDateEnd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="verified1">
+      <AttrNames>
+        <Item Value="verified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="unverified1">
+      <AttrNames>
+        <Item Value="unverified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="active1">
+      <AttrNames>
+        <Item Value="active"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="inactive1">
+      <AttrNames>
+        <Item Value="inactive"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="rollOver1">
+      <AttrNames>
+        <Item Value="rollOver"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ainLockServiceIterator" id="lockStatus">
+      <AttrNames>
+        <Item Value="lockStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="effectiveDateEnd1">
+      <AttrNames>
+        <Item Value="effectiveDateEnd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator"
+                     id="initiatedBy1">
+      <AttrNames>
+        <Item Value="initiatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="initiateBaseYearEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="initiateBaseYearEvent"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.InitiateBaseYearEvent.methodResults.initiateBaseYearEvent_InitiateBaseYearEvent_dataProvider_initiateBaseYearEvent_result"/>
+    <methodAction id="setSelectedCurrentEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSelectedCurrentEvent"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="byeId" NDType="java.math.BigInteger"/>
+    </methodAction>
+    <methodAction id="setSelectedHistoricalEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSelectedHistoricalEvent"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="byeId" NDType="java.math.BigInteger"/>
+    </methodAction>
+    <methodAction id="addEvent" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addEvent" IsViewObjectMethod="false"
+                  DataControl="InitiateBaseYearEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider">
+      <NamedData NDName="eventType" NDValue="historical"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="deleteEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="deleteEvent"
+                  IsViewObjectMethod="false" DataControl="InitiateBaseYearEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider">
+      <NamedData NDName="eventType" NDValue="historical"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="selectedCurrentEventIterator"
+                     id="selectedCurrentByeId">
+      <AttrNames>
+        <Item Value="byeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="selectedHistoricalByeID">
+      <AttrNames>
+        <Item Value="byeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="selectedHistoricalTransactionType">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ainDOIterator" id="ain">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ainDOIterator" id="reviewRequired">
+      <AttrNames>
+        <Item Value="reviewRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="effectiveEndDateBegin1">
+      <AttrNames>
+        <Item Value="effectiveEndDateBegin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="effectiveEndDateEnd1">
+      <AttrNames>
+        <Item Value="effectiveEndDateEnd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator"
+                     id="checkDistrict">
+      <AttrNames>
+        <Item Value="checkDistrict"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator"
+                     id="outputText">
+      <AttrNames>
+        <Item Value="outputText"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="resetEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="resetEvent"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="eventType" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="updateSelection"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="updateSelection"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="byeId" NDType="java.math.BigInteger"/>
+      <NamedData NDName="newValue" NDType="java.lang.Boolean"/>
+    </methodAction>
+    <methodAction id="updateReviewRequired"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="updateReviewRequired"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="flag" NDType="java.lang.Boolean"/>
+    </methodAction>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator"
+                     id="checkManageBVM">
+      <AttrNames>
+        <Item Value="checkManageBVM"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator" id="isFixture">
+      <AttrNames>
+        <Item Value="isFixture"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator"
+                     id="lockedMessage">
+      <AttrNames>
+        <Item Value="lockedMessage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator"
+                     id="isVisibleNotificationMessage">
+      <AttrNames>
+        <Item Value="isVisibleNotificationMessage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator" id="userId">
+      <AttrNames>
+        <Item Value="userId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator" id="aoid">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="loadData" RequiresUpdateModel="true" Action="invokeMethod" MethodName="loadData"
+                  IsViewObjectMethod="false" DataControl="InitiateBaseYearEvent"
+                  InstanceName="bindings.loadData.dataControl.dataProvider">
+      <NamedData NDName="source" NDValue="SOA" NDType="java.lang.String"/>
+      <NamedData NDName="ain" NDValue="#{param.ain}" NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{param.userId}" NDType="java.lang.String"/>
+      <NamedData NDName="aoid" NDValue="#{param.aoid}" NDType="java.lang.String"/>
+                 
+    </methodAction>
+    <methodAction id="allBaseYearEvents" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="allBaseYearEvents" IsViewObjectMethod="false" DataControl="InitiateBaseYearEvent"
+                  InstanceName="bindings.allBaseYearEvents.dataControl.dataProvider"
+                  ReturnName="data.InitiateBaseYearEvent.methodResults.allBaseYearEvents_allBaseYearEvents_dataControl_dataProvider_allBaseYearEvents_result"/>
+  </bindings>
+  
+</pageDefinition>

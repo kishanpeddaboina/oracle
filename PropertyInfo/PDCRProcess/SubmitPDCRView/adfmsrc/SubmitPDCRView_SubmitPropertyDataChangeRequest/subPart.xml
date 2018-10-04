@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="subPart" Package="SubmitPDCRView_SubmitPropertyDataChangeRequest"
+          BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.subPart"
+          isJavaBased="false">
+  <Attribute Name="dbUniqueId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="ain"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Db Unique Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="dbUniqueId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ain" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="aoid"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Ain"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ain"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="aoid" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="transactionType"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Aoid"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="aoid"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="transactionType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="improvementNumber"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Transaction Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="transactionType"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="improvementNumber" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="subPartNumber"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Improvement Number"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="improvementNumber"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="subPartNumber" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="rcnYearChange"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Sub Part Number"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="subPartNumber"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="rcnYearChange" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="designTypeRef"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Rcn Year Change"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="rcnYearChange"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="designTypeRef" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="designTypeKey"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Design Type Ref"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="designTypeRef"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="designTypeKey" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="designTypeLegend"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Design Type Key"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="designTypeKey"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="designTypeLegend" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="qualityClass"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Design Type Legend"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="designTypeLegend"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="qualityClass" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="yearBuilt"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Quality Class"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="qualityClass"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="yearBuilt" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="effectiveYearBuilt"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Year Built"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="yearBuilt"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="effectiveYearBuilt" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="depreciationTable"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Effective Year Built"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="effectiveYearBuilt"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="depreciationTable" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="numberOfUnits"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Depreciation Table"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="depreciationTable"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="numberOfUnits" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="bedroomCount"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Number Of Units"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="numberOfUnits"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="bedroomCount" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="bathroomCount"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Bedroom Count"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="bedroomCount"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="bathroomCount" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="improvementSizeSqft"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Bathroom Count"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="bathroomCount"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="improvementSizeSqft" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="rcnOtherTotal"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Improvement Size Sqft"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="improvementSizeSqft"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="rcnOtherTotal" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="costFactor"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Rcn Other Total"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="rcnOtherTotal"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="costFactor" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="rcnMain"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Cost Factor"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="costFactor"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="rcnMain" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="percentGood"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Rcn Main"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="rcnMain"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="percentGood" Type="java.math.BigDecimal">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="addedDepreciationTypeRef"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Percent Good"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="percentGood"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigDecimal"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="addedDepreciationTypeRef" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="addedDepreciationTypeKey"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Added Depreciation Type Ref"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="addedDepreciationTypeRef"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="addedDepreciationTypeKey" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="addedDepreciationTypeLegend"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Added Depreciation Type Key"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="addedDepreciationTypeKey"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="addedDepreciationTypeLegend" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="addedDepreciationPercent"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Added Depreciation Type Legend"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="addedDepreciationTypeLegend"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="addedDepreciationPercent" Type="java.math.BigDecimal">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="nextSibling" Value="rcnLessDepreciation"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Added Depreciation Percent"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="addedDepreciationPercent"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.math.BigDecimal"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="rcnLessDepreciation" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Rcn Less Depreciation"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="rcnLessDepreciation"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+</JavaBean>

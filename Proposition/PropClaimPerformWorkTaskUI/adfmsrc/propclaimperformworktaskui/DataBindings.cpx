@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="propclaimperformworktaskui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/PropClaimPerformWorkTask_TaskDetails.jspx"
+          usageId="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskDetailsPageDef"/>
+    <page path="/PropClaimPerformWorkTask_TaskNotification.jspx"
+          usageId="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskNotificationPageDef"/>
+    <page path="/amp-bpm-correspondence-btf/correspondence.jsff"
+          usageId="propclaimperformworktaskui_correspondencePageDef"/>
+   
+    <page path="/WEB-INF/PropClaimPerformWorkTask_TaskFlow.xml#PropClaimPerformWorkTask_TaskFlow@invokeOPA"
+          usageId="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_invokeOPAPageDef"/>
+    <page path="/testSuppInfo.jspx" usageId="propclaimperformworktaskui_testSuppInfoPageDef"/>
+    <page path="/qualConcl.jspx" usageId="propclaimperformworktaskui_qualConclPageDef"/>
+    <page path="/testqualConcltest.jspx" usageId="propclaimperformworktaskui_testqualConclPageDef"/>
+    <page path="/testQualConcl.jsff" usageId="propclaimperformworktaskui_testqualConclPageDef"/>
+    <page path="/WEB-INF/testQualConcl.xml#testQualConcl@loadPropsLOV"
+          usageId="propclaimperformworktaskui_testQualConcl_testQualConcl_loadPropsLOVPageDef"/>
+    <page path="/testPage.jspx" usageId="propclaimperformworktaskui_testPagePageDef"/>
+    <page path="/WEB-INF/PropClaimPerformWorkTask_TaskFlow.xml#PropClaimPerformWorkTask_TaskFlow@getOtherPropFilings"
+          usageId="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_getOtherPropFilingsPageDef"/>
+    <page path="/ReviewSubmit.jspx" usageId="propclaimperformworktaskui_ReviewSubmitPageDef"/>
+    <page path="/WEB-INF/PropClaimPerformWorkTask_TaskFlow.xml#PropClaimPerformWorkTask_TaskFlow@loadPropsData"
+          usageId="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_loadPropsDataPageDef"/>
+    <page path="/WEB-INF/PropClaimPerformWorkTask_TaskFlow.xml#PropClaimPerformWorkTask_TaskFlow@loadPropsLOV"
+          usageId="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_loadPropsLOVPageDef"/>
+    <page path="/WEB-INF/PropClaimPerformWorkTask_TaskFlow.xml#PropClaimPerformWorkTask_TaskFlow@initAvailableDocs"
+          usageId="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_initAvailableDocsPageDef"/>
+    <page path="/WEB-INF/PropClaimPerformWorkTask_TaskFlow.xml#PropClaimPerformWorkTask_TaskFlow@checkMileStone"
+          usageId="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_checkMileStonePageDef"/>
+<page path="/conclusion.jsff" usageId="propclaimperformworktaskui_conclusionPageDef"/>
+    <page path="/suppInfo.jspx" usageId="propclaimperformworktaskui_suppInfoPageDef"/>
+    <page path="/Unassign_PropsClaimPerformTask.jspx"
+          usageId="propclaimperformworktaskui_Unassign_PropsClaimPerformTaskPageDef"/>
+    <page path="/mainui.jspx" usageId="propclaimperformworktaskui_mainuiPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskDetailsPageDef"
+          path="propclaimperformworktaskui.pageDefs.PropClaimPerformWorkTask_TaskDetailsPageDef"/>
+    <page id="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskNotificationPageDef"
+          path="propclaimperformworktaskui.pageDefs.PropClaimPerformWorkTask_TaskNotificationPageDef"/>
+   
+    <page id="propclaimperformworktaskui_correspondencePageDef"
+          path="amp_bpm_correspondence_btf.correspondencePageDef"/>
+    <page id="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_invokeOPAPageDef"
+          path="propclaimperformworktaskui.pageDefs.PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_invokeOPAPageDef"/>
+    <page id="propclaimperformworktaskui_testSuppInfoPageDef"
+          path="propclaimperformworktaskui.pageDefs.testSuppInfoPageDef"/>
+    <page id="propclaimperformworktaskui_qualConclPageDef" path="propclaimperformworktaskui.pageDefs.qualConclPageDef"/>
+    <page id="propclaimperformworktaskui_testqualConclPageDef"
+          path="propclaimperformworktaskui.pageDefs.testqualConclPageDef"/>
+    <page id="propclaimperformworktaskui_testQualConcl_testQualConcl_loadPropsLOVPageDef"
+          path="propclaimperformworktaskui.pageDefs.testQualConcl_testQualConcl_loadPropsLOVPageDef"/>
+    <page id="propclaimperformworktaskui_testPagePageDef" path="propclaimperformworktaskui.pageDefs.testPagePageDef"/>
+    <page id="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_getOtherPropFilingsPageDef"
+          path="propclaimperformworktaskui.pageDefs.PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_getOtherPropFilingsPageDef"/>
+    <page id="propclaimperformworktaskui_ReviewSubmitPageDef"
+          path="propclaimperformworktaskui.pageDefs.ReviewSubmitPageDef"/>
+	  <page id="propclaimperformworktaskui_testPageDef" path="propclaimperformworktaskui.pageDefs.testPageDef"/>
+    <page id="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_loadPropsDataPageDef"
+          path="propclaimperformworktaskui.pageDefs.PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_loadPropsDataPageDef"/>
+    <page id="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_loadPropsLOVPageDef"
+          path="propclaimperformworktaskui.pageDefs.PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_loadPropsLOVPageDef"/>
+    <page id="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_initAvailableDocsPageDef"
+          path="propclaimperformworktaskui.pageDefs.PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_initAvailableDocsPageDef"/>
+    <page id="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_checkMileStonePageDef"
+          path="propclaimperformworktaskui.pageDefs.PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_checkMileStonePageDef"/>
+ <page id="propclaimperformworktaskui_conclusionPageDef"
+          path="propclaimperformworktaskui.pageDefs.conclusionPageDef"/>
+    <page id="propclaimperformworktaskui_suppInfoPageDef" path="propclaimperformworktaskui.pageDefs.suppInfoPageDef"/>
+    <page id="propclaimperformworktaskui_Unassign_PropsClaimPerformTaskPageDef"
+          path="propclaimperformworktaskui.pageDefs.Unassign_PropsClaimPerformTaskPageDef"/>
+    <page id="propclaimperformworktaskui_mainuiPageDef" path="propclaimperformworktaskui.pageDefs.mainuiPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="CorrespondencesDC" path="gov.laca.amp.common.model.CorrespondencesDC"/>
+    <dc id="PropsDC" path="gov.laca.amp.common.model.PropsDC"/>
+    <dc id="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+        path="propclaimperformworktaskui.PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"/>
+  </dataControlUsages>
+</Application>

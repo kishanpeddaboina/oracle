@@ -1,0 +1,1476 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="12.1.3" fileRevision="20120601"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+   <component name="PropertyDataChangeRequest">
+      <topicDocumentations>
+         <topicDocumentation name="PropertyDataChangeRequest">
+            <descriptions>
+               <description locale="en">PropertyDataChangeRequest</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15759420716849">
+            <labels>
+               <label locale="en">ManagePDCR  (ReviewPDCR)</label>
+            </labels>
+            <descriptions>
+               <description locale="en">AccquiredBY value supplied by UI is not utilised in this task. As this is a task assigned to the direct manager of the initiator, SupervisorId (variable) will contain the value of the Supervisor who has actuallly acted on the human task.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15762152726495">
+            <labels>
+               <label locale="en">DirectManager</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Assign Data from PDCRReqPDO to HumanTaskPDO
+Housekeeping - SupervisorId (variable) is set to Null before starting the task.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15767315924873">
+            <labels>
+               <label locale="en">DistrictPool</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Assign Data from PDCRReqPDO to HumanTaskPDO.
+Housekeeping - AccquiredBy is set to Null before starting the task.
+17June : 
+Changed From : concat(&quot;SupervisingAppraiser&quot;,bpmn:getDataObject('InitiatorDistrict'),',',&quot;PrincipalAppraiser&quot;,bpmn:getDataObject('InitiatorDistrict'),',',&quot;ChiefAppraiser&quot;)
+Changed To :
+====================
+OATS - 15196 resulted in following chage to Review Task - 
+Changed from - concat(&quot;SupervisingAppraiser&quot;,bpmn:getDataObject('AINDistrict')/ns:ainDistrict,',',&quot;PrincipalAppraiser&quot;,bpmn:getDataObject('AINDistrict')/ns:ainDistrict,',',&quot;ChiefAppraiser&quot;)
+Changed To - </description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15767350456447">
+            <labels>
+               <label locale="en">DistrictPool</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Assign Data from PDCRReqPDO to HumanTaskPDO
+Housekeeping - AccquiredBy is set to Null before starting the task.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15767682401630">
+            <labels>
+               <label locale="en">ReviewPDCR</label>
+            </labels>
+            <descriptions>
+               <description locale="en">UI Response - UI Respo se should include following - 
+accquiredBy - This is the user-id of the participant who has accquired the human task (from Pool) and have actually hit an action. This value will be assigned to (ReviewedBy colun in WFLog Table)</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15837682236498">
+            <labels>
+               <label locale="en">SubmitPDCR</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15838441675432">
+            <labels>
+               <label locale="en">user</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15838880439830">
+            <labels>
+               <label locale="en">assignAppraiser</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15838930806546">
+            <labels>
+               <label locale="en">housekeeping</label>
+            </labels>
+            <descriptions>
+               <description locale="en">SupervisorAccquired Variable set to false.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15838942540617">
+            <labels>
+               <label locale="en">assignAccquiredSupervisor</label>
+            </labels>
+            <descriptions>
+               <description locale="en">If it;s Accquired, then Upon Submit from Appraiser, the task should reach to the Supervisor, who has Accquired the ReviewPDCR task and performed action (Reject or Assign)</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15838952890220">
+            <labels>
+               <label locale="en">assignSupervisor</label>
+            </labels>
+            <descriptions>
+               <description locale="en">If it;s NOT Accquired, then Upon Submit from Appraiser, the task should reach to the Supervisor, who has acted on the SubmitPDCR task and performed action (Reject or Assign)</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT1588158869662">
+            <labels>
+               <label locale="en">ManagePDCR  (ReviewPDCR)</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15882206506245">
+            <labels>
+               <label locale="en">Appraiser</label>
+            </labels>
+            <descriptions>
+               <description locale="en">This activity lso Resets the AssignmentBox variables.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15899816784031">
+            <labels>
+               <label locale="en">UpdateProcessLockStatusAllRoles</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT15907311663910">
+            <labels>
+               <label locale="en">ReleaseLockService</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16001093551354">
+            <labels>
+               <label locale="en">UpdatePDCRService</label>
+            </labels>
+            <descriptions>
+               <description locale="en">UpdatePDCRService call</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16191734187530">
+            <labels>
+               <label locale="en">Subprocess</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="ACT1619173850679">
+            <labels>
+               <label locale="en">NotifyAdminOfIssues</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT1619274293077">
+            <labels>
+               <label locale="en">UpdateProcessStatusToUnlocked</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16192753575178">
+            <labels>
+               <label locale="en">ReleaseLock</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16391631605349">
+            <labels>
+               <label locale="en">SendAlert</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17245410568957">
+            <labels>
+               <label locale="en">category(2)</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17282438382050">
+            <labels>
+               <label locale="en">WorkflowLog</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17282443158256">
+            <labels>
+               <label locale="en">NotifyInitiatorOfIssue</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17306651626176">
+            <labels>
+               <label locale="en">WorkflowLog</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16191734410856">
+            <labels>
+               <label locale="en">CatchAllErrors</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16191734410938">
+            <labels>
+               <label locale="en">EndError</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16504301049880">
+            <labels>
+               <label locale="en">WaitForOneMinute</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Wait for a minute for human task assignment to be completed</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16391642382023">
+            <labels>
+               <label locale="en">BoundaryEvent2</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16391646782195">
+            <labels>
+               <label locale="en">BoundaryEvent3</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW17658926149887">
+            <labels>
+               <label locale="en">IsPrcStatusReleaseLockSet?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16191734411151"/>
+         <topicDocumentation name="sf1619174756931"/>
+         <topicDocumentation name="sf16192751587661"/>
+         <topicDocumentation name="sf16192758671758"/>
+         <topicDocumentation name="sf16391644157416"/>
+         <topicDocumentation name="sf16391648138154"/>
+         <topicDocumentation name="sf16391692210952"/>
+         <topicDocumentation name="sf16504306559230"/>
+         <topicDocumentation name="sf17245416830780"/>
+         <topicDocumentation name="sf17282439101989"/>
+         <topicDocumentation name="sf17306652216210"/>
+         <topicDocumentation name="sf17306883707818"/>
+         <topicDocumentation name="sf17658926383537"/>
+         <topicDocumentation name="sf17658928889419">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16244434659610">
+            <labels>
+               <label locale="en">Assigning PA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16244439935824">
+            <labels>
+               <label locale="en">Accquired PA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16046636376652">
+            <labels>
+               <label locale="en">ApprovePDCR (ReviewPDCR)</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT1624492104641">
+            <labels>
+               <label locale="en">assignAppraiser</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16245192258392">
+            <labels>
+               <label locale="en">Appraiser</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16245479564367">
+            <labels>
+               <label locale="en">Supervisor</label>
+            </labels>
+            <descriptions>
+               <description locale="en">If it;s Accquired, then Upon Submit from Appraiser, the task should reach to the Supervisor, who has Accquired the ReviewPDCR task and performed action (Reject or Assign)</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16245491978213">
+            <labels>
+               <label locale="en">Principal Appraiser</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16245507443371">
+            <labels>
+               <label locale="en">CA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16245544746724">
+            <labels>
+               <label locale="en">Accquired CA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16245575715866">
+            <labels>
+               <label locale="en">assignAppraiser</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16245764946965">
+            <labels>
+               <label locale="en">Assigning CA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16246577752866">
+            <labels>
+               <label locale="en">AssignToAppraiser_TestingOnly (22)</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Remove this activity after testing</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT1625100293542">
+            <labels>
+               <label locale="en">housekeeping</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16251016737094">
+            <labels>
+               <label locale="en">housekeeping</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16250788508548">
+            <labels>
+               <label locale="en">housekeeping</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16252747211965">
+            <labels>
+               <label locale="en">InvalidSource</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT1625275059865">
+            <labels>
+               <label locale="en">Invalid Role</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16254115513283">
+            <labels>
+               <label locale="en">AssignToAppraiser_TestingOnly (22)</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Remove this activity after testing</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16390700696060">
+            <labels>
+               <label locale="en">DeriveUserDetailsBusinessExceptionSubprocess</label>
+            </labels>
+            <descriptions>
+               <description locale="en">DeriveUserDetailsBusinessExceptionSubprocess</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16390716630279">
+            <labels>
+               <label locale="en">NotifyAdminOfBusinessIssue</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17282152299381">
+            <labels>
+               <label locale="en">Category(1)</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16390700954373">
+            <labels>
+               <label locale="en">HandleBusinessException</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Catch and Handle Business Exception</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT1639070095454">
+            <labels>
+               <label locale="en">ThrowPDCRBusinessExceptionToClient</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Throw PDCRBusinessException to client as response</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16858927965984">
+            <labels>
+               <label locale="en">NotifyAdminFailedBoundaryEvent</label>
+            </labels>
+            <descriptions>
+               <description locale="en">NotifyAdminFailedBoundaryEvent</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16390700954627"/>
+         <topicDocumentation name="sf16390721749781"/>
+         <topicDocumentation name="sf16858930813586"/>
+         <topicDocumentation name="sf17282152699132"/>
+         <topicDocumentation name="ACT16503781948931">
+            <labels>
+               <label locale="en">NotifyTaskToInternalUser</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Notify FYI Task To Internal User</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16503796781454">
+            <labels>
+               <label locale="en">NotifyE-MailToExternalUser</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Send E-Mail notification to external user</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16631546796588">
+            <labels>
+               <label locale="en">DeriveUserDetails</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Will be activated once IdentityLookup Service is available.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT1663174890209">
+            <labels>
+               <label locale="en">DeriveUserDetails</label>
+            </labels>
+            <descriptions>
+               <description locale="en">HighestRole need to be mapped to AccquiredByRole.
+Once anand finishes his work that mapping need to be included in this activity. Till then will use the supbrpcoess.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16641525490052">
+            <labels>
+               <label locale="en">WorkflowLog</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16866655526821">
+            <labels>
+               <label locale="en">NotifyE-MailToExternalUser</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Send E-Mail notification to external user</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT16935171421265">
+            <labels>
+               <label locale="en">GetAINDistrict</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Included as Part of 11536</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17106686515795">
+            <labels>
+               <label locale="en">NotifyE-MailToExternalUser</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Send E-Mail notification to external user</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17106716251018">
+            <labels>
+               <label locale="en">NotifyTaskToInternalUser</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Notify FYI Task To Internal User</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17106744358325">
+            <labels>
+               <label locale="en">NotificationTaskTitle</label>
+            </labels>
+            <descriptions>
+               <description locale="en">yes</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17106768445729">
+            <labels>
+               <label locale="en">NotificationTaskTitle</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17107322403753">
+            <labels>
+               <label locale="en">assignToOwningDistrict</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Principal Appraisers are made the Owners because SubmitPDCR will be WITHDRAW by an Supervisor, hence Review Task will be assigned to Supervisors from AIN district. And then Review tasks owners will be PAs.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17107420290172">
+            <labels>
+               <label locale="en">assignToOwningDistrict</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17107441484667">
+            <labels>
+               <label locale="en">assignToOwningDistrict</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT1710744189434">
+            <labels>
+               <label locale="en">assignToOwningDistrict</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17107632943191">
+            <labels>
+               <label locale="en">assignToOwningDistrict</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17123589464732">
+            <labels>
+               <label locale="en">housekeeping</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17149998561528">
+            <labels>
+               <label locale="en">extraAssign</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17245361147985">
+            <labels>
+               <label locale="en">category(5)</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17273586314298">
+            <labels>
+               <label locale="en">NotifyE-MailToExternalUser</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Send E-Mail notification to external user</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17282199737862">
+            <labels>
+               <label locale="en">category(4)</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17306136136465">
+            <labels>
+               <label locale="en">category(3)</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT17658915885632">
+            <labels>
+               <label locale="en">SetFlag</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT15725118542163">
+            <labels>
+               <label locale="en">Start</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Following attributes from OriginalRealPropertyInfo are assigned to SortPDCRPDO.
+These attributes must be passed from SortPDCRPDO to Human Task Input attribute 'sortPDCR'</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT15725118542110">
+            <labels>
+               <label locale="en">End</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16245361692358">
+            <labels>
+               <label locale="en">Ack</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16245373309093">
+            <labels>
+               <label locale="en">Ack</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16245899981330">
+            <labels>
+               <label locale="en">Ack</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16683736045655">
+            <labels>
+               <label locale="en">BizError</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT16684070969043">
+            <labels>
+               <label locale="en">ThrowError</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW1572657800570">
+            <labels>
+               <label locale="en">source?</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Check Should is EditPDCR or CreatePDCR. Based on that human task is routed to a signle user or a group.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW15761554142218">
+            <labels>
+               <label locale="en">role?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW15767325061610">
+            <labels>
+               <label locale="en">district?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW15837453894132">
+            <labels>
+               <label locale="en">ouctome</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW15838247779057">
+            <labels>
+               <label locale="en">accquired?</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Once Appraiser Submit, then check if the task is accquired by an supervisor or a direct supervisor has acted on it. If it;s accquired, route it to ReviewPDCR task else to ManagePDCR task.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW15881594549878">
+            <labels>
+               <label locale="en">outcome?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW15882057427942">
+            <labels>
+               <label locale="en">assign?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16046708253912">
+            <labels>
+               <label locale="en">outcome?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW1624303380421">
+            <labels>
+               <label locale="en">AcquiredByRole?</label>
+            </labels>
+            <descriptions>
+               <description locale="en">It; checking the AcquiredByRole variable.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16244423483938">
+            <labels>
+               <label locale="en">pa accquired?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16244444537241">
+            <labels>
+               <label locale="en">merge</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16245180271466">
+            <labels>
+               <label locale="en">assign?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16245228881014">
+            <labels>
+               <label locale="en">ca accquired?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16245472458667">
+            <labels>
+               <label locale="en">AccquiredByRole?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16245499987136">
+            <labels>
+               <label locale="en">merge</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16245559297715">
+            <labels>
+               <label locale="en">merge</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16246949924515">
+            <labels>
+               <label locale="en">default</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16503711358964">
+            <labels>
+               <label locale="en">VerifyActionTypeForUpdate</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Action Type= UPDATE, MANUAL PROCESSING or NO CHANGE</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16503771333161">
+            <labels>
+               <label locale="en">VerifyUserType</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Check if user type (Internal/External)</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16504032852496">
+            <labels>
+               <label locale="en">CheckPreferredContact</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Check what is the preferred contact of requestor</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16866679789350">
+            <labels>
+               <label locale="en">CheckIfUserIsExternalUser</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW16979057773314">
+            <labels>
+               <label locale="en">EmailExists?</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Check what is the preferred contact of requestor</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW17100095521013">
+            <labels>
+               <label locale="en">source?</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Adding Source check after Bullpen discussion with Ann and Darlene on 29th Aug. They want the FYI to go to internal users, only when it's EditPDCR. Thanks</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW17106646802029">
+            <labels>
+               <label locale="en">IsPublicServiceRequest?</label>
+            </labels>
+            <descriptions>
+               <description locale="en">OATS Issue 15456 Realised as follows - 
+If Source = Public Service Request then check if email exists. If email exists then send email to email address and send FYI to the intiaitor. </description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW17106668819354">
+            <labels>
+               <label locale="en">emailExists?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW17107278344818">
+            <labels>
+               <label locale="en">merge</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW17107291030567">
+            <labels>
+               <label locale="en">outcome</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW1710743031175">
+            <labels>
+               <label locale="en">whoWithdrew?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW17107443206967">
+            <labels>
+               <label locale="en">merge</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15725118542144"/>
+         <topicDocumentation name="sf15726592467481">
+            <labels>
+               <label locale="en">CreatePDCR</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Create-Submit from the Process Model</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15759426978683">
+            <labels>
+               <label locale="en">EditPDCR</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15759427737971"/>
+         <topicDocumentation name="sf15761554673766">
+            <labels>
+               <label locale="en">Appraiser</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15761558389563">
+            <labels>
+               <label locale="en">All-Others</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15762155058338"/>
+         <topicDocumentation name="sf15767318335282"/>
+         <topicDocumentation name="sf15767326026241">
+            <labels>
+               <label locale="en">yes</label>
+            </labels>
+            <descriptions>
+               <description locale="en">If string-length(bpmn:getDataObject('InitiatorDistrict')) > 0 then 
+
+07July - 
+Changed from - string-length(bpmn:getDataObject('AINDistrict')/ns:ainDistrict) > 0
+Changed to    - string-length(bpmn:getDataObject('AINDistrict')/ns:ainDistrict) > 0</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15767351147979">
+            <labels>
+               <label locale="en">no</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15767690898923"/>
+         <topicDocumentation name="sf15767859218666"/>
+         <topicDocumentation name="sf15837464603461">
+            <labels>
+               <label locale="en">approve</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Changed from - Unconditinal
+Changed to - 
+ManagePDCRTaskOutcome == &quot;APPROVE&quot; or ReviewPDCRTaskOutcome == &quot;APPROVE&quot; or ManagePDCRTaskOutcome == &quot;approve&quot; or ReviewPDCRTaskOutcome == &quot;approve&quot;</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15837690830427">
+            <labels>
+               <label locale="en">reject</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15838255958111">
+            <labels>
+               <label locale="en">submit</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15838257650730">
+            <labels>
+               <label locale="en">yes</label>
+            </labels>
+            <descriptions>
+               <description locale="en">accquired == yes</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15838259115546">
+            <labels>
+               <label locale="en">no</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Not Accquired</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15838396524226">
+            <labels>
+               <label locale="en">assign</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15838444509963"/>
+         <topicDocumentation name="sf15838880647714"/>
+         <topicDocumentation name="sf15838934070889"/>
+         <topicDocumentation name="sf15838944946727"/>
+         <topicDocumentation name="sf15838953470842"/>
+         <topicDocumentation name="sf15881595478426"/>
+         <topicDocumentation name="sf15881596476347">
+            <labels>
+               <label locale="en">reject</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15881700420214">
+            <labels>
+               <label locale="en">approve</label>
+            </labels>
+            <descriptions>
+               <description locale="en">It;s made unconditional after SUBMIT is revoved from the actions.
+ManagePDCRPATaskOutcome == &quot;APPROVE&quot; or ReviewPDCRPATaskOutcome == &quot;APPROVE&quot;</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15882058547827">
+            <labels>
+               <label locale="en">assign</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15882155744031">
+            <labels>
+               <label locale="en">user</label>
+            </labels>
+            <descriptions>
+               <description locale="en">03Aug - 
+Changed From :
+AssignTo_UserId_GroupId_Rule.userType == &quot;Appraiser&quot; or AssignTo_UserId_GroupId_Rule.userType == &quot;Supervisor&quot; or AssignTo_UserId_GroupId_Rule.userType == &quot;Principal Appraiser&quot; or AssignTo_UserId_GroupId_Rule.userType == &quot;APPRAISER&quot; or AssignTo_UserId_GroupId_Rule.userType == &quot;SUPERVISOR&quot; or AssignTo_UserId_GroupId_Rule.userType == &quot;PRINCIPAL APPRAISER&quot;
+
+Changed To : Unconditional</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf15882213540427"/>
+         <topicDocumentation name="sf15899823743251"/>
+         <topicDocumentation name="sf15907314172467"/>
+         <topicDocumentation name="sf16001095919420"/>
+         <topicDocumentation name="sf16046720260316">
+            <labels>
+               <label locale="en">approve</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16046886861192">
+            <labels>
+               <label locale="en">reject</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16243036588964">
+            <labels>
+               <label locale="en">supervisor</label>
+            </labels>
+            <descriptions>
+               <description locale="en">AcquiredByRole == &quot;SUPERVISOR&quot;</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16244425016087">
+            <labels>
+               <label locale="en">PA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16244440415398">
+            <labels>
+               <label locale="en">yes</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16244443785836">
+            <labels>
+               <label locale="en">no</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16244445510113"/>
+         <topicDocumentation name="sf16244445863282"/>
+         <topicDocumentation name="sf16244451109496"/>
+         <topicDocumentation name="sf16046709337684"/>
+         <topicDocumentation name="sf16244921936972"/>
+         <topicDocumentation name="sf16245181018189">
+            <labels>
+               <label locale="en">assign</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16245192995213">
+            <labels>
+               <label locale="en">user</label>
+            </labels>
+            <descriptions>
+               <description locale="en">03Aug - 
+Changed From : 
+AssignTo_UserId_GroupId_Rule.userType == &quot;Appraiser&quot; or AssignTo_UserId_GroupId_Rule.userType == &quot;APPRAISER&quot;
+
+Changed To : Unconditional</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16245222906770"/>
+         <topicDocumentation name="sf16245230180067">
+            <labels>
+               <label locale="en">CA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16245373895659"/>
+         <topicDocumentation name="sf16245377337281"/>
+         <topicDocumentation name="sf1624548285871">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16245492561489">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf1624550121643"/>
+         <topicDocumentation name="sf16245502411137"/>
+         <topicDocumentation name="sf16245508279384"/>
+         <topicDocumentation name="sf16245509292824"/>
+         <topicDocumentation name="sf1624552109196"/>
+         <topicDocumentation name="sf16245546174913">
+            <labels>
+               <label locale="en">yes</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16245560763023"/>
+         <topicDocumentation name="sf16245562261520"/>
+         <topicDocumentation name="sf16245738771533"/>
+         <topicDocumentation name="sf16245765534250">
+            <labels>
+               <label locale="en">no</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16245766479367"/>
+         <topicDocumentation name="sf16245900450052"/>
+         <topicDocumentation name="sf16246578195463"/>
+         <topicDocumentation name="sf16251004205655"/>
+         <topicDocumentation name="sf16251017831769"/>
+         <topicDocumentation name="sf16246946200247"/>
+         <topicDocumentation name="sf16251045185266"/>
+         <topicDocumentation name="sf16251088049747">
+            <labels>
+               <label locale="en">All-Others</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16252748290297"/>
+         <topicDocumentation name="sf1625275178129"/>
+         <topicDocumentation name="sf16254116073780"/>
+         <topicDocumentation name="sf16390702256354"/>
+         <topicDocumentation name="sf16503723967471">
+            <labels>
+               <label locale="en">ACTION TYPE = &quot;UPDATE&quot; or &quot;UPDATE AND MANUAL PROCESSING&quot;</label>
+            </labels>
+            <descriptions>
+               <description locale="en">If ACTION TYPE = &quot;UPDATE&quot; or &quot;MANUAL PROCESSING&quot;, then update the information in the database.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf1650372574587">
+            <labels>
+               <label locale="en">ACTION TYPE = &quot;NO CHANGE&quot; or &quot;NO CHANGE AND MANUAL PROCESSING&quot;</label>
+            </labels>
+            <descriptions>
+               <description locale="en">If ACTION TYPE = &quot;NO CHANGE&quot;  OR ACTION TYPE = &quot;NO CHANGE AND MANUAL PROCESSING&quot; , don't update the information in the database
+</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16503777531039">
+            <labels>
+               <label locale="en">Internal</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Internal User Doing PDCR work</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf1650378767727"/>
+         <topicDocumentation name="sf16503809732374"/>
+         <topicDocumentation name="sf1650381288353">
+            <labels>
+               <label locale="en">External</label>
+            </labels>
+            <descriptions>
+               <description locale="en">External Registered User doing PDCR work</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16504037758639">
+            <labels>
+               <label locale="en">preferredContact is 'email'</label>
+            </labels>
+            <descriptions>
+               <description locale="en">preferredContact is 'email'
+
+CHANGED FROM  - PDCRReqPDO.requestorInfo.preferredContact == &quot;email&quot;
+Issue # 14856</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16504044672622">
+            <labels>
+               <label locale="en">Others</label>
+            </labels>
+            <descriptions>
+               <description locale="en">If Preferred Contact is not E-Mail, no actionis needed.</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16631549850767"/>
+         <topicDocumentation name="sf16631749273652"/>
+         <topicDocumentation name="sf16641526354362"/>
+         <topicDocumentation name="sf16684014615912"/>
+         <topicDocumentation name="sf1668407621264"/>
+         <topicDocumentation name="sf16866657829517"/>
+         <topicDocumentation name="sf16866683707514">
+            <labels>
+               <label locale="en">EXTERNAL USER</label>
+            </labels>
+            <descriptions>
+               <description locale="en">EXTERNAL USER</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16866704141089">
+            <labels>
+               <label locale="en">INTERNAL USER</label>
+            </labels>
+            <descriptions>
+               <description locale="en">INTERNAL USER</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16935173642246"/>
+         <topicDocumentation name="sf16979058897717">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf16979064509578"/>
+         <topicDocumentation name="sf17100095816725">
+            <labels>
+               <label locale="en">editPDCR</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17100106601968">
+            <labels>
+               <label locale="en">createPDCR</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf1710666194853">
+            <labels>
+               <label locale="en">no</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17106675616369">
+            <labels>
+               <label locale="en"></label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17106687606674">
+            <labels>
+               <label locale="en">yes</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf1710673959988">
+            <labels>
+               <label locale="en">no</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17106745046078"/>
+         <topicDocumentation name="sf17106769020711"/>
+         <topicDocumentation name="sf1710677861989"/>
+         <topicDocumentation name="sf17106779780273"/>
+         <topicDocumentation name="sf17107278932815"/>
+         <topicDocumentation name="sf17107293185950">
+            <labels>
+               <label locale="en">submit</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17107325878930">
+            <labels>
+               <label locale="en">withdraw</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17107334830085"/>
+         <topicDocumentation name="sf17107420934786">
+            <labels>
+               <label locale="en">withdrawn</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17107426166396"/>
+         <topicDocumentation name="sf17107431358125">
+            <labels>
+               <label locale="en">supervisor</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17107443689676"/>
+         <topicDocumentation name="sf17107446632630"/>
+         <topicDocumentation name="sf17107447033860"/>
+         <topicDocumentation name="sf17107451038874">
+            <labels>
+               <label locale="en">CA</label>
+            </labels>
+            <descriptions>
+               <description locale="en">Changed From - AcquiredByRole == &quot;CHIEF APPRAISER&quot; or AcquiredByRole == &quot;Chief Appraiser&quot;
+Changed To - Unconditional</description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17107451515838">
+            <labels>
+               <label locale="en">PA</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17107634613337">
+            <labels>
+               <label locale="en">withdraw</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17107655390913"/>
+         <topicDocumentation name="sf17107666834580">
+            <labels>
+               <label locale="en">withdraw</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf17123594126911"/>
+         <topicDocumentation name="sf17149999533514"/>
+         <topicDocumentation name="sf17245363160336"/>
+         <topicDocumentation name="sf17273587047257"/>
+         <topicDocumentation name="sf17282205083256"/>
+         <topicDocumentation name="sf17306138005638"/>
+         <topicDocumentation name="sf17658916323528"/>
+      </topicDocumentations>
+   </component>
+</processDocumentation>

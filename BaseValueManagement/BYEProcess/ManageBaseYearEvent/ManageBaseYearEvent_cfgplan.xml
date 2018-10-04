@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAConfigPlan xmlns:jca="http://platform.integration.oracle/blocks/adapter/fw/metadata" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy" xmlns:edl="http://schemas.oracle.com/events/edl" xmlns="http://schemas.oracle.com/soa/configplan">
+   <composite name="ManageBaseYearEvent">
+      <!--Add search and replace rules for the import section of a composite
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>-->
+      <import>
+         <searchReplace>
+            <search/>
+            <replace/>
+         </searchReplace>
+      </import>
+      <service name="ManageBaseYearEvent.service">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent#wsdl.endpoint(ManageBaseYearEvent.service/ManageBaseYearEventPort)</replace>
+            </attribute>
+         </binding>
+      </service>
+      <property name="oracle.composite.faultPolicyFile">
+         <replace>oramds:/apps/amp/faultpolicies/fault-policies.xml</replace>
+      </property>
+      <property name="oracle.composite.faultBindingFile">
+         <replace>oramds:/apps/amp/faultpolicies/fault-bindings.xml</replace>
+      </property>
+      <property name="originalProductVersion">
+         <replace>12.2.1.2.0.161003</replace>
+      </property>
+      <property name="productVersion">
+         <replace>12.2.1.2.0.161003</replace>
+      </property>
+      <property name="compositeID">
+         <replace>9f0baacf-55d0-4405-a183-5ab738e2ad64</replace>
+      </property>
+      <!--Add search and replace rules for the component properties
+	For components and service/reference bindings, you can add policy references.
+	Example:
+	<component name="*">
+		<wsp:PolicyReference orawsp:category="management" orawsp:status="enabled" URI="oracle/log_policy"/>
+	</component>-->
+      <component name="ManageBaseYearEvent">
+         <property name="bpm.generated.service.reference">
+            <replace>ManageBaseYearEvent.service</replace>
+         </property>
+      </component>
+      <reference name="RetriveBYEDetails">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <property name="propagate.identity.context">
+               <replace>true</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="ReleaseLock">
+         <binding type="ws"/>
+      </reference>
+      <reference name="ProcessStatus">
+         <binding type="ws"/>
+      </reference>
+      <reference name="EscalationRule">
+         <binding type="ws"/>
+      </reference>
+      <reference name="DeriveUserDetails">
+         <binding type="ws"/>
+      </reference>
+      <reference name="WorkflowLogging">
+         <binding type="ws"/>
+      </reference>
+   </composite>
+   <!--To configure monitor.config: 
+	<property name="enabled"><replace>true</replace></property>
+	<property name="dataObjectsFolder"><searchReplace><search>mydev</search><replace>myproduction</replace></searchReplace></property>
+	
+	sample properties to configure for adapter: 
+	<jca:property name="QueueName"><replace>medmq1</replace></jca:property>
+	
+	To add search and replace rules for wsdls, xsd and jca files
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>
+	-->
+   <wsdlAndSchema name="businessCatalog/Data/AINAttributesBO.wsdl|businessCatalog/Data/AINAttributesBO.xsd|businessCatalog/Data/AssignToUserOrGroupBO.wsdl|businessCatalog/Data/AssignToUserOrGroupBO.xsd|businessCatalog/Data/BYEHumanTaskBO.wsdl|businessCatalog/Data/BYEHumanTaskBO.xsd|businessCatalog/Data/CategoryBO.wsdl|businessCatalog/Data/CategoryBO.xsd|businessCatalog/Data/ErrorBO.wsdl|businessCatalog/Data/ErrorBO.xsd|businessCatalog/Data/ExecDataWFLogBO.wsdl|businessCatalog/Data/GetUserDetailsRequestBO.wsdl|businessCatalog/Data/GetUserDetailsResponseBO.wsdl|businessCatalog/Data/InitiatorInfoBO.wsdl|businessCatalog/Data/InitiatorInfoBO.xsd|businessCatalog/Data/LogWorkflowDetailsBO.wsdl|businessCatalog/Data/ManageBYE_ReqBO.wsdl|businessCatalog/Data/ManageBYE_RespBO.wsdl|businessCatalog/Data/ProcessRoutingBO.wsdl|businessCatalog/Data/ProcessRoutingBO.xsd|businessCatalog/Data/ProcessStatusBO.wsdl|businessCatalog/Data/RetriveBYEDetails.wsdl|businessCatalog/Data/RetriveBYEDetails.xsd|businessCatalog/Data/RetriveBYEDetailsBO.wsdl|businessCatalog/Data/SortBYEBO.wsdl|businessCatalog/Data/SortBYEBO.xsd|businessCatalog/Data/UIStateBO.wsdl|businessCatalog/Data/UIStateBO.xsd|ManageBaseYearEvent.wsdl|ManageBaseYearEvent_old.wsdl|project_properties.wsdl|xsd/DecisionPoint.xsd|xsd/DecisionServicePrimitiveTypes.xsd|xsd/DSReviewBaseYearEventWorkflowTask.xsd|xsd/DSSubmitBaseYearEventWorkflowTask.xsd|xsd/DynmicAssignment.xsd|xsd/GetUserDetails.xsd|xsd/ManageBaseYearEventPayload.xsd|xsd/ManageBaseYearEventTaskPayload.xsd|xsd/ManageBaseYearEventTaskWorkflowTask.xsd|xsd/ManageBaseYearEventWorkflowTask.xsd|xsd/NotificationPayload.xsd|xsd/NotificationTaskPayload.xsd|xsd/NotificationTaskWorkflowTask.xsd|xsd/NotifyAdminOfIssueHTPayload.xsd|xsd/NotifyAdminOfIssueHTWorkflowTask.xsd|xsd/NotifyAdminOfIssuePayload.xsd|xsd/NotifyAdminOfIssueWorkflowTask.xsd|xsd/ReviewBaseYearEventPayload.xsd|xsd/ReviewBaseYearEventTaskPayload.xsd|xsd/ReviewBaseYearEventTaskWorkflowTask.xsd|xsd/ReviewBaseYearEventWorkflowTask.xsd|xsd/RoutingSlipList.xsd|xsd/SubmitBaseYearEventPayload.xsd|xsd/SubmitBaseYearEventTaskPayload.xsd|xsd/SubmitBaseYearEventTaskWorkflowTask.xsd|xsd/SubmitManageBaseYearEventTaskPayload.xsd|xsd/TaskStateMachine.xsd">
+      <searchReplace>
+         <search/>
+         <replace/>
+      </searchReplace>
+   </wsdlAndSchema>
+</SOAConfigPlan>

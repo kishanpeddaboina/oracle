@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_checkmilestonePageDef"
+                Package="propvalperformworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                    RangeSize="25" BeanClass="PropValPerformWorkTaskUI_PropValPerformWorkTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                      BeanClass="PropValPerformWorkTaskUI_PropValPerformWorkTask.task" id="taskIterator"/>
+    <accessorIterator id="systemAttributesIterator" MasterBinding="taskIterator" Binds="systemAttributes" RangeSize="25"
+                      DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                      BeanClass="PropValPerformWorkTaskUI_PropValPerformWorkTask.systemAttributesType"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="PropValPerformWorkTaskUI_PropValPerformWorkTask"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.PropValPerformWorkTaskUI_PropValPerformWorkTask.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="systemAttributesIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="substate">
+      <AttrNames>
+        <Item Value="substate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

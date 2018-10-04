@@ -1,0 +1,59 @@
+<!-- BPM Scripts -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>amp.bpm</groupId>
+	<artifactId>ampbpm</artifactId>
+	<packaging>pom</packaging>
+	<version>${ASSESSOR_PORTAL_VERSION}</version>
+
+	<modules>
+		<!--##### BYE #####-->
+		<!-- composite projects -->
+		<!--
+		<module>BaseValueManagement/BYEProcess/ManageBaseYearEvent</module>
+	
+		<module>BaseValueManagement/BYEProcess/VerifyBaseYearEvent</module>
+        -->
+	
+
+		<!--##### PDCR #####-->
+		<!-- composite project -->
+		<!--
+		<module>PropertyInfo/PDCRProcess/PropertyDataChangeRequest</module>
+	    -->
+		<!-- task ui projects -->
+		<!-- Phase I projects moved down due to dependency -->
+	
+		
+			<!-- task ui projects -->
+		<module>DataCaptureWCCUIApp</module>
+		<module>Ownership</module>
+		<module>Proposition</module>
+		<module>BaseValueManagement/BYEProcess/BaseYearEventBPMView</module>
+		<module>PropertyInfo/PDCRProcess/ManagePDCRView</module>
+		<module>PropertyInfo/PDCRProcess/ReviewPDCRView</module>
+		<module>PropertyInfo/PDCRProcess/SubmitPDCRView</module>
+
+		
+	</modules>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>amp</id>
+			<url>http://campbldsn01.assessor.lacounty.gov:9081/repository/amp/</url>
+		</snapshotRepository>
+		<repository>
+			<id>amp</id>
+			<name>AMP Repository</name>
+			<url>http://campbldsn01.assessor.lacounty.gov:9081/repository/amp/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>		
+	</distributionManagement>
+</project>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0"  xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" >
+    <vprop:property name="AIN" type="xsd:string"/>
+    <vprop:property name="ProcessType" type="xsd:string"/>
+    <vprop:propertyAlias propertyName="tns:AIN" part="parameters" messageType="tns:catchEvent">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            /ns:catchEvent/ns1:manageBYERequest/ns1:ain
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:ProcessType" part="parameters" messageType="tns:CancelMBYE">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            string(/ns:CancelMBYE/ns1:manageBYERequest/ns1:processType)
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:ProcessType" part="parameters" messageType="tns:CancelManageBYE">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            string(/ns:CancelManageBYE/ns1:manageBYERequest/ns1:processType)
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:ProcessType" part="parameters" messageType="tns:catchEvent">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            string(/ns:catchEvent/ns1:manageBYERequest/ns1:processType)
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:AIN" element="tns2:manageBYERequest">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/">
+            /ns:manageBYERequest/ns:ain
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:AIN" part="parameters" messageType="tns:ManageBYEResponse">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            /ns:ManageBYEResponse/ns1:manageBYEResponse/ns1:ain
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:ProcessType" part="parameters" messageType="tns:cancelManageBYEResponse">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            string(/ns:cancelManageBYEResponse/ns1:manageBYERequest/ns1:processType)
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:AIN" part="parameters" messageType="tns:ManageBYE">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            /ns:ManageBYE/ns1:manageBYERequest/ns1:ain
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:AIN" part="parameters" messageType="tns:CancelManageBYE">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            /ns:CancelManageBYE/ns1:manageBYERequest/ns1:ain
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:ProcessType" part="parameters" messageType="tns:ManageBYEResponse">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/">
+            string(&apos;BVM&apos;)
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:ProcessType" part="parameters" messageType="tns:boundaryEvent">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            string(/ns:boundaryEvent/ns1:manageBYERequest/ns1:processType)
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:ProcessType" part="parameters" messageType="tns:CancelMBYEResponse">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            string(/ns:CancelMBYEResponse/ns1:manageBYERequest/ns1:processType)
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:AIN" part="parameters" messageType="tns:boundaryEvent">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            /ns:boundaryEvent/ns1:manageBYERequest/ns1:ain
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:AIN" part="parameters" messageType="tns:CancelMBYEResponse">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            /ns:CancelMBYEResponse/ns1:manageBYERequest/ns1:ain
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:AIN" part="parameters" messageType="tns:cancelManageBYEResponse">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            /ns:cancelManageBYEResponse/ns1:manageBYERequest/ns1:ain
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:ProcessType" part="parameters" messageType="tns:ManageBYE">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            string(/ns:ManageBYE/ns1:manageBYERequest/ns1:processType)
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:AIN" part="parameters" messageType="tns:CancelMBYE">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+            /ns:CancelMBYE/ns1:manageBYERequest/ns1:ain
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns:ProcessType" element="tns2:manageBYERequest">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns2="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/">
+            string(/ns:manageBYERequest/ns:processType)
+        </vprop:query>
+    </vprop:propertyAlias>
+</wsdl:definitions>

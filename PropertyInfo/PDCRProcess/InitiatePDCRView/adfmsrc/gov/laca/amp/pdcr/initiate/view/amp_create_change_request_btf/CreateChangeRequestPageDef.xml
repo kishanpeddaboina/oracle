@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="CreateChangeRequestPageDef"
+                Package="gov.laca.amp.pdcr.initiate.view.amp_create_change_request_btf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables" Refresh="always"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ChangeRequestDC"
+              id="ChangeRequestDCIterator" Refresh="always"
+              CacheResults="false"/>
+    <accessorIterator MasterBinding="ChangeRequestDCIterator"
+                      Binds="requestorInfoDO" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.RequestorInfoDO"
+                      id="requestorInfoDOIterator" CacheResults="false"
+                      Refresh="always"/>
+    <accessorIterator MasterBinding="ChangeRequestDCIterator" Binds="landDO"
+                      RangeSize="25" DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.LandDO"
+                      id="landDOIterator" CacheResults="false"
+                      Refresh="always"/>
+    <accessorIterator MasterBinding="ChangeRequestDCIterator"
+                      Binds="tempSubPartDO" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.SubPartDO"
+                      id="tempSubPartDOIterator"/>
+    <accessorIterator MasterBinding="ChangeRequestDCIterator"
+                      Binds="originalRPI" RangeSize="25"
+                      DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO"
+                      id="originalRPIIterator"/>
+    <accessorIterator MasterBinding="originalRPIIterator" Binds="land"
+                      RangeSize="25" DataControl="ChangeRequestDC"
+                      BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.Land"
+                      id="landIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="ain">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="sourceType">
+      <AttrNames>
+        <Item Value="sourceType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoDOIterator"
+                     id="dataChangeSource">
+      <AttrNames>
+        <Item Value="dataChangeSource"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoDOIterator" id="requestorName">
+      <AttrNames>
+        <Item Value="requestorName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoDOIterator" id="requestorType">
+      <AttrNames>
+        <Item Value="requestorType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoDOIterator" id="phone">
+      <AttrNames>
+        <Item Value="phone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoDOIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoDOIterator"
+                     id="preferredContact">
+      <AttrNames>
+        <Item Value="preferredContact"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoDOIterator"
+                     id="reasonForRequest">
+      <AttrNames>
+        <Item Value="reasonForRequest"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landDOIterator" id="useTypeUserEntered">
+      <AttrNames>
+        <Item Value="useTypeUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoDOIterator" id="comments">
+      <AttrNames>
+        <Item Value="comments"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="PopulateRequestorInfo"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="PopulateRequestorInfo"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="requestorName" NDType="java.lang.String"/>
+      <NamedData NDName="email" NDType="java.lang.String"/>
+      <NamedData NDName="phone" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="CheckLock" InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CheckLock"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.ChangeRequestDC.methodResults.CheckLock_ChangeRequestDC_dataProvider_CheckLock_result">
+      <NamedData NDName="ain" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="isPDCREmpty">
+      <AttrNames>
+        <Item Value="isPDCREmpty"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="numberOfUnits1">
+      <AttrNames>
+        <Item Value="numberOfUnits"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="numberOfUnitsUserEntered1">
+      <AttrNames>
+        <Item Value="numberOfUnitsUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="improvementSizeSqft1">
+      <AttrNames>
+        <Item Value="improvementSizeSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="improvementSizeSqftUserEntered1">
+      <AttrNames>
+        <Item Value="improvementSizeSqftUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="yearBuilt1">
+      <AttrNames>
+        <Item Value="yearBuilt"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="yearBuiltUserEntered1">
+      <AttrNames>
+        <Item Value="yearBuiltUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="bedroomCount1">
+      <AttrNames>
+        <Item Value="bedroomCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="bedroomCountUserEntered1">
+      <AttrNames>
+        <Item Value="bedroomCountUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator" id="bathroomCount1">
+      <AttrNames>
+        <Item Value="bathroomCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="tempSubPartDOIterator"
+                     id="bathroomCountUserEntered1">
+      <AttrNames>
+        <Item Value="bathroomCountUserEntered"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="InitiatePropertyDataCR"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="InitiatePropertyDataCR"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.ChangeRequestDC.methodResults.InitiatePropertyDataCR_ChangeRequestDC_dataProvider_InitiatePropertyDataCR_result">
+      <NamedData NDName="ain" NDType="java.lang.String"/>
+      <NamedData NDName="userID" NDType="java.lang.String"/>
+      <NamedData NDName="userType" NDType="java.lang.String"/>
+      <NamedData NDName="sourceType" NDValue="CreatePDCR"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="dataSource" NDValue="soa" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="CancelTrasaction"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CancelTrasaction"
+                  IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="aoid">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="ainDisplay">
+      <AttrNames>
+        <Item Value="ainDisplay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="isPDCRInitiated">
+      <AttrNames>
+        <Item Value="isPDCRInitiated"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="isValidDistrict">
+      <AttrNames>
+        <Item Value="isValidDistrict"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="RetrieveRealPropertyInfo"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="RetrieveRealPropertyInfo"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="ain" NDType="java.lang.String"/>
+      <NamedData NDName="dataSource" NDValue="SOA" NDType="java.lang.String"/>
+      <NamedData NDName="sourceType" NDValue="CreatePDCR"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="isExternalUser" NDType="java.lang.Boolean"/>
+      <NamedData NDName="isClericalUser" NDType="java.lang.Boolean"/>
+      <NamedData NDName="isCheckLock" NDType="java.lang.Boolean"/>
+      <NamedData NDName="userGroups" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="ChangeRequestDCIterator"
+                     id="isShowDisaplyMessage">
+      <AttrNames>
+        <Item Value="isShowDisaplyMessage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="useType">
+      <AttrNames>
+        <Item Value="useType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="propertyAddress">
+      <AttrNames>
+        <Item Value="propertyAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="cluster">
+      <AttrNames>
+        <Item Value="cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="district">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="useCode">
+      <AttrNames>
+        <Item Value="useCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRPIIterator" id="region">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="isNoLand">
+      <AttrNames>
+        <Item Value="isNoLand"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

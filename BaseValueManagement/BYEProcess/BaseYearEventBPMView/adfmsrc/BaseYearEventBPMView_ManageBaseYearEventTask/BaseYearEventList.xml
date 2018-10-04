@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="BaseYearEventList"
+          Package="BaseYearEventBPMView_ManageBaseYearEventTask"
+          BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BaseYearEventList"
+          isJavaBased="false">
+  <AccessorAttribute id="baseYearEvent" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.baseYearEvent"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.baseYearEvent_baseYearEvent_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="2147483640"/>
+      <Property Name="LABEL" Value="Base Year Event"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="baseYearEvent"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

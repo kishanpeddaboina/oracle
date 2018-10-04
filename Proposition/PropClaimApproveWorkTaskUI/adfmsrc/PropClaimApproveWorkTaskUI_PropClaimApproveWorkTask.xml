@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.16.48"
+          id="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask"
+          BeanClass="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask" isJavaBased="false">
+  <MethodAccessor IsCollection="false" Type="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask.getTaskDetails"
+                  BeanClass="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask.getTaskDetails" id="getTaskDetails"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="bpmWorklistContext" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="bpmWorklistTaskId" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="bpmWorklistTaskVersion" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+</JavaBean>

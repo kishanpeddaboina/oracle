@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="BaseYearEventRulesService" targetNamespace="http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0" xmlns:inp2="http://assessor.lacounty.gov/amp/wsdl/common/Fault/v1.0" xmlns:tns="http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0" xmlns:inp1="http://assessor.lacounty.gov/amp/data/bvm/ValidateBaseYearEvent/v1.0" xmlns:inp3="http://assessor.lacounty.gov/amp/data/bvm/FactoredBaseYearValue/v1.0" xmlns:inp4="http://assessor.lacounty.gov/amp/data/bvm/DeriveEscalationPath/v1.0" xmlns:inp5="http://assessor.lacounty.gov/amp/data/bvm/IdentifyCleanDirtyAO/v1.0" xmlns:inp6="http://assessor.lacounty.gov/amp/data/bvm/TrendBaseYearValue/v1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>http://localhost/soa-infra/services/amp/BaseYearEventRulesService!2.0.1.0/apps/amp/wsdl/bvm/BaseYearEventRulesService.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <wsp:Policy wsu:Id="wss_saml_or_username_token_service_policy" xmlns="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:SamlToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssSamlV11Token10/>
+              </wsp:Policy>
+            </sp:SamlToken>
+          </wsp:Policy>
+        </sp:SupportingTokens>
+      </wsp:All>
+      <wsp:All>
+        <sp:SupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10/>
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SupportingTokens>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="http://assessor.lacounty.gov/amp/wsdl/common/Fault/v1.0" location="Fault.wsdl"/>
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://assessor.lacounty.gov/amp/data/bvm/ValidateBaseYearEvent/v1.0" schemaLocation="ValidateBaseYearEvent.xsd"/>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://assessor.lacounty.gov/amp/data/bvm/FactoredBaseYearValue/v1.0" schemaLocation="FactoredBaseYearValue.xsd"/>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://assessor.lacounty.gov/amp/data/bvm/DeriveEscalationPath/v1.0" schemaLocation="DeriveEscalationPath.xsd"/>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://assessor.lacounty.gov/amp/data/bvm/IdentifyCleanDirtyAO/v1.0" schemaLocation="IdentifyCleanDirtyAO.xsd"/>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://assessor.lacounty.gov/amp/data/bvm/TrendBaseYearValue/v1.0" schemaLocation="TrendBaseYearValue.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="validateBaseYearEventRequestMessage">
+    <wsdl:part name="request" element="inp1:validateBaseYearEventRequest"/>
+  </wsdl:message>
+  <wsdl:message name="validateBaseYearEventResponseMessage">
+    <wsdl:part name="reply" element="inp1:validateBaseYearEventResponse"/>
+  </wsdl:message>
+  <wsdl:message name="factoredBaseYearValueRequestMessage">
+    <wsdl:part name="request" element="inp3:factoredBaseYearValueRequest"/>
+  </wsdl:message>
+  <wsdl:message name="factoredBaseYearValueResponseMessage">
+    <wsdl:part name="reply" element="inp3:factoredBaseYearValueResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deriveEscalationPathRequestMessage">
+    <wsdl:part name="request" element="inp4:deriveEscalationPathRequest"/>
+  </wsdl:message>
+  <wsdl:message name="deriveEscalationPathResponseMessage">
+    <wsdl:part name="reply" element="inp4:deriveEscalationPathResponse"/>
+  </wsdl:message>
+  <wsdl:message name="identifyCleanDirtyAORequestMessage">
+    <wsdl:part name="request" element="inp5:identifyCleanDirtyAORequest"/>
+  </wsdl:message>
+  <wsdl:message name="identifyCleanDirtyAOResponseMessage">
+    <wsdl:part name="reply" element="inp5:identifyCleanDirtyAOResponse"/>
+  </wsdl:message>
+  <wsdl:message name="trendBaseYearValueRequestMessage">
+    <wsdl:part name="request" element="inp6:trendBaseYearValueRequest"/>
+  </wsdl:message>
+  <wsdl:message name="trendBaseYearValueResponseMessage">
+    <wsdl:part name="reply" element="inp6:trendBaseYearValueResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="BaseYearEventRulesService">
+    <wsdl:operation name="ValidateBaseYearEevent">
+      <wsdl:input message="tns:validateBaseYearEventRequestMessage"/>
+      <wsdl:output message="tns:validateBaseYearEventResponseMessage"/>
+      <wsdl:fault name="fault" message="inp2:FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="FactoredBaseYearValue">
+      <wsdl:input message="tns:factoredBaseYearValueRequestMessage"/>
+      <wsdl:output message="tns:factoredBaseYearValueResponseMessage"/>
+      <wsdl:fault name="fault" message="inp2:FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeriveEscalationPath">
+      <wsdl:input message="tns:deriveEscalationPathRequestMessage"/>
+      <wsdl:output message="tns:deriveEscalationPathResponseMessage"/>
+      <wsdl:fault name="fault" message="inp2:FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="IdentifyCleanDirtyAO">
+      <wsdl:input message="tns:identifyCleanDirtyAORequestMessage"/>
+      <wsdl:output message="tns:identifyCleanDirtyAOResponseMessage"/>
+      <wsdl:fault name="fault" message="inp2:FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="TrendBaseYearValue">
+      <wsdl:input message="tns:trendBaseYearValueRequestMessage"/>
+      <wsdl:output message="tns:trendBaseYearValueResponseMessage"/>
+      <wsdl:fault name="fault" message="inp2:FaultMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BaseYearEventRulesServiceBinding" type="tns:BaseYearEventRulesService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#wss_saml_or_username_token_service_policy" wsdl:required="false" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"/>
+    <wsdl:operation name="ValidateBaseYearEevent">
+      <soap:operation style="document" soapAction="ValidateBaseYearEevent"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FactoredBaseYearValue">
+      <soap:operation style="document" soapAction="FactoredBaseYearValue"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeriveEscalationPath">
+      <soap:operation style="document" soapAction="DeriveEscalationPath"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IdentifyCleanDirtyAO">
+      <soap:operation style="document" soapAction="IdentifyCleanDirtyAO"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TrendBaseYearValue">
+      <soap:operation style="document" soapAction="TrendBaseYearValue"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BaseYearEventRulesService_ep">
+    <wsdl:port name="BaseYearEventRulesService_pt" binding="tns:BaseYearEventRulesServiceBinding">
+      <soap:address location="http://localhost/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="gov.laca.amp.pdcr.initiate.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/gov/laca/amp/pdcr/initiate/view/amp-create-change-request-btf/CreateChangeRequest.jsff"
+          usageId="gov_laca_amp_pdcr_initiate_view_CreateChangeRequestPageDef"/>
+    <page path="/WEB-INF/gov/laca/amp/pdcr/initiate/view/amp-create-change-request-btf/amp-create-change-request-btf.xml#amp-create-change-request-btf@retrieveRealPropertyInfo"
+          usageId="gov_laca_amp_pdcr_initiate_view_amp_create_change_request_btf_amp_create_change_request_btf_retrieveRealPropertyInfoPageDef"/>
+    <page path="/TEST/TEST-CreateChangeRequest.jspx"
+          usageId="gov_laca_amp_pdcr_initiate_view_TEST_CreateChangeRequestPageDef"/>
+    <page path="/gov/laca/amp/pdcr/initiate/view/amp-edit-change-request-btf/EditPDCR.jsff"
+          usageId="gov_laca_amp_pdcr_initiate_view_EditPDCRPageDef"/>
+    <page path="/WEB-INF/gov/laca/amp/pdcr/initiate/view/amp-edit-change-request-btf/amp-edit-change-request-btf.xml#amp-edit-change-request-btf@retrievePDCR"
+          usageId="gov_laca_amp_pdcr_initiate_view_amp_edit_change_request_btf_amp_edit_change_request_btf_retrievePDCRPageDef"/>
+    <page path="/TEST/TEST-EditChangeRequest.jspx"
+          usageId="gov_laca_amp_pdcr_initiate_view_TEST_EditChangeRequestPageDef"/>
+    <page path="/gov/laca/amp/pdcr/initiate/view/PDCRFailure.jsff"
+          usageId="gov_laca_amp_pdcr_initiate_view_PDCRFailurePageDef"/>
+    <page path="/gov/laca/amp/pdcr/initiate/view/PDCRConfirmation.jsff"
+          usageId="gov_laca_amp_pdcr_initiate_view_PDCRConfirmationPageDef"/>
+    <page path="/gov/laca/amp/pdcr/initiate/view/popup/PopupCommonHeader.jsff"
+          usageId="gov_laca_amp_pdcr_initiate_view_PopupCommonHeaderPageDef"/>
+    <page path="/gov/laca/amp/pdcr/initiate/view/PDCRError.jsff"
+          usageId="gov_laca_amp_pdcr_initiate_view_PDCRErrorPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="gov_laca_amp_pdcr_initiate_view_CreateChangeRequestPageDef"
+          path="gov.laca.amp.pdcr.initiate.view.amp_create_change_request_btf.CreateChangeRequestPageDef"/>
+    <page id="gov_laca_amp_pdcr_initiate_view_amp_create_change_request_btf_amp_create_change_request_btf_retrieveRealPropertyInfoPageDef"
+          path="gov.laca.amp.pdcr.initiate.view.amp_create_change_request_btf.amp_create_change_request_btf_amp_create_change_request_btf_retrieveRealPropertyInfoPageDef"/>
+    <page id="gov_laca_amp_pdcr_initiate_view_TEST_CreateChangeRequestPageDef"
+          path="TEST.TEST_CreateChangeRequestPageDef"/>
+    <page id="gov_laca_amp_pdcr_initiate_view_EditPDCRPageDef"
+          path="gov.laca.amp.pdcr.initiate.view.amp_edit_change_request_btf.EditPDCRPageDef"/>
+    <page id="gov_laca_amp_pdcr_initiate_view_amp_edit_change_request_btf_amp_edit_change_request_btf_retrievePDCRPageDef"
+          path="gov.laca.amp.pdcr.initiate.view.amp_edit_change_request_btf.amp_edit_change_request_btf_amp_edit_change_request_btf_retrievePDCRPageDef"/>
+    <page id="gov_laca_amp_pdcr_initiate_view_TEST_EditChangeRequestPageDef"
+          path="TEST.TEST_EditChangeRequestPageDef"/>
+    <page id="gov_laca_amp_pdcr_initiate_view_PDCRFailurePageDef"
+          path="gov.laca.amp.pdcr.initiate.view.PDCRFailurePageDef"/>
+    <page id="gov_laca_amp_pdcr_initiate_view_PDCRConfirmationPageDef"
+          path="gov.laca.amp.pdcr.initiate.view.PDCRConfirmationPageDef"/>
+    <page id="gov_laca_amp_pdcr_initiate_view_PopupCommonHeaderPageDef"
+          path="gov.laca.amp.pdcr.initiate.view.popup.PopupCommonHeaderPageDef"/>
+    <page id="gov_laca_amp_pdcr_initiate_view_PDCRErrorPageDef"
+          path="gov.laca.amp.pdcr.initiate.view.PDCRErrorPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ChangeRequestDC"
+        path="gov.laca.amp.pdcr.common.model.ChangeRequestDC"/>
+  </dataControlUsages>
+</Application>

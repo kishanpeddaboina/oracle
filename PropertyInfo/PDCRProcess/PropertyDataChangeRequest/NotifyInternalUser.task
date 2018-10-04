@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<taskDefinition targetNamespace="http://xmlns.oracle.com/PDCRProcess/PropertyDataChangeRequest/NotifyInternalUser" xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20" xmlns:ora="http://schemas.oracle.com/xpath/extension" xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc" xmlns:task="http://xmlns.oracle.com/bpel/workflow/task" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.oracle.com/bpel/workflow/taskDefinition" xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/Data/AssignToUserOrGroupBO" xmlns:bpel2="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:ns2="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskBO" xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue" xmlns:ns7="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0" xmlns:ns5="http://xmlns.oracle.com/bpel/workflow/common" xmlns:evidence="http://xmlns.oracle.com/bpel/workflow/TaskEvidenceService" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath" xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath" xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions" xmlns:ns1="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0" xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions" xmlns:ns3="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0" xmlns:ns6="http://xmlns.oracle.com/bpm/bpmobject/Data/SortPDCRBO">
+   <name>NotifyInternalUser</name>
+   <id>${domain_id}_${process_id}_${process_revision}_NotifyInternalUser</id>
+   <title type="XPATH">
+      <value>string('NotifyInternalUser')</value>
+   </title>
+   <priority>3</priority>
+   <description>NotifyInternalUser</description>
+   <hideCreator>false</hideCreator>
+   <descriptionType>STATIC</descriptionType>
+   <process processId="" processVersion=""/>
+   <routingSlip xmlns="http://xmlns.oracle.com/bpel/workflow/routingSlip" routingType="TEMPLATE">
+      <globalConfiguration>
+         <applicationContext>OracleBPMProcessRolesApp</applicationContext>
+         <expirationDuration duration="P30D" type="STATIC" useBusinessCalendar="false"/>
+         <sharePayloadConfiguration>
+            <type>USE_SYSTEM_WIDE_GLOBAL_CONFIGURATION</type>
+         </sharePayloadConfiguration>
+      </globalConfiguration>
+      <participants isAdhocRoutingSupported="false">
+         <stage name="Stage1" disabled="false">
+            <fyi disabled="false" name="Internal">
+               <resource type="XPATH" identityType="user">/task:task/task:payload/ns4:PDCRHumanTaskBO/ns2:managePDCRRequest/ns2:userId</resource>
+            </fyi>
+         </stage>
+      </participants>
+      <notification includeTaskAttachments="false" actionable="false" secureNotifications="false" oneNotificationPerUserPerAction="false" hideWorklistUrlInEmail="false">
+         <groupNotificationConfiguration>SEND_INDIVIDUAL_NOTIFICATION</groupNotificationConfiguration>
+      </notification>
+      <skipCreatorAsApprover>false</skipCreatorAsApprover>
+      <assignToCreatorsManager>false</assignToCreatorsManager>
+   </routingSlip>
+   <workflowConfiguration features="ucm" xmlns="http://xmlns.oracle.com/bpel/workflow/configuration" xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskBO">
+      <outcomes>
+         <outcome>APPROVE</outcome>
+      </outcomes>
+      <payload xmlSchemaDefinition="xsd/NotifyInternalUserPayload.xsd" externalSchema="false" typedTaskSchemaLocation="xsd/NotifyInternalUserWorkflowTask.xsd">
+         <messageAttribute name="PDCRHumanTaskBO" attributeType="ELEMENT" type="ns4:PDCRHumanTaskBO" updatable="true" external="false"/>
+      </payload>
+      <flexfieldMappings>
+         <flexfieldMapping>
+            <xpathExpression>/task:task/task:payload/ns4:PDCRHumanTaskBO/ns2:managePDCRRequest/ns2:ain</xpathExpression>
+            <attributeLabel>
+               <labelName>AIN/Assessment Number</labelName>
+               <flexfield>ProtectedTextAttribute1</flexfield>
+               <description>AIN/Assessment Number</description>
+            </attributeLabel>
+            <description>AIN/Assessment Number</description>
+         </flexfieldMapping>
+         <flexfieldMapping>
+            <xpathExpression>/task:task/task:payload/ns4:PDCRHumanTaskBO/ns2:managePDCRRequest/ns2:originalRealPropertyInfo/ns1:cluster</xpathExpression>
+            <attributeLabel>
+               <labelName>Cluster</labelName>
+               <flexfield>ProtectedTextAttribute4</flexfield>
+               <description>Cluster</description>
+            </attributeLabel>
+            <description>Cluster</description>
+         </flexfieldMapping>
+         <flexfieldMapping>
+            <xpathExpression>/task:task/task:payload/ns4:PDCRHumanTaskBO/ns2:managePDCRRequest/ns2:originalRealPropertyInfo/ns1:district</xpathExpression>
+            <attributeLabel>
+               <labelName>District</labelName>
+               <flexfield>ProtectedTextAttribute2</flexfield>
+               <description>District</description>
+            </attributeLabel>
+            <description>District</description>
+         </flexfieldMapping>
+         <flexfieldMapping>
+            <xpathExpression>/task:task/task:payload/ns4:PDCRHumanTaskBO/ns2:managePDCRRequest/ns2:originalRealPropertyInfo/ns1:region</xpathExpression>
+            <attributeLabel>
+               <labelName>Region</labelName>
+               <flexfield>ProtectedTextAttribute3</flexfield>
+               <description>Region</description>
+            </attributeLabel>
+            <description>Region</description>
+         </flexfieldMapping>
+         <flexfieldMapping>
+            <xpathExpression>/task:task/task:payload/ns4:PDCRHumanTaskBO/ns4:returnTo</xpathExpression>
+            <attributeLabel>
+               <labelName>UpdatedByInfo</labelName>
+               <flexfield>ProtectedTextAttribute5</flexfield>
+               <description>UpdatedByInfo</description>
+            </attributeLabel>
+            <description>UpdatedByInfo</description>
+         </flexfieldMapping>
+      </flexfieldMappings>
+      <bpelEventListener>false</bpelEventListener>
+      <bpelNoCallbacks>false</bpelNoCallbacks>
+      <category type="XPATH">
+         <value>/task:task/task:category</value>
+      </category>
+      <showCompleteGraphicalHistory>true</showCompleteGraphicalHistory>
+      <reevalTranslatablesOnUpdate>false</reevalTranslatablesOnUpdate>
+      <preActionMandatoryUserSteps/>
+      <allowInitiatorEditParticipants>false</allowInitiatorEditParticipants>
+      <allowParticipantsEditParticipants>false</allowParticipantsEditParticipants>
+      <globalCreationTask>false</globalCreationTask>
+      <enableAutoClaim>true</enableAutoClaim>
+      <workflowConditions/>
+      <taskSequenceTypes>FUTURE</taskSequenceTypes>
+      <taskSequenceTypes>AGGREGATE</taskSequenceTypes>
+   </workflowConfiguration>
+</taskDefinition>

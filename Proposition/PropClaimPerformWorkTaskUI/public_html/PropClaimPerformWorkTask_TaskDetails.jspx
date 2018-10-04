@@ -1,0 +1,1672 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:AmpAddrValidn="/AddressValidnDeclCompTagLib" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="propclaimperformworktaskuiBundle" value="#{adfBundle['propclaimperformworktaskui.PropClaimPerformWorkTaskUIBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:trh="http://myfaces.apache.org/trinidad/html" xmlns:wf="http://xmlns.oracle.com/bpel/workflow/workflow-taglib.tld" xmlns:wlc="http://xmlns.oracle.com/bpel/workflow/worklist">
+        <af:document id="d1" title=" Props Claim Perform Task"  clientComponent="true">
+            <af:messages id="m1"/>
+            <af:resource type="javascript" source="/jsLibs/taskDetails.js"/>
+            <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>
+                <af:resource type="javascript" source="/resources/js/ampclientformat.js"/>
+                <af:resource type="javascript">
+    function chstp(evnt) {
+      //  alert('hi');
+       evnt.preventUserInput();
+    }
+    </af:resource>
+            <af:form id="f1" usesUpload="true">
+                <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStrechtWidth" inlineStyle="padding-left:20px;padding-right:30px;height:2500px! important">
+                    <af:panelStretchLayout id="psl2" topHeight="0px" endWidth="300px" styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-5" bottomHeight="0px" startWidth="650px">
+                        <f:facet name="start">
+                            <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                <af:outputFormatted value="Proposition&#160;-&#160;" id="plam1" inlineStyle="font-weight:bold; font-size:large;"/>
+                                <af:outputFormatted value=" AIN:&#160;" id="plam2" inlineStyle="font-weight:lighter; font-size:medium;"/>
+                                <af:panelGroupLayout id="pgl2" layout="horizontal" rendered="#{fn:length(bindings.AIN.inputValue)>9}">
+                                    <af:outputFormatted value="#{fn:substring(bindings.AIN.inputValue,0,4)}" id="of5" inlineStyle="font-weight:bold;font-size:large;"/>
+                                    <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,4,7)}" id="of7" inlineStyle="font-weight:bold;font-size:large;"/>
+                                    <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,7,10)}" id="of8" inlineStyle="font-weight:bold;font-size:large;"/>
+                                </af:panelGroupLayout>
+                                <af:spacer width="20" height="10" id="s2"/>
+                                <af:outputFormatted value=" Scanned Date:&#160;" id="of3" inlineStyle="font-weight:lighter; font-size:medium;"/>
+                                <af:outputFormatted value="#{bindings.claimReceivedDate.inputValue}" id="of4" inlineStyle="font-weight:bold; font-size:large;">
+                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                </af:outputFormatted>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="end">
+                            <af:panelGroupLayout id="pgl32" layout="horizontal" halign="end" styleClass="padding-top-5">
+                                <af:link text="View Scanned Claim Image" id="l1" inlineStyle="font-size:small;" targetFrame="_blank" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/expand-window.png" iconPosition="trailing" destination="#{ampConnections.psrGenSuppDocs}#{bindings.DocumentId.inputValue}" rendered="#{bindings.EventSource.inputValue == 'WCC'}"/>
+                                <af:link text="View Scanned Claim Image" id="l2" inlineStyle="font-size:small;" targetFrame="_blank" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/expand-window.png" iconPosition="trailing" destination="#{ampConnections.docUrl}/#{bindings.DocumentId.inputValue}/content-media" rendered="#{bindings.EventSource.inputValue == 'ECX'}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                    <af:panelGroupLayout id="pg13" layout="horizontal" styleClass="amp-border-top amp-border AFStretchWidth">
+                        <af:panelGroupLayout id="pgl7_train" halign="center" layout="horizontal" styleClass="AMPTrain">
+                       
+                       
+                        <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="t1"
+                                      var="trainNode">
+                                <f:facet name="nodeStamp">
+                                    <af:commandNavigationItem text="#{trainNode.textAndAccessKey}" id="cni1"
+                                                              visited="#{trainNode.visited}"
+                                                              disabled="#{trainNode.disabled}" immediate="false"
+                                                              actionListener="#{trainHandlerBean.onClaimTrainStopNext}"
+                                                              action="#{trainHandlerBean.getOutcomeAction}">
+                                        <f:attribute name="trainStopNode" value="#{trainNode}"/>
+                                    </af:commandNavigationItem>
+                                </f:facet>
+                            </af:train>
+                       
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl12" halign="end" styleClass="padding-top-5" layout="vertical" inlineStyle="padding-right:30px">
+                            <f:facet name="separator">
+                                <af:spacer height="5px" id="s_15"/>
+                            </f:facet>
+                            <!--<af:button id="b1" text="Correspondence"/>-->
+                            <af:button text="Correspondence " id="b7" clientComponent="true" partialSubmit="true" action="#{CorrespondenceBPMBean.onclickCorrespondence}">
+                                <af:setPropertyListener from="12347" to="#{viewScope.propsId}" type="action"/>
+                                <af:setPropertyListener from="false" to="#{viewScope.readOnlyMode}" type="action"/>
+                                <af:setPropertyListener from="Exclusions" to="#{viewScope.category}" type="action"/>
+                                <af:setPropertyListener from="Prop58" to="#{viewScope.subcategory}" type="action"/>
+                                <af:setPropertyListener from="333" to="#{viewScope.WorkUnitId}" type="action"/>
+                                <af:setPropertyListener from="#{CorrespondenceBPMBean.dispcorrAppr}" to="#{requestScope.sbmtApprValue}" type="action"/>
+                                <af:setPropertyListener from="#{CorrespondenceBPMBean.dispcorrRel}" to="#{requestScope.sbmtRelValue}" type="action"/>
+                            </af:button>
+                            <af:button text="Add/View Remarks" id="remBtn" immediate="true" clientComponent="true" partialSubmit="true">
+                                <af:showPopupBehavior triggerType="click" popupId="remarksPopup"/>
+                                <!--<af:setPropertyListener from="#{row.propId}" to="#{pageFlowScope.propId}" type="action"/>-->
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    
+                    <af:panelGridLayout id="pgl98" >
+                        <af:gridRow marginTop="5px" height="auto"  marginBottom="5px" id="gr17">
+                            <af:gridCell marginStart="5px" width="200px" id="gc55">
+                                <af:panelHeader text="Claim Information" id="ph2" inlineStyle="font-weight:bold;"
+                                                styleClass="AMPBPMPanelHeader margin-top-15  padding-top-5"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" marginEnd="5px" width="auto" id="gc56">
+                               <af:panelGroupLayout id="pgl99"
+                                rendered="#{bindings.isRecommendedToCancelPropClaim.inputValue =='Yes'}"
+                                layout="horizontal" styleClass=" margin-top-15  padding-top-5">
+                                    <af:panelGroupLayout id="pgl101" layout="horizontal" valign="bottom">
+                                        <af:panelLabelAndMessage label="Recommendation to Cancel Proposition Claim:"
+                                                                inlineStyle="font-weight:bold;" id="plam55"/>
+                                        <af:outputFormatted value="#{bindings.isRecommendedToCancelPropClaim.inputValue}"
+                                                            id="of1"/>
+                                        <f:facet name="separator">
+                                            <af:spacer width="10px" id="s1"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl103" layout="horizontal" valign="bottom">
+                                        <af:panelLabelAndMessage label="Reason For Cancellation:" id="plam56" inlineStyle="font-weight:bold;"/>
+                                        <af:outputFormatted value="#{bindings.reason.inputValue}" id="of2" />
+                                        <f:facet name="separator">
+                                            <af:spacer width="10px" id="s4"/>
+                                        </f:facet>
+                                    </af:panelGroupLayout>
+                                    <af:panelGroupLayout id="pgl100" layout="horizontal">
+                                     <af:button text="View Proposition" id="vpBtn" clientComponent="true" partialSubmit="true">
+                                <af:showPopupBehavior popupId="propDetailsPopup" triggerType="click"/>
+                               
+                                       
+                                       
+                            </af:button>
+                                    </af:panelGroupLayout>
+                                    <f:facet name="separator">
+                                        <af:spacer width="100px" id="s64"/>
+                                    </f:facet>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                    <af:panelGroupLayout id="pgcpl2" layout="vertical" styleClass="AFStretchWidth">
+                       <!-- <af:panelGroupLayout id="pgll4" styleClass="AFStretchWidth" layout="vertical">-->
+                        <af:panelGroupLayout id="pgl234" layout="scroll" styleClass="AFStretchWidth">
+                            <af:panelGridLayout id="pgl4" >
+                                <af:gridRow marginTop="15px" height="auto" id="gr1">
+                                    <af:gridCell marginStart="5px" width="200px" id="gc1">
+                                        <af:panelGroupLayout id="pgl5" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.CLAIMANT_NAME}"
+                                                                     id="plam17"/>
+                                            <af:inputText contentStyle="width:180px" placeholder="First Name"
+                                                          value="#{bindings.firstName.inputValue}" simple="true"
+                                                          label="#{bindings.firstName.hints.label}"
+                                                          required="#{bindings.firstName.hints.mandatory}"
+                                                          columns="#{bindings.firstName.hints.displayWidth}"
+                                                          maximumLength="50"
+                                                          shortDesc="#{bindings.firstName.hints.tooltip}" id="it1">
+                                                <f:validator binding="#{bindings.firstName.validator}"/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s3"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" id="gc3" valign="bottom">
+                                        <af:inputText contentStyle="width:180px" value="#{bindings.lastName.inputValue}"
+                                                      placeholder="Last Name" simple="true" label="Last Name"
+                                                      required="#{bindings.lastName.hints.mandatory}"
+                                                      columns="#{bindings.lastName.hints.displayWidth}"
+                                                      maximumLength="50" shortDesc="#{bindings.lastName.hints.tooltip}"
+                                                      id="it3">
+                                            <f:validator binding="#{bindings.lastName.validator}"/>
+                                        </af:inputText>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" id="gc2" valign="bottom">
+                                        <af:panelGroupLayout id="pgl25" layout="vertical" valign="bottom">
+                                            <af:inputText contentStyle="width:180px" placeholder="Middle Initial" label="Middle Initial"
+                                                          value="#{bindings.middleInitial.inputValue}" simple="true"
+                                                          required="#{bindings.middleInitial.hints.mandatory}"
+                                                          columns="#{bindings.middleInitial.hints.displayWidth}"
+                                                          maximumLength="1"
+                                                          shortDesc="#{bindings.middleInitial.hints.tooltip}" id="it2">
+                                                <af:validateRegExp pattern="[a-zA-Z]"
+                                                                   messageDetailNoMatch="Alphabet letter only"/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s19"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" id="gc4" valign="bottom">
+                                        <af:inputText contentStyle="width:180px" value="#{bindings.suffix.inputValue}"
+                                                      placeholder="Suffix" simple="true" label="Suffix"
+                                                      required="#{bindings.suffix.hints.mandatory}"
+                                                      columns="#{bindings.suffix.hints.displayWidth}" maximumLength="3"
+                                                      shortDesc="#{bindings.suffix.hints.tooltip}" id="it4">
+                                            <f:validator binding="#{bindings.suffix.validator}"/>
+                                        </af:inputText>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" id="gc5">
+                                        <af:panelGroupLayout id="pgl6" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.ASSESSOR_S_PARCEL_NUMBER}"
+                                                                     showRequired="true" id="plam3"/>
+                                            <af:inputText contentStyle="width:180px"
+                                                          value="#{bindings.assessorParcelNumber.inputValue}"
+                                                          required="true" simple="true"
+                                                          columns="#{bindings.assessorParcelNumber.hints.displayWidth}"
+                                                          maximumLength="#{bindings.assessorParcelNumber.hints.precision}"
+                                                          shortDesc="#{bindings.assessorParcelNumber.hints.tooltip}"
+                                                          id="it5" autoSubmit="true"
+                                                          label="#{propclaimperformworktaskuiBundle.ASSESSOR_S_PARCEL_NUMBER}">
+                                                <af:clientListener method="handleNumberFormatConversion('xxxx-xxx-xxx','-')"
+                                                                   type="keyDown"/>
+                                                <af:validateRegExp pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+                                                                   messageDetailNoMatch="Invalid Assessor’s Parcel Number. Should be a 10 digit number."/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s5"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" marginEnd="5px" id="gc6">
+                                        <af:panelGroupLayout id="pgl7" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.RECORDER_S_DOCUMENT_NUMBER}"
+                                                                     showRequired="true" id="plam4"/>
+                                            <af:inputText contentStyle="width:180px"
+                                                          value="#{bindings.recorderDocNo.inputValue}" simple="true"
+                                                          required="true" autoSubmit="true"
+                                                          columns="#{bindings.recorderDocNo.hints.displayWidth}"
+                                                          maximumLength="#{bindings.recorderDocNo.hints.precision}"
+                                                          shortDesc="#{bindings.recorderDocNo.hints.tooltip}" id="it6"
+                                                          label="#{propclaimperformworktaskuiBundle.RECORDER_S_DOCUMENT_NUMBER}">
+                                                <af:clientListener method="handleNumberFormatConversion('xxxx-xxxxxxx','-')"
+                                                                  type="keyDown"/>
+                                                <af:validateRegExp pattern="[0-9]{4}-[0-9]{7}$"
+                                                                   messageDetailNoMatch="Invalid Recorders Document Number. Should be 11 digits."/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s6"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                               <af:gridRow marginTop="15px" height="auto" id="gr2">
+                                    <af:gridCell marginStart="5px" width="200px" id="gc7">
+                                        <af:panelGroupLayout id="pgl8" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.DATE_OF_PURCHASE_OR_TRANSFER}"
+                                                                     showRequired="true" id="plam5"/>
+                                            <af:inputDate contentStyle="width:180px"
+                                                          value="#{bindings.purchaseTransferDate.inputValue}"
+                                                          maxValue="#{propClaimPerformBean.currentdate}" simple="true"
+                                                          label="#{propclaimperformworktaskuiBundle.DATE_OF_PURCHASE_OR_TRANSFER}"
+                                                          required="true"
+                                                          columns="#{bindings.purchaseTransferDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.purchaseTransferDate.hints.tooltip}"
+                                                          id="id1">
+                                                <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                            </af:inputDate>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s7"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" id="gc8">
+                                        <af:panelGroupLayout id="pgl9" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.PROBATE_NUMBER}"
+                                                                     id="plam6"/>
+                                            <af:inputText contentStyle="width:180px"
+                                                          value="#{bindings.probateNumber.inputValue}" simple="true"
+                                                          required="#{bindings.probateNumber.hints.mandatory}"
+                                                          label="#{propclaimperformworktaskuiBundle.PROBATE_NUMBER}"
+                                                          columns="#{bindings.probateNumber.hints.displayWidth}"
+                                                          maximumLength="#{bindings.probateNumber.hints.precision}"
+                                                          shortDesc="#{bindings.probateNumber.hints.tooltip}" id="it7">
+                                                <f:validator binding="#{bindings.probateNumber.validator}"/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s8"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" id="gc9">
+                                        <af:panelGroupLayout id="pgl10" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.DATE_OF_DEATH}"
+                                                                     id="plam9"/>
+                                            <af:inputDate label="#{propclaimperformworktaskuiBundle.DATE_OF_DEATH}"
+                                                          contentStyle="width:180px"
+                                                          value="#{bindings.deathDate.inputValue}" simple="true"
+                                                          required="#{bindings.deathDate.hints.mandatory}"
+                                                          maxValue="#{propClaimPerformBean.currentdate}"
+                                                          columns="#{bindings.deathDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.deathDate.hints.tooltip}" id="it8">
+                                                <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                            </af:inputDate>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s9"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" id="gc10">
+                                        <af:panelGroupLayout id="pgl11" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.DATE_OF_DECREE_OF_DISTRIBUTION}"
+                                                                     id="plam10"/>
+                                            <af:inputDate label="#{propclaimperformworktaskuiBundle.DATE_OF_DECREE_OF_DISTRIBUTION}"
+                                                          contentStyle="width:180px"
+                                                          value="#{bindings.decreeDistributionDate.inputValue}"
+                                                          simple="true"
+                                                          required="#{bindings.decreeDistributionDate.hints.mandatory}"
+                                                          columns="#{bindings.decreeDistributionDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.decreeDistributionDate.hints.tooltip}"
+                                                          id="it9">
+                                                <f:validator binding="#{bindings.decreeDistributionDate.validator}"/>
+                                                <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                            </af:inputDate>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s10"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" id="gc11">
+                                        <af:panelGroupLayout id="pgl13" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.CLAIM_TYPE}"
+                                                                     id="plam11"/>
+                                            <af:inputText contentStyle="width:180px"
+                                                          value="#{bindings.claimType.inputValue}" simple="true"
+                                                          required="#{bindings.claimType.hints.mandatory}"
+                                                          disabled="true"
+                                                          columns="#{bindings.claimType.hints.displayWidth}"
+                                                          maximumLength="#{bindings.claimType.hints.precision}"
+                                                          shortDesc="#{bindings.claimType.hints.tooltip}" id="it10">
+                                                <f:validator binding="#{bindings.claimType.validator}"/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s11"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" marginEnd="5px" id="gc12">
+                                        <af:panelGroupLayout id="pgl14" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.CLAIM_RECEIVED_DATE}"
+                                                                     id="plam12"/>
+                                            <af:inputDate label="#{propclaimperformworktaskuiBundle.CLAIM_RECEIVED_DATE}"
+                                                          contentStyle="width:180px"
+                                                          value="#{bindings.claimReceivedDate.inputValue}" simple="true"
+                                                          required="#{bindings.claimReceivedDate.hints.mandatory}"
+                                                          maxValue="#{propClaimPerformBean.currentdate}"
+                                                          columns="#{bindings.claimReceivedDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.claimReceivedDate.hints.tooltip}"
+                                                          id="id2">
+                                                <f:validator binding="#{bindings.claimReceivedDate.validator}"/>
+                                                <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                            </af:inputDate>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s12"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="15px" height="auto" marginBottom="5px" id="gr3">
+                                    <af:gridCell marginStart="5px" width="200px" id="gc13">
+                                        <af:panelGroupLayout id="pgl15" layout="vertical">
+                                            <af:panelLabelAndMessage label="Principal Residence" id="plam7"
+                                                                     labelStyle="vertical-align: top;"/>
+                                            <af:selectOneChoice value="#{bindings.principalResidence2.inputValue}"
+                                                                unselectedLabel="Select" simple="true"
+                                                                label="#{bindings.principalResidence.label}"
+                                                                required="#{bindings.principalResidence.hints.mandatory}"
+                                                                shortDesc="#{bindings.principalResidence.hints.tooltip}"
+                                                                id="soc2" autoSubmit="true">
+                                                <af:selectItem label="Yes" value="Y" id="sipr31"/>
+                                                <af:selectItem label="No" value="N" id="sipr2"/>
+                                                <af:selectItem label="Unknown" value="U" id="sipr3"/>
+                                                <f:validator binding="#{bindings.principalResidence2.validator}"/>
+                                            </af:selectOneChoice>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s13"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="200px" marginEnd="15px" id="gc19">
+                                        <af:panelGroupLayout id="pgl26" layout="vertical">
+                                            <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.EXEMPTION_ELIGIBILITY}"
+                                                                     id="plam18"/>
+                                            <af:selectOneChoice partialTriggers="soc2" simple="true"
+                                                                value="#{bindings.exemptionEligibility.inputValue}"
+                                                                label="#{bindings.exemptionEligibility.label}"
+                                                                disabled="#{bindings.principalResidence2.inputValue != 'Y'}"
+                                                                required="#{bindings.exemptionEligibility.hints.mandatory}"
+                                                                shortDesc="#{bindings.exemptionEligibility.hints.tooltip}"
+                                                                unselectedLabel="Select" id="soc1">
+                                                <f:selectItems value="#{bindings.exemptionEligibility.items}" id="si1"/>
+                                                <f:validator binding="#{bindings.exemptionEligibility.validator}"/>
+                                            </af:selectOneChoice>
+                                            <f:facet name="separator">
+                                                <af:spacer id="s20" height="5px"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc53" marginStart="15px" width="200px" marginEnd="5px"
+                                                 valign="bottom">
+                                        <!--Add country and Disable button-->
+                                        <af:panelGroupLayout id="pgl52"
+                                                             binding="#{propClaimAddrBean.addressValidnForm}">
+                                            <AmpAddrValidn:AddressValidation addrValidation="#{propClaimAddrBean.validateAddressForm}"
+                                                                             showButton="YES"
+                                                                             buttonLabel="#{propClaimAddrBean.buttonLabel}"
+                                                                             styleClass="#{propClaimAddrBean.styleClass}"
+                                                                             id="av1"
+                                                                             addressList="#{propClaimAddrBean.addressList}"
+                                                                             matchLevelDesc="#{propClaimAddrBean.matchLevelDesc}"
+                                                                             City="#{bindings.city.inputValue}"
+                                                                             PostalCode="#{bindings.zip.inputValue}"
+                                                                             State="#{bindings.state1.inputValue}"
+                                                                             StreetAddress="#{bindings.street.inputValue}"
+                                                                             Country="#{bindings.country.inputValue}"/>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <!--<af:gridCell marginStart="5px" width="17%" id="gc14">
+                                        <af:panelGroupLayout id="pgl16" layout="vertical">
+                                            <af:panelLabelAndMessage label="Property Address" id="plam8"
+                                                                     labelStyle="vertical-align: top;"/>
+                                            <af:inputText contentStyle="width:180px"
+                                                          value="#{bindings.street.inputValue}" simple="true"
+                                                          required="#{bindings.street.hints.mandatory}"
+                                                          columns="#{bindings.street.hints.displayWidth}"
+                                                          maximumLength="#{bindings.street.hints.precision}"
+                                                          shortDesc="#{bindings.street.hints.tooltip}" id="it11">
+                                                <f:validator binding="#{bindings.street.validator}"/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s14"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                     <af:gridCell marginStart="5px" width="16%" id="gc17">
+                                        <af:panelGroupLayout id="pgl17" layout="vertical">
+                                            <af:panelLabelAndMessage label=" " id="plam13"/>
+                                            <af:inputText contentStyle="width:180px" value="#{bindings.city.inputValue}"
+                                                          simple="true" required="#{bindings.city.hints.mandatory}"
+                                                          columns="#{bindings.city.hints.displayWidth}"
+                                                          maximumLength="#{bindings.city.hints.precision}"
+                                                          shortDesc="#{bindings.city.hints.tooltip}" id="it14">
+                                                <f:validator binding="#{bindings.city.validator}"/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s15"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc15">
+                                        <af:panelGroupLayout id="pgl18" layout="vertical">
+                                            <af:panelLabelAndMessage label="" id="plam14"/>
+                                            <af:inputText contentStyle="width:180px"
+                                                          value="#{bindings.state1.inputValue}" simple="true"
+                                                          required="#{bindings.state1.hints.mandatory}"
+                                                          columns="#{bindings.state1.hints.displayWidth}"
+                                                          maximumLength="#{bindings.state1.hints.precision}"
+                                                          shortDesc="#{bindings.state1.hints.tooltip}" id="it12">
+                                                <f:validator binding="#{bindings.state1.validator}"/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s16"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc16">
+                                        <af:panelGroupLayout id="pgl19" layout="vertical">
+                                            <af:panelLabelAndMessage label="" id="plam15"/>
+                                            <af:inputText contentStyle="width:180px" value="#{bindings.zip.inputValue}"
+                                                          simple="true" required="#{bindings.zip.hints.mandatory}"
+                                                          columns="#{bindings.zip.hints.displayWidth}"
+                                                          maximumLength="#{bindings.zip.hints.precision}"
+                                                          shortDesc="#{bindings.zip.hints.tooltip}" id="it13">
+                                                <f:validator binding="#{bindings.zip.validator}"/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s17"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                   
+                                    <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc18">
+                                        <af:panelGroupLayout id="pgl24" layout="vertical">
+                                            <af:panelLabelAndMessage label="" id="plam16"/>
+                                            <af:inputText contentStyle="width:180px"
+                                                          value="#{bindings.country.inputValue}" simple="true"
+                                                          required="#{bindings.country.hints.mandatory}"
+                                                          columns="#{bindings.country.hints.displayWidth}"
+                                                          maximumLength="#{bindings.country.hints.precision}"
+                                                          shortDesc="#{bindings.country.hints.tooltip}" id="it15">
+                                                <f:validator binding="#{bindings.country.validator}"/>
+                                            </af:inputText>
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s18"/>
+                                            </f:facet>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>-->
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:panelGroupLayout>
+                        <!-- </af:panelGroupLayout>-->
+                        <!-- Transferor -->
+                        <af:panelGroupLayout id="pgl89" styleClass="AFStretchWidth" layout="scroll">
+                            <af:panelHeader text="#{propclaimperformworktaskuiBundle.TRANSFEROR}" inlineStyle="font-weight:bold;" styleClass="AMPBPMPanelHeader" id="ph1">
+                                <f:facet name="context"/>
+                                <f:facet name="toolbar">
+                                    <af:panelGroupLayout id="pgl35" layout="vertical" halign="right">
+                                        <af:link text="Link to Agent Auth DB" id="l3" targetFrame="_blank" destination="http://agentauth/"/>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                            </af:panelHeader>
+                            <af:listView value="#{bindings.propsTransferorPojoInfo.collectionModel}" var="item" styleClass="AMPBPMListViewStyle" emptyText="#{bindings.propsTransferorPojoInfo.viewable ? 'No data to display.' : 'Access Denied.'}" selection="single" varStatus="row" selectedRowKeys="#{bindings.propsTransferorPojoInfo.collectionModel.selectedRow}" selectionListener="#{bindings.propsTransferorPojoInfo.collectionModel.makeCurrent}" fetchSize="#{bindings.propsTransferorPojoInfo.rangeSize}" id="lv1" binding="#{propClaimPerformBean.transferorListView}">
+                                <af:listItem id="li1"  rendered="#{item.bindings.operationFlag.inputValue != 'D'}">
+                                    <af:panelStretchLayout id="psl3">
+                                        <f:facet name="start"/>
+                                        <f:facet name="end">
+                                            <af:panelGroupLayout id="pgl34" layout="vertical" inlineStyle="vertical-align:middle;" halign="right">
+                                                <af:commandImageLink immediate="true" id="b47" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/remove-ownership.png" actionListener="#{propClaimPerformBean.deleteTransferor}">
+                                                    <f:attribute name="selectedIndex" value="#{row.index}"/>
+                                                </af:commandImageLink>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                        <f:facet name="top"/>
+                                        <f:facet name="bottom"/>
+                                        <f:facet name="center">
+                                            <af:panelGroupLayout id="pgl1262" layout="scroll" styleClass="AFStretchWidth">
+                                                <af:panelGridLayout id="pgl16" styleClass="AFStretchWidth">
+                                                    <af:gridRow marginTop="15px" height="auto" marginBottom="5px"
+                                                                id="gr4">
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc14">
+                                                            <af:panelGroupLayout id="pgl17" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.TRANSFEROR_NAME}"
+                                                                                         id="plam8"/>
+                                                                <af:inputText value="#{item.transferorName.bindings.firstName.inputValue}"
+                                                                              simple="true" contentStyle="width:150px"
+                                                                              autoSubmit="true" placeholder="First Name"
+                                                                              required="#{item.transferorName.bindings.firstName.hints.mandatory}"
+                                                                              columns="#{item.transferorName.bindings.firstName.hints.displayWidth}"
+                                                                              maximumLength="50"
+                                                                              shortDesc="#{item.transferorName.bindings.firstName.hints.tooltip}"
+                                                                              id="it11"
+                                                                              valueChangeListener="#{propClaimPerformBean.onTransferorValueChange}">
+                                                                    <f:validator binding="#{item.transferorName.bindings.firstName.validator}"/>
+                                                                     <af:clientListener method="chstp" type="valueChange"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s14"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc15"
+                                                                     valign="bottom">
+                                                            <af:inputText value="#{item.transferorName.bindings.lastName.inputValue}"
+                                                                          simple="true"
+                                                                          contentStyle="width:150px;border:0px"
+                                                                          autoSubmit="true" placeholder="Last Name"
+                                                                          required="#{item.transferorName.bindings.lastName.hints.mandatory}"
+                                                                          columns="#{item.transferorName.bindings.lastName.hints.displayWidth}"
+                                                                          maximumLength="50"
+                                                                          valueChangeListener="#{propClaimPerformBean.onTransferorValueChange}"
+                                                                          shortDesc="#{item.transferorName.bindings.lastName.hints.tooltip}"
+                                                                          id="it12">
+                                                                           <af:clientListener method="chstp" type="valueChange"/>
+                                                                <f:validator binding="#{item.transferorName.bindings.lastName.validator}"/>
+                                                            </af:inputText>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc16"
+                                                                     valign="bottom">
+                                                            <af:inputText autoSubmit="true"
+                                                                          value="#{item.transferorName.bindings.middleInitial.inputValue}"
+                                                                          simple="true" contentStyle="width:150px;"
+                                                                          placeholder="Middle Initial"
+                                                                          required="#{item.transferorName.bindings.middleInitial.hints.mandatory}"
+                                                                          columns="#{item.transferorName.bindings.middleInitial.hints.displayWidth}"
+                                                                          maximumLength="1"
+                                                                          valueChangeListener="#{propClaimPerformBean.onTransferorValueChange}"
+                                                                          label="Middle Initial"
+                                                                          shortDesc="#{item.transferorName.bindings.middleInitial.hints.tooltip}"
+                                                                          id="it13">
+                                                                           <af:clientListener method="chstp" type="valueChange"/>
+                                                                <af:validateRegExp pattern="[a-zA-Z]"
+                                                                                   messageDetailNoMatch="Alphabet letter only"/>
+                                                            </af:inputText>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc17"
+                                                                     valign="bottom">
+                                                            <af:inputText value="#{item.transferorName.bindings.suffix.inputValue}"
+                                                                          placeholder="Suffix" simple="true"
+                                                                          contentStyle="width:150px;"
+                                                                          required="#{item.transferorName.bindings.suffix.hints.mandatory}"
+                                                                          columns="#{item.transferorName.bindings.suffix.hints.displayWidth}"
+                                                                          maximumLength="3" autoSubmit="true"
+                                                                          valueChangeListener="#{propClaimPerformBean.onTransferorValueChange}"
+                                                                          shortDesc="#{item.transferorName.bindings.suffix.hints.tooltip}"
+                                                                          id="it14">
+                                                                           <af:clientListener method="chstp" type="valueChange"/>
+                                                                <f:validator binding="#{item.transferorName.bindings.suffix.validator}"/>
+                                                            </af:inputText>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc18">
+                                                            <af:panelGroupLayout id="pgl18" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.LEGAL_ENTITY_NAME}"
+                                                                                         id="plam13"/>
+                                                                <af:inputText autoSubmit="true"
+                                                                              value="#{item.bindings.legalEntityName.inputValue}"
+                                                                              contentStyle="width:150px" simple="true"
+                                                                              required="#{item.bindings.legalEntityName.hints.mandatory}"
+                                                                              columns="#{item.bindings.legalEntityName.hints.displayWidth}"
+                                                                              maximumLength="50"
+                                                                              shortDesc="#{item.bindings.legalEntityName.hints.tooltip}"
+                                                                              id="it15">
+                                                                    <af:clientListener method="handleUpdateSSNTaxIDFormatOnLegalEntityNameOutFocus" type="valueChange"/>
+                                                                    <f:validator binding="#{item.bindings.legalEntityName.validator}"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s15"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc20">
+                                                            <af:panelGroupLayout id="pgl19" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.SSN_OR_TAX_ID_NUMBER}"
+                                                                                         id="plam14"/>
+                                                                <af:inputText label="#{propclaimperformworktaskuiBundle.SSN_OR_TAX_ID_NUMBER}"
+                                                                              value="#{item.bindings.ssn.inputValue}"
+                                                                              maximumLength="11" simple="true"
+                                                                              contentStyle="width:150px" autoSubmit="true"
+                                                                              required="#{item.bindings.ssn.hints.mandatory}"
+                                                                              columns="#{item.bindings.ssn.hints.displayWidth}"
+                                                                              shortDesc="#{item.bindings.ssn.hints.tooltip}"
+                                                                              id="it16">
+                                                                    <af:clientListener method="handleSSNTaxIDFormatConversion" type="keyDown"/>    
+                                                                    <!--<af:clientListener method="handleNumberFormatConversion('xxx-xx-xxxx','-')"
+                                                                                       type="keyDown"/>-->-->
+                                                                    <af:validateRegExp pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}$|[0-9]{2}-[0-9]{7}$"
+                                                                                       messageDetailNoMatch="SSN XXX-XX-XXXX OR TAX ID XX-XXXXXXX"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s17"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" marginEnd="5px"
+                                                                     id="gc21">
+                                                            <af:panelGroupLayout id="pgl24" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.PERCENTAGE_TRANSFER}"
+                                                                                         id="plam15"/>
+                                                                <af:inputText autoSubmit="true" label="#{propclaimperformworktaskuiBundle.PERCENTAGE_TRANSFER}"
+                                                                              value="#{item.bindings.percentTransfer.inputValue}"
+                                                                              contentStyle="width:150px" placeholder="%"
+                                                                              simple="true" id="it17"
+                                                                              converter="DecimalConverter">
+                                                               <!--    <af:convertNumber groupingUsed="true" type="number"  maxIntegerDigits="2"
+                                                                                   minIntegerDigits="1"  maxFractionDigits="4"
+                                                                                  messageDetailConvertPercent="Enter valid percentage value"
+                                                                                   pattern="##.####"
+                                                                                   roundingMode="DOWN"/>    -->
+                                                                                   <f:validator validatorId="PercentValidator"/>
+                                                                                   <f:attribute name="errMsg" value="Percentage value should be between 0 and 100"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s18"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                    <af:gridRow marginTop="15px" height="auto" marginBottom="5px"
+                                                                id="gr5">
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc22">
+                                                            <af:panelGroupLayout id="pgl27" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.EXCLUSION_AMOUNT}"
+                                                                                         id="plam16"/>
+                                                                                         
+                                                                                         <!--Fractions removed as per 39195  -->
+                                                                <af:inputText autoSubmit="true"
+                                                                              value="#{item.bindings.exclusionAmount.inputValue}"
+                                                                              contentStyle="width:150px"
+                                                                              label="#{propclaimperformworktaskuiBundle.EXCLUSION_AMOUNT}"
+                                                                              required="#{item.bindings.exclusionAmount.hints.mandatory}"
+                                                                              simple="true"
+                                                                              disabled="#{bindings.claimType.inputValue =='193'}"
+                                                                              columns="#{item.bindings.exclusionAmount.hints.displayWidth}"
+                                                                              
+                                                                              shortDesc="#{item.bindings.exclusionAmount.hints.tooltip}"
+                                                                              id="it18">
+                                                                    <af:convertNumber maxFractionDigits="0" minFractionDigits="0" />
+									  
+                                                                    <af:validateDoubleRange minimum="0"
+                                                                                            maximum="1000000"
+                                                                                            messageDetailNotInRange="Value can not be more that $1M"/>
+                                                                    <f:validator binding="#{item.bindings.exclusionAmount.validator}"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s21"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc23">
+                                                            <af:panelGroupLayout id="pgl28" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.SIGNATURE_ON_FILE_}"
+                                                                                         id="plam19"/>
+                                                                <af:selectOneRadio autoSubmit="true"
+                                                                                   value="#{item.bindings.signOnFileFlag.inputValue}"
+                                                                                   shortDesc="#{item.bindings.signOnFileFlag.hints.tooltip}"
+                                                                                   label="#{propclaimperformworktaskuiBundle.SIGNATURE_ON_FILE_}"
+                                                                                   layout="horizontal" simple="true"
+                                                                                   id="sor1">
+                                                                    <af:selectItem label="Yes" value="Y" id="si11"/>
+                                                                    <af:selectItem label="No" value="N" id="si12"/>
+                                                                </af:selectOneRadio>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s22"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc24">
+                                                            <af:panelGroupLayout id="pgl29" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.SIGNED_BY_LEGAL_REP_}"
+                                                                                         id="plam20"/>
+                                                                <af:selectOneRadio autoSubmit="true"
+                                                                                   value="#{item.bindings.signedByLegalRepFlag.inputValue}"
+                                                                                   shortDesc="#{item.bindings.signedByLegalRepFlag.hints.tooltip}"
+                                                                                   label="Label 1" id="sor2"
+                                                                                   layout="horizontal" simple="true">
+                                                                    <af:selectItem label="Yes" value="Y" id="si21"/>
+                                                                    <af:selectItem label="No" value="N" id="si22"/>
+                                                                </af:selectOneRadio>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s23"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" marginEnd="5px"
+                                                                     id="gc28"/>
+                                                        <af:gridCell marginStart="5px" width="200px" id="gc25">
+                                                            <af:panelGroupLayout id="pgl30" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.AUTHORIZATION_ON_FILE_}"
+                                                                                         id="plam21"/>
+                                                                <af:selectOneChoice autoSubmit="true"
+                                                                                    value="#{item.bindings.authorizationOnFileFlag.inputValue}"
+                                                                                    unselectedLabel="Select"
+                                                                                    simple="true"
+                                                                                    label="#{item.bindings.authorizationOnFileFlag.label}"
+                                                                                    required="#{item.bindings.authorizationOnFileFlag.hints.mandatory}"
+                                                                                    shortDesc="#{item.bindings.authorizationOnFileFlag.hints.tooltip}"
+                                                                                    id="soc3">
+                                                                    <af:selectItem label="Yes" value="Y" id="si31"/>
+                                                                    <af:selectItem label="No" value="N" id="si32"/>
+                                                                    <af:selectItem label="Unknown" value="U" id="si33"/>
+                                                                    <f:validator binding="#{item.bindings.authorizationOnFileFlag.validator}"/>
+                                                                </af:selectOneChoice>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s24"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc26">
+                                                            <af:panelGroupLayout id="pgl31" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.PRINTED_NAME}"
+                                                                                         id="plam22"/>
+                                                                <af:inputText autoSubmit="true"
+                                                                              value="#{item.bindings.printedName.inputValue}"
+                                                                              simple="true" contentStyle="width:150px"
+                                                                              required="#{item.bindings.printedName.hints.mandatory}"
+                                                                              columns="#{item.bindings.printedName.hints.displayWidth}"
+                                                                              maximumLength="50"
+                                                                              shortDesc="#{item.bindings.printedName.hints.tooltip}"
+                                                                              id="it21">
+                                                                    <f:validator binding="#{item.bindings.printedName.validator}"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s25"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc27">
+                                                            <af:panelGroupLayout id="pgl342" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.CLAIM_SIGNATURE_DATE}"
+                                                                                         id="plam23"/>
+                                                                <af:inputDate autoSubmit="true"
+                                                                              label="#{propclaimperformworktaskuiBundle.CLAIM_SIGNATURE_DATE}"
+                                                                              value="#{item.bindings.claimSignedDate.inputValue}"
+                                                                              contentStyle="width:150px"
+                                                                              maxValue="#{propClaimPerformBean.currentdate}"
+                                                                              required="#{item.bindings.claimSignedDate.hints.mandatory}"
+                                                                              columns="#{item.bindings.claimSignedDate.hints.displayWidth}"
+                                                                              shortDesc="#{item.bindings.claimSignedDate.hints.tooltip}"
+                                                                              simple="true" id="id3">
+                                                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                                </af:inputDate>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s26"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                </af:panelGridLayout>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                    </af:panelStretchLayout>
+                                    <!--  <af:iterator id="i1" value="#{bindings.propsTransferorPojoInfo.collectionModel}" var="item"> -->
+                                    <!--   </af:iterator>-->
+                                </af:listItem>
+                            </af:listView>
+                            <af:panelGroupLayout id="pgl33" layout="vertical" halign="right">
+                                <af:commandImageLink immediate="true" id="b3" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/add.png" shortDesc="Add Transferor" action="#{propClaimPerformBean.AddTransferor}"></af:commandImageLink>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        <!-- Transfreee-->
+                        <af:panelGroupLayout id="pgll6" styleClass="AFStretchWidth" layout="vertical">
+                            <af:panelHeader text="#{propclaimperformworktaskuiBundle.TRANSFEREE}" inlineStyle="font-weight:bold;" styleClass="AMPBPMPanelHeader" id="ph3">
+                                <f:facet name="context"/>
+                                <f:facet name="toolbar">
+                                    <af:panelGroupLayout id="pgTl36" layout="vertical" halign="right">
+                                        <af:link text="Link to Agent Auth DB" id="l43" targetFrame="_blank" destination="http://agentauth/"/>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                            </af:panelHeader>
+                            <af:listView value="#{bindings.propsTransfereeInfo.collectionModel}" var="propsTransfereeInfoItem" styleClass="AMPBPMListViewStyle" selection="single" varStatus="row" selectedRowKeys="#{bindings.propsTransfereeInfo.collectionModel.selectedRow}" selectionListener="#{bindings.propsTransfereeInfo.collectionModel.makeCurrent}" emptyText="#{bindings.propsTransfereeInfo.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.propsTransfereeInfo.rangeSize}" id="lv2" binding="#{propClaimPerformBean.transfereeListView}">
+                                <af:listItem id="li2"  rendered="#{propsTransfereeInfoItem.bindings.operationFlag.inputValue != 'D'}">
+                                    <af:panelStretchLayout id="psl4">
+                                        <f:facet name="start"/>
+                                        <f:facet name="end">
+                                            <af:panelGroupLayout id="pgl47" layout="vertical" inlineStyle="vertical-align:middle;" halign="right">
+                                                <af:commandImageLink immediate="true" id="b4transferee7" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/remove-ownership.png" actionListener="#{propClaimPerformBean.deleteTransferee}">
+                                                    <f:attribute name="selectedIndex" value="#{row.index}"/>
+                                                </af:commandImageLink>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                        <f:facet name="top"/>
+                                        <f:facet name="bottom"/>
+                                        <f:facet name="center">
+                                            <af:panelGroupLayout id="pgl46" layout="scroll" styleClass="AFStretchWidth">
+                                                <af:panelGridLayout id="pgl38">
+                                                    <af:gridRow marginTop="5px" height="auto" id="gr6">
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc29">
+                                                            <af:panelGroupLayout id="pgl39" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.TRANSFEREE_NAME}" id="plam24"/>
+                                                                <af:inputText value="#{propsTransfereeInfoItem.transfereeName.bindings.firstName.inputValue}" contentStyle="width:150px" simple="true" placeholder="First Name" required="#{propsTransfereeInfoItem.transfereeName.bindings.firstName.hints.mandatory}" columns="#{propsTransfereeInfoItem.transfereeName.bindings.firstName.hints.displayWidth}" maximumLength="50" autoSubmit="true" valueChangeListener="#{propClaimPerformBean.onTransfereeValueChange}" shortDesc="#{propsTransfereeInfoItem.transfereeName.bindings.firstName.hints.tooltip}" id="it19">
+                                                                     <af:clientListener method="chstp" type="valueChange"/>
+                                                                    <f:validator binding="#{propsTransfereeInfoItem.transfereeName.bindings.firstName.validator}"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s27"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc31" valign="bottom">
+                                                            <af:inputText value="#{propsTransfereeInfoItem.transfereeName.bindings.lastName.inputValue}" simple="true" contentStyle="width:150px" placeholder="Last Name" required="#{propsTransfereeInfoItem.transfereeName.bindings.lastName.hints.mandatory}" columns="#{propsTransfereeInfoItem.transfereeName.bindings.lastName.hints.displayWidth}" maximumLength="50" autoSubmit="true" valueChangeListener="#{propClaimPerformBean.onTransfereeValueChange}" shortDesc="#{propsTransfereeInfoItem.transfereeName.bindings.lastName.hints.tooltip}" id="it22">
+                                                                 <af:clientListener method="chstp" type="valueChange"/>
+                                                                <f:validator binding="#{propsTransfereeInfoItem.transfereeName.bindings.lastName.validator}"/>
+                                                            </af:inputText>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc30" valign="bottom">
+                                                            <af:inputText value="#{propsTransfereeInfoItem.transfereeName.bindings.middleInitial.inputValue}" contentStyle="width:150px" simple="true" placeholder="Middle Initial" required="#{propsTransfereeInfoItem.transfereeName.bindings.middleInitial.hints.mandatory}" columns="#{propsTransfereeInfoItem.transfereeName.bindings.middleInitial.hints.displayWidth}" maximumLength="1" autoSubmit="true" label="Middle Initial" valueChangeListener="#{propClaimPerformBean.onTransfereeValueChange}" shortDesc="#{propsTransfereeInfoItem.transfereeName.bindings.middleInitial.hints.tooltip}" id="it20">
+                                                                 <af:clientListener method="chstp" type="valueChange"/>
+                                                                <af:validateRegExp pattern="[a-zA-Z]" messageDetailNoMatch="Alphabet letter only"/>
+                                                            </af:inputText>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" marginEnd="5px" id="gc35" valign="bottom">
+                                                            <af:inputText value="#{propsTransfereeInfoItem.transfereeName.bindings.suffix.inputValue}" contentStyle="width:150px" simple="true" placeholder="Suffix" required="#{propsTransfereeInfoItem.transfereeName.bindings.suffix.hints.mandatory}" columns="#{propsTransfereeInfoItem.transfereeName.bindings.suffix.hints.displayWidth}" maximumLength="3" autoSubmit="true" valueChangeListener="#{propClaimPerformBean.onTransfereeValueChange}" shortDesc="#{propsTransfereeInfoItem.transfereeName.bindings.suffix.hints.tooltip}" id="it26">
+                                                                <af:clientListener method="chstp" type="valueChange"/>
+                                                                <f:validator binding="#{propsTransfereeInfoItem.transfereeName.bindings.suffix.validator}"/>
+                                                            </af:inputText>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc32">
+                                                            <af:panelGroupLayout id="pgl40" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.SIGNATURE_ON_FILE_}" id="plam25"/>
+                                                                <!--<af:inputText value="#{propsTransfereeInfoItem.bindings.signOnFileFlag.inputValue}"
+                                                                      contentStyle="width:180px" simple="true"
+                                                                      required="#{propsTransfereeInfoItem.bindings.signOnFileFlag.hints.mandatory}"
+                                                                      columns="#{propsTransfereeInfoItem.bindings.signOnFileFlag.hints.displayWidth}"
+                                                                      maximumLength="#{propsTransfereeInfoItem.bindings.signOnFileFlag.hints.precision}"
+                                                                      shortDesc="#{propsTransfereeInfoItem.bindings.signOnFileFlag.hints.tooltip}"
+                                                                      id="it23">
+                                                            <f:validator binding="#{bindings.signOnFileFlag1.validator}"/>
+                                                        </af:inputText> -->
+                                                                <af:selectOneRadio autoSubmit="true" value="#{propsTransfereeInfoItem.bindings.signOnFileFlag.inputValue}" shortDesc="#{propsTransfereeInfoItem.bindings.signOnFileFlag.hints.tooltip}" label="#{propclaimperformworktaskuiBundle.SIGNATURE_ON_FILE_}" layout="horizontal" simple="true" id="sortransfree1">
+                                                                    <af:selectItem label="Yes" value="Y" id="sitransfree11"/>
+                                                                    <af:selectItem label="No" value="N" id="sitransfree12"/>
+                                                                </af:selectOneRadio>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s28"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc33">
+                                                            <af:panelGroupLayout id="pgl42" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.SIGNED_BY_LEGAL_REP_}" id="plam26"/>
+                                                                <!--<af:inputText value="#{propsTransfereeInfoItem.bindings.signedByLegalRepFlag.inputValue}"
+                                                                      contentStyle="width:180px" simple="true"
+                                                                      required="#{propsTransfereeInfoItem.bindings.signedByLegalRepFlag.hints.mandatory}"
+                                                                      columns="#{propsTransfereeInfoItem.bindings.signedByLegalRepFlag.hints.displayWidth}"
+                                                                      maximumLength="#{propsTransfereeInfoItem.bindings.signedByLegalRepFlag.hints.precision}"
+                                                                      shortDesc="#{propsTransfereeInfoItem.bindings.signedByLegalRepFlag.hints.tooltip}"
+                                                                      id="it24">
+                                                            <f:validator binding="#{propsTransfereeInfoItem.bindings.signedByLegalRepFlag.validator}"/>
+                                                        </af:inputText> -->
+                                                                <af:selectOneRadio autoSubmit="true" value="#{propsTransfereeInfoItem.bindings.signedByLegalRepFlag.inputValue}" shortDesc="#{propsTransfereeInfoItem.bindings.signedByLegalRepFlag.hints.tooltip}" label="Label 1" id="sortransferee2" layout="horizontal" simple="true">
+                                                                    <af:selectItem label="Yes" value="Y" id="sitransferee21"/>
+                                                                    <af:selectItem label="No" value="N" id="sitransferee22"/>
+                                                                </af:selectOneRadio>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s29"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc34">
+                                                            <af:panelGroupLayout id="pgl43" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.AUTHORIZATION_ON_FILE_}" id="plam27"/>
+                                                                <!--<af:inputText value="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.inputValue}"
+                                                                      contentStyle="width:180px" simple="true"
+                                                                      required="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.hints.mandatory}"
+                                                                      columns="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.hints.displayWidth}"
+                                                                      maximumLength="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.hints.precision}"
+                                                                      shortDesc="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.hints.tooltip}"
+                                                                      id="it25">
+                                                            <f:validator binding="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.validator}"/>
+                                                        </af:inputText> -->
+                                                                <af:selectOneChoice autoSubmit="true" value="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.inputValue}" unselectedLabel="Select" simple="true" label="#{propclaimperformworktaskuiBundle.AUTHORIZATION_ON_FILE_}" required="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.hints.mandatory}" shortDesc="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.hints.tooltip}" id="soctransferee3">
+                                                                    <af:selectItem label="Yes" value="Y" id="sitransferee31"/>
+                                                                    <af:selectItem label="No" value="N" id="sitransferee32"/>
+                                                                    <af:selectItem label="Unknown" value="U" id="sitransferee33"/>
+                                                                    <f:validator binding="#{propsTransfereeInfoItem.bindings.authorizationOnFileFlag.validator}"/>
+                                                                </af:selectOneChoice>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s30"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr7">
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc36">
+                                                            <af:panelGroupLayout id="pgl44" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.PRINTED_NAME}" id="plam28"/>
+                                                                <af:inputText autoSubmit="true" value="#{propsTransfereeInfoItem.bindings.printedName.inputValue}" contentStyle="width:150px" simple="true" required="#{propsTransfereeInfoItem.bindings.printedName.hints.mandatory}" columns="#{propsTransfereeInfoItem.bindings.printedName.hints.displayWidth}" maximumLength="50" shortDesc="#{propsTransfereeInfoItem.bindings.printedName.hints.tooltip}" id="it27">
+                                                                    <f:validator binding="#{propsTransfereeInfoItem.bindings.printedName.validator}"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s31"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc37">
+                                                            <af:panelGroupLayout id="pgl45" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.CLAIM_SIGNATURE_DATE}" id="plam29"/>
+                                                                <af:inputDate autoSubmit="true" label="#{propclaimperformworktaskuiBundle.CLAIM_SIGNATURE_DATE}" value="#{propsTransfereeInfoItem.bindings.claimSignedDate.inputValue}" contentStyle="width:150px" simple="true" maxValue="#{propClaimPerformBean.currentdate}" required="#{propsTransfereeInfoItem.bindings.claimSignedDate.hints.mandatory}" columns="#{propsTransfereeInfoItem.bindings.claimSignedDate.hints.displayWidth}" shortDesc="#{propsTransfereeInfoItem.bindings.claimSignedDate.hints.tooltip}" id="id4">
+                                                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                                </af:inputDate>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s32"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="14%" id="gc38"/>
+                                                        <af:gridCell marginStart="5px" width="14%" id="gc39"/>
+                                                        <af:gridCell marginStart="5px" width="14%" id="gc40"/>
+                                                        <af:gridCell marginStart="5px" width="14%" id="gc41"/>
+                                                        <af:gridCell marginStart="5px" width="14%" marginEnd="5px" id="gc42"/>
+                                                    </af:gridRow>
+                                                </af:panelGridLayout>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                    </af:panelStretchLayout>
+                                </af:listItem>
+                            </af:listView>
+                            <af:panelGroupLayout id="pgl37" styleClass="AFStretchWidth" layout="vertical" halign="right">
+                                <af:commandImageLink immediate="true" id="b5" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/add.png" shortDesc="Add Transferee" action="#{propClaimPerformBean.AddTransferee}"/>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        <!-- Transferor/Transferee Relationship -->
+                        <af:panelGroupLayout id="pgll7" layout="vertical" styleClass="AFStretchWidth">
+                            <af:panelHeader text="#{propclaimperformworktaskuiBundle.TRANS_RELATIONSHIP}" inlineStyle="font-weight:bold;" styleClass="AMPBPMPanelHeader" id="ph7">
+                                <f:facet name="context"/>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                            </af:panelHeader>
+                            <af:listView value="#{bindings.relationships.collectionModel}" var="item" styleClass="AMPBPMListViewStyle" selection="single" varStatus="row" selectedRowKeys="#{bindings.relationships.collectionModel.selectedRow}" selectionListener="#{bindings.relationships.collectionModel.makeCurrent}" emptyText="#{bindings.relationships.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.relationships.rangeSize}" id="lv6" binding="#{propClaimPerformBean.relationShipListView}">
+                                <af:listItem id="li6"  rendered="#{item.bindings.operationFlag.inputValue != 'D'}">
+                                    <!--<af:panelLabelAndMessage label="#{bindings.operationFlag1.hints.label}" id="plam56">
+                                       
+                                    </af:panelLabelAndMessage>-->
+                                    <af:panelStretchLayout id="psl5">
+                                        <f:facet name="start"/>
+                                        <f:facet name="end">
+                                            <af:panelGroupLayout id="pgl80" layout="vertical" inlineStyle="vertical-align:middle;" halign="right">
+                                                <af:commandImageLink immediate="true" id="brel47" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/remove-ownership.png" actionListener="#{propClaimPerformBean.deleteRelationship}">
+                                                    <f:attribute name="selectedIndex" value="#{row.index}"/>
+                                                </af:commandImageLink>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                        <f:facet name="top"/>
+                                        <f:facet name="bottom"/>
+                                        <f:facet name="center">
+                                            <af:panelGroupLayout id="pgl79" layout="scroll" styleClass="AFStretchWidth">
+                                                <af:panelGridLayout id="pgl78">
+                                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr15">
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc80">
+                                                            <af:panelGroupLayout id="pgl88" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.TRANSFEROR_NAME}" id="plam44"/>
+                                                                <af:selectOneChoice autoSubmit="true" value="#{item.bindings.transferorFullName.inputValue}" unselectedLabel="Select" simple="true" contentStyle="width:180px" label="#{bindings.transferorFullName2.label}" required="#{bindings.transferorFullName2.hints.mandatory}" shortDesc="#{bindings.transferorFullName2.hints.tooltip}" id="soc9">
+                                                                    <f:selectItems value="#{bindings.transferorFullName2.items}" id="si8"/>
+                                                                    <f:validator binding="#{bindings.transferorFullName2.validator}"/>
+                                                                </af:selectOneChoice>
+                                                                <!-- <af:inputText value="#{item.bindings.transferorFullName.inputValue}"
+                                                                              simple="true" contentStyle="width:180px"
+                                                                              required="#{item.bindings.transferorFullName.hints.mandatory}"
+                                                                              columns="#{item.bindings.transferorFullName.hints.displayWidth}"
+                                                                              maximumLength="#{item.bindings.transferorFullName.hints.precision}"
+                                                                              shortDesc="#{item.bindings.transferorFullName.hints.tooltip}"
+                                                                              id="it39">
+                                                                    <f:validator binding="#{item.bindings.transferorFullName.validator}"/>
+                                                                </af:inputText> -->
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s55"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc81">
+                                                            <af:panelGroupLayout id="pgl87" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.REL_TRANSFEREE}" id="plam45"/>
+                                                                <af:selectOneChoice autoSubmit="true" value="#{item.bindings.relationshipToTransferee58.inputValue}" simple="true" unselectedLabel="Select" rendered="#{bindings.claimType.inputValue =='58'}" contentStyle="width:180px" label="#{bindings.relationshipToTransferee58.label}" required="#{bindings.relationshipToTransferee58.hints.mandatory}" shortDesc="#{bindings.relationshipToTransferee58.hints.tooltip}" id="soc5">
+                                                                    <f:selectItems value="#{bindings.relationshipToTransferee58.items}" id="si4"/>
+                                                                    <f:validator binding="#{bindings.relationshipToTransferee58.validator}"/>
+                                                                </af:selectOneChoice>
+                                                                <af:selectOneChoice autoSubmit="true" value="#{item.bindings.relationshipToTransferee193.inputValue}" simple="true" rendered="#{bindings.claimType.inputValue =='193'}" unselectedLabel="Select" contentStyle="width:180px" label="#{bindings.relationshipToTransferee193.label}" required="#{bindings.relationshipToTransferee193.hints.mandatory}" shortDesc="#{bindings.relationshipToTransferee193.hints.tooltip}" id="soc6">
+                                                                    <f:selectItems value="#{bindings.relationshipToTransferee193.items}" id="si5"/>
+                                                                    <f:validator binding="#{bindings.relationshipToTransferee193.validator}"/>
+                                                                </af:selectOneChoice>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s54"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc82">
+                                                            <af:panelGroupLayout id="pgl86" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.TRANSFEREE_NAME}" id="plam46"/>
+                                                                <!--<af:inputText value="#{item.bindings.transfereeFullName.inputValue}"
+                                                                      simple="true" contentStyle="width:180px"
+                                                                      required="#{item.bindings.transfereeFullName.hints.mandatory}"
+                                                                      columns="#{item.bindings.transfereeFullName.hints.displayWidth}"
+                                                                      maximumLength="#{item.bindings.transfereeFullName.hints.precision}"
+                                                                      shortDesc="#{item.bindings.transfereeFullName.hints.tooltip}"
+                                                                      id="it40">
+                                                            <f:validator binding="#{item.bindings.transfereeFullName.validator}"/>
+                                                        </af:inputText>-->
+                                                                <af:selectOneChoice autoSubmit="true" value="#{item.bindings.transfereeFullName.inputValue}" simple="true" contentStyle="width:150px" label="#{bindings.transfereeFullName2.label}" unselectedLabel="Select" required="#{bindings.transfereeFullName2.hints.mandatory}" shortDesc="#{bindings.transfereeFullName2.hints.tooltip}" id="soc10">
+                                                                    <f:selectItems value="#{bindings.transfereeFullName2.items}" id="si9"/>
+                                                                    <f:validator binding="#{bindings.transfereeFullName2.validator}"/>
+                                                                </af:selectOneChoice>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s53"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc83">
+                                                            <af:panelGroupLayout id="pgl85" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.REL_TRANSFEROR}" id="plam47"/>
+                                                                <af:selectOneChoice  autoSubmit="true" value="#{item.bindings.relationshipToTransferor58.inputValue}" unselectedLabel="Select" label="#{bindings.relationshipToTransferor58.label}" simple="true" rendered="#{bindings.claimType.inputValue =='58'}" contentStyle="width:150px" required="#{bindings.relationshipToTransferor58.hints.mandatory}" shortDesc="#{bindings.relationshipToTransferor58.hints.tooltip}" id="soc7">
+                                                                    <f:selectItems value="#{bindings.relationshipToTransferor58.items}" id="si6"/>
+                                                                    <f:validator binding="#{bindings.relationshipToTransferor58.validator}"/>
+                                                                </af:selectOneChoice>
+                                                                <af:selectOneChoice autoSubmit="true" value="#{item.bindings.relationshipToTransferor193.inputValue}" unselectedLabel="Select" label="#{bindings.relationshipToTransferor193.label}" simple="true" rendered="#{bindings.claimType.inputValue =='193'}" contentStyle="width:150px" required="#{bindings.relationshipToTransferor193.hints.mandatory}" shortDesc="#{bindings.relationshipToTransferor193.hints.tooltip}" id="soc8">
+                                                                    <f:selectItems value="#{bindings.relationshipToTransferor193.items}" id="si7"/>
+                                                                    <f:validator binding="#{bindings.relationshipToTransferor193.validator}"/>
+                                                                </af:selectOneChoice>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s52"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc84">
+                                                            <af:panelGroupLayout id="pgl84" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.AGE_TIME}" id="plam48"/>
+                                                                <af:inputText autoSubmit="true" value="#{item.bindings.ageAtAdoption.inputValue}" simple="true" required="#{item.bindings.ageAtAdoption.hints.mandatory}" contentStyle="width:150px" columns="#{item.bindings.ageAtAdoption.hints.displayWidth}" maximumLength="2" shortDesc="#{item.bindings.ageAtAdoption.hints.tooltip}" id="it41" label="#{propclaimperformworktaskuiBundle.AGE_TIME}">
+                                                                    <f:validator binding="#{item.bindings.ageAtAdoption.validator}"/>
+                                                                    <af:convertNumber groupingUsed="false" pattern="#{item.bindings.ageAtAdoption.format}"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s51"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" id="gc85">
+                                                            <af:panelGroupLayout id="pgl83" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.ADOPT_WHOM}" id="plam49"/>
+                                                                <af:inputText autoSubmit="true" value="#{item.bindings.adoptedByWhom.inputValue}" simple="true" disabled="#{bindings.claimType.inputValue == '58'}" contentStyle="width:150px" required="#{item.bindings.adoptedByWhom.hints.mandatory}" columns="#{item.bindings.adoptedByWhom.hints.displayWidth}" maximumLength="50" shortDesc="#{item.bindings.adoptedByWhom.hints.tooltip}" id="it42">
+                                                                    <f:validator binding="#{item.bindings.adoptedByWhom.validator}"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s50"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                        <af:gridCell marginStart="5px" width="180px" marginEnd="5px" id="gc86">
+                                                            <af:panelGroupLayout id="pgl82" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.PER_TRANSFER}" id="plam50"/>
+                                                               <af:inputText autoSubmit="true" value="#{item.bindings.percentageTransfer.inputValue}" simple="true" contentStyle="width:150px" required="#{item.bindings.percentageTransfer.hints.mandatory}" label="#{propclaimperformworktaskuiBundle.PER_TRANSFER}" columns="#{item.bindings.percentageTransfer.hints.displayWidth}" maximumLength="#{item.bindings.percentageTransfer.hints.precision}" shortDesc="#{item.bindings.percentageTransfer.hints.tooltip}" id="it43" converter="DecimalConverter">
+                                                                <!--    <af:convertNumber type="number" groupingUsed="false" integerOnly="true" messageDetailConvertNumber="Invalid Percentage Transfer"/> -->
+                                                                                                                                                                                                                                                                                <f:validator validatorId="PercentValidator"/>
+                                                                                   <f:attribute name="errMsg" value="Percentage value should be between 0 and 100"/>
+                                                                </af:inputText>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s49"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                        </af:gridCell>
+                                                    </af:gridRow>
+                                                </af:panelGridLayout>
+                                            </af:panelGroupLayout>
+                                        </f:facet>
+                                    </af:panelStretchLayout>
+                                </af:listItem>
+                            </af:listView>
+                            <af:panelGroupLayout id="pgl81" layout="vertical" halign="right">
+                                <af:commandImageLink immediate="true" id="breL3" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/add.png" shortDesc="Add Relationship" action="#{propClaimPerformBean.AddRelationship}"/>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        <!-- Direct Descendants -->
+                        <af:panelGroupLayout id="pgll8" layout="vertical" rendered="#{bindings.claimType.inputValue == '193'}">
+                            <af:panelHeader text="#{propclaimperformworktaskuiBundle.DIRECT_DESCENDANTS}" inlineStyle="font-weight:bold;" styleClass="AMPBPMPanelHeader" id="ph4">
+                                <f:facet name="context"/>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                            </af:panelHeader>
+                            <af:panelGroupLayout id="pgl48" layout="vertical">
+                                <af:listView value="#{bindings.propsDescendentsPojoInfo.collectionModel}" var="item" selection="single" varStatus="row" styleClass="AMPBPMListViewStyle" selectedRowKeys="#{bindings.propsDescendentsPojoInfo.collectionModel.selectedRow}" selectionListener="#{bindings.propsDescendentsPojoInfo.collectionModel.makeCurrent}" emptyText="#{bindings.propsDescendentsPojoInfo.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.propsDescendentsPojoInfo.rangeSize}" id="lv3" binding="#{propClaimPerformBean.directDescendantsListView}">
+                                    <af:listItem id="li3"  rendered="#{item.bindings.operationFlag.inputValue != 'D'}">
+                                        <af:panelStretchLayout id="psl6">
+                                            <f:facet name="start"/>
+                                            <f:facet name="end">
+                                                <af:panelGroupLayout id="pgl59" layout="vertical" inlineStyle="vertical-align:middle;" halign="right">
+                                                    <af:commandImageLink immediate="true" id="b4directDesc7" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/remove-ownership.png" actionListener="#{propClaimPerformBean.deleteDescendats}">
+                                                        <f:attribute name="selectedIndex" value="#{row.index}"/>
+                                                    </af:commandImageLink>
+                                                </af:panelGroupLayout>
+                                            </f:facet>
+                                            <f:facet name="top"/>
+                                            <f:facet name="bottom"/>
+                                            <f:facet name="center">
+                                                <af:panelGroupLayout id="pgl58" layout="scroll" styleClass="AFStretchWidth">
+                                                    <af:panelGridLayout id="pgl50">
+                                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr8">
+                                                            <af:gridCell marginStart="5px" width="180px" id="gc43">
+                                                                <af:panelGroupLayout id="pgl53" layout="vertical">
+                                                                    <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.NAME_OF_DIRECT_DESCENDANT_OF_GRANDPARENT__SON_OR_DAUGHTER_}" id="plam30"/>
+                                                                    <af:panelGroupLayout id="pgl54" layout="horizontal">
+                                                                        <af:inputText autoSubmit="true" value="#{item.directDescendantName.bindings.firstName.inputValue}" contentStyle="width:150px" simple="true" placeholder="First Name" required="#{item.directDescendantName.bindings.firstName.hints.mandatory}" columns="#{item.directDescendantName.bindings.firstName.hints.displayWidth}" maximumLength="50" shortDesc="#{item.directDescendantName.bindings.firstName.hints.tooltip}" id="it31">
+                                                                            <f:validator binding="#{item.directDescendantName.bindings.firstName.validator}"/>
+                                                                        </af:inputText>
+                                                                    </af:panelGroupLayout>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer height="5px" id="s33"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="180px" id="gc44" valign="bottom">
+                                                                <af:inputText autoSubmit="true" value="#{item.directDescendantName.bindings.lastName.inputValue}" contentStyle="width:150px" simple="true" placeholder="Last Name" required="#{item.directDescendantName.bindings.lastName.hints.mandatory}" columns="#{item.directDescendantName.bindings.lastName.hints.displayWidth}" maximumLength="50"  shortDesc="#{item.directDescendantName.bindings.lastName.hints.tooltip}" id="it32">
+                                                                    <f:validator binding="#{item.directDescendantName.bindings.lastName.validator}"/>
+                                                                </af:inputText>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="180px" id="gc45" valign="bottom">
+                                                                <af:inputText autoSubmit="true" value="#{item.directDescendantName.bindings.middleInitial.inputValue}" contentStyle="width:150px" simple="true" placeholder="Middle Initial" required="#{item.directDescendantName.bindings.middleInitial.hints.mandatory}" columns="#{item.directDescendantName.bindings.middleInitial.hints.displayWidth}" maximumLength="1"  shortDesc="#{item.directDescendantName.bindings.middleInitial.hints.tooltip}" id="it33">
+                                                                    <af:validateRegExp pattern="[a-zA-Z]" messageDetailNoMatch="Enter only alphabets"/>
+                                                                </af:inputText>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="180px" id="gc46" valign="bottom">
+                                                                <af:inputText autoSubmit="true" value="#{item.directDescendantName.bindings.suffix.inputValue}" contentStyle="width:150px" simple="true" placeholder="Suffix" required="#{item.directDescendantName.bindings.suffix.hints.mandatory}" columns="#{item.directDescendantName.bindings.suffix.hints.displayWidth}" maximumLength="3" shortDesc="#{item.directDescendantName.bindings.suffix.hints.tooltip}" id="it34">
+                                                                    <f:validator binding="#{item.directDescendantName.bindings.suffix.validator}"/>
+                                                                </af:inputText>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="180px" id="gc47">
+                                                                <af:panelGroupLayout id="pgl57" layout="vertical">
+                                                                    <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.DATE_OF_DEATH}" id="plam31"/>
+                                                                    <af:inputDate autoSubmit="true" value="#{item.bindings.deathDate.inputValue}" contentStyle="width:150px" maxValue="#{propClaimPerformBean.currentdate}" required="#{item.bindings.deathDate.hints.mandatory}" columns="#{item.bindings.deathDate.hints.displayWidth}" shortDesc="#{item.bindings.deathDate.hints.tooltip}" id="id5">
+                                                                        <f:validator binding="#{item.bindings.deathDate.validator}"/>
+                                                                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                                    </af:inputDate>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer height="5px" id="s37"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="180px" id="gc48">
+                                                                <af:panelGroupLayout id="pgl56" layout="vertical">
+                                                                    <!--<af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.SSN_OR_TAX_ID_NUMBER}" id="plam32"/>-->
+                                                                    <af:panelLabelAndMessage label="SSN" id="plam32"/>
+                                                                    <af:inputText autoSubmit="true" immediate="true" value="#{item.bindings.ssn.inputValue}" contentStyle="width:150px" simple="true" required="#{item.bindings.ssn.hints.mandatory}" columns="#{item.bindings.ssn.hints.displayWidth}" maximumLength="11" shortDesc="#{item.bindings.ssn.hints.tooltip}" id="it29">
+                                                                         <af:clientListener method="handleNumberFormatConversion('xxx-xx-xxxx','-')"
+                                                                                       type="keyDown"/>
+                                                                    <af:validateRegExp pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}$"
+                                                                                       messageDetailNoMatch="SSN Should be in XXX-XX-XXXX format"/>
+                                                                    </af:inputText>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer height="5px" id="s36"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                            <af:gridCell marginStart="5px" width="180px" marginEnd="5px" id="gc49">
+                                                                <af:panelGroupLayout id="pgl55" layout="vertical">
+                                                                    <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.EXCLUSION_AMOUNT}" id="plam33"/>
+                                                                    <af:inputText autoSubmit="true" value="#{item.bindings.exclusionAmount.inputValue}" simple="true" contentStyle="width:150px" required="#{item.bindings.exclusionAmount.hints.mandatory}" columns="#{item.bindings.exclusionAmount.hints.displayWidth}" shortDesc="Exclusions are limited to the first $1 million of the factored base  value of all real property, other than the principal residence, transferred between an eligible transferor and an eligible transferee." id="it30">
+                                                                        <af:validateDoubleRange minimum="0" maximum="1000000" messageDetailNotInRange="Value can not be more that $1M"/>
+                                                                        <f:validator binding="#{item.bindings.exclusionAmount.validator}"/>
+                                                                        <af:convertNumber maxFractionDigits="0" minFractionDigits="0"  pattern="#{item.bindings.exclusionAmount.format}"/>
+                                                                    </af:inputText>
+                                                                    <f:facet name="separator">
+                                                                        <af:spacer height="5px" id="s35"/>
+                                                                    </f:facet>
+                                                                </af:panelGroupLayout>
+                                                            </af:gridCell>
+                                                        </af:gridRow>
+                                                    </af:panelGridLayout>
+                                                </af:panelGroupLayout>
+                                            </f:facet>
+                                        </af:panelStretchLayout>
+                                    </af:listItem>
+                                </af:listView>
+                            </af:panelGroupLayout>
+                            <af:panelGroupLayout id="pgl49" styleClass="AFStretchWidth" layout="vertical" halign="right">
+                                <af:commandImageLink immediate="true" id="b6" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/add.png" shortDesc="Add Direct Desscendants" action="#{propClaimPerformBean.addDirectDesscendants}"/>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        <!-- Transferor Questions -->
+                        <af:panelGroupLayout id="pgl20" layout="vertical" styleClass="AFStretchWidth">
+                           <af:panelHeader text="#{propclaimperformworktaskuiBundle.TRANSFEROR_QUESTION}" inlineStyle="font-weight:bold;" styleClass="AMPBPMPanelHeader" id="ph6">
+                                <f:facet name="context"/>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                            </af:panelHeader>
+                           <af:listView value="#{bindings.transferorQuestionnaire.collectionModel}" var="transferorQuestionnaireitem" styleClass="AMPBPMListViewStyle" partialTriggers="btnSave " emptyText="#{bindings.transferorQuestionnaire.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.transferorQuestionnaire.rangeSize}" id="lv5">
+                                <af:listItem id="li5" >
+                                    <af:panelGridLayout id="pgl71" partialTriggers="sortransferorQues3">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr13">
+                                            <af:gridCell marginStart="5px" width="700px" id="gc74">
+                                                <af:outputText value="#{transferorQuestionnaireitem.bindings.question.inputValue =='OtherRealPropTransferred'?propclaimperformworktaskuiBundle.TRANSFEROR_QUESTION_QUALIFIED_FOR_OTHER_RP:transferorQuestionnaireitem.bindings.question.inputValue =='ExclusionQualified'?propclaimperformworktaskuiBundle.TRANSFEROR_QUESTION_QUALIFIED_FOR_EXCLUSION:transferorQuestionnaireitem.bindings.question.inputValue =='JointTenancyProperty'?propclaimperformworktaskuiBundle.PROP_OWNED_JOINT_TEND:transferorQuestionnaireitem.bindings.question.inputValue =='ClaimFormAttachment'?propclaimperformworktaskuiBundle.ADDTN_ATTACH:transferorQuestionnaireitem.bindings.question.inputValue}" shortDesc="#{transferorQuestionnaireitem.bindings.question.hints.tooltip}" id="ot2" rendered="#{bindings.claimType.inputValue == '193'}"/>
+                                                <af:outputText value="#{transferorQuestionnaireitem.bindings.question.inputValue =='OtherRealPropTransferred'?propclaimperformworktaskuiBundle.TRANSFEROR_QUESTION_QUALIFIED_FOR_OTHER_RP:transferorQuestionnaireitem.bindings.question.inputValue =='ExclusionQualified'?propclaimperformworktaskuiBundle.TRANSFEROR_QUESTION_QUALIFIED_FOR_EXCLUSION:transferorQuestionnaireitem.bindings.question.inputValue =='JointTenancyProperty'?propclaimperformworktaskuiBundle.PROP_OWNED_JOINT_TEND_PROP58:transferorQuestionnaireitem.bindings.question.inputValue =='ClaimFormAttachment'?propclaimperformworktaskuiBundle.ADDTN_ATTACH:transferorQuestionnaireitem.bindings.question.inputValue}" shortDesc="#{transferorQuestionnaireitem.bindings.question.hints.tooltip}" rendered="#{bindings.claimType.inputValue == '58'}" id="ot3"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="500px" marginEnd="5px" id="gc75">
+                                                <af:selectOneRadio value="#{transferorQuestionnaireitem.bindings.answer.inputValue}" layout="horizontal" autoSubmit="true" label="#{transferorQuestionnaireitem.bindings.answer.label}" simple="true" required="#{transferorQuestionnaireitem.bindings.answer.hints.mandatory}" shortDesc="#{transferorQuestionnaireitem.bindings.answer.hints.tooltip}" id="sortransferorQues3">
+                                                    <af:selectItem label="Yes" value="Y" id="sitransferoeQuest11"/>
+                                                    <af:selectItem label="No" value="N" id="sitransferorQuest12"/>
+                                                    <af:selectItem label="Not Specified" value="N/A" id="sitransferorQuest13"/>
+                                                    <f:validator binding="#{transferorQuestionnaireitem.bindings.answer.validator}"/>
+                                                </af:selectOneRadio>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow id="gr16" rendered="#{(transferorQuestionnaireitem.bindings.question.inputValue =='ExclusionQualified' ) and transferorQuestionnaireitem.bindings.answer.inputValue =='Y'}">
+                                            <af:gridCell id="gc71" marginStart="5px" width="700px" marginEnd="5px">
+                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.LIST_PREV_TRANS}" id="plamprevTrab1" labelStyle="text-align:left;white-space:nowrap;"/>
+                                                <af:listView value="#{bindings.transferorPrvTransfer.collectionModel}" var="item" varStatus="row" styleClass="AMPBPMListViewStyle" emptyText="#{bindings.transferorPrvTransfer.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.transferorPrvTransfer.rangeSize}" id="lv7" binding="#{propClaimPerformBean.prevTransferListView}">
+                                                    <af:listItem id="li7" >
+                                                        <af:panelGroupLayout layout="horizontal" id="pgl22" styleClass="AFStretchWidth">
+                                                            <f:facet name="separator">
+                                                                <af:spacer width="20px" id="s57"/>
+                                                            </f:facet>
+                                                            <af:panelGroupLayout id="pgl23" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.COUNTY}" id="plam51"/>
+                                                                <af:selectOneChoice valueChangeListener="#{propClaimPerformBean.countyVLC}" autoSubmit="true"  value="#{item.bindings.county.inputValue}" label="#{bindings.county.label}" simple="true" contentStyle="width:180px" required="#{bindings.county.hints.mandatory}" shortDesc="#{bindings.county.hints.tooltip}" id="soc13" >
+                                                                    <f:selectItems value="#{bindings.county.items}" id="si14"/>
+                                                                    <f:validator binding="#{bindings.county.validator}"/>
+                                                                     <af:clientListener method="chstp" type="valueChange"/>
+                                                                </af:selectOneChoice>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s58"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                            <af:panelGroupLayout id="pgl90" layout="vertical" partialTriggers="soc13">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.ASSESSOR_S_PARCEL_NUMBER}" id="plam52"/>
+                                                                <af:panelGroupLayout id="pgl36" rendered="#{item.bindings.county.inputValue == 'Los Angeles'}">
+                                                                    <af:inputText autoSubmit="true" partialTriggers="soc13" value="#{item.bindings.assessorParcelNo.inputValue}" simple="true" contentStyle="width:180px" required="#{item.bindings.assessorParcelNo.hints.mandatory}" columns="#{item.bindings.assessorParcelNo.hints.displayWidth}" maximumLength="#{item.bindings.assessorParcelNo.hints.precision}" shortDesc="#{item.bindings.assessorParcelNo.hints.tooltip}" id="it35" binding="#{propClaimPerformBean.assessorParcelNo1}">
+                                                                                                                                                                                                                                                                                <af:clientListener method="handleNumberFormatConversion('xxxx-xxx-xxx','-')" type="keyDown"/>
+                                                                        <af:validateRegExp pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}$" messageDetailNoMatch="Invalid Assessor Parcel Number"/>
+                                                                    </af:inputText>
+                                                                </af:panelGroupLayout>
+                                                                <af:panelGroupLayout id="pgl97" rendered="#{item.bindings.county.inputValue != 'Los Angeles'}">
+                                                                    <af:inputText  autoSubmit="true" partialTriggers="soc13" value="#{item.bindings.assessorParcelNo.inputValue}" simple="true" contentStyle="width:180px" required="#{item.bindings.assessorParcelNo.hints.mandatory}" columns="#{item.bindings.assessorParcelNo.hints.displayWidth}" maximumLength="#{item.bindings.assessorParcelNo.hints.precision}" shortDesc="#{item.bindings.assessorParcelNo.hints.tooltip}" id="it365" binding="#{propClaimPerformBean.assessorParcelNo2}"/>
+                                                                </af:panelGroupLayout>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s59"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                            <af:panelGroupLayout id="pgl91" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.DATE_TRANSFER}" id="plam53"/>
+                                                                <af:inputDate  autoSubmit="true" value="#{item.bindings.dateOfTransfer.inputValue}" required="#{item.bindings.dateOfTransfer.hints.mandatory}" maxValue="#{propClaimPerformBean.currentdate}" simple="true" contentStyle="width:180px" columns="#{item.bindings.dateOfTransfer.hints.displayWidth}" shortDesc="#{item.bindings.dateOfTransfer.hints.tooltip}" id="id8">
+                                                                    <f:validator binding="#{item.bindings.dateOfTransfer.validator}"/>
+                                                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                                </af:inputDate>
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s60"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                            <af:panelGroupLayout id="pgl92" layout="vertical">
+                                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.TRANSFEROR_S_PRINCIPAL_RESIDENCE}" id="plam54"/>
+                                                                <af:selectOneChoice autoSubmit="true" value="#{item.bindings.principalResidence.inputValue}" unselectedLabel="Select" simple="true" label="#{item.bindings.principalResidence.label}" required="#{item.bindings.principalResidence.hints.mandatory}" shortDesc="#{item.bindings.principalResidence.hints.tooltip}" id="socPrevT3">
+                                                                    <af:selectItem label="Yes" value="Y" id="sipt31"/>
+                                                                    <af:selectItem label="No" value="N" id="sipt32"/>
+                                                                    <af:selectItem label="Unknown" value="U" id="sipt33"/>
+                                                                    <f:validator binding="#{item.bindings.principalResidence.validator}"/>
+                                                                </af:selectOneChoice>
+                                                                <!-- <af:inputText value="#{item.bindings.principalResidence.inputValue}"
+                                                                              simple="true" contentStyle="width:180px"
+                                                                              required="#{item.bindings.principalResidence.hints.mandatory}"
+                                                                              columns="#{item.bindings.principalResidence.hints.displayWidth}"
+                                                                              maximumLength="#{item.bindings.principalResidence.hints.precision}"
+                                                                              shortDesc="#{item.bindings.principalResidence.hints.tooltip}"
+                                                                              id="it40">
+                                                                    <f:validator binding="#{item.bindings.principalResidence.validator}"/>
+                                                                </af:inputText>  -->
+                                                                <f:facet name="separator">
+                                                                    <af:spacer height="5px" id="s61"/>
+                                                                </f:facet>
+                                                            </af:panelGroupLayout>
+                                                            <af:panelGroupLayout id="pgl96" layout="vertical" inlineStyle="vertical-align:middle;" halign="right">
+                                                                <af:commandImageLink immediate="true" id="bPrev47" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/remove-ownership.png" actionListener="#{propClaimPerformBean.deleteprevTransfers}">
+                                                                    <f:attribute name="selectedIndex" value="#{row.index}"/>
+                                                                </af:commandImageLink>
+                                                            </af:panelGroupLayout>
+                                                            <!--<af:outputFormatted value="#{item.bindings.county.inputValue}"
+                                                                                id="of1"/>
+                                                            <af:outputFormatted value="#{item.bindings.assessorParcelNo.inputValue}"
+                                                                                id="of2"/>
+                                                            <af:outputFormatted value="#{item.bindings.dateOfTransfer.inputValue}"
+                                                                                id="of6">
+                                                                <af:convertDateTime pattern="#{bindings.transferorPrvTransfer.hints.dateOfTransfer.format}"/>
+                                                            </af:outputFormatted>
+                                                            <af:outputFormatted value="#{item.bindings.principalResidence.inputValue}"
+                                                                                id="of7"/>-->
+                                                        </af:panelGroupLayout>
+                                                    </af:listItem>
+                                                </af:listView>
+                                                <af:panelGroupLayout id="pgl95" layout="vertical" halign="right">
+                                                    <af:commandImageLink immediate="true" id="b8" clientComponent="true" icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/add.png" shortDesc="Add Prev Transfers" action="#{propClaimPerformBean.addPrevTransfers}"/>
+                                                </af:panelGroupLayout>
+                                            </af:gridCell>
+                                            <af:gridCell id="gc72" marginStart="5px" width="500px" marginEnd="5px"/>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:listItem>
+                            </af:listView>
+                            <af:panelGroupLayout id="pgl77" styleClass="AFStretchWidth margin-top-10" layout="vertical">
+                                <af:panelGridLayout id="pgl72" binding="#{propClaimPerformBean.transferorAddQuesGrid}">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
+                                        <af:gridCell marginStart="5px" marginEnd="10px" id="gc76">
+                                            <af:panelGroupLayout id="pgl76" layout="vertical">
+                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.CONTACT_NAME}" id="plam43"/>
+                                                <!--<af:inputText value="#{bindings.transferorFullName.inputValue}"
+                                                              contentStyle="width:150px" simple="true"
+                                                              required="#{bindings.transferorFullName.hints.mandatory}"
+                                                              columns="#{bindings.transferorFullName.hints.displayWidth}"
+                                                              maximumLength="#{bindings.transferorFullName.hints.precision}"
+                                                              shortDesc="#{bindings.transferorFullName.hints.tooltip}"
+                                                              id="it35">
+                                                    <f:validator binding="#{bindings.transferorFullName.validator}"/>
+                                                </af:inputText>-->
+                                                <af:selectOneChoice value="#{bindings.transferorFullName3.inputValue}" unselectedLabel="Select" simple="true" contentStyle="width:150px" label="#{bindings.transferorFullName3.label}" required="#{bindings.transferorFullName3.hints.mandatory}" shortDesc="#{bindings.transferorFullName3.hints.tooltip}" id="soc11">
+                                                    <f:selectItems value="#{bindings.transferorFullName3.items}" id="si10"/>
+                                                    <f:validator binding="#{bindings.transferorFullName3.validator}"/>
+                                                </af:selectOneChoice>
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s48"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" marginEnd="10px" id="gc77">
+                                            <af:panelGroupLayout id="pgl75" layout="vertical">
+                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.DAYTIME_PHONE_NUMBER}" id="plam42"/>
+                                                <af:panelGroupLayout id="pgl74">
+                                                    <af:inputText label="#{propclaimperformworktaskuiBundle.DAYTIME_PHONE_NUMBER}" value="#{bindings.phoneNumber1.inputValue}" simple="true" contentStyle="width:180px" required="#{bindings.phoneNumber1.hints.mandatory}" columns="#{bindings.phoneNumber1.hints.displayWidth}" maximumLength="14" shortDesc="#{bindings.phoneNumber1.hints.tooltip}" id="it36" placeholder="(_)_ _">
+                                                       <af:clientListener method="handlePhNumberFormatConversion('(xxx)-xxx-xxxx','-')" type="keyDown"/>
+                                                        <af:validateRegExp pattern="\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}$" messageDetailNoMatch="Invalid Phone Number. Need to be in (NNN) NNN-NNNN format"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.extn.inputValue}" simple="true" contentStyle="width:50px" placeholder="Ext" required="#{bindings.extn.hints.mandatory}" columns="#{bindings.extn.hints.displayWidth}" maximumLength="#{bindings.extn.hints.precision}" shortDesc="#{bindings.extn.hints.tooltip}" id="it37">
+                                                        <f:validator binding="#{bindings.extn.validator}"/>
+                                                        <!-- <af:validateRegExp pattern="[0-9]{1,10}" messageDetailNoMatch="Extension should be number only."/> -->
+                                                        <af:validateRegExp pattern="[0-9]{1,10}" messageDetailNoMatch="Enter only numbers"/>
+                                                    </af:inputText>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="5px" id="s46"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s47"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" marginEnd="10px" id="gc78">
+                                            <af:panelGroupLayout id="pgl73" layout="vertical">
+                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.EMAIL}" id="plam41"/>
+                                                <af:inputText label="#{propclaimperformworktaskuiBundle.EMAIL}" value="#{bindings.email1.inputValue}" simple="true" contentStyle="width:180px" required="#{bindings.email1.hints.mandatory}" columns="#{bindings.email1.hints.displayWidth}" maximumLength="30" shortDesc="#{bindings.email1.hints.tooltip}" id="it38" autoSubmit="true" placeholder="jane.doe@abc.com" validator="#{propClaimPerformBean.validateEmail}">
+                                                    <f:validator binding="#{bindings.email1.validator}"/>
+                                                </af:inputText>
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s45"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" marginEnd="10px" id="gc79" halign="start" valign="bottom">
+                                            <af:panelGroupLayout id="pgltransferor52">
+                                                <AmpAddrValidn:AddressValidation addrValidation="#{propClaimAddrBean.validateAddressForm}" showButton="YES" buttonLabel="#{propClaimAddrBean.buttonLabel}" styleClass="#{propClaimAddrBean.styleClass}" id="avtransferor1" addressList="#{propClaimAddrBean.addressList}" matchLevelDesc="#{propClaimAddrBean.matchLevelDesc}" City="#{bindings.city2.inputValue}" PostalCode="#{bindings.zip2.inputValue}" State="#{bindings.state3.inputValue}" StreetAddress="#{bindings.street2.inputValue}" Country="#{bindings.country2.inputValue}"/>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        <!-- Transfree Questions -->
+                        <af:panelGroupLayout id="pgll9" layout="vertical" styleClass="AFStretchWidth" inlineStyle="padding-top:15px">
+                            <af:panelHeader text="#{propclaimperformworktaskuiBundle.TRANSFEREE_QUESTION}" inlineStyle="font-weight:bold;" styleClass="AMPBPMPanelHeader" id="ph5">
+                                <f:facet name="context"/>
+                                <f:facet name="toolbar"/>
+                                <f:facet name="menuBar"/>
+                                <f:facet name="legend"/>
+                                <f:facet name="info"/>
+                            </af:panelHeader>
+                            <af:listView value="#{bindings.transfereeQuestionnaire.collectionModel}" var="item" styleClass="AMPBPMListViewStyle" partialTriggers="so101 so102 so104 so105 btnSave" emptyText="#{bindings.transfereeQuestionnaire.viewable ? 'No data to display.' : 'Access Denied.'}" fetchSize="#{bindings.transfereeQuestionnaire.rangeSize}" id="lv4">
+                                <af:listItem id="li4" rendered="#{item.bindings.showData.inputValue =='Y'}">
+                                    <af:panelGridLayout id="pgl64">
+                                        <af:gridRow height="auto" marginBottom="5px" id="gr9">
+                                            <af:gridCell marginStart="5px" width="700px" id="gc50">
+                                                <af:outputText value="#{propclaimperformworktaskuiBundle.Prop58_QUES1}" inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:600px" shortDesc="#{item.bindings.question.hints.tooltip}" id="ot58-1" rendered="#{bindings.claimType.inputValue == '58' and item.bindings.question.inputValue =='PrntStepPrntMarriage' }"/>
+                                                <!-- rendered="#{bindings.claimType.inputValue == '58' and item.bindings.question.inputValue =='PrntStepPrntMarriageTermRsn'}" -->
+                                                <af:outputText value="#{propclaimperformworktaskuiBundle.Prop58_QUES2}" inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:600px" shortDesc="#{item.bindings.question.hints.tooltip}" id="ot58-2" rendered="#{item.bindings.question.inputValue =='PrntStepPrntMarriageTermRsn'}"/>
+                                                <af:outputText value="#{propclaimperformworktaskuiBundle.Prop58_QUES3}" inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:600px" shortDesc="#{item.bindings.question.hints.tooltip}" id="ot58-3" rendered="#{bindings.claimType.inputValue == '58' and item.bindings.question.inputValue =='StepPrntReMarriage'}"/>
+                                                <af:outputText value="#{propclaimperformworktaskuiBundle.Prop58_QUES4}" inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:600px" shortDesc="#{item.bindings.question.hints.tooltip}" id="ot58-4" rendered="#{bindings.claimType.inputValue == '58' and item.bindings.question.inputValue =='InlawMarriage'}"/>
+                                                <af:outputText value="#{propclaimperformworktaskuiBundle.Prop58_QUES5}" inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:600px" shortDesc="#{item.bindings.question.hints.tooltip}" id="ot58-5" rendered="#{bindings.claimType.inputValue == '58' and item.bindings.question.inputValue =='InlawMarriageTermRsn' }"/>
+                                                <af:outputText value="#{propclaimperformworktaskuiBundle.Prop58_QUES6}" inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:600px" shortDesc="#{item.bindings.question.hints.tooltip}" id="ot58-6" rendered="#{bindings.claimType.inputValue == '58' and item.bindings.question.inputValue =='InlawReMarriage'}"/>
+                                                <af:outputText value="#{item.bindings.question.inputValue =='DeceasedPrntMarried'?propclaimperformworktaskuiBundle.PROP193_TRANSFEREE_ADDN_QUES1:item.bindings.question.inputValue =='SpousePartnerGrandChildRel'?propclaimperformworktaskuiBundle.PROP193_TRANSFEREE_ADDN_QUES2:item.bindings.question.inputValue =='SpouseRemarriage'?propclaimperformworktaskuiBundle.PROP193_TRANSFEREE_ADDN_QUES3:item.bindings.question.inputValue =='PrinipleResFromPrnt'?propclaimperformworktaskuiBundle.PROP193_TRANSFEREE_ADDN_QUES4:item.bindings.question.inputValue =='TransfereeOthRealProperty'?propclaimperformworktaskuiBundle.PROP193_TRANSFEREE_ADDN_QUES5:item.bindings.question.inputValue}" inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:600px" shortDesc="#{item.bindings.question.hints.tooltip}" id="ot22" rendered="#{bindings.claimType.inputValue == '193'}"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="500px" marginEnd="5px" id="gc51">
+                                                <af:selectOneRadio value="#{item.bindings.answer.inputValue}" layout="horizontal" rendered="#{item.bindings.question.inputValue =='PrntStepPrntMarriage'}" label="#{item.bindings.answer.label}" simple="true" required="#{item.bindings.answer.hints.mandatory}" autoSubmit="true" shortDesc="#{item.bindings.answer.hints.tooltip}" valueChangeListener="#{propClaimPerformBean.onProp58Quest1}" id="so101">
+                                                    <af:selectItem label="Yes" value="Y" id="sitrsfereeQY101"/>
+                                                    <af:selectItem label="No" value="N" id="sitrsfereeQN101"/>
+                                                    <af:selectItem label="Not Specified" value="N/A" id="sitrsfereeQNA101"/>
+                                                    <f:validator binding="#{item.bindings.answer.validator}"/>
+                                                    
+                                                </af:selectOneRadio>
+                                                <af:selectOneRadio value="#{item.bindings.answer.inputValue}" layout="horizontal" rendered="#{item.bindings.question.inputValue =='PrntStepPrntMarriageTermRsn'}" label="#{item.bindings.answer.label}" simple="true" required="#{item.bindings.answer.hints.mandatory}" shortDesc="#{item.bindings.answer.hints.tooltip}" valueChangeListener="#{propClaimPerformBean.onProp58Quest1}" autoSubmit="true" id="so102">
+                                                    <af:selectItem label="Death" value="Y" id="sitrsfereeQY102"/>
+                                                    <af:selectItem label="Divorce/Termination of Partnership" value="N" id="sitrsfereeQN102"/>
+                                                    <af:selectItem label="Not Specified" value="N/A" id="sitrsfereeQNA102"/>
+                                                    <f:validator binding="#{item.bindings.answer.validator}"/>
+                                                </af:selectOneRadio>
+                                                <af:selectOneRadio value="#{item.bindings.answer.inputValue}" layout="horizontal" rendered="#{item.bindings.question.inputValue =='StepPrntReMarriage'}" label="#{item.bindings.answer.label}" simple="true" required="#{item.bindings.answer.hints.mandatory}" shortDesc="#{item.bindings.answer.hints.tooltip}" id="so103">
+                                                    <af:selectItem label="Yes" value="Y" id="sitrsfereeQY103"/>
+                                                    <af:selectItem label="No" value="N" id="sitrsfereeQN103"/>
+                                                    <af:selectItem label="Not Specified" value="N/A" id="sitrsfereeQNA103"/>
+                                                    <f:validator binding="#{item.bindings.answer.validator}"/>
+                                                </af:selectOneRadio>
+                                                <af:selectOneRadio value="#{item.bindings.answer.inputValue}" layout="horizontal" rendered="#{item.bindings.question.inputValue =='InlawMarriage'}" label="#{item.bindings.answer.label}" simple="true" required="#{item.bindings.answer.hints.mandatory}" autoSubmit="true" shortDesc="#{item.bindings.answer.hints.tooltip}" valueChangeListener="#{propClaimPerformBean.onProp58Quest1}" id="so104">
+                                                    <af:selectItem label="Yes" value="Y" id="sitrsfereeQY104"/>
+                                                    <af:selectItem label="No" value="N" id="sitrsfereeQN104"/>
+                                                    <af:selectItem label="Not Specified" value="N/A" id="sitrsfereeQNA104"/>
+                                                    <f:validator binding="#{item.bindings.answer.validator}"/>
+                                                </af:selectOneRadio>
+                                                <af:selectOneRadio value="#{item.bindings.answer.inputValue}" layout="horizontal" rendered="#{item.bindings.question.inputValue =='InlawMarriageTermRsn'}" label="#{item.bindings.answer.label}" simple="true" required="#{item.bindings.answer.hints.mandatory}" shortDesc="#{item.bindings.answer.hints.tooltip}" autoSubmit="true" valueChangeListener="#{propClaimPerformBean.onProp58Quest1}" id="so105">
+                                                    <af:selectItem label="Death" value="Y" id="sitrsfereeQY105"/>
+                                                    <af:selectItem label="Divorce/Termination of Partnership" value="N" id="sitrsfereeQN105"/>
+                                                    <af:selectItem label="Not Specified" value="N/A" id="sitrsfereeQNA105"/>
+                                                    <f:validator binding="#{item.bindings.answer.validator}"/>
+                                                </af:selectOneRadio>
+                                                <af:selectOneRadio value="#{item.bindings.answer.inputValue}" layout="horizontal" rendered="#{item.bindings.question.inputValue =='InlawReMarriage'}" label="#{item.bindings.answer.label}" simple="true" required="#{item.bindings.answer.hints.mandatory}" shortDesc="#{item.bindings.answer.hints.tooltip}" id="so106">
+                                                    <af:selectItem label="Yes" value="Y" id="sitrsfereeQY106"/>
+                                                    <af:selectItem label="No" value="N" id="sitrsfereeQN106"/>
+                                                    <af:selectItem label="Not Specified" value="N/A" id="sitrsfereeQNA106"/>
+                                                    <f:validator binding="#{item.bindings.answer.validator}"/>
+                                                </af:selectOneRadio>
+                                                <!--        -->
+                                                <af:selectOneRadio value="#{item.bindings.answer.inputValue}" layout="horizontal" rendered="#{bindings.claimType.inputValue =='193' and !(item.bindings.question.inputValue =='SpousePartnerGrandChildRel')}" label="#{item.bindings.answer.label}" simple="true" required="#{item.bindings.answer.hints.mandatory}" shortDesc="#{item.bindings.answer.hints.tooltip}" id="sor3">
+                                                    <af:selectItem label="Yes" value="Y" id="sitransfereeQuest11"/>
+                                                    <af:selectItem label="No" value="N" id="sitransfereeQuest12"/>
+                                                    <af:selectItem label="Not Specified" value="N/A" id="sitransfereeQuest13"/>
+                                                    <f:validator binding="#{item.bindings.answer.validator}"/>
+                                                </af:selectOneRadio>
+                                                <af:selectOneRadio value="#{item.bindings.answer.inputValue}" layout="horizontal" rendered="#{bindings.claimType.inputValue =='193' and item.bindings.question.inputValue =='SpousePartnerGrandChildRel'}" label="#{item.bindings.answer.label}" simple="true" required="#{item.bindings.answer.hints.mandatory}" shortDesc="#{item.bindings.answer.hints.tooltip}" id="sorSpousePartnerGrandChildRell3">
+                                                    <af:selectItem label="Parent" value="Y" id="siSpousePartnerGrandChildRel11"/>
+                                                    <af:selectItem label="Step Parent" value="N" id="siSpousePartnerGrandChildRel12"/>
+                                                    <af:selectItem label="Not Specified" value="N/A" id="siSpousePartnerGrandChildRel13"/>
+                                                    <f:validator binding="#{item.bindings.answer.validator}"/>
+                                                </af:selectOneRadio>
+                                            </af:gridCell>
+                                            <!-- <af:gridCell marginStart="5px" width="40%" marginEnd="5px" id="gc19351"/> -->
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="15px" height="auto" id="gr10" rendered="#{bindings.claimType.inputValue =='193' and item.bindings.question.inputValue=='SpouseRemarriage'}">
+                                            <af:gridCell marginStart="5px" width="60%" id="gc52">
+                                                <af:panelGroupLayout id="pgl93" layout="horizontal">
+                                                    <af:panelGroupLayout id="pgl61" layout="vertical">
+                                                        <af:panelLabelAndMessage label="DOD of Spouse/Partner" id="plam34"/>
+                                                        <af:inputDate value="#{bindings.doDSpousePartner.inputValue}" simple="true" maxValue="#{propClaimPerformBean.currentdate}" contentStyle="width:180px" required="#{bindings.doDSpousePartner.hints.mandatory}" columns="#{bindings.doDSpousePartner.hints.displayWidth}" shortDesc="#{bindings.doDSpousePartner.hints.tooltip}" id="id6">
+                                                            <f:validator binding="#{bindings.doDSpousePartner.validator}"/>
+                                                            <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                        </af:inputDate>
+                                                        <f:facet name="separator">
+                                                            <af:spacer height="5px" id="s34"/>
+                                                        </f:facet>
+                                                    </af:panelGroupLayout>
+                                                    <af:panelGroupLayout id="pgl62" layout="vertical">
+                                                        <af:panelLabelAndMessage label="Date of Marriage/Registration of Domestic Partenership" id="plam35"/>
+                                                        <af:inputDate value="#{bindings.marriageDate.inputValue}" maxValue="#{propClaimPerformBean.currentdate}" simple="true" contentStyle="width:180px" required="#{bindings.marriageDate.hints.mandatory}" columns="#{bindings.marriageDate.hints.displayWidth}" shortDesc="#{bindings.marriageDate.hints.tooltip}" id="id7">
+                                                            <f:validator binding="#{bindings.marriageDate.validator}"/>
+                                                            <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                        </af:inputDate>
+                                                        <f:facet name="separator">
+                                                            <af:spacer height="5px" id="s38"/>
+                                                        </f:facet>
+                                                    </af:panelGroupLayout>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="20px" id="s62"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="40%" id="gc54"/>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="15px" height="auto" id="gr11" rendered="#{bindings.claimType.inputValue =='193' and item.bindings.question.inputValue=='PrinipleResFromPrnt'}">
+                                            <af:gridCell marginStart="5px" width="60%" id="gc60">
+                                                <af:panelGroupLayout id="pgl94" layout="horizontal">
+                                                    <af:panelGroupLayout id="pgl69" layout="vertical">
+                                                        <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.COUNTY}" id="plam38"/>
+                                                        <af:selectOneChoice valueChangeListener="#{propClaimPerformBean.tfeAddQuuesCountyVLC}" value="#{bindings.county.inputValue}" autoSubmit="true" simple="true" label="#{bindings.county.label}" unselectedLabel="Select" required="#{bindings.county.hints.mandatory}" shortDesc="#{bindings.county.hints.tooltip}" id="soc4">
+                                                            <f:selectItems value="#{bindings.county.items}" id="si3"/>
+                                                            <f:validator binding="#{bindings.county.validator}"/>
+                                                        </af:selectOneChoice>
+                                                        <f:facet name="separator">
+                                                            <af:spacer height="5px" id="s43"/>
+                                                        </f:facet>
+                                                    </af:panelGroupLayout>
+                                                    <af:panelGroupLayout id="pgl68" layout="vertical" partialTriggers="soc4">
+                                                        <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.ASSESSOR_PARCEL_NUM}" id="plam39"/>
+                                                        <af:inputText value="#{bindings.assessorParcelNum.inputValue}" simple="true" contentStyle="width:180px" required="#{bindings.assessorParcelNum.hints.mandatory}" columns="#{bindings.assessorParcelNum.hints.displayWidth}" maximumLength="#{bindings.assessorParcelNum.hints.precision}" shortDesc="#{bindings.assessorParcelNum.hints.tooltip}" rendered="#{bindings.county.inputValue == 'Los Angeles'}" id="it23" label="Assessor Parcel Number"
+                                                                      binding="#{propClaimPerformBean.assessorParcelNo3}">
+                                                                                                                                                                                                                                <af:clientListener method="handleNumberFormatConversion('xxxx-xxx-xxx','-')" type="keyDown"/>
+                                                                        <af:validateRegExp pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}$" messageDetailNoMatch="Invalid Assessor Parcel Number.Should be in XXXX-XXX-XXX format"/>
+                                                            <f:validator binding="#{bindings.assessorParcelNum.validator}"/>
+                                                        </af:inputText>
+                                                                                                                                                                                                                                <af:inputText value="#{bindings.assessorParcelNum.inputValue}" simple="true" contentStyle="width:180px" required="#{bindings.assessorParcelNum.hints.mandatory}" columns="#{bindings.assessorParcelNum.hints.displayWidth}" maximumLength="#{bindings.assessorParcelNum.hints.precision}" rendered="#{bindings.county.inputValue != 'Los Angeles'}" shortDesc="#{bindings.assessorParcelNum.hints.tooltip}" id="itn23" label="Assessor Parcel Number"
+                                                                                                                                                                                                                                              binding="#{propClaimPerformBean.assessorParcelNo4}">
+                                                            <f:validator binding="#{bindings.assessorParcelNum.validator}"/>
+                                                        </af:inputText>
+                                                        <f:facet name="separator">
+                                                            <af:spacer height="5px" id="s42"/>
+                                                        </f:facet>
+                                                    </af:panelGroupLayout>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="20px" id="s63"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="40%" id="gc61"/>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:listItem>
+                            </af:listView>
+                            <af:panelGroupLayout id="pgl66" styleClass="AFStretchWidth">
+                                <af:panelGridLayout id="pgl67" binding="#{propClaimPerformBean.transfereeAddQuesGrid}">
+                                    <af:gridRow marginTop="15px" height="auto" marginBottom="5px" id="gr12">
+                                        <af:gridCell marginStart="5px" marginEnd="10px" id="gc67">
+                                            <af:panelGroupLayout id="pgl70" layout="vertical">
+                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.CONTACT_NAME}" id="plam40"/>
+                                                <af:selectOneChoice value="#{bindings.transfereeFullName3.inputValue}" unselectedLabel="Select" label="#{bindings.transfereeFullName3.label}" simple="true" contentStyle="width:150px" required="#{bindings.transfereeFullName3.hints.mandatory}" shortDesc="#{bindings.transfereeFullName3.hints.tooltip}" id="sol1">
+                                                    <f:selectItems value="#{bindings.transfereeFullName3.items}" id="si20"/>
+                                                    <f:validator binding="#{bindings.transfereeFullName3.validator}"/>
+                                                </af:selectOneChoice>
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s44"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" marginEnd="10px" id="gc68">
+                                            <af:panelGroupLayout id="pgl65" layout="vertical">
+                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.DAYTIME_PHONE_NUMBER}" id="plam37"/>
+                                                <af:panelGroupLayout id="pgl21" layout="horizontal">
+                                                    <af:inputText label="#{propclaimperformworktaskuiBundle.DAYTIME_PHONE_NUMBER}" value="#{bindings.phoneNumber.inputValue}" simple="true" contentStyle="width:180px" required="#{bindings.phoneNumber.hints.mandatory}" columns="#{bindings.phoneNumber.hints.displayWidth}" maximumLength="14" shortDesc="#{bindings.phoneNumber.hints.tooltip}" id="it25" placeholder="(_)_ _">
+                                                                                                                                                                                                                <af:clientListener method="handlePhNumberFormatConversion('(xxx)-xxx-xxxx','-')" type="keyDown"/>
+                                                        <af:validateRegExp pattern="\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}$" messageDetailNoMatch="Invalid Phone Number. Need to be in (NNN) NNN-NNNN format"/>
+                                                    </af:inputText>
+                                                    <af:inputText value="#{bindings.extn1.inputValue}" simple="true" contentStyle="width:50px" placeholder="Ext" required="#{bindings.extn1.hints.mandatory}" columns="#{bindings.extn1.hints.displayWidth}" maximumLength="#{bindings.extn1.hints.precision}" shortDesc="#{bindings.extn1.hints.tooltip}" id="it24">
+                                                        <f:validator binding="#{bindings.extn1.validator}"/>
+                                                        <af:validateRegExp pattern="[0-9]{1,10}" messageDetailNoMatch="Extension should be number only."/>
+                                                    </af:inputText>
+                                                    <f:facet name="separator">
+                                                        <af:spacer width="10px" id="s56"/>
+                                                    </f:facet>
+                                                </af:panelGroupLayout>
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s41"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" marginEnd="10px" id="gc69">
+                                            <af:panelGroupLayout id="pgl63" layout="vertical">
+                                                <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.EMAIL}" id="plam36"/>
+                                                <af:inputText label="#{propclaimperformworktaskuiBundle.EMAIL}" value="#{bindings.email.inputValue}" simple="true" contentStyle="width:180px" required="#{bindings.email.hints.mandatory}" columns="#{bindings.email.hints.displayWidth}" maximumLength="30" autoSubmit="true" placeholder="jane.doe@abc.com" validator="#{propClaimPerformBean.validateEmail}" shortDesc="#{bindings.email.hints.tooltip}" id="it28">
+                                                    <f:validator binding="#{bindings.email.validator}"/>
+                                                </af:inputText>
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s40"/>
+                                                </f:facet>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" marginEnd="10px" id="gc70" valign="bottom">
+                                            <af:panelGroupLayout id="pgl252">
+                                                <AmpAddrValidn:AddressValidation addrValidation="#{propClaimAddrBean.validateAddressForm}" showButton="YES" buttonLabel="#{propClaimAddrBean.buttonLabel}" styleClass="#{propClaimAddrBean.styleClass}" id="av2" addressList="#{propClaimAddrBean.addressList}" matchLevelDesc="#{propClaimAddrBean.matchLevelDesc}" City="#{bindings.city1.inputValue}" PostalCode="#{bindings.zip1.inputValue}" State="#{bindings.state2.inputValue}" StreetAddress="#{bindings.street1.inputValue}" Country="#{bindings.country1.inputValue}"/>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:panelGroupLayout>
+                            <af:panelGroupLayout id="pgl60" layout="horizontal" styleClass="margin-top-10">
+                                <f:facet name="separator">
+                                    <af:spacer width="40px" id="s39"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    <!--<af:panelGroupLayout id="pg3" layout="horizontal" halign="right"
+                                         styleClass="AFStetchWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-5">
+                        <f:facet name="separator">
+                            <af:spacer width="10" id="s1"/>
+                        </f:facet>
+                        <af:button text="Cancel" id="b2"/>
+                       <af:buton text="Save" id="SaveB3"
+                           actionListener="#{backingBeanScope.PsrCreateBean.saveIssueData}"/>
+                        <af:button text="Next" id="b4" action="gotoSuppInfo"/>
+                    </af:panelGroupLayout>-->
+                    <af:panelStretchLayout id="psl1" topHeight="0px" endWidth="300px" styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-5" bottomHeight="0px" startWidth="100px">
+                        <f:facet name="start">
+                            <af:panelGroupLayout id="pgCIl31" layout="horizontal" halign="start" styleClass="padding-top-5"/>
+                        </f:facet>
+                        <f:facet name="end">
+                            <af:panelGroupLayout id="pglci35" layout="horizontal" halign="end" styleClass="padding-top-5">
+                                <f:facet name="separator">
+                                    <af:spacer width="10" id="sci27"/>
+                                </f:facet>
+                                <af:button text="Save" id="btnSave" shortDesc="Save" actionListener="#{propClaimPerformBean.saveProps}" partialSubmit="true"></af:button>
+                                <af:button text="Next" id="bci3" shortDesc="Next" action="gotoSuppInfo"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                    <!-- Dont remove these buttons -->
+                    <af:button actionListener="#{invokeActionBean.setOperation}" text="#{wf:getResourceValue('SubmitForCorrespondenceApproval', 'bindings.customActions')}" disabled="#{!bindings.SubmitForCorrespondenceApproval.enabled}" action="#{invokeActionBean.invokeOperation}" partialSubmit="false" visible="false" id="b22" binding="#{CorrespondenceBPMBean.submitForCorrespondenceApproval}">
+                        <f:attribute name="DC_OPERATION_BINDING" value="bindings.SubmitForCorrespondenceApproval"/>
+                    </af:button>
+                    <af:button actionListener="#{invokeActionBean.setOperation}" text="#{wf:getResourceValue('SubmitForCorrespondenceRelease', 'bindings.customActions')}" disabled="#{!bindings.SubmitForCorrespondenceRelease.enabled}" action="#{invokeActionBean.invokeOperation}" partialSubmit="false" visible="false" id="b32" binding="#{CorrespondenceBPMBean.submitForCorrespondenceRelease}">
+                        <f:attribute name="DC_OPERATION_BINDING" value="bindings.SubmitForCorrespondenceRelease"/>
+                    </af:button>
+                    <af:button text="Cancel" visible="false" id="b1" action="closeTaskFlow" binding="#{CorrespondenceBPMBean.closeBtn}"/>
+                    <!-- Dont remove these buttons -->
+                </af:panelGroupLayout>
+                <af:popup id="remarksPopup" autoCancel="disabled" launcherVar="source" contentDelivery="lazyUncached" eventContext="launcher" childCreation="immediate" partialTriggers="t1">
+                    <af:dialog id="d2" resize="on" stretchChildren="first" title=" Add/View Remarks" closeIconVisible="true" type="ok" modal="true" styleClass="AMPReadOnlyDialog" contentWidth="1030" contentHeight="600" affirmativeTextAndAccessKey="Done">
+                        <af:panelGroupLayout id="pgl41" layout="scroll">
+                            <af:region value="#{bindings.ampremarksbtf1.regionModel}" id="r2"/>
+                        </af:panelGroupLayout>
+                    </af:dialog>
+                </af:popup>
+                <af:popup id="correspondencePopUP" autoCancel="disabled" contentDelivery="lazyUncached" childCreation="immediate" binding="#{CorrespondenceBPMBean.correspondencePopUp1}">
+                    <af:dialog id="dialcorres" resize="on" stretchChildren="first" title="Correspondence" closeIconVisible="true" type="none" modal="true" styleClass="AMPReadOnlyDialog" contentWidth="1300" contentHeight="600">
+                        <af:panelGroupLayout id="pgl51" layout="scroll">
+                            <af:region value="#{bindings.ampbpmcorrespondencebtf1.regionModel}" id="r1"/>
+                        </af:panelGroupLayout>
+                    </af:dialog>
+                </af:popup>
+                
+                 <af:popup id="propDetailsPopup" autoCancel="disabled" launcherVar="source"
+                              contentDelivery="lazyUncached" eventContext="launcher" childCreation="immediate">
+                        <af:dialog id="dprop2" resize="on" stretchChildren="first" title=" Prop Details"
+                                   closeIconVisible="true" type="ok" modal="true" styleClass="AMPReadOnlyDialog"
+                                   contentWidth="1350" contentHeight="600" affirmativeTextAndAccessKey="Done">
+                            <!--<af:outputFormatted value="#{pageFlowScope.wuid}" id="of6"/>
+                             <af:outputFormatted value="#{pageFlowScope.propsrowid}" id="of6_del"/>-->
+                            <af:panelGroupLayout id="pglp41" layout="scroll">
+                                <af:region value="#{bindings.amppropositiondtlsbtf1.regionModel}" id="propd"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

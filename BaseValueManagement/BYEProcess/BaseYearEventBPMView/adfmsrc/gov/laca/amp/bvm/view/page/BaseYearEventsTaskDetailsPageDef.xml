@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="BaseYearEventsTaskDetailsPageDef"
+                Package="gov.laca.amp.bvm.view.page">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="eventModified" Type="java.lang.Boolean"/>
+    </variableIterator>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                    RangeSize="25"
+                    BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.task"
+                      id="taskIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="systemActions" RangeSize="50"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator"
+                      Binds="customActions" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.actionType"
+                      id="customActionsIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="fromUser"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.identityType"
+                      id="fromUserIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="assignees"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.identityType"
+                      id="assigneesIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.ManageBaseYearEventTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="RetriveBYEDetails"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.RetriveBYEDetailsType"
+                      id="RetriveBYEDetailsIterator"/>
+    <accessorIterator MasterBinding="RetriveBYEDetailsIterator"
+                      Binds="RetrieveBYEDetails" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.RetrieveBYEDetails"
+                      id="RetrieveBYEDetailsIterator"/>
+    <accessorIterator MasterBinding="RetrieveBYEDetailsIterator"
+                      Binds="BYEDetailsOriginal" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BYEDetailsType"
+                      id="BYEDetailsOriginalIterator"/>
+    <accessorIterator MasterBinding="BYEDetailsOriginalIterator" Binds="header"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.responseHeader"
+                      id="headerIterator"/>
+    <accessorIterator MasterBinding="BYEDetailsOriginalIterator"
+                      Binds="baseYearEventList" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BaseYearEventList"
+                      id="baseYearEventListIterator"/>
+    <accessorIterator MasterBinding="baseYearEventListIterator"
+                      Binds="baseYearEvent" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.baseYearEvent"
+                      id="baseYearEventIterator"/>
+    <accessorIterator MasterBinding="RetrieveBYEDetailsIterator"
+                      Binds="BYEDetailsUserModified" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BYEDetailsType"
+                      id="BYEDetailsUserModifiedIterator"/>
+    <accessorIterator MasterBinding="BYEDetailsUserModifiedIterator"
+                      Binds="header" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.responseHeader"
+                      id="headerIterator1"/>
+    <accessorIterator MasterBinding="BYEDetailsUserModifiedIterator"
+                      Binds="baseYearEventList" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.BaseYearEventList"
+                      id="baseYearEventListIterator1"/>
+    <accessorIterator MasterBinding="baseYearEventListIterator1"
+                      Binds="baseYearEvent" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.baseYearEvent"
+                      id="baseYearEventIterator1"/>
+    <accessorIterator MasterBinding="RetriveBYEDetailsIterator" Binds="sortBYE"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.SortBYEBOType"
+                      id="sortBYEIterator"/>
+    <accessorIterator MasterBinding="RetriveBYEDetailsIterator"
+                      Binds="assignmentBox" RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.AssignToUserOrGroupBOType"
+                      id="assignmentBoxIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="SortBYEBO"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.SortBYEBOType1"
+                      id="SortBYEBOIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="userComment"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.commentType"
+                      id="userCommentIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="userCommentIterator" Binds="updatedBy"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.identityType"
+                      id="updatedByIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="attachmentIterator" Binds="ucmMetadataItem"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.ucmMetadataItemType"
+                      id="ucmMetadataItemIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="attachment"
+                      RangeSize="25"
+                      DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                      BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.attachmentType"
+                      id="attachmentIterator" StateValidation="false"/>
+    <taskFlow id="ampinitiatebaseyeareventbtf1"
+              taskFlowId="/WEB-INF/gov/laca/amp/bvm/view/amp-base-year-events-detail-btf/amp-base-year-events-detail-btf.xml#amp-initiate-base-year-event-btf"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              Refresh="ifNeeded">
+      <parameters>
+        <parameter id="withdrawAvailable"
+                   value="#{actionAvailable.withdrawAvailable}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  ReturnName="data.BaseYearEventBPMView_ManageBaseYearEventTask.methodResults.getTaskDetails_BaseYearEventBPMView_ManageBaseYearEventTask_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="taskIterator" id="title">
+      <AttrNames>
+        <Item Value="title"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="taskIterator" id="UpdateAction"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="update"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="systemActionsIterator"
+                    ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist IterBinding="customActionsIterator"
+                    ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="Claim"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="APPROVE"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="APPROVE" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="REJECT"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="REJECT" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="SUBMIT"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="SUBMIT" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="CANCEL"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CANCEL" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="ASSIGN"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="ASSIGN" IsViewObjectMethod="false"
+                  DataControl="BaseYearEventBPMView_ManageBaseYearEventTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="taskIterator" id="creator">
+      <AttrNames>
+        <Item Value="creator"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUser">
+      <AttrNames>
+        <Item Value="ownerUser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="priority">
+      <AttrNames>
+        <Item Value="priority"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="dueDate">
+      <AttrNames>
+        <Item Value="dueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="creatorDisplayName">
+      <AttrNames>
+        <Item Value="creatorDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUserDisplayName">
+      <AttrNames>
+        <Item Value="ownerUserDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="acquiredBy">
+      <AttrNames>
+        <Item Value="acquiredBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="assignedDate">
+      <AttrNames>
+        <Item Value="assignedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="createdDate">
+      <AttrNames>
+        <Item Value="createdDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="expirationDate">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="outcome">
+      <AttrNames>
+        <Item Value="outcome"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="taskNumber">
+      <AttrNames>
+        <Item Value="taskNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="updatedDate">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="taskViewContext">
+      <AttrNames>
+        <Item Value="taskViewContext"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="actionDisplayName">
+      <AttrNames>
+        <Item Value="actionDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="componentType">
+      <AttrNames>
+        <Item Value="componentType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="activityId">
+      <AttrNames>
+        <Item Value="activityId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="displayName">
+      <AttrNames>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="assigneesIterator" id="assignees">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.identityType"
+                      Name="assignees0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator"
+                     id="assignTo_UserID">
+      <AttrNames>
+        <Item Value="assignTo_UserID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator"
+                     id="assignTo_GroupID">
+      <AttrNames>
+        <Item Value="assignTo_GroupID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator"
+                     id="assignTo_ManagerID">
+      <AttrNames>
+        <Item Value="assignTo_ManagerID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator" id="role">
+      <AttrNames>
+        <Item Value="role"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator" id="ownerID">
+      <AttrNames>
+        <Item Value="ownerID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator" id="clientID">
+      <AttrNames>
+        <Item Value="clientID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator" id="checkBYE">
+      <AttrNames>
+        <Item Value="checkBYE"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="assignmentBoxIterator" id="userType">
+      <AttrNames>
+        <Item Value="userType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator" id="acquiredBy1">
+      <AttrNames>
+        <Item Value="acquiredBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator" id="returnTo">
+      <AttrNames>
+        <Item Value="returnTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RetriveBYEDetailsIterator" id="assignedBy">
+      <AttrNames>
+        <Item Value="assignedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsOriginalIterator" id="ain">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsOriginalIterator"
+                     id="processStatus">
+      <AttrNames>
+        <Item Value="processStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsOriginalIterator" id="dbLockStatus">
+      <AttrNames>
+        <Item Value="dbLockStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsOriginalIterator"
+                     id="lockedByUserId">
+      <AttrNames>
+        <Item Value="lockedByUserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsOriginalIterator" id="district">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsOriginalIterator" id="region">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsOriginalIterator"
+                     id="clusterNumber">
+      <AttrNames>
+        <Item Value="clusterNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="headerIterator" id="operationStatus">
+      <AttrNames>
+        <Item Value="operationStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="headerIterator" id="instanceId">
+      <AttrNames>
+        <Item Value="instanceId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="headerIterator" id="requestId">
+      <AttrNames>
+        <Item Value="requestId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="baseYearEventIterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="baseYearEventIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="baseYearEventIterator" id="baseYearEvent">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.baseYearEvent"
+                      Name="baseYearEvent0">
+        <AttrNames>
+          <Item Value="ain"/>
+          <Item Value="byeId"/>
+          <Item Value="ownershipCode"/>
+          <Item Value="percentOwnership"/>
+          <Item Value="eventNameId"/>
+          <Item Value="eventDescriptionId"/>
+          <Item Value="eventDate"/>
+          <Item Value="recordingDate"/>
+          <Item Value="documentNumber"/>
+          <Item Value="sequenceNumber"/>
+          <Item Value="baseYear"/>
+          <Item Value="subUnitNumber"/>
+          <Item Value="subUnitDescription"/>
+          <Item Value="partiallyCompleteNumber"/>
+          <Item Value="blendedValueFlag"/>
+          <Item Value="percentageAppliedToValue"/>
+          <Item Value="landValue"/>
+          <Item Value="improvementValue"/>
+          <Item Value="landReasonCodeId"/>
+          <Item Value="improvementReasonCodeId"/>
+          <Item Value="fixtureValue"/>
+          <Item Value="retainedLandValue"/>
+          <Item Value="retainedImprovementValue"/>
+          <Item Value="retainedFixtureValue"/>
+          <Item Value="ppAssessmentNumber"/>
+          <Item Value="personalPropertyType"/>
+          <Item Value="ppDescription"/>
+          <Item Value="totalAdjAcquisitionCost"/>
+          <Item Value="percentageFixture"/>
+          <Item Value="effectiveBeginDate"/>
+          <Item Value="effectiveEndDate"/>
+          <Item Value="verificationDate"/>
+          <Item Value="eventSource"/>
+          <Item Value="verifiedBy"/>
+          <Item Value="byeLegacySourceSystem"/>
+          <Item Value="originalAIN"/>
+          <Item Value="originalBYEId"/>
+          <Item Value="rollType"/>
+          <Item Value="transactionType"/>
+          <Item Value="userId"/>
+          <Item Value="newConstructionDate"/>
+          <Item Value="createBy"/>
+          <Item Value="createdDate"/>
+          <Item Value="modifiedBy"/>
+          <Item Value="inactiveDate"/>
+          <Item Value="modifiedDate"/>
+          <Item Value="currentOnClose"/>
+          <Item Value="aoid"/>
+          <Item Value="eventDescriptionKey"/>
+          <Item Value="eventDescriptionLegend"/>
+          <Item Value="eventNameKey"/>
+          <Item Value="eventNameLegend"/>
+          <Item Value="improvementReasonCodeKey"/>
+          <Item Value="improvementReasonCodeLegend"/>
+          <Item Value="landReasonCodeKey"/>
+          <Item Value="landReasonCodeLegend"/>
+          <Item Value="notes"/>
+          <Item Value="reviewRequired"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="BYEDetailsUserModifiedIterator" id="ain1">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsUserModifiedIterator"
+                     id="processStatus1">
+      <AttrNames>
+        <Item Value="processStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsUserModifiedIterator"
+                     id="dbLockStatus1">
+      <AttrNames>
+        <Item Value="dbLockStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsUserModifiedIterator"
+                     id="lockedByUserId1">
+      <AttrNames>
+        <Item Value="lockedByUserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsUserModifiedIterator"
+                     id="district1">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsUserModifiedIterator" id="region1">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BYEDetailsUserModifiedIterator"
+                     id="clusterNumber1">
+      <AttrNames>
+        <Item Value="clusterNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="headerIterator1" id="operationStatus1">
+      <AttrNames>
+        <Item Value="operationStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="headerIterator1" id="instanceId1">
+      <AttrNames>
+        <Item Value="instanceId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="headerIterator1" id="requestId1">
+      <AttrNames>
+        <Item Value="requestId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="baseYearEventIterator1" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="baseYearEventIterator1" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="baseYearEventIterator1" id="baseYearEvent1">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.baseYearEvent"
+                      Name="baseYearEvent10">
+        <AttrNames>
+          <Item Value="ain"/>
+          <Item Value="byeId"/>
+          <Item Value="ownershipCode"/>
+          <Item Value="percentOwnership"/>
+          <Item Value="eventNameId"/>
+          <Item Value="eventDescriptionId"/>
+          <Item Value="eventDate"/>
+          <Item Value="recordingDate"/>
+          <Item Value="documentNumber"/>
+          <Item Value="sequenceNumber"/>
+          <Item Value="baseYear"/>
+          <Item Value="subUnitNumber"/>
+          <Item Value="subUnitDescription"/>
+          <Item Value="partiallyCompleteNumber"/>
+          <Item Value="blendedValueFlag"/>
+          <Item Value="percentageAppliedToValue"/>
+          <Item Value="landValue"/>
+          <Item Value="improvementValue"/>
+          <Item Value="landReasonCodeId"/>
+          <Item Value="improvementReasonCodeId"/>
+          <Item Value="fixtureValue"/>
+          <Item Value="retainedLandValue"/>
+          <Item Value="retainedImprovementValue"/>
+          <Item Value="retainedFixtureValue"/>
+          <Item Value="ppAssessmentNumber"/>
+          <Item Value="personalPropertyType"/>
+          <Item Value="ppDescription"/>
+          <Item Value="totalAdjAcquisitionCost"/>
+          <Item Value="percentageFixture"/>
+          <Item Value="effectiveBeginDate"/>
+          <Item Value="effectiveEndDate"/>
+          <Item Value="verificationDate"/>
+          <Item Value="eventSource"/>
+          <Item Value="verifiedBy"/>
+          <Item Value="byeLegacySourceSystem"/>
+          <Item Value="originalAIN"/>
+          <Item Value="originalBYEId"/>
+          <Item Value="rollType"/>
+          <Item Value="transactionType"/>
+          <Item Value="userId"/>
+          <Item Value="newConstructionDate"/>
+          <Item Value="createBy"/>
+          <Item Value="createdDate"/>
+          <Item Value="modifiedBy"/>
+          <Item Value="inactiveDate"/>
+          <Item Value="modifiedDate"/>
+          <Item Value="currentOnClose"/>
+          <Item Value="aoid"/>
+          <Item Value="eventDescriptionKey"/>
+          <Item Value="eventDescriptionLegend"/>
+          <Item Value="eventNameKey"/>
+          <Item Value="eventNameLegend"/>
+          <Item Value="improvementReasonCodeKey"/>
+          <Item Value="improvementReasonCodeLegend"/>
+          <Item Value="landReasonCodeKey"/>
+          <Item Value="landReasonCodeLegend"/>
+          <Item Value="notes"/>
+          <Item Value="reviewRequired"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="sortBYEIterator" id="ain2">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="sortBYEIterator" id="district2">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="sortBYEIterator" id="region2">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="sortBYEIterator" id="cluster">
+      <AttrNames>
+        <Item Value="cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="assignmentBoxIterator"
+                     id="assignmentBox_UserId">
+      <AttrNames>
+        <Item Value="assignmentBox_UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="assignmentBoxIterator"
+                     id="assignmentBox_GroupId">
+      <AttrNames>
+        <Item Value="assignmentBox_GroupId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SortBYEBOIterator" id="ain3">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SortBYEBOIterator" id="district3">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SortBYEBOIterator" id="region3">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SortBYEBOIterator" id="cluster1">
+      <AttrNames>
+        <Item Value="cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="userCommentIterator" id="userComment">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.commentType"
+                      Name="userComment0">
+        <AttrNames>
+          <Item Value="comment"/>
+          <Item Value="updatedDate"/>
+          <Item Value="displayNameLanguage"/>
+          <Item Value="action"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="isSystemComment"/>
+          <Item Value="taskId"/>
+          <Item Value="commentScope"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="updatedBy"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.identityType"
+                      Name="userComment1">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="userCommentIterator" id="CreateInsert2"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="userCommentIterator" id="Delete2"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="userCommentIterator" id="comment">
+      <AttrNames>
+        <Item Value="comment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userCommentIterator" id="commentScope">
+      <AttrNames>
+        <Item Value="commentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="updatedByIterator" id="updatedBy">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.identityType"
+                      Name="updatedBy0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.attachmentType"
+                      Name="attachment0">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.ucmMetadataItemType"
+                      Name="attachment1">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="attachmentIterator" id="CreateInsert3"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="attachmentIterator" id="Delete3"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="attachmentIterator" id="content">
+      <AttrNames>
+        <Item Value="content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="mimeType">
+      <AttrNames>
+        <Item Value="mimeType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedBy1">
+      <AttrNames>
+        <Item Value="updatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="URI">
+      <AttrNames>
+        <Item Value="URI"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedDate1">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="ucmDocType">
+      <AttrNames>
+        <Item Value="ucmDocType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="securityGroup">
+      <AttrNames>
+        <Item Value="securityGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="account">
+      <AttrNames>
+        <Item Value="account"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="revision">
+      <AttrNames>
+        <Item Value="revision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="releaseDate">
+      <AttrNames>
+        <Item Value="releaseDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="expirationDate1">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="attachmentScope">
+      <AttrNames>
+        <Item Value="attachmentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ucmMetadataItemIterator" id="CreateInsert4"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ucmMetadataItemIterator" id="Delete4"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.ucmMetadataItemType"
+                      Name="ucmMetadataItem0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="systemAttributesIterator"
+                     id="numberOfTimesModified">
+      <AttrNames>
+        <Item Value="numberOfTimesModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="version">
+      <AttrNames>
+        <Item Value="version"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="userCommentIterator" id="userComment1">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.commentType"
+                      Name="userComment10">
+        <AttrNames>
+          <Item Value="comment"/>
+          <Item Value="updatedDate"/>
+          <Item Value="displayNameLanguage"/>
+          <Item Value="action"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="isSystemComment"/>
+          <Item Value="taskId"/>
+          <Item Value="commentScope"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="updatedBy"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.identityType"
+                      Name="userComment11">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="updatedByIterator" id="updatedBy2">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.identityType"
+                      Name="updatedBy20">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment1">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.attachmentType"
+                      Name="attachment10">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.ucmMetadataItemType"
+                      Name="attachment11">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem1">
+      <nodeDefinition DefName="BaseYearEventBPMView_ManageBaseYearEventTask.ucmMetadataItemType"
+                      Name="ucmMetadataItem10">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="RetriveBYEDetailsIterator" id="returnTo1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="true" NullValueFlag="start">
+      <AttrNames>
+        <Item Value="returnTo"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Direct Manager"/>
+        <Item Value="Owning District"/>
+        <Item Value="Assigning Manager"/>
+      </ValueList>
+    </list>
+    <list IterBinding="assignmentBoxIterator" id="userType1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="true" NullValueFlag="start">
+      <AttrNames>
+        <Item Value="userType"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="&lt;No Selection>"/>
+        <Item Value="Appraiser"/>
+        <Item Value="Supervisor"/>
+        <Item Value="Principal Appraiser"/>
+        <Item Value="Chief Appraiser"/>
+      </ValueList>
+    </list>
+    <methodAction id="handleFireSubmit"
+                  InstanceName="BVMEventHandler.dataProvider"
+                  DataControl="BVMEventHandler" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="handleFireSubmit"
+                  IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="variables" id="eventModified1">
+      <AttrNames>
+        <Item Value="eventModified"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="handleFireSave"
+                  InstanceName="BVMEventHandler.dataProvider"
+                  DataControl="BVMEventHandler" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="handleFireSave"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="payLoad" NDValue="#{bindings.eventModified1}"
+                 NDType="java.lang.Object"/>
+    </methodAction>
+    <methodAction id="handleFireReject"
+                  InstanceName="BVMEventHandler.dataProvider"
+                  DataControl="BVMEventHandler" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="handleFireReject"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="handleFireApprove"
+                  InstanceName="BVMEventHandler.dataProvider"
+                  DataControl="BVMEventHandler" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="handleFireApprove"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="handleFireCancel"
+                  InstanceName="BVMEventHandler.dataProvider"
+                  DataControl="BVMEventHandler" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="handleFireCancel"
+                  IsViewObjectMethod="false"/>
+  </bindings>
+  <eventMap xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+    <event name="fireSave">
+      <producer region="*">
+        <consumer region="" handler="handleFireSave" handleCondition="">
+          <parameters>
+            <parameter name="eventModified"
+                       value="#{bindings.eventModified1.inputValue}"/>
+          </parameters>
+        </consumer>
+      </producer>
+    </event>
+    <event name="fireSubmit">
+      <producer region="*">
+        <consumer region="" handler="handleFireSubmit" handleCondition=""/>
+      </producer>
+    </event>
+    <event name="fireApprove">
+      <producer region="*">
+        <consumer region="" handler="handleFireApprove" handleCondition=""/>
+      </producer>
+    </event>
+    <event name="fireReject">
+      <producer region="*">
+        <consumer region="" handler="handleFireReject" handleCondition=""/>
+      </producer>
+    </event>
+    <event name="fireCancel">
+      <producer region="*">
+        <consumer region="" handler="handleFireCancel" handleCondition=""/>
+      </producer>
+    </event>    
+  </eventMap>
+  <events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+    <event name="fireSubmit"/>
+    <event name="fireSave"/>
+    <event name="fireApprove"/>
+    <event name="fireReject"/>    
+    <event name="fireCancel"/>    
+  </events>
+</pageDefinition>

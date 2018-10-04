@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0">
+   <import namespace="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" schemaLocation="oramds:/apps/amp/xsd/bvm/ManageBYE.xsd"/>
+   <complexType name="NotifyAdminOfIssuePayloadType">
+      <sequence>
+         <element ref="ns0:manageBYERequest"/>
+         <element name="errorMsg" type="xsd:string"/>
+         <element name="errorName" type="xsd:string"/>
+         <element name="errorNS" type="xsd:string"/>
+         <element name="instanceId" type="xsd:string"/>
+      </sequence>
+   </complexType>
+</schema>

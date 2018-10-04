@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="testApprovePageDef"
+                Package="propvalapproveworktaskui.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="review_proposition_btf1" taskFlowId="/WEB-INF/btf/review_proposition_btf.xml#review_proposition_btf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="review_proposition_btf2" taskFlowId="/WEB-INF/btf/review_proposition_btf.xml#review_proposition_btf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="workUnitId" value="3450"/>
+        <parameter id="maskData" value="true"/>
+        <parameter id="showValuation" value="true"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

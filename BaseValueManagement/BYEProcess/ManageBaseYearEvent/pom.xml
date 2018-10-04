@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- BPM Scripts --><project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>amp.bpm</groupId>
+	<artifactId>ManageBaseYearEvent</artifactId>
+	<packaging>pom</packaging>
+	<version>${ASSESSOR_PORTAL_VERSION}</version>
+
+	<parent>
+		<groupId>amp.bpm</groupId>
+		<artifactId>ampbpm-top</artifactId>
+		<relativePath>../../../.</relativePath>
+		<version>${ASSESSOR_PORTAL_VERSION}</version>
+	</parent>
+	
+	<properties>
+		<revision>${maven.build.timestamp}</revision>
+		<overwrite>false</overwrite>
+		<forceDefault>true</forceDefault>
+		<partition>amp</partition>
+		<apploc>${env.LACA_JDEV_WS_ROOT}/AMPBPM/BaseValueManagement/BYEProcess</apploc>
+		<deploymentplan>${project.artifactId}_cfgplan_${env.LACA_ENV_NAME}.xml</deploymentplan>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.build.timestamp.format>yyMMdd-HHmmss</maven.build.timestamp.format>
+	</properties>
+
+	<build>
+		<outputDirectory>${apploc}/.adf/META-INF/</outputDirectory>
+		<resources>
+			<resource>
+				<directory>../build</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/adf-config.xml</include>
+				</includes>
+
+			</resource>
+		</resources>
+		<!-- To use the plugin goals in your POM or parent POM -->
+		<plugins>
+	
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>auto-clean</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>cleanup</id>
+						<phase>initialize</phase>
+						<configuration>
+							<target>
+								<echo>cleaning deploy directory</echo>
+								<delete dir="${basedir}/deploy"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<!-- COPY adf-config.xml FILE FROM THE BUILD ARTIFACTS -->
+					<!--
+					<execution>
+						<id>copy_adf-config</id>
+						<phase>initialize</phase>
+						<configuration>
+							<target>
+								<echo>copying adf-config.xml</echo>
+								<copy file="${apploc}/build/adf-config.xml" tofile="${apploc}/.adf/META-INF/adf-config.xml" overwrite="true" failonerror="false"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>		
+					-->
+					<execution>
+						<id>sca-compile</id>
+						<phase>compile</phase>
+						<configuration>
+							<target>
+								<property name="scac.input" value="${basedir}/composite.xml"/>
+								<property name="scac.application.home" value="${basedir}/.."/>
+								<ant antfile="${env.LACA_SOA_HOME}/bin/ant-sca-compile.xml" dir="${env.LACA_SOA_HOME}/bin" target="scac"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>sca-package</id>
+						<phase>compile</phase>
+						<configuration>
+							<target>
+								<property name="build.compiler" value="extJavac"/>
+								<property name="compositeName" value="${project.artifactId}"/>
+								<property name="compositeDir" value="${basedir}"/>
+								<property name="revision" value="${revision}"/>
+								<property name="scac.application.home" value="${basedir}/.."/>
+								<ant antfile="${env.LACA_SOA_HOME}/bin/ant-sca-package.xml" dir="${env.LACA_SOA_HOME}/bin" target="package"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>sca-deploy</id>
+						<phase>deploy</phase>
+						<configuration>
+							<target>
+								<property name="serverURL" value="http://${env.LACA_WS_ADMINHOST_SOA}:${env.LACA_WS_MANAGEDPORT_SOA}"/>
+								<property name="user" value="${env.LACA_WS_USER_SOA}"/>
+								<property name="password" value="${env.LACA_WS_PASSWORD_SOA}"/>
+								<property name="sarLocation" value="${basedir}/deploy/sca_${project.artifactId}_rev${revision}.jar"/>
+								<property name="overwrite" value="${overwrite}"/>
+								<property name="forceDefault" value="${forceDefault}"/>
+								<property name="partition" value="${partition}"/>
+								<property name="configplan" value="${basedir}/${deploymentplan}"/>
+								<ant antfile="${env.LACA_SOA_HOME}/bin/ant-sca-deploy.xml" dir="${env.LACA_SOA_HOME}/bin" target="deploy"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<descriptor>pom-assembly.xml</descriptor>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>amp</id>
+			<url>http://ampbldsn01.isd.lacounty.gov:8081/repository/amp/</url>
+		</snapshotRepository>
+		<repository>
+			<id>amp</id>
+			<name>AMP Repository</name>
+			<url>http://ampbldsn01.isd.lacounty.gov:8081/repository/amp/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>		
+	</distributionManagement>
+</project>

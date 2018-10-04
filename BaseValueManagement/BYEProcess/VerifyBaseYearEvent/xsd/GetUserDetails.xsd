@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://assessor.lacounty.gov/amp/data/bvm/GetUserDetails/v1.0"
+            targetNamespace="http://assessor.lacounty.gov/amp/data/bvm/GetUserDetails/v1.0"
+            elementFormDefault="qualified">
+  <xsd:element name="Request">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="userId" type="xsd:string" minOccurs="0"
+                     maxOccurs="1"/>
+        <xsd:element name="attributes" type="xsd:string" minOccurs="0"
+                     maxOccurs="1"/>
+        <xsd:element name="realm" type="xsd:string" minOccurs="0"
+                     maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Response">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="userId" type="xsd:string" minOccurs="0"
+                     maxOccurs="1"/>
+        <xsd:element name="district" type="xsd:string" minOccurs="0"
+                     maxOccurs="1"/>
+        <xsd:element name="role" type="xsd:string" minOccurs="0"
+                     maxOccurs="1"/>
+        <xsd:element name="title" type="xsd:string" minOccurs="0"
+                     maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="Attribute">
+    <xsd:sequence>
+      <xsd:element name="AttributeName" type="xsd:string" minOccurs="0"
+                     maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

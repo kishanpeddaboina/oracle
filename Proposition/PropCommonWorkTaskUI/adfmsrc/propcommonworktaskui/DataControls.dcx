@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.16.48" id="DataControls"
+                    Package="propcommonworktaskui">
+  <AdapterDataControl id="PropCommonWorkTaskUI_PropClaimPerformWorkTask"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="PropCommonWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropCommonWorkTaskUI_PropClaimPerformWorkTask"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/D:/namit/projects/LACA2/02Phase/Construction/sureshnew/Proposition/Proposition/AMPProposition/SOA/Schemas/PropClaimPerformWorkTaskWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../../../../sureshnew/Proposition/Proposition/AMPProposition/SOA/HumanTasks/PropClaimPerformWorkTask.task"
+                      InitiationTask="false" DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

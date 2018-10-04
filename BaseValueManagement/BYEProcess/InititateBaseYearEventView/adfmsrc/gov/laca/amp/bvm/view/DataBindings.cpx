@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="gov.laca.amp.bvm.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/gov/laca/amp/bvm/view/amp-initiate-base-year-event-btf/InitiateBaseYearEvent.jsff"
+          usageId="gov_laca_amp_bvm_view_InitiateBaseYearEventPageDef"/>
+    <page path="/gov/laca/amp/bvm/view/amp-trended-base-value-calculator-btf/amp-trended-base-value-calculator.jsff"
+          usageId="gov_laca_amp_bvm_view_amp_trended_base_value_calculatorPageDef"/>
+    <page path="/gov/laca/amp/bvm/view/amp-tbv-base-year-event-btf/BaseYearEventsTBV.jsff"
+          usageId="gov_laca_amp_bvm_view_BaseYearEventsTBVPageDef"/>
+    <page path="/WEB-INF/gov/laca/amp/bvm/view/amp-initiate-base-year-event-btf/amp-initiate-base-year-event-btf.xml#amp-initiate-base-year-event-btf@loadData"
+          usageId="gov_laca_amp_bvm_view_amp_initiate_base_year_event_btf_amp_initiate_base_year_event_btf_loadDataPageDef"/>
+    <page path="/WEB-INF/gov/laca/amp/bvm/view/amp-tbv-base-year-event-btf/amp-tbv-base-year-event-btf.xml#amp-tbv-base-year-event-btf@loadData"
+          usageId="gov_laca_amp_bvm_view_amp_tbv_base_year_event_btf_amp_tbv_base_year_event_btf_loadDataPageDef"/>
+    <page path="/WEB-INF/gov/laca/amp/bvm/view/amp-trended-base-value-calculator-btf/amp-trended-base-value-calculator-btf.xml#amp-trended-base-value-calculator-btf@loadDataForTBV"
+          usageId="gov_laca_amp_bvm_view_amp_trended_base_value_calculator_btf_amp_trended_base_value_calculator_btf_loadDataForTBVPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="gov_laca_amp_bvm_view_InitiateBaseYearEventPageDef"
+          path="gov.laca.amp.bvm.view.amp_initiate_base_year_event_btf.InitiateBaseYearEventPageDef"/>
+    <page id="gov_laca_amp_bvm_view_amp_trended_base_value_calculatorPageDef"
+          path="gov.laca.amp.bvm.view.pageDefs.amp_trended_base_value_calculatorPageDef"/>
+    <page id="gov_laca_amp_bvm_view_BaseYearEventsTBVPageDef"
+          path="gov.laca.amp.bvm.view.amp_tbv_base_year_event_btf.BaseYearEventsTBVPageDef"/>
+    <page id="gov_laca_amp_bvm_view_amp_initiate_base_year_event_btf_amp_initiate_base_year_event_btf_loadDataPageDef"
+          path="gov.laca.amp.bvm.view.amp_initiate_base_year_event_btf.amp_initiate_base_year_event_btf_amp_initiate_base_year_event_btf_loadDataPageDef"/>
+    <page id="gov_laca_amp_bvm_view_amp_tbv_base_year_event_btf_amp_tbv_base_year_event_btf_loadDataPageDef"
+          path="gov.laca.amp.bvm.view.amp_tbv_base_year_event_btf.amp_tbv_base_year_event_btf_amp_tbv_base_year_event_btf_loadDataPageDef"/>
+    <page id="gov_laca_amp_bvm_view_amp_trended_base_value_calculator_btf_amp_trended_base_value_calculator_btf_loadDataForTBVPageDef"
+          path="gov.laca.amp.bvm.view.amp_trended_base_value_calculator_btf.amp_trended_base_value_calculator_btf_amp_trended_base_value_calculator_btf_loadDataForTBVPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="AinDO" path="gov.laca.amp.bvm.model.AinDO"/>
+    <dc id="InitiateBaseYearEvent"
+        path="gov.laca.amp.bvm.model.InitiateBaseYearEvent"/>
+  </dataControlUsages>
+</Application>

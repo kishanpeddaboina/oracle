@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-edit-change-request-btf">
+    <template-reference>
+      <document id="__1">/WEB-INF/tftemplates/ampportal-task-flow-template.xml</document>
+      <id id="__2">ampportal-task-flow-template</id>
+    </template-reference>
+    <default-activity id="__3">retrievePDCR</default-activity>
+    <data-control-scope id="__50">
+      <isolated/>
+    </data-control-scope>
+    <managed-bean id="__46">
+      <managed-bean-name id="__45">PDCRBean</managed-bean-name>
+      <managed-bean-class id="__47">gov.laca.amp.pdcr.common.view.bean.PDCRBean</managed-bean-class>
+      <managed-bean-scope id="__44">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <initializer id="__56">#{pageFlowScope.PDCRBean.getUserInformation}</initializer>
+    <method-call id="retrievePDCR">
+      <method>#{bindings.RetrieveRealPropertyInfo.execute}</method>
+      <outcome id="__52">
+        <fixed-outcome>next</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="PDCRFailure">
+      <page>/gov/laca/amp/pdcr/initiate/view/PDCRFailure.jsff</page>
+    </view>
+    <view id="PDCRConfirmation">
+      <page>/gov/laca/amp/pdcr/initiate/view/PDCRConfirmation.jsff</page>
+    </view>
+    <view id="EditPDCR">
+      <page>/gov/laca/amp/pdcr/initiate/view/amp-edit-change-request-btf/EditPDCR.jsff</page>
+    </view>
+    <control-flow-rule id="__25">
+      <from-activity-id id="__26">retrievePDCR</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome id="__29">next</from-outcome>
+        <to-activity-id id="__28">EditPDCR</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__5">EditPDCR</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">notSubmitted</from-outcome>
+        <to-activity-id id="__8">PDCRFailure</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome id="__10">submitted</from-outcome>
+        <to-activity-id id="__11">PDCRConfirmation</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

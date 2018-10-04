@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="Header" Package="gov.laca.amp.bvm.model.data"
+          BeanClass="gov.laca.amp.bvm.model.data.Header" isJavaBased="true">
+  <Attribute Name="hbaseYear" Type="boolean"/>
+  <Attribute Name="hyear" Type="java.lang.String"/>
+  <Attribute Name="trendFactor" Type="java.lang.String"/>
+  <MethodAccessor IsCollection="false" Type="int" id="compareTo"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="header1" Type="gov.laca.amp.bvm.model.data.Header"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.bvm.model.data.Header"
+                     BeanClass="gov.laca.amp.bvm.model.data.Header" id="Header">
+    <ParameterInfo id="hyear" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="trendFactor" Type="java.lang.String"
+                   isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.bvm.model.data.Header"
+                     BeanClass="gov.laca.amp.bvm.model.data.Header" id="Header">
+    <ParameterInfo id="hyear" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="trendFactor" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="hbaseYear" Type="boolean" isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.bvm.model.data.Header"
+                     BeanClass="gov.laca.amp.bvm.model.data.Header"
+                     id="Header"/>
+</JavaBean>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://assessor.lacounty.org/amp/type/common/ResponseHeader/v1.0">
+  <xsd:complexType name="responseHeader">
+    <xsd:annotation>
+      <xsd:documentation>The Response Header is a part of  SOA
+                               response that facilitates various DEVOPS features of AMP SOA Infrastructure.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="operationStatus" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>A string value set by the SOA service to
+                                       indicate the status of the service
+                                       execution. Possible values are ‘Success’
+                                       and ‘Failure’.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="instanceId" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>A string value set to composite instance
+                                       ID by the SOA web service to help in
+                                       traceability and debugging.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="requestId" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>A string value returned to the
+                                       consumer.It is used to mimic state-full
+                                       transaction.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

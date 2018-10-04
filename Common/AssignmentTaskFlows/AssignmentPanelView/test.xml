@@ -1,0 +1,33 @@
+<grant>
+	<grantee>
+		<principals>
+			<principal>
+				<class>oracle.security.jps.internal.core.principals.JpsAuthenticatedRoleImpl</class>
+				<name>authenticated-role</name>
+			</principal>
+		</principals>
+	</grantee>
+	<permissions>
+		<permission>
+			<class>oracle.adf.controller.security.TaskFlowPermission</class>
+			<name>/WEB-INF/gov/laca/amp/pdcr/manage/view/btf/amp-manage-pdcr-btf.xml#amp-manage-pdcr-btf</name>
+			<actions>view</actions>
+		</permission>
+		<permission>
+			<class>oracle.adf.controller.security.TaskFlowPermission</class>
+			<name>/WEB-INF/gov/laca/amp/pdcr/manage/view/btf/ManagePDCR_BPM_BTF.xml#ManagePDCR_BPM_BTF</name>
+			<actions>view</actions>
+		</permission>
+
+		<permission>
+		   <class>oracle.adf.controller.security.TaskFlowPermission</class>
+		   <name>/WEB-INF/gov/laca/amp/pdcr/review/view/btf/amp-review-pdcr-btf.xml#amp-review-pdcr-btf</name>
+		   <actions>view</actions>
+		</permission>
+		<permission>
+		   <class>oracle.adf.controller.security.TaskFlowPermission</class>
+		   <name>/WEB-INF/gov/laca/amp/pdcr/review/view/btf/ReviewPDCR_BPM_BTF.xml#ReviewPDCR_BPM_BTF</name>
+		   <actions>view</actions>
+		</permission>
+	</permissions>
+</grant>

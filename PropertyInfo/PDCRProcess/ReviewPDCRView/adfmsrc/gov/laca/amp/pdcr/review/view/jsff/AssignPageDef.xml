@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="reviewpdcrview_AssignPageDef">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result"
+                    DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                    RangeSize="25"
+                    BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.task"
+                      id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.ReviewPropertyDataChangeRequestPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="PDCRHumanTaskBO"
+                      RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.PDCRHumanTaskBOType"
+                      id="PDCRHumanTaskBOIterator"/>
+    <accessorIterator MasterBinding="PDCRHumanTaskBOIterator"
+                      Binds="assignmentBox" RangeSize="25"
+                      DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                      BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.AssignToUserOrGroupBOType"
+                      id="assignmentBoxIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false"
+                  DataControl="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                  InstanceName="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+                  ReturnName="data.ReviewPDCRView_ReviewPropertyDataChangeRequest.methodResults.getTaskDetails_ReviewPDCRView_ReviewPropertyDataChangeRequest_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="assignmentBoxIterator"
+                     id="assignmentBox_GroupId">
+      <AttrNames>
+        <Item Value="assignmentBox_GroupId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="assignmentBoxIterator"
+                     id="assignmentBox_UserId">
+      <AttrNames>
+        <Item Value="assignmentBox_UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="role">
+      <AttrNames>
+        <Item Value="role"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

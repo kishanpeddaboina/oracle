@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<hwTaskFlows xmlns="http://xmlns.oracle.com/bpel/workflow/hwTaskFlowProperties">
+   <ApplicationName>worklist</ApplicationName>
+   <LookupType>LOCAL</LookupType>
+   <TaskFlowDeploy>false</TaskFlowDeploy>
+   <TaskFlowServer>
+      <hostName>campwtt101.assessor.lacounty.gov</hostName>
+      <httpPort>7777</httpPort>
+      <httpsPort/>
+   </TaskFlowServer>
+   <hwTaskFlow>
+      <WorkflowName>ManageBaseYearEventTask</WorkflowName>
+      <TaskDefinitionNamespace>http://xmlns.oracle.com/AMPBPM/ManageBaseYearEvent/ManageBaseYearEventTask</TaskDefinitionNamespace>
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>
+      <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>
+   </hwTaskFlow>
+   <hwTaskFlow>
+      <WorkflowName>SubmitBaseYearEventTask</WorkflowName>
+      <TaskDefinitionNamespace>http://xmlns.oracle.com/AMPBPM/ManageBaseYearEvent/SubmitBaseYearEventTask</TaskDefinitionNamespace>
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>
+      <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>
+   </hwTaskFlow>
+   <hwTaskFlow>
+      <WorkflowName>ReviewBaseYearEventTask</WorkflowName>
+      <TaskDefinitionNamespace>http://xmlns.oracle.com/AMPBPM/ManageBaseYearEvent/ReviewBaseYearEventTask</TaskDefinitionNamespace>
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>
+      <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>
+   </hwTaskFlow>
+</hwTaskFlows>

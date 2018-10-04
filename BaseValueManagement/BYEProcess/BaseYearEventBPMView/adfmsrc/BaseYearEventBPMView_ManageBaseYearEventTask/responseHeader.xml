@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="responseHeader"
+          Package="BaseYearEventBPMView_ManageBaseYearEventTask"
+          BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.responseHeader"
+          isJavaBased="false">
+  <Attribute Name="operationStatus" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+        <Property Name="nextSibling" Value="instanceId"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Operation Status"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="operationStatus"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="instanceId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+        <Property Name="nextSibling" Value="requestId"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Instance Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="instanceId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="requestId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Request Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="requestId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+</JavaBean>

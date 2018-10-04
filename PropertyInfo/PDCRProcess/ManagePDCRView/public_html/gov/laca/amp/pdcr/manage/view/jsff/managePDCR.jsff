@@ -1,0 +1,1995 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="pdcrviewBundle"
+         value="#{adfBundle['gov.laca.amp.pdcr.common.view.PDCRCommonViewBundle']}"/>
+  <af:group id="manage_pdcr_group">
+    <af:panelGroupLayout id="page" layout="vertical">
+      <af:panelGridLayout id="pgl19rp"
+                          styleClass="AFStretchWidth divider-line-PDCR">
+        <af:gridRow marginTop="5px" height="auto" marginBottom="0px"
+                    id="gr33rp">
+          <af:gridCell marginStart="0px" width="35%" id="gc73rp" valign="top">
+            <af:panelGroupLayout id="pgl23rp" layout="vertical">
+              <af:panelGroupLayout layout="horizontal" id="pgl24rp">
+                <af:outputText id="ot116a" styleClass="amp-ain-text-bold"
+                               value="#{pdcrviewBundle.AIN_EDIT_PDCR_LABEL}"
+                               shortDesc="#{pdcrviewBundle.AIN_TOOLTIP}"/>
+                <af:spacer width="10" height="10" id="s133rp"/>
+                <af:outputText value="#{bindings.ainDisplay.inputValue}"
+                               styleClass="amp-ain-text-bold" id="ot116rp"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow id="gr128" marginTop="5px" height="auto" marginBottom="0px">
+          <af:gridCell id="gc5" marginStart="0px" width="35%" valign="top">
+            <af:spacer width="10" height="10" id="s1333"/>
+          </af:gridCell>
+        </af:gridRow>
+      </af:panelGridLayout>
+      <af:panelGroupLayout id="pgl1rp" layout="horizontal"
+                           styleClass="col-left amp-summary">
+        <af:panelGridLayout id="pgl26rp" inlineStyle="width:100.0px;">
+          <af:gridRow id="gr48rp">
+            <af:gridCell id="gc77rp" marginEnd="15px">
+              <af:image id="i3" inlineStyle="width:60.0px;"
+                        shortDesc="#{pdcrviewBundle.SITUS_ADDRESS_TOOLTIP}"
+                        source="#{pageFlowScope.PDCRBean.situsAddressIcon}"/>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelGridLayout id="pgridl_1"
+                            inlineStyle="width:291px; height:81.0px;">
+          <af:gridRow marginTop="0px" height="auto" marginBottom="0px"
+                      id="pt_gr1">
+            <af:gridCell marginStart="1px" width="20%" id="pt_gc1">
+              <af:outputText id="ot2rp" inlineStyle="font-weight:bold;"
+                             value="#{pdcrviewBundle.EDIT_SITUS_ADDRESS_LABEL}"
+                             shortDesc="#{pdcrviewBundle.SITUS_ADDRESS_TOOLTIP}"/>
+            </af:gridCell>
+          </af:gridRow>
+          <af:gridRow id="gr1rp">
+            <af:gridCell id="gc1rp">
+              <af:outputText value="#{bindings.propertyAddress.inputValue}"
+                             id="ot330rp" escape="false"
+                             inlineStyle="white-space: pre-wrap;"/>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:spacer width="10" height="10" id="s134ut"/>
+        <af:panelGridLayout id="pgl254ut" inlineStyle="width:100.0px;"
+                            rendered="#{bindings.useTypeIcon.inputValue ne null}">
+          <af:gridRow id="gr130ut">
+            <af:gridCell id="gc6ut" marginEnd="15px">
+              <af:image source="#{bindings.useTypeIcon.inputValue}" id="i2"
+                        inlineStyle="width:60.0px;"
+                        shortDesc="#{pdcrviewBundle.PROPERTY_USE_TYPE_TOOLTIP}"/>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelGridLayout id="pgl11rp"
+                            inlineStyle="width:219px; height:89.0px;">
+          <af:gridRow marginTop="0px" height="auto" id="gr5rp">
+            <af:gridCell marginStart="0px" width="100%" marginEnd="0px"
+                         id="gc6rp">
+              <af:outputText id="ot7rp" inlineStyle="font-weight:bold;"
+                             value="#{pdcrviewBundle.EDIT_PROPERTY_USE_TYPE_LABEL}"
+                             shortDesc="#{pdcrviewBundle.PROPERTY_USE_TYPE_TOOLTIP}"/>
+            </af:gridCell>
+          </af:gridRow>
+          <af:gridRow marginTop="0px" height="auto" id="gr4rp">
+            <af:gridCell marginStart="0px" width="100%" marginEnd="0px"
+                         id="gc4rp">
+              <af:outputText value="#{bindings.useType.inputValue}" id="ot8rp"/>
+            </af:gridCell>
+          </af:gridRow>
+          <af:gridRow marginTop="0px" height="auto" id="gr3rp">
+            <af:gridCell marginStart="0px" width="100%" marginEnd="0px"
+                         id="gc5rp">
+              <af:outputText id="aot1rp" inlineStyle="font-weight:bold;"
+                             value="#{pdcrviewBundle.EDIT_PROPERTY_USE_CODE_LABEL}"
+                             shortDesc="#{pdcrviewBundle.PROPERTY_USE_CODE_TOOLTIP}"/>
+            </af:gridCell>
+          </af:gridRow>
+          <af:gridRow marginTop="0px" height="auto" marginBottom="0px"
+                      id="gr6rp">
+            <af:gridCell marginStart="0px" width="100%" marginEnd="0px"
+                         id="gc3rp">
+              <af:outputText value="#{bindings.useCode.inputValue}" id="ot9rp"/>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelGridLayout id="pgl5" inlineStyle="width:219px; height:89.0px;">
+          <af:gridRow marginTop="0px" height="auto" id="gr1">
+            <af:gridCell marginStart="0px" width="100%" marginEnd="0px"
+                         id="gc1">
+              <af:outputText id="ot10" inlineStyle="font-weight:bold;"
+                             value="#{pdcrviewBundle.EDIT_REGION_LABEL}"
+                             shortDesc="#{pdcrviewBundle.REGION_TOOLTIP}"/>
+            </af:gridCell>
+          </af:gridRow>
+          <af:gridRow marginTop="0px" height="auto" id="gr2">
+            <af:gridCell marginStart="0px" width="100%" marginEnd="0px"
+                         id="gc2">
+              <af:outputText value="#{bindings.region.inputValue}" id="ot19rp"/>
+            </af:gridCell>
+          </af:gridRow>
+          <af:gridRow marginTop="0px" height="auto" id="gr19">
+            <af:gridCell marginStart="0px" width="100%" marginEnd="0px"
+                         id="gc3">
+              <af:outputText id="ot11rp" inlineStyle="font-weight:bold;"
+                             value="#{pdcrviewBundle.EDIT_CLUSTER_LABEL}"
+                             shortDesc="#{pdcrviewBundle.CLUSTER_TOOLTIP}"/>
+            </af:gridCell>
+          </af:gridRow>
+          <af:gridRow marginTop="0px" height="auto" marginBottom="0px"
+                      id="gr244">
+            <af:gridCell marginStart="0px" width="100%" marginEnd="0px"
+                         id="gc4">
+              <af:outputText value="#{bindings.cluster.inputValue}"
+                             id="ot17rp"/>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+      </af:panelGroupLayout>
+      <af:spacer width="10" height="10" id="s1"/>
+      <af:panelGroupLayout id="pgl25">
+        <af:selectOneRadio id="sorActiony" autoSubmit="true" simple="true"
+                           label="#{pdcrviewBundle.EDIT_ACTION_TYPE_LABEL}"
+                           value="#{bindings.actionType1.inputValue}"
+                           layout="horizontal" disabled="true"
+                           shortDesc="#{pdcrviewBundle.ACTION_TYPE_TOOLTIP}"
+                           styleClass="selectPDCRRadio">
+          <af:selectItem label="#{pdcrviewBundle.EDIT_ACTION_UPDATE_LABEL}"
+                         value="#{pdcrviewBundle.EDIT_ACTION_UPDATE_VALUE}"
+                         id="si3"/>
+          <af:selectItem label="#{pdcrviewBundle.EDIT_ACTION_UPDATE_MANUAL_LABEL}"
+                         value="#{pdcrviewBundle.EDIT_ACTION_UPDATE_MANUAL_VALUE}"
+                         id="si4"/>
+          <af:selectItem label="#{pdcrviewBundle.EDIT_ACTION_NO_CHANGE_LABEL}"
+                         value="#{pdcrviewBundle.EDIT_ACTION_NO_CHANGE_LABEL}"
+                         id="si17"/>
+          <af:selectItem label="#{pdcrviewBundle.EDIT_ACTION_NO_CHANGE_MANUAL_LABEL}"
+                         value="#{pdcrviewBundle.EDIT_ACTION_NO_CHANGE_MANUAL_VALUE}"
+                         id="si1"/>
+        </af:selectOneRadio>
+      </af:panelGroupLayout>
+      <af:spacer width="10" height="10" id="s47"/>
+      <!-- Requester Info Start -->
+      <af:panelGroupLayout id="requestorInfo"
+                           rendered="#{(! empty bindings.comments.inputValue) or (! empty bindings.requestorName.inputValue)}">
+        <af:showDetailHeader text="#{pdcrviewBundle.PDCR_REQUESTOR_INFO_TITLE}"
+                             id="sdh1">
+          <af:panelGridLayout id="pgl1"
+                              rendered="#{! empty bindings.requestorName.inputValue}"
+                              inlineStyle="border-style:solid; border-width:1.0px; border-color:#84bbe6;">
+            <af:gridRow marginTop="5px" height="18px" id="gr6"
+                        marginBottom="5px">
+              <!-- Requester Name -->
+              <af:gridCell marginStart="5px" width="25%" id="gc12">
+                <af:outputText value="#{pdcrviewBundle.REQUESTOR_NAME_CREATE_PDCR_COLON_LABEL}"
+                               id="ot8"
+                               inlineStyle="font-size:12px; color:Black;"
+                               shortDesc="#{pdcrviewBundle.REQUESTOR_NAME_CREATE_PDCR_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%" id="gc18">
+                <af:outputText value="#{bindings.requestorName.inputValue}"
+                               inlineStyle="font-size:12px; color:#003D5B;"
+                               id="ot2"/>
+              </af:gridCell>
+              <!-- Requester Type -->
+              <af:gridCell marginStart="5px" width="25%" id="gc9">
+                <af:outputText value="#{pdcrviewBundle.REQUESTOR_TYPE_CREATE_PDCR_COLON_LABEL}"
+                               id="ot9"
+                               inlineStyle="font-size:12px; color:Black;"
+                               shortDesc="#{pdcrviewBundle.REQUESTOR_TYPE_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%" id="gc17">
+                <af:outputText value="#{bindings.requestorType.inputValue}"
+                               inlineStyle="font-size:12px; color:#003D5B;"
+                               id="ot3"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:panelGridLayout id="pg12"
+                              rendered="#{! empty bindings.requestorName.inputValue}"
+                              inlineStyle="background-color:#ebf5fc; border-style:solid; border-width:1.0px; border-color:#84bbe6;">
+            <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                        id="gr7">
+              <!-- Requester Phone Number -->
+              <af:gridCell marginStart="5px" width="25%" id="gc16">
+                <af:outputText value="#{pdcrviewBundle.PHONE_INTERNAL_USER_COLON_LABEL}"
+                               id="ot11"
+                               inlineStyle="font-size:12px; color:Black;"
+                               shortDesc="#{pdcrviewBundle.OWNERS_PHONE_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%" id="gc20">
+                <af:outputText value="#{bindings.Phone.inputValue}"
+                               inlineStyle="font-size:12px; color:#003D5B;"
+                               id="ot4"/>
+              </af:gridCell>
+              <!-- Requester Email -->
+              <af:gridCell marginStart="5px" width="25%" id="gc21">
+                <af:outputText value="#{pdcrviewBundle.EMAIL_COLON_LABEL}"
+                               id="ot12"
+                               inlineStyle="font-size:12px; color:Black;"
+                               shortDesc="#{pdcrviewBundle.OWNERS_EMAIL_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%" id="gc15">
+                <af:outputText value="#{bindings.email.inputValue}"
+                               inlineStyle="font-size:12px; color:#003D5B;"
+                               id="ot5"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:panelGridLayout id="pgl3"
+                              rendered="#{! empty bindings.requestorName.inputValue}"
+                              inlineStyle="border-style:solid; border-width:1.0px; border-color:#84bbe6;">
+            <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                        id="gr5">
+              <!-- Requester Prefered Method of Contact -->
+              <af:gridCell marginStart="5px" width="25%" id="gc13">
+                <af:outputText value="#{pdcrviewBundle.PREFERED_METHOD_OF_CONTACT_COLON_LABEL}"
+                               id="ot13"
+                               inlineStyle="font-size:12px; color:Black;"
+                               shortDesc="#{pdcrviewBundle.PREFERED_METHOD_OF_CONTACT_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%" id="gc14">
+                <af:outputText value="#{bindings.preferredContact.inputValue}"
+                               inlineStyle="font-size:12px; color:#003D5B;"
+                               id="ot6"/>
+              </af:gridCell>
+              <!-- Reason for Request -->
+              <af:gridCell marginStart="5px" width="25%" id="gc8">
+                <af:outputText value="#{pdcrviewBundle.REASON_FOR_REQUEST_COLON_LABEL}"
+                               id="ot14"
+                               inlineStyle="font-size:12px; color:Black;"
+                               shortDesc="#{pdcrviewBundle.REASON_FOR_REQUEST_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="25%" id="gc19">
+                <af:outputText value="#{bindings.reasonForRequest.inputValue}"
+                               inlineStyle="font-size:12px; color:#003D5B;"
+                               id="ot7"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:panelGridLayout id="pgl4"
+                              inlineStyle="overflow:auto;background-color:#ebf5fc; border-style:solid; border-width:1.0px; border-color:#84bbe6;"
+                              rendered="#{(! empty bindings.comments.inputValue) or (! empty bindings.requestorName.inputValue)}">
+            <af:gridRow marginTop="5px" height="auto" id="gr4"
+                        marginBottom="20px">
+              <!-- Requester Comments -->
+              <af:gridCell marginStart="5px" width="25%" id="gc10">
+                <af:outputText id="ot15"
+                               value="#{pdcrviewBundle.REQUESTOR_COMMENTS_COLON_LABEL}"
+                               inlineStyle="font-size:12px; color:Black;"
+                               shortDesc="#{pdcrviewBundle.REQUESTOR_COMMENTS_LABEL}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="75%" id="gc11"
+                           marginEnd="10px">
+                <af:panelGroupLayout id="pgl6" layout="vertical">
+                  <af:outputText value="#{bindings.comments.inputValue}"
+                                 inlineStyle="font-size:12px; color:#003D5B;"
+                                 id="ot16"/>
+                </af:panelGroupLayout>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:separator id="s79" inlineStyle="border-color:White;"/>
+        </af:showDetailHeader>
+      </af:panelGroupLayout>
+      <!-- Requester Info End -->
+      <af:spacer width="10" height="15" id="s155"
+                 rendered="#{(! empty bindings.comments.inputValue) or (! empty bindings.requestorName.inputValue)}"/>
+      <af:panelGroupLayout id="subParts">
+        <af:showDetailHeader id="sd1"
+                             text="#{pdcrviewBundle.EDIT_SUBPARTS_TITLE}"
+                             disclosed="true">
+          <af:panelGridLayout id="subpart_header"
+                              inlineStyle="background-color:#309fdb; border-style:solid; border-width:thin; border-color:#84bbe6;">
+            <af:gridRow marginTop="0px" height="48px" marginBottom="0px"
+                        id="gr3">
+              <af:gridCell marginStart="5px" width="12%" id="gc6"
+                           halign="center" valign="middle">
+                <af:outputText id="ot495"
+                               inlineStyle="font-weight:bold; color:White;"
+                               value="#{pdcrviewBundle.EDIT_SUB_PART_LABEL}"
+                               shortDesc="#{pdcrviewBundle.SUB_PART_ADD_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="11%" id="gc330"
+                           halign="center" valign="middle">
+                <af:outputText id="ot245"
+                               value="#{pdcrviewBundle.EDIT_DESIGN_TYPE_LABEL}"
+                               inlineStyle="font-weight:bold; color:White;"
+                               shortDesc="#{pdcrviewBundle.DESIGN_TYPE_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="11%" id="gc324"
+                           halign="center" valign="middle">
+                <af:outputText id="ot246"
+                               value="#{pdcrviewBundle.EDIT_QUALITY_CLASS_LABEL}"
+                               inlineStyle="font-weight:bold; color:White;"
+                               shortDesc="#{pdcrviewBundle.QUALITY_CLASS_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="11%" id="gc321"
+                           halign="center" valign="middle">
+                <af:outputText id="ot247"
+                               value="#{pdcrviewBundle.EDIT_YEAR_BUILT_LABEL}"
+                               inlineStyle="font-weight:bold; color:White;"
+                               shortDesc="#{pdcrviewBundle.YEAR_BUILT_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="11%" id="gc326"
+                           halign="center" valign="middle">
+                <af:outputText id="ot248"
+                               value="#{pdcrviewBundle.EDIT_EFFECTIVE_YEAR_LABEL}"
+                               inlineStyle="font-weight:bold; color:White;"
+                               shortDesc="#{pdcrviewBundle.EFFECTIVE_YEAR_BUILT_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="11%" id="gc329"
+                           halign="center" valign="middle">
+                <af:outputText id="ot249"
+                               value="#{pdcrviewBundle.EDIT_NUMBER_OF_UNITS_LABEL}"
+                               inlineStyle="font-weight:bold; color:White;"
+                               shortDesc="#{pdcrviewBundle.NUMBER_OF_UNITS_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="11%" id="gc327"
+                           halign="center" valign="middle">
+                <af:outputText id="ot250"
+                               value="#{pdcrviewBundle.EDIT_NUMBER_OF_BEDROOMS_LABEL}"
+                               inlineStyle="font-weight:bold; color:White;"
+                               shortDesc="#{pdcrviewBundle.NUMBER_OF_BEDROOMS_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="11%" id="gc328"
+                           halign="center" valign="middle">
+                <af:outputText id="ot251"
+                               value="#{pdcrviewBundle.EDIT_NUMBER_OF_BATHROOMS_LABEL}"
+                               inlineStyle="font-weight:bold; color:White;"
+                               shortDesc="#{pdcrviewBundle.NUMBER_OF_BATHROOMS_TOOLTIP}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="11%" id="gc325"
+                           halign="center" valign="middle">
+                <af:outputText id="ot252"
+                               value="#{pdcrviewBundle.EDIT_MAIN_SQUARE_FEET_LABEL}"
+                               inlineStyle="font-weight:bold; color:White;"
+                               shortDesc="#{pdcrviewBundle.IMPROVEMENT_SQ_FT_TOOLTIP}"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:separator id="s36" inlineStyle="border-color:White;"/>
+          <af:panelGroupLayout id="subpartData"
+                               rendered="#{bindings.originalSubPartCount.inputValue gt 0 or bindings.subPartCount.inputValue gt 0}">
+            <af:iterator value="#{bindings.subPartListDO.collectionModel}"
+                         var="subpart" id="itr01">
+              <af:panelGridLayout id="subpart_actions"
+                                  inlineStyle="border-style:solid; border-width:thin; border-color:#84bbe6;">
+                <af:gridRow marginTop="5px" height="18px" id="gr97"
+                            marginBottom="5px">
+                  <af:gridCell marginStart="5px" width="100%" valign="middle"
+                               id="gc350">
+                    <af:spacer width="10" height="10" id="s19"/>
+                    <af:outputText value="#{subpart.subPartNumberDisplay}"
+                                   id="ot272" inlineStyle="font-weight:bold;"/>
+                    <af:spacer width="10" height="10" id="s16"/>
+                    <af:commandLink text="#{pdcrviewBundle.EDIT_REVIEW_SUBPART_BUTTON_LABEL}"
+                                    rendered="#{subpart.dbUniqueId ne null}"
+                                    id="cl1" inlineStyle="font-weight:bold;"
+                                    partialSubmit="true" immediate="true"
+                                    actionListener="#{pageFlowScope.PDCRBean.ReviewSubPart}">
+                      <af:setPropertyListener from="#{subpart.dbUniqueId}"
+                                              to="#{pageFlowScope.PDCRBean.subPartID}"
+                                              type="action"/>
+                    </af:commandLink>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+              <af:panelGridLayout id="subpart_original_information"
+                                  rendered="#{subpart.transactionTypeUserEntered ne 'C' and subpart.transactionTypeFinal ne 'C'}"
+                                  inlineStyle="background-color:#ebf5fc; border-style:solid; border-width:thin; border-color:#84bbe6;">
+                <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                            id="gr102">
+                  <af:gridCell marginStart="5px" width="12%" id="gc332"
+                               halign="center" valign="middle">
+                    <af:outputText id="ot254"
+                                   value="#{subpart.dbUniqueId ne null ? pdcrviewBundle.EDIT_ORIGINAL_LABEL : pdcrviewBundle.EDIT_EMPTY_LABEL}"/>
+                    <af:spacer width="10" height="10" id="s21"/>
+                    <af:outputText value="#{subpart.subPartNumber}" id="ot253"
+                                   inlineStyle="font-weight:bold;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc333"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.designTypeKey}" id="ot255"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc334"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.qualityClass}" id="ot256"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc335"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.yearBuilt}" id="ot257"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc336"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.effectiveYearBuilt}"
+                                   id="ot258"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc337"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.numberOfUnits}" id="ot259"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc338"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.bedroomCount}" id="ot260"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc339"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.bathroomCount}" id="ot261"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc340"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.improvementSizeSqft}"
+                                   id="ot262">
+                      <af:convertNumber integerOnly="true"/>
+                    </af:outputText>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+              <af:panelGridLayout id="subpart_user_entered_information"
+                                  rendered="#{subpart.transactionTypeUserEntered eq 'C' or subpart.transactionTypeUserEntered eq 'U' or subpart.transactionTypeUserEntered eq 'D'}"
+                                  inlineStyle="background-color:#dcf1ff; border-style:solid; border-width:thin; border-color:#84bbe6;">
+                <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                            id="gr103">
+                  <af:gridCell marginStart="5px" width="12%" id="gc341"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{pdcrviewBundle.EDIT_USER_ENTERED_LABEL}"
+                                   id="ot263" inlineStyle="font-weight:bold;"/>
+                    <af:spacer width="10" height="10" id="s8"/>
+                    <af:outputText value="#{subpart.subPartNumberUserEntered}"
+                                   id="ot332"
+                                   rendered="#{subpart.transactionTypeUserEntered eq 'C' or subpart.transactionTypeUserEntered eq 'U'}"
+                                   inlineStyle="font-weight:bold;"/>
+                    <af:outputText value="#{subpart.subPartNumberUserEntered}"
+                                   id="ot273"
+                                   rendered="#{subpart.transactionTypeUserEntered eq 'D'}"
+                                   inlineStyle="font-weight:bold; text-decoration:line-through;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc342"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.designTypeKeyUserEntered}"
+                                   id="ot264" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeUserEntered ne 'D'}"/>
+                    <af:outputText id="ot274"
+                                   value="#{pdcrviewBundle.EDIT_DELETED_SUBPART_LABEL}"
+                                   rendered="#{subpart.transactionTypeUserEntered eq 'D'}"
+                                   inlineStyle="font-weight:bold; color:Red;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc343"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.qualityClassUserEntered}"
+                                   id="ot265" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeUserEntered ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc344"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.yearBuiltUserEntered}"
+                                   id="ot266" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeUserEntered ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc345"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.effectiveYearBuiltUserEntered}"
+                                   id="ot267" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeUserEntered ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc346"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.numberOfUnitsUserEntered}"
+                                   id="ot268" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeUserEntered ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc347"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.bedroomCountUserEntered}"
+                                   id="ot269" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeUserEntered ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc348"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.bathroomCountUserEntered}"
+                                   id="ot270" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeUserEntered ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc349"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.improvementSizeSqftUserEntered}"
+                                   id="ot271" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeUserEntered ne 'D'}">
+                      <af:convertNumber integerOnly="true"/>
+                    </af:outputText>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+              <af:panelGridLayout id="subpart_final_information"
+                                  rendered="#{subpart.transactionTypeFinal eq 'C' or subpart.transactionTypeFinal eq 'U' or subpart.transactionTypeFinal eq 'D'}"
+                                  inlineStyle="background-color:#84bbe6; border-style:solid; border-width:thin; border-color:#84bbe6;">
+                <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                            id="gr111">
+                  <af:gridCell marginStart="5px" width="12%" id="gc395"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{pdcrviewBundle.EDIT_FINAL_LABEL}"
+                                   id="ot75" inlineStyle="font-weight:bold;"/>
+                    <af:spacer width="10" height="10" id="s42"/>
+                    <af:outputText value="#{subpart.subPartNumberFinal}"
+                                   id="ot304"
+                                   rendered="#{subpart.transactionTypeFinal eq 'C' or subpart.transactionTypeFinal eq 'U'}"
+                                   inlineStyle="font-weight:bold;"/>
+                    <af:outputText value="#{subpart.subPartNumberFinal}"
+                                   id="ot305"
+                                   rendered="#{subpart.transactionTypeFinal eq 'D'}"
+                                   inlineStyle="font-weight:bold; text-decoration:line-through;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc396"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.designTypeKeyFinal}"
+                                   id="ot306" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeFinal ne 'D'}"/>
+                    <af:outputText value="#{pdcrviewBundle.EDIT_DELETED_SUBPART_LABEL}"
+                                   id="ot307"
+                                   rendered="#{subpart.transactionTypeFinal eq 'D'}"
+                                   inlineStyle="font-weight:bold; color:Red;"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc397"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.qualityClassFinal}"
+                                   id="ot308" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeFinal ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc398"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.yearBuiltFinal}" id="ot309"
+                                   inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeFinal ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc399"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.effectiveYearBuiltFinal}"
+                                   id="ot310" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeFinal ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc400"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.numberOfUnitsFinal}"
+                                   id="ot311" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeFinal ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc401"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.bedroomCountFinal}"
+                                   id="ot312" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeFinal ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc402"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.bathroomCountFinal}"
+                                   id="ot313" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeFinal ne 'D'}"/>
+                  </af:gridCell>
+                  <af:gridCell marginStart="5px" width="11%" id="gc403"
+                               halign="center" valign="middle">
+                    <af:outputText value="#{subpart.improvementSizeSqftFinal}"
+                                   id="ot314" inlineStyle="font-weight:bold;"
+                                   rendered="#{subpart.transactionTypeFinal ne 'D'}">
+                      <af:convertNumber integerOnly="true"/>
+                    </af:outputText>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+              <af:separator id="s33" inlineStyle="border-color:White;"/>
+            </af:iterator>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="compositeData">
+            <af:panelGridLayout id="composite_actions"
+                                rendered="#{bindings.dbUniqueId_comp.inputValue ne null or bindings.transactionTypeUserEntered.inputValue eq 'C' or bindings.transactionTypeUserEntered.inputValue eq 'U' or bindings.transactionTypeUserEntered.inputValue eq 'D' or bindings.transactionTypeFinal.inputValue eq 'C' or bindings.transactionTypeFinal.inputValue eq 'U' or bindings.transactionTypeFinal.inputValue eq 'D'}"
+                                inlineStyle="border-style:solid; border-width:thin; border-color:#84bbe6;">
+              <af:gridRow marginTop="5px" height="18px" id="gr104"
+                          marginBottom="5px">
+                <af:gridCell marginStart="5px" width="100%" valign="middle"
+                             id="gc352">
+                  <af:spacer width="10" height="10" id="s26"/>
+                  <af:outputText id="ot279"
+                                 value="#{pdcrviewBundle.EDIT_COMPOSITE_SQ_FT_LABEL}"
+                                 inlineStyle="font-weight:bold;"/>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:panelGridLayout id="composite_original_information"
+                                rendered="#{bindings.transactionTypeUserEntered.inputValue ne 'C' and bindings.transactionTypeFinal.inputValue ne 'C' and bindings.dbUniqueId_comp.inputValue ne null}"
+                                inlineStyle="background-color:#ebf5fc; border-style:solid; border-width:thin; border-color:#84bbe6;">
+              <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                          id="gr105">
+                <af:gridCell marginStart="5px" width="12%" id="gc353"
+                             halign="center" valign="middle">
+                  <af:outputText value="#{pdcrviewBundle.EDIT_ORIGINAL_LABEL}"
+                                 id="ot275" inlineStyle="font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="11%" id="gc354"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc355"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc356"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc357"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc358"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc359"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc360"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc361"
+                             halign="center" valign="middle">
+                  <af:outputText value="#{bindings.sqft.inputValue}" id="ot276">
+                    <af:convertNumber integerOnly="true"/>
+                  </af:outputText>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:panelGridLayout id="composite_user_entered__information"
+                                rendered="#{bindings.transactionTypeUserEntered.inputValue eq 'C' or bindings.transactionTypeUserEntered.inputValue eq 'U' or bindings.transactionTypeUserEntered.inputValue eq 'D'}"
+                                inlineStyle="background-color:#dcf1ff; border-style:solid; border-width:thin; border-color:#84bbe6;">
+              <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                          id="gr107">
+                <af:gridCell marginStart="5px" width="12%" id="gc362"
+                             halign="center" valign="middle">
+                  <af:outputText value="#{pdcrviewBundle.EDIT_USER_ENTERED_LABEL}"
+                                 id="ot277" inlineStyle="font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="11%" id="gc363"
+                             halign="center" valign="middle">
+                  <af:outputText value="#{pdcrviewBundle.EDIT_DELETED_COMPOSITE_LABEL}"
+                                 id="ot280"
+                                 rendered="#{bindings.transactionTypeUserEntered.inputValue eq 'D'}"
+                                 inlineStyle="font-weight:bold; color:Red;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="11%" id="gc364"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc365"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc366"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc367"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc368"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc369"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc370"
+                             halign="center" valign="middle">
+                  <af:outputText value="#{bindings.sqftUserEntered.inputValue}"
+                                 id="ot278"
+                                 rendered="#{bindings.transactionTypeUserEntered.inputValue ne 'D'}"
+                                 inlineStyle="font-weight:bold;">
+                    <af:convertNumber integerOnly="true"/>
+                  </af:outputText>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:panelGridLayout id="composite_final_information"
+                                rendered="#{bindings.transactionTypeFinal.inputValue eq 'C' or bindings.transactionTypeFinal.inputValue eq 'U' or bindings.transactionTypeFinal.inputValue eq 'D'}"
+                                inlineStyle="background-color:#84bbe6; border-style:solid; border-width:thin; border-color:#84bbe6;">
+              <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                          id="gr112">
+                <af:gridCell marginStart="5px" width="12%" id="gc404"
+                             halign="center" valign="middle">
+                  <af:outputText value="#{pdcrviewBundle.EDIT_FINAL_LABEL}"
+                                 id="ot315" inlineStyle="font-weight:bold;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="11%" id="gc405"
+                             halign="center" valign="middle">
+                  <af:outputText value="#{pdcrviewBundle.EDIT_DELETED_COMPOSITE_LABEL}"
+                                 id="ot317"
+                                 rendered="#{bindings.transactionTypeFinal.inputValue eq 'D'}"
+                                 inlineStyle="font-weight:bold; color:Red;"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="11%" id="gc406"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc407"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc408"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc409"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc410"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc411"
+                             halign="center" valign="middle"/>
+                <af:gridCell marginStart="5px" width="11%" id="gc412"
+                             halign="center" valign="middle">
+                  <af:outputText value="#{bindings.sqftFinal.inputValue}"
+                                 id="ot316"
+                                 rendered="#{bindings.transactionTypeFinal.inputValue ne 'D'}"
+                                 inlineStyle="font-weight:bold;">
+                    <af:convertNumber integerOnly="true"/>
+                  </af:outputText>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+          </af:panelGroupLayout>
+        </af:showDetailHeader>
+      </af:panelGroupLayout>
+      <af:spacer width="10" height="15" id="s17"/>
+      <af:panelGroupLayout id="landData"
+                           rendered="#{!bindings.isNoLand.inputValue}">
+        <af:showDetailHeader id="sd2"
+                             text="#{pdcrviewBundle.EDIT_LAND_DATA_LINE_LINK_LABEL}"
+                             disclosed="true">
+          <af:panelGridLayout id="land_header"
+                              inlineStyle="background-color:#3caf85; border-color:#89c7ad; border-style:solid; border-width:thin;">
+            <af:gridRow marginTop="0px" height="48px" marginBottom="0px"
+                        id="gr96">
+              <af:gridCell marginStart="5px" width="10%" id="gc311"
+                           halign="center" valign="middle">
+                <af:outputText id="ot202"
+                               value="#{pdcrviewBundle.EDIT_LAND_DATA_LINE_LABEL}"
+                               shortDesc="#{pdcrviewBundle.LAND_DATA_LINE_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc287"
+                           halign="center" valign="middle">
+                <af:outputText id="ot203"
+                               value="#{pdcrviewBundle.EDIT_WIDTH_LABEL}"
+                               shortDesc="#{pdcrviewBundle.WIDTH_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc295"
+                           halign="center" valign="middle">
+                <af:outputText id="ot204"
+                               value="#{pdcrviewBundle.EDIT_DEPTH_LABEL}"
+                               shortDesc="#{pdcrviewBundle.DEPTH_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc373"
+                           halign="center" valign="middle">
+                <af:outputText id="ot283"
+                               value="#{pdcrviewBundle.EDIT_USABLE_SQ_FT_LABEL}"
+                               shortDesc="#{pdcrviewBundle.USABLE_SQ_FT_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc298"
+                           halign="center" valign="middle">
+                <af:outputText id="ot206"
+                               value="#{pdcrviewBundle.EDIT_ACRES_LABEL}"
+                               shortDesc="#{pdcrviewBundle.ACRES_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc313"
+                           halign="center" valign="middle">
+                <af:outputText id="ot207"
+                               value="#{pdcrviewBundle.EDIT_CORNER_LABEL}"
+                               shortDesc="#{pdcrviewBundle.CORNER_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc312"
+                           halign="center" valign="middle">
+                <af:outputText id="ot208"
+                               value="#{pdcrviewBundle.EDIT_SEWER_LABEL}"
+                               shortDesc="#{pdcrviewBundle.SEWER_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc284"
+                           halign="center" valign="middle">
+                <af:outputText id="ot209"
+                               value="#{pdcrviewBundle.EDIT_TRAFFIC_LABEL}"
+                               shortDesc="#{pdcrviewBundle.TRAFFIC_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc286"
+                           halign="center" valign="middle">
+                <af:outputText id="ot210"
+                               value="#{pdcrviewBundle.EDIT_FREEWAY_LABEL}"
+                               shortDesc="#{pdcrviewBundle.FREEWAY_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc308"
+                           halign="center" valign="middle">
+                <af:outputText id="ot211"
+                               value="#{pdcrviewBundle.EDIT_FLIGHT_LABEL}"
+                               shortDesc="#{pdcrviewBundle.FLIGHT_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc303"
+                           halign="center" valign="middle">
+                <af:outputText id="ot212"
+                               value="#{pdcrviewBundle.EDIT_GOLF_LABEL}"
+                               shortDesc="#{pdcrviewBundle.GOLF_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc281"
+                           halign="center" valign="middle">
+                <af:outputText id="ot213"
+                               value="#{pdcrviewBundle.EDIT_HORSE_LABEL}"
+                               shortDesc="#{pdcrviewBundle.HORSE_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc302"
+                           halign="center" valign="middle">
+                <af:outputText id="ot331"
+                               value="#{pdcrviewBundle.EDIT_VIEW_LABEL}"
+                               shortDesc="#{pdcrviewBundle.VIEW_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc291"
+                           halign="center" valign="middle">
+                <af:outputText id="ot215"
+                               value="#{pdcrviewBundle.EDIT_CODE_SPLIT_LABEL}"
+                               shortDesc="#{pdcrviewBundle.CODE_SPLIT_TOOLTIP}"
+                               inlineStyle="font-weight:bold; color:White;"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:panelGridLayout id="land_original_information"
+                              rendered="#{bindings.transactionTypeUserEntered1.inputValue ne 'C' or bindings.transactionTypeFinal1.inputValue ne 'C'}"
+                              inlineStyle="background-color:#f2f2f2; border-color:#89c7ad; border-style:solid; border-width:thin;">
+            <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                        id="gr99">
+              <af:gridCell marginStart="5px" width="10%" id="gc289"
+                           halign="center" valign="middle">
+                <af:outputText id="ot216"
+                               value="#{bindings.isNoLand.inputValue ? pdcrviewBundle.EDIT_EMPTY_LABEL : pdcrviewBundle.EDIT_ORIGINAL_LABEL}"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc285"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.width.inputValue}" id="ot217">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc297"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.depth.inputValue}" id="ot218">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc371"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.sizeUsableSqft.inputValue}"
+                               id="ot281">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc299"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.sizeAcreAge.inputValue}"
+                               id="ot220">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc307"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.corner.inputValue}"
+                               id="ot221"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc318"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.sewer.inputValue}" id="ot222"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc320"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.traffic.inputValue}"
+                               id="ot223"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc301"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.freewayProximity.inputValue}"
+                               id="ot224"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc306"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.flightPath.inputValue}"
+                               id="ot225"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc317"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.golfFront.inputValue}"
+                               id="ot226"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc316"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.horses.inputValue}"
+                               id="ot227"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc292"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.viewCodeDisplay.inputValue}"
+                               id="ot228"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc304"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.codeSplit.inputValue}"
+                               id="ot229"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:panelGridLayout id="land_user_entered_information"
+                              rendered="#{bindings.transactionTypeUserEntered1.inputValue eq 'C' or bindings.transactionTypeUserEntered1.inputValue eq 'U'}"
+                              inlineStyle="background-color:#c7e4de; border-color:#89c7ad; border-style:solid; border-width:thin;">
+            <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                        id="gr98">
+              <af:gridCell marginStart="5px" width="10%" id="gc300"
+                           halign="center" valign="middle">
+                <af:outputText value="#{pdcrviewBundle.EDIT_USER_ENTERED_LABEL}"
+                               id="ot230" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc294"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.widthUserEntered.inputValue}"
+                               id="ot231" inlineStyle="font-weight:bold;">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc283"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.depthUserEntered.inputValue}"
+                               id="ot232" inlineStyle="font-weight:bold;">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc372"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.sizeUsableSqftUserEntered.inputValue}"
+                               id="ot282" inlineStyle="font-weight:bold;">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc293"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.sizeAcreAgeUserEntered.inputValue}"
+                               id="ot234" inlineStyle="font-weight:bold;">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc290"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.cornerUserEntered.inputValue}"
+                               id="ot235" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc305"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.sewerUserEntered.inputValue}"
+                               id="ot236" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc315"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.trafficUserEntered.inputValue}"
+                               id="ot237" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc323"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.freewayProximityUserEntered.inputValue}"
+                               id="ot238" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc282"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.flightPathUserEntered.inputValue}"
+                               id="ot239" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc314"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.golfFrontUserEntered.inputValue}"
+                               id="ot240" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc296"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.horsesUserEntered.inputValue}"
+                               id="ot241" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc310"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.viewCodeDisplayUserEntered.inputValue}"
+                               id="ot242" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc309"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.codeSplitUserEntered.inputValue}"
+                               id="ot243" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+          <af:panelGridLayout id="land_final_information"
+                              rendered="#{bindings.transactionTypeFinal1.inputValue eq 'C' or bindings.transactionTypeFinal1.inputValue eq 'U'}"
+                              inlineStyle="background-color:#89c7ad; border-color:#89c7ad; border-style:solid; border-width:thin;">
+            <af:gridRow marginTop="5px" height="18px" marginBottom="5px"
+                        id="gr113">
+              <af:gridCell marginStart="5px" width="10%" id="gc413"
+                           halign="center" valign="middle">
+                <af:outputText value="#{pdcrviewBundle.EDIT_FINAL_LABEL}"
+                               id="ot318" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc414"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.widthFinal.inputValue}"
+                               id="ot319" inlineStyle="font-weight:bold;">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc415"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.depthFinal.inputValue}"
+                               id="ot320" inlineStyle="font-weight:bold;">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc416"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.sizeUsableSqftFinal.inputValue}"
+                               id="ot321" inlineStyle="font-weight:bold;">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc417"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.sizeAcreAgeFinal.inputValue}"
+                               id="ot322" inlineStyle="font-weight:bold;">
+                  <af:convertNumber integerOnly="true"/>
+                </af:outputText>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc418"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.cornerFinal.inputValue}"
+                               id="ot323" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc419"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.sewerFinal.inputValue}"
+                               id="ot324" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc420"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.trafficFinal.inputValue}"
+                               id="ot325" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc421"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.freewayProximityFinal.inputValue}"
+                               id="ot326" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc422"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.flightPathFinal.inputValue}"
+                               id="ot327" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc423"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.golfFrontFinal.inputValue}"
+                               id="ot328" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc424"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.horsesFinal.inputValue}"
+                               id="ot329" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="10%" id="gc425"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.viewCodeDisplayFinal.inputValue}"
+                               id="ot330" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="5%" id="gc426"
+                           halign="center" valign="middle">
+                <af:outputText value="#{bindings.codeSplitFinal.inputValue}"
+                               id="ot1" inlineStyle="font-weight:bold;"/>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+        </af:showDetailHeader>
+      </af:panelGroupLayout>
+      <af:spacer width="10" height="10" id="s2"/>
+      <af:panelGroupLayout id="transactionMessage"
+                           rendered="#{not empty bindings.transactionMessage.inputValue}">
+        <af:spacer width="10" height="10" id="s39"/>
+        <af:outputText id="ot303"
+                       value="#{pdcrviewBundle.EDIT_TRANSACTION_INDICATOR_LABEL}"
+                       inlineStyle="color:Red; font-weight:bolder;"/>
+        <af:spacer width="10" height="10" id="s40"/>
+        <af:outputText value="#{bindings.transactionMessage.inputValue}"
+                       id="edit_message"/>
+      </af:panelGroupLayout>
+      <af:spacer width="10" height="10" id="s38"/>
+      <af:separator id="s3"/>
+    </af:panelGroupLayout>
+    <!-- The Popup Dialog for reviewing a subpart -->
+    <af:popup id="reviewSubPart_Popup" eventContext="launcher"
+              contentDelivery="lazyUncached" launcherVar="source2"
+              autoCancel="disabled">
+      <af:panelWindow id="pw7" modal="true"
+                      title="#{pdcrviewBundle.POP_REVIEW_SP_TITLE}"
+                      closeIconVisible="false">
+        <af:panelGroupLayout id="subpartPopupReview" layout="horizontal"
+                             styleClass="AFStretchWidth">
+          <af:decorativeBox id="db8" dimensionsFrom="parent"
+                            inlineStyle="width:680px; height:665px;">
+            <f:facet name="center">
+              <af:panelGroupLayout id="pgl26" layout="vertical">
+                <!-- Display the common header for the edit subpart popup -->
+                <f:subview id="subpartEditHeader">
+                  <jsp:include page="/gov/laca/amp/pdcr/manage/view/jsff/PopupCommonHeader.jsff"/>
+                </f:subview>
+                <af:spacer width="10" height="10" id="s9"/>
+                <af:panelGroupLayout id="subpart_review_body">
+                  <af:panelGridLayout id="pgl312">
+                    <af:gridRow marginTop="5px" height="auto" id="gr135">
+                      <af:gridCell width="25%" id="gc82"/>
+                      <af:gridCell width="25%" id="gc529" halign="center">
+                        <af:outputText value="#{pdcrviewBundle.ORIGINAL_INFORMATION_HEADER}"
+                                       id="ot421"
+                                       inlineStyle="font-weight:bold; text-decoration:underline;"/>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc84" halign="center">
+                        <af:outputText value="#{pdcrviewBundle.USER_INFORMATION_HEADER}"
+                                       id="ot214"
+                                       inlineStyle="font-weight:bold; text-decoration:underline;"/>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc530" halign="center">
+                        <af:outputText value="#{pdcrviewBundle.FINAL_INFORMATION_HEADER}"
+                                       id="ot423"
+                                       inlineStyle="font-weight:bold; text-decoration:underline;"/>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr136">
+                      <af:gridCell width="25%" id="gc531" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl313" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s11"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_SUBPART_NUMBER_LABEL}"
+                                         id="ot17"
+                                         shortDesc="#{pdcrviewBundle.SUB_PART_ADD_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc532" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl314" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.subPartNumber.inputValue}"
+                                         id="ot425"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc533" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl315" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.subPartNumberUserEntered.inputValue}"
+                                         id="ot426"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc534" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl316" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.subPartNumberFinal.inputValue}"
+                                         id="ot427"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr137">
+                      <af:gridCell width="25%" id="gc535" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl317" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s12"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_DESIGN_TYPE_LABEL}"
+                                         id="ot428"
+                                         shortDesc="#{pdcrviewBundle.DESIGN_TYPE_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc536" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl318" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.designTypeKey.inputValue}"
+                                         id="ot429"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc537" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl319" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.designTypeKeyUserEntered.inputValue}"
+                                         id="ot430"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc538" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl320" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.designTypeKeyFinal.inputValue}"
+                                         id="ot431"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr138">
+                      <af:gridCell width="25%" id="gc539" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl321" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s13"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_QUALITY_CLASS_LABEL}"
+                                         id="ot432"
+                                         shortDesc="#{pdcrviewBundle.QUALITY_CLASS_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc540" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl322" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.qualityClass.inputValue}"
+                                         id="ot433"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc541" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl323" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.qualityClassUserEntered.inputValue}"
+                                         id="ot434"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc542" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl324" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.qualityClassFinal.inputValue}"
+                                         id="ot435"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr139">
+                      <af:gridCell width="25%" id="gc543" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl325" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s14"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_DEPRECIATION_TABLE_LABEL}"
+                                         id="ot436"
+                                         shortDesc="#{pdcrviewBundle.DEPRECIATION_TABLE_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc544" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl326" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.depreciationTable.inputValue}"
+                                         id="ot437"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc545" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl327" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.depreciationTableUserEntered.inputValue}"
+                                         id="ot438"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc546" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl328" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.depreciationTableFinal.inputValue}"
+                                         id="ot439"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr140">
+                      <af:gridCell width="25%" id="gc547" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl329" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s15"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_NUMBER_OF_UNITS_LABEL}"
+                                         id="ot440"
+                                         shortDesc="#{pdcrviewBundle.NUMBER_OF_UNITS_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc548" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl330" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.numberOfUnits.inputValue}"
+                                         id="ot441"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc549" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl331" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.numberOfUnitsUserEntered.inputValue}"
+                                         id="ot442"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc550" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl332" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.numberOfUnitsFinal.inputValue}"
+                                         id="ot443"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr141">
+                      <af:gridCell width="25%" id="gc551" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s137"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_NUMBER_OF_BEEDROOMS_LABEL}"
+                                         id="ot444"
+                                         shortDesc="#{pdcrviewBundle.NUMBER_OF_BEDROOMS_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc552" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl333" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.bedroomCount.inputValue}"
+                                         id="ot445"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc553" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl334" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.bedroomCountUserEntered.inputValue}"
+                                         id="ot446"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc554" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl335" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.bedroomCountFinal.inputValue}"
+                                         id="ot447"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr142">
+                      <af:gridCell width="25%" id="gc555" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl336" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s138"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_NUMBER_OF_BATHROOMS_LABEL}"
+                                         id="ot448"
+                                         shortDesc="#{pdcrviewBundle.NUMBER_OF_BATHROOMS_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc556" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl337" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.bathroomCount.inputValue}"
+                                         id="ot449"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc557" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl338" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.bathroomCountUserEntered.inputValue}"
+                                         id="ot450"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc558" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl340" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.bathroomCountFinal.inputValue}"
+                                         id="ot451"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr143">
+                      <af:gridCell width="25%" id="gc559" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl339" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s22"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_MAIN_IMPROVEMENT_SQ_FT_LABEL}"
+                                         id="ot452"
+                                         shortDesc="#{pdcrviewBundle.IMPROVEMENT_SQ_FT_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc560" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl341" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.improvementSizeSqft.inputValue}"
+                                         id="ot453">
+                            <af:convertNumber integerOnly="true"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc561" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl342" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.improvementSizeSqftUserEntered.inputValue}"
+                                         id="ot454">
+                            <af:convertNumber integerOnly="true"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc562" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl343" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.improvementSizeSqftFinal.inputValue}"
+                                         id="ot455">
+                            <af:convertNumber integerOnly="true"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr144">
+                      <af:gridCell width="25%" id="gc563" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl345" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s139"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_RCN_OTHER_TOTAL_LABEL}"
+                                         id="ot456"
+                                         shortDesc="#{pdcrviewBundle.RCN_OTHER_TOTAL_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc564" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl344" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnOtherTotal.inputValue}"
+                                         id="ot457"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###,###"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc565" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl346" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnOtherTotalUserEntered.inputValue}"
+                                         id="ot458"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###,###"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc566" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl347" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnOtherTotalFinal.inputValue}"
+                                         id="ot459"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###,###"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr145">
+                      <af:gridCell width="25%" id="gc567" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl348" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s140"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_RCN_OTHER_YEAR_CHANGE_LABEL}"
+                                         id="ot460"
+                                         shortDesc="#{pdcrviewBundle.RCN_OTHER_YEAR_CHANGE_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc568" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl349" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnYearChange.inputValue}"
+                                         id="ot461"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc569" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl350" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnYearChangeUserEntered.inputValue}"
+                                         id="ot462"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc570" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl51" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnYearChangeFinal.inputValue}"
+                                         id="ot463"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr146">
+                      <af:gridCell width="25%" id="gc571" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl351" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s141"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_YEAR_BUILT_LABEL}"
+                                         id="ot464"
+                                         shortDesc="#{pdcrviewBundle.YEAR_BUILT_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc572" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl53" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.yearBuilt.inputValue}"
+                                         id="ot465"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc573" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl352" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.yearBuiltUserEntered.inputValue}"
+                                         id="ot466"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc574" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl55" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.yearBuiltFinal.inputValue}"
+                                         id="ot33"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr147">
+                      <af:gridCell width="25%" id="gc575" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl56" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s27"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_EFFECTIVE_YEAR_BUILT_LABEL}"
+                                         id="ot467"
+                                         shortDesc="#{pdcrviewBundle.EFFECTIVE_YEAR_BUILT_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc576" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl57" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.effectiveYearBuilt.inputValue}"
+                                         id="ot468"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc577" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl353" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.effectiveYearBuiltUserEntered.inputValue}"
+                                         id="ot469"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc578" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl59" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.effectiveYearBuiltFinal.inputValue}"
+                                         id="ot35"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr148">
+                      <af:gridCell width="25%" id="gc579" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl354" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s28"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_COST_FACTOR_LABEL}"
+                                         id="ot470"
+                                         shortDesc="#{pdcrviewBundle.COST_FACTOR_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc580" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl61" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.costFactor.inputValue}"
+                                         id="ot471"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###.##"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc581" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl355" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.costFactorUserEntered.inputValue}"
+                                         id="ot472"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###.##"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc582" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl63" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.costFactorFinal.inputValue}"
+                                         id="ot473"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###.##"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr149">
+                      <af:gridCell width="25%" id="gc583" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl356" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s142"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_RCN_MAIN_LABEL}"
+                                         id="ot474"
+                                         shortDesc="#{pdcrviewBundle.RCN_MAIN_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc584" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl65" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnMain.inputValue}"
+                                         id="ot475"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###,###,###"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc585" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl357" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnMainUserEntered.inputValue}"
+                                         id="ot476"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###,###,###"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc586" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl67" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnMainFinal.inputValue}"
+                                         id="ot477"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###,###,###"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr150">
+                      <af:gridCell width="25%" id="gc587" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl68" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s30"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_PERCENT_GOOD_LABEL}"
+                                         id="ot478"
+                                         shortDesc="#{pdcrviewBundle.PERCENT_GOOD_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc588" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl69" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.percentGood.inputValue}"
+                                         id="ot479"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="%"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc589" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl358" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.percentGoodUserEntered.inputValue}"
+                                         id="ot480"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="%"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc590" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl71" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.percentGoodFinal.inputValue}"
+                                         id="ot481"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="%"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr151">
+                      <af:gridCell width="25%" id="gc591" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl359" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s143"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_DEPRECIATION_TYPE_LABEL}"
+                                         id="ot482"
+                                         shortDesc="#{pdcrviewBundle.DEPRECIATION_TYPE_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc592" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl73" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.addedDepreciationTypeKey.inputValue}"
+                                         id="ot483"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc593" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl74" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.addedDepreciationTypeKeyUserEntered.inputValue}"
+                                         id="ot484"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc594" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl360" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.addedDepreciationTypeKeyFinal.inputValue}"
+                                         id="ot94"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr152">
+                      <af:gridCell width="25%" id="gc595" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl76" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s144"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_DEPRECIATION_PERCENT_GOOD_LABEL}"
+                                         id="ot485"
+                                         shortDesc="#{pdcrviewBundle.DEPRECIATION_PERCENT_GOOD_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc596" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl361" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.addedDepreciationPercent.inputValue}"
+                                         id="ot486"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="%"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc597" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl78" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.addedDepreciationPercentUserEntered.inputValue}"
+                                         id="ot487"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="%"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc598" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#84bbe6;">
+                        <af:panelGroupLayout id="pgl362" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.addedDepreciationPercentFinal.inputValue}"
+                                         id="ot488"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="%"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" id="gr153">
+                      <af:gridCell width="25%" id="gc599" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl363" layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:spacer width="5" height="10" id="s34"/>
+                          <af:outputText value="#{pdcrviewBundle.POP_RCN_LESS_DEPRECIATION_LABEL}"
+                                         id="ot489"
+                                         shortDesc="#{pdcrviewBundle.RCN_LESS_DEPRECIATION_TOOLTIP}"/>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc600" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl81" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnLessDepreciation.inputValue}"
+                                         id="ot490"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###,###,###"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc601" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl364" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnLessDepreciationUserEntered.inputValue}"
+                                         id="ot491"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###,###,###"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                      <af:gridCell width="25%" id="gc602" halign="stretch"
+                                   valign="stretch"
+                                   inlineStyle="background-color:#ebf5fc;">
+                        <af:panelGroupLayout id="pgl83" halign="center"
+                                             layout="horizontal"
+                                             inlineStyle="height:21.0px;">
+                          <af:outputText value="#{bindings.rcnLessDepreciationFinal.inputValue}"
+                                         id="ot492"
+                                         converter="AMPConvertNumber">
+                            <f:attribute name="pattern" value="$###,###,###"/>
+                          </af:outputText>
+                        </af:panelGroupLayout>
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                </af:panelGroupLayout>
+                <af:separator id="s6"/>
+                <af:panelGroupLayout id="subpart_review_actions">
+                  <af:panelGridLayout id="pgl365">
+                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                                id="gr154">
+                      <af:gridCell marginEnd="10px" width="100%" id="gc603"
+                                   halign="end" valign="bottom">
+                        <af:commandButton text="#{pdcrviewBundle.CLOSE_BUTTON_LABEL}"
+                                          id="closeReviewSubPart"
+                                          immediate="true"
+                                          actionListener="#{pageFlowScope.PDCRBean.CancelSubPart}"/>
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </f:facet>
+          </af:decorativeBox>
+        </af:panelGroupLayout>
+      </af:panelWindow>
+    </af:popup>
+  </af:group>
+</jsp:root>

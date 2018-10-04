@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.2
+Weblogic-Application-Version: 2.0.1.0
+Implementation-Title: AmpAddressManagement
+Implementation-Label: 2.1.0.0
+Implementation-Version: 2.1.0.1
+Built-By: Madhu
+Specification-Title: AmpAddressManagement
+Extension-Name: AmpAddressManagement
+Created-By: 1.8.0_101-b13 (Oracle Corporation)
+Specification-Version: 2.1
+
+

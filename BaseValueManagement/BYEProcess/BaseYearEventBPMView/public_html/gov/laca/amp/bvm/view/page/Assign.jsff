@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="ppgl3" layout="vertical">
+    <af:selectOneRadio value="#{pageFlowScope.assignmentLookupBean.currentType}"
+                       id="radioId" label=" " layout="horizontal"
+                       autoSubmit="true"
+                       valueChangeListener="#{pageFlowScope.assignmentLookupBean.typeValueChange}">
+      <f:selectItems value="#{pageFlowScope.assignmentLookupBean.type}"
+                     id="psi4"/>
+    </af:selectOneRadio>
+    <af:panelBorderLayout id="ppgl4" partialTriggers="radioId"
+                          visible="#{pageFlowScope.assignmentLookupBean.currentType eq 'G'}">
+      <af:selectOneChoice label="Select Group"
+                          value="#{bindings.assignmentBox_GroupId.inputValue}"
+                          id="groupId" partialTriggers="radioId" autoSubmit="true">
+        <f:selectItems value="#{pageFlowScope.assignmentLookupBean.groups}"
+                       id="psi5"/>
+      </af:selectOneChoice>
+      <af:panelLabelAndMessage label="#{bindings.assignmentBox_GroupId.hints.label}"
+                               id="plam2" partialTriggers="groupId"
+                               rendered="false">
+        <af:outputText value="#{bindings.assignmentBox_GroupId.inputValue}"
+                       id="pot2"/>
+      </af:panelLabelAndMessage>
+    </af:panelBorderLayout>
+    <af:panelGroupLayout id="ppgl2" partialTriggers="radioId"
+                         visible="#{pageFlowScope.assignmentLookupBean.currentType eq 'U'}"
+                         layout="horizontal">
+      <af:selectOneChoice label="Select District"
+                          value="#{pageFlowScope.assignmentLookupBean.currentDistrict}"
+                          id="psoc2" autoSubmit="true">
+        <f:selectItems value="#{pageFlowScope.assignmentLookupBean.userDistricts}"
+                       id="psi2"/>
+      </af:selectOneChoice>
+      <af:spacer width="10" height="10" id="ps2"/>
+      <af:selectOneChoice label="Select Role"
+                          value="#{pageFlowScope.assignmentLookupBean.currentRole}"
+                          id="psoc1" partialTriggers="radioId"
+                          valueChangeListener="#{pageFlowScope.assignmentLookupBean.roleValueChange}"
+                          autoSubmit="true">
+        <f:selectItems value="#{pageFlowScope.assignmentLookupBean.roles}"
+                       id="psi1"/>
+      </af:selectOneChoice>
+      <af:spacer width="10" height="10" id="ps3"/>
+      <af:commandButton text="Search Users" id="pcb3"
+                        actionListener="#{pageFlowScope.assignmentLookupBean.searchUsers}"
+                        partialSubmit="true"/>
+      <af:spacer width="10" height="10" id="ps4"/>
+      <af:selectOneChoice label="Select User"
+                          value="#{bindings.assignmentBox_UserId.inputValue}"
+                          id="userId" autoSubmit="true" partialTriggers="pcb3">
+        <f:selectItems value="#{pageFlowScope.assignmentLookupBean.users}"
+                       id="psi3"/>
+      </af:selectOneChoice>
+      <af:panelLabelAndMessage label="#{bindings.assignmentBox_UserId.hints.label}"
+                               id="pplam1" partialTriggers="userId"
+                               rendered="false">
+        <af:outputText value="#{bindings.assignmentBox_UserId.inputValue}"
+                       id="pot1"/>
+      </af:panelLabelAndMessage>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <af:spacer width="10" height="10" id="ps1"/>
+</jsp:root>

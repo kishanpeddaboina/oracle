@@ -1,0 +1,555 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:tbv="/CalculatorDeclCompTagLib">
+  <af:subform id="s10">
+    <af:panelStretchLayout id="psl1" startWidth="0px" endWidth="0px"
+                           topHeight="750px" bottomHeight="0px"
+                           dimensionsFrom="children">
+      <f:facet name="top">
+        <af:panelGroupLayout layout="scroll"
+                             xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                             id="pgl32">
+          <af:showDetailHeader text="TBV Events" disclosed="true" id="sdh3"
+                               binding="#{viewScope.historicalPopupTaskflowHandler.historicalDetailHeader}">
+            <af:panelCollection id="pc2" styleClass="AFStretchWidth"
+                                binding="#{viewScope.historicalPopupTaskflowHandler.historicalEventsPanel}">
+              <af:table value="#{bindings.filteredHistoricalEventsList.collectionModel}"
+                        var="row"
+                        rows="#{bindings.filteredHistoricalEventsList.rangeSize}"
+                        emptyText="#{bindings.filteredHistoricalEventsList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.filteredHistoricalEventsList.rangeSize}"
+                        rowBandingInterval="0" rowSelection="single" id="tt2"
+                        contentDelivery="immediate" summary="Historical Events"
+                        selectionListener="#{backingBeanScope.bvmTaskDetailsBean.onHistoricalEventRowSelection}"
+                        binding="#{backingBeanScope.bvmActionsBean.historicalEventsTable}"
+                        autoHeightRows="5"
+                        selectedRowKeys="#{bindings.filteredHistoricalEventsList.collectionModel.selectedRow}">
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.selected.name}"
+                           sortable="false" headerText="Select for Trend"
+                           id="c56">
+                  <af:selectBooleanCheckbox id="sbc7" value="#{row.selected}"
+                                            label=" " autoSubmit="true"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.eventNameKey.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.eventNameKey.label}"
+                           id="c78">
+                  <af:outputText value="#{row.eventNameKey}" id="ot57"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.eventDescriptionKey.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.eventDescriptionKey.label}"
+                           id="c42">
+                  <af:outputText value="#{row.eventDescriptionKey}" id="ot62"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.eventDate.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.eventDate.label}"
+                           id="c77">
+                  <af:outputText value="#{row.eventDate}" id="ot55"
+                                 styleClass="amp_txt_13">
+                    <af:convertDateTime pattern="#{bindings.filteredHistoricalEventsList.hints.eventDate.format}"
+                                        type="both"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.baseYear.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.baseYear.label}"
+                           id="c58">
+                  <af:outputText value="#{row.baseYear}" id="ot44"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.subUnitNumber.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.subUnitNumber.label}"
+                           id="c63">
+                  <af:panelGroupLayout id="pgl43" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.subUnitNumber}" id="ot69"
+                                   styleClass="amp_txt_13"/>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.percentOwnership.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.percentOwnership.label}"
+                           id="c80">
+                  <af:panelGroupLayout id="pgl45" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.percentOwnership}" id="ot74"
+                                   converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="#.####%"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.percentageAppliedToValue.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.percentageAppliedToValue.label}"
+                           id="c49">
+                  <af:panelGroupLayout id="pgl46" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.percentageAppliedToValue}"
+                                   id="ot43" converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="#.####%"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.landValue.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.landValue.label}"
+                           id="c61">
+                  <af:panelGroupLayout id="pgl47" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.landValue}" id="ot77"
+                                   converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="$###,###,###"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.landReasonCodeKey.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.landReasonCodeKey.label}"
+                           id="c68">
+                  <af:outputText value="#{row.landReasonCodeKey}" id="ot51"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.improvementValue.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.improvementValue.label}"
+                           id="c60">
+                  <af:panelGroupLayout id="pgl48" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.improvementValue}" id="ot73"
+                                   converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="$###,###,###"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.improvementReasonCodeKey.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.improvementReasonCodeKey.label}"
+                           id="c75">
+                  <af:outputText value="#{row.improvementReasonCodeKey}"
+                                 id="ot72" styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.totalValue.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.totalValue.label}"
+                           id="c52">
+                  <af:panelGroupLayout id="pgl49" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.totalValue}" id="ot67"
+                                   converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="$###,###,###"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.fixtureValue.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.fixtureValue.label}"
+                           id="c44">
+                  <af:panelGroupLayout id="pgl50" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.fixtureValue}" id="ot60"
+                                   converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="$###,###,###"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.effectiveBeginDate.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.effectiveBeginDate.label}"
+                           id="c43">
+                  <af:outputText value="#{row.effectiveBeginDate}" id="ot61">
+                    <af:convertDateTime pattern="#{bindings.filteredHistoricalEventsList.hints.effectiveBeginDate.format}"
+                                        type="both"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.effectiveEndDate.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.effectiveEndDate.label}"
+                           id="c53">
+                  <af:outputText value="#{row.effectiveEndDate}" id="ot46"
+                                 styleClass="amp_txt_13">
+                    <af:convertDateTime pattern="#{bindings.filteredHistoricalEventsList.hints.effectiveEndDate.format}"
+                                        type="both"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.verificationDate.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.verificationDate.label}"
+                           id="c70">
+                  <af:outputText value="#{row.verificationDate}" id="ot54"
+                                 styleClass="amp_txt_13">
+                    <af:convertDateTime pattern="#{bindings.filteredHistoricalEventsList.hints.verificationDate.format}"
+                                        type="both"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.inactiveDate.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.inactiveDate.label}"
+                           id="c76">
+                  <af:outputText value="#{row.inactiveDate}" id="ot75"
+                                 styleClass="amp_txt_13">
+                    <af:convertDateTime pattern="#{bindings.filteredHistoricalEventsList.hints.inactiveDate.format}"
+                                        type="both"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.blendedValueFlag.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.blendedValueFlag.label}"
+                           id="c45">
+                  <af:outputText value="#{row.blendedValueFlag}" id="ot79"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.recordingDate.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.recordingDate.label}"
+                           id="c66">
+                  <af:outputText value="#{row.recordingDate}" id="ot81"
+                                 styleClass="amp_txt_13">
+                    <af:convertDateTime pattern="#{bindings.filteredHistoricalEventsList.hints.recordingDate.format}"
+                                        type="both"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.sequenceNumber.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.sequenceNumber.label}"
+                           id="c48">
+                  <af:panelGroupLayout id="pgl51" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.sequenceNumber}" id="ot47"
+                                   styleClass="amp_txt_13"/>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.documentNumber.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.documentNumber.label}"
+                           id="c82">
+                  <af:panelGroupLayout id="pgl52" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.documentNumber}" id="ot78"
+                                   styleClass="amp_txt_13"/>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.ownershipCode.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.ownershipCode.label}"
+                           id="c69">
+                  <af:outputText value="#{row.ownershipCode}" id="ot82"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.newConstructionDate.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.newConstructionDate.label}"
+                           id="c74">
+                  <af:outputText value="#{row.newConstructionDate}" id="ot66"
+                                 styleClass="amp_txt_13">
+                    <af:convertDateTime pattern="#{bindings.filteredHistoricalEventsList.hints.newConstructionDate.format}"
+                                        type="both"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.partiallyCompleteNumber.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.partiallyCompleteNumber.label}"
+                           id="c55">
+                  <af:panelGroupLayout id="pgl53" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.partiallyCompleteNumber}"
+                                   id="ot53" styleClass="amp_txt_13"
+                                   converter="AMPConvertNumber">
+                      <f:attribute name="pattern" value="0"/>
+                      <f:attribute name="length" value="3"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.retainedLandValue.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.retainedLandValue.label}"
+                           id="c50">
+                  <af:panelGroupLayout id="pgl54" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.retainedLandValue}" id="ot58"
+                                   converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="$###,###,###"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.retainedImprovementValue.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.retainedImprovementValue.label}"
+                           id="c71">
+                  <af:panelGroupLayout id="pgl55" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.retainedImprovementValue}"
+                                   id="ot71" converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="$###,###,###"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.retainedTotalValue.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.retainedTotalValue.label}"
+                           id="c12352">
+                  <af:panelGroupLayout id="pgl56" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.retainedTotalValue}" id="o1t67"
+                                   converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="$###,###,###"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.retainedFixtureValue.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.retainedFixtureValue.label}"
+                           id="c81">
+                  <af:panelGroupLayout id="pgl57" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.retainedFixtureValue}" id="ot80"
+                                   converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="$###,###,###"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.subUnitDescription.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.subUnitDescription.label}"
+                           id="c73">
+                  <af:outputText value="#{row.subUnitDescription}" id="ot63"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.personalPropertyType.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.personalPropertyType.label}"
+                           id="c67">
+                  <af:outputText value="#{row.personalPropertyType}" id="ot48"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.ppDescription.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.ppDescription.label}"
+                           id="c47">
+                  <af:outputText value="#{row.ppDescription}" id="ot64"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.totalAdjAcquisitionCost.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.totalAdjAcquisitionCost.label}"
+                           id="c252">
+                  <af:panelGroupLayout id="pgl58" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.totalAdjAcquisitionCost}"
+                                   id="ot2267" converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="$###,###,###"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.percentageFixture.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.percentageFixture.label}"
+                           id="c62">
+                  <af:panelGroupLayout id="pgl59" layout="horizontal"
+                                       halign="right">
+                    <af:outputText value="#{row.percentageFixture}" id="ot50"
+                                   converter="AMPConvertNumber"
+                                   styleClass="amp_txt_13">
+                      <f:attribute name="pattern" value="#.####%"/>
+                    </af:outputText>
+                  </af:panelGroupLayout>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.originalAIN.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.originalAIN.label}"
+                           id="c54">
+                  <af:outputText value="#{row.originalAIN}" id="ot52"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.notes.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.notes.label}"
+                           id="c54n">
+                  <af:outputText value="#{row.notes}" id="ot52n"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.ppAssessmentNumber.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.ppAssessmentNumber.label}"
+                           id="c46">
+                  <af:outputText value="#{row.ppAssessmentNumber}" id="ot56"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.byeId.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.byeId.label}"
+                           id="c64">
+                  <af:outputText value="#{row.byeId}" id="ot70"
+                                 inlineStyle="text-align:left;"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.verifiedBy.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.verifiedBy.label}"
+                           id="c51">
+                  <af:outputText value="#{row.verifiedBy}" id="ot76"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.modifiedBy.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.modifiedBy.label}"
+                           id="c79">
+                  <af:outputText value="#{row.modifiedBy}" id="ot65"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.modifiedDate.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.modifiedDate.label}"
+                           id="c65">
+                  <af:outputText value="#{row.modifiedDate}" id="ot49"
+                                 styleClass="amp_txt_13">
+                    <af:convertDateTime pattern="#{bindings.filteredHistoricalEventsList.hints.modifiedDate.format}"
+                                        type="both"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.byeLegacySourceSystem.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.byeLegacySourceSystem.label}"
+                           id="c72">
+                  <af:outputText value="#{row.byeLegacySourceSystem}" id="ot45"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.eventSource.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.eventSource.label}"
+                           id="c57">
+                  <af:outputText value="#{row.eventSource}" id="ot59"
+                                 styleClass="amp_txt_13"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.filteredHistoricalEventsList.hints.createdData.name}"
+                           sortable="true"
+                           headerText="#{bindings.filteredHistoricalEventsList.hints.createdData.label}"
+                           id="c59">
+                  <af:outputText value="#{row.createdData}" id="ot42"
+                                 styleClass="amp_txt_13">
+                    <af:convertDateTime pattern="#{bindings.filteredHistoricalEventsList.hints.createdData.format}"
+                                        type="both"/>
+                  </af:outputText>
+                </af:column>
+              </af:table>
+              <f:facet name="secondaryToolbar">
+                <af:toolbar id="t5" binding="#{viewScope.historicalPopupTaskflowHandler.historicalToolbar}">
+                  <af:commandToolbarButton text="Edit" id="ctb3" partialTriggers="ctb6"
+                                           disabled="#{bindings.filteredHistoricalEventsListIterator.estimatedRowCount &lt; 1}">
+                    <af:showPopupBehavior popupId="::historicalPopup"
+                                          disabled="#{bindings.filteredHistoricalEventsListIterator.estimatedRowCount &lt; 1}"
+                                          triggerType="click"/>
+                    <af:setPropertyListener type="action" from="#{'pageAction'}" to="#{pageFlowScope.pageAction}"/>
+                  </af:commandToolbarButton>
+                  <af:commandToolbarButton text="Create" id="commandToolbarButton2"
+                                           actionListener="#{bindings.addEvent.execute}">
+                    <af:showPopupBehavior popupId="::createHistoricalPopup" triggerType="click"/>
+                    <af:setPropertyListener type="action" from="#{'pageAction'}" to="#{pageFlowScope.pageAction}"/>
+                    <af:setActionListener from="page" to="#{pageFlowScope.sPageAction}"/>
+                  </af:commandToolbarButton>
+                  <af:commandToolbarButton text="Delete" id="ctb6"
+                                           actionListener="#{backingBeanScope.bvmActionsBean.DeleteHistoricalEventHandler}"
+                                           disabled="#{bindings.selectedHistoricalTransactionType.inputValue ne 'C'}"
+                                           partialTriggers="tt2"/>
+                </af:toolbar>
+              </f:facet>
+            </af:panelCollection>
+            <af:panelGroupLayout id="pgl21" layout="vertical" rendered="false"/>
+            <af:popup id="historicalPopup" contentDelivery="lazyUncached"
+                      popupCanceledListener="#{viewScope.historicalPopupTaskflowHandler.cancelPopup}"
+                      popupFetchListener="#{viewScope.historicalPopupTaskflowHandler.showHistoricalPopup}"
+                      binding="#{viewScope.historicalPopupTaskflowHandler.historicalPopup}"
+                      autoCancel="disabled">
+              <af:panelWindow id="pw1" stretchChildren="first"
+                              contentHeight="1000" contentWidth="700"
+                              title=" Edit BYE" closeIconVisible="false"
+                              styleClass="amp-edit-form" resize="on"
+                              modal="true">
+                <af:region value="#{bindings.editHistorical.regionModel}"
+                           id="r1"
+                           regionNavigationListener="#{viewScope.historicalPopupTaskflowHandler.hearHistoricalNavigation}"/>
+              </af:panelWindow>
+            </af:popup>
+            <af:popup id="createHistoricalPopup" contentDelivery="lazyUncached"
+                      popupCanceledListener="#{viewScope.historicalPopupTaskflowHandler.cancelPopup}"
+                      popupFetchListener="#{viewScope.historicalPopupTaskflowHandler.showHistoricalPopup}"
+                      binding="#{viewScope.historicalPopupTaskflowHandler.createHistoricalPopup}">
+              <af:panelWindow id="panelWindow2" stretchChildren="first"
+                              contentHeight="1000" contentWidth="500"
+                              title=" Create BYE" modal="true"
+                              closeIconVisible="false"
+                              styleClass="amp-edit-form" resize="on">
+                <af:region value="#{bindings.createHistorical.regionModel}"
+                           id="region1"
+                           regionNavigationListener="#{viewScope.historicalPopupTaskflowHandler.hearCreateHistoricalNavigation}"/>
+              </af:panelWindow>
+            </af:popup>
+          </af:showDetailHeader>
+          <af:panelFormLayout id="pfl1" rows="1" maxColumns="2">
+            <af:panelLabelAndMessage label="Target Year:" id="plam1" for="it3">
+              <af:inputText id="it3"
+                            binding="#{pageFlowScope.scratchTrendBaseEventHandlerBean.targetYear}"
+                            value="#{bindings.targerYear.inputValue}"
+                            columns="#{bindings.targerYear.hints.displayWidth}"
+                            maximumLength="#{bindings.targerYear.hints.precision}"
+                            required="true" autoSubmit="true">
+	<!-- Author : Namit kakkar / 01/11/2017  Defect: 29176 : Comments : As per Defect  :  Team discussed with Kelly and she said the validation should be removed on the Target Year field. -->
+               <!-- <f:validator validatorId="ValidateYearRange"/> -->
+              </af:inputText>
+            </af:panelLabelAndMessage>
+            <af:toolbar id="t1">
+              <af:commandToolbarButton text="Trend" id="ctb1"
+                                       actionListener="#{pageFlowScope.scratchTrendBaseEventHandlerBean.calculateTrend}"
+                                       disabled="#{pageFlowScope.scratchTrendBaseEventHandlerBean.selectedEventListSize}"
+                                       partialTriggers="pc2:tt2:sbc7"/>
+              <af:commandToolbarButton text="Detrend" id="ctb2"
+                                       actionListener="#{pageFlowScope.scratchTrendBaseEventHandlerBean.calculateDeTrend}"
+                                       disabled="#{pageFlowScope.scratchTrendBaseEventHandlerBean.selectedEventListSize}"
+                                       partialTriggers="pc2:tt2:sbc7"/>
+              <af:commandToolbarButton text="Clear" id="ctb4"
+                                       actionListener="#{pageFlowScope.scratchTrendBaseEventHandlerBean.resetTBVCalculator}"
+                                       immediate="true"/>
+            </af:toolbar>
+          </af:panelFormLayout>
+          <af:showDetailHeader text="Trend" id="sdh1"
+                               styleClass="AFStretchWidth"
+                               binding="#{pageFlowScope.scratchTrendBaseEventHandlerBean.tbvTrendHeader}"
+                               visible="#{bindings.trendEventList.estimatedRowCount>0}">
+            <tbv:CalculatorTable tbvBodyListSource="#{bindings.trendEventList.collectionModel}"
+                                 tbvFooterListSource="#{bindings.footerTrendEventList.collectionModel}"
+                                 tbvHeaderListSource="#{bindings.trendHeaderList.collectionModel}"
+                                 id="ct1"
+                                 baseYearEventLabel="Trended Base Values"/>
+          </af:showDetailHeader>
+          <af:showDetailHeader text="Detrend" id="sdh2"
+                               styleClass="AFStretchWidth"
+                               binding="#{pageFlowScope.scratchTrendBaseEventHandlerBean.tbvDetrendHeader}"
+                               visible="#{bindings.deTrendEventList.estimatedRowCount>0}">
+            <tbv:CalculatorTable tbvBodyListSource="#{bindings.deTrendEventList.collectionModel}"
+                                 tbvFooterListSource="#{bindings.footerDeTrendEventList.collectionModel}"
+                                 tbvHeaderListSource="#{bindings.detrendHeaderList.collectionModel}"
+                                 id="ct2"
+                                 baseYearEventLabel="Detrended Base Values"/>
+          </af:showDetailHeader>
+        </af:panelGroupLayout>
+      </f:facet>
+    </af:panelStretchLayout>
+  </af:subform>
+</jsp:root>

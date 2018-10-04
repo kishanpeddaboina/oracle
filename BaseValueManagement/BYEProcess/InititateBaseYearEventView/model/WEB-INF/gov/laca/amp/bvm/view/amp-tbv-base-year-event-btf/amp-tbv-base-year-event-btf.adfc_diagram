@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View3">
+      <property
+         name="activityId">BaseYearEventsTBV</property>
+      <property
+         name="page">/gov/laca/amp/bvm/view/amp-tbv-base-year-event-btf/BaseYearEventsTBV.jsff</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>BaseYearEventsTBV&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">135.58594</property>
+      <property
+         name="x">360.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <MethodCall
+      id="MethodCall13">
+      <property
+         name="activityId">loadData</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>loadData&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">137.09766</property>
+      <property
+         name="x">103.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="MethodCall13"
+      to="View3">
+      <property
+         name="fromOutcome">loadData</property>
+      <property
+         name="sdm:polyPoints">R50,144.5,136.74707,319.0,135.23535,L50</property>
+   </ControlFlowCase>
+</SDM>

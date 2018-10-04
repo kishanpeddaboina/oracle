@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+         >
+    <c:set var="labels" value="#{adfBundle['gov.laca.amp.modules.am.view.AMViewControllerBundle']}"/>
+ <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+ <!-- <af:outputText id="ot2" value="#{labels.REQUEST_SUBMITTED}"/> -->
+  <af:spacer width="10" height="10" id="s1"/>
+  <af:panelGroupLayout id="pgl2" layout="horizontal" halign="right">
+   <af:button text="Home" id="b1" action="#{OnlineAddressChgReqBean.onHome}" partialSubmit="false" immediate="true"/>
+   <af:spacer width="10" height="10" id="s3"/>
+  </af:panelGroupLayout>
+  <af:spacer width="10" height="10" id="s2"/>
+  <af:inlineFrame id="if1" source="#{pageFlowScope.accessLinkUrl}" inlineStyle="min-height:700px; width:100%"/>
+ </af:panelGroupLayout>
+</jsp:root>

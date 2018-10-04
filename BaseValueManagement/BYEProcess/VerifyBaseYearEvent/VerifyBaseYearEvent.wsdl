@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/VerifyBaseYearEvent" xmlns:tns6="http://assessor.lacounty.gov/amp/data/bvm/VerifyBYE/v1.0"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"  xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/VerifyBaseYearEvent"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" >
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/VerifyBaseYearEvent">
+            <xsd:import namespace="http://assessor.lacounty.gov/amp/data/bvm/VerifyBYE/v1.0" schemaLocation="oramds:/apps/amp/xsd/bvm/VerifyBYE.xsd"/>
+            <xsd:element name="VerifyBYEResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="tns6:verifyBYEResponse"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="VerifyBYE">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="tns6:verifyBYERequest"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="VerifyBYEResponse">
+        <wsdl:part name="parameters" element="tns:VerifyBYEResponse"/>
+    </wsdl:message>
+    <wsdl:message name="VerifyBYE">
+        <wsdl:part name="parameters" element="tns:VerifyBYE"/>
+    </wsdl:message>
+    <wsdl:portType name="VerifyBaseYearEventPortType">
+        <wsdl:operation name="VerifyBYE">
+            <wsdl:input message="tns:VerifyBYE"/>
+            <wsdl:output message="tns:VerifyBYEResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <plnk:partnerLinkType name="VerifyBaseYearEventPortTypePartnerLinkType">
+        <plnk:role name="VerifyBaseYearEventPortTypeProvider">
+            <plnk:portType name="tns:VerifyBaseYearEventPortType"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+</wsdl:definitions>

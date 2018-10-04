@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.16.48" id="DataCaptureHTPayloadType"
+          Package="DataCaptureWCCUIViewController_DataCaptureHT"
+          BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.DataCaptureHTPayloadType" isJavaBased="false">
+  <AccessorAttribute id="NotificationBO" IsCollection="true"
+                     BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.NotificationBOType"
+                     CollectionBeanClass="DataCaptureWCCUIViewController_DataCaptureHT.NotificationBOType_NotificationBO_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Notification BO"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="NotificationBO"/>
+      <Property Name="targetNamespace" Value="http://xmlns.oracle.com/bpm/bpmobject/InfoInboundWU/NotificationBO"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="AMPWorkTask" IsCollection="true"
+                     BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.AMPWorkTask"
+                     CollectionBeanClass="DataCaptureWCCUIViewController_DataCaptureHT.AMPWorkTask_AMPWorkTask_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="AMP Work Task"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="AMPWorkTask"/>
+      <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/wumf/worktask"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__2">
+    <managed-bean-name id="__4">LoggingBean</managed-bean-name>
+    <managed-bean-class id="__1">bean.LoggingBean</managed-bean-class>
+    <managed-bean-scope id="__3">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__8">
+    <managed-bean-name id="__7">CustomTableBean</managed-bean-name>
+    <managed-bean-class id="__5">log.poc.view.CustomTableBean</managed-bean-class>
+    <managed-bean-scope id="__6">request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

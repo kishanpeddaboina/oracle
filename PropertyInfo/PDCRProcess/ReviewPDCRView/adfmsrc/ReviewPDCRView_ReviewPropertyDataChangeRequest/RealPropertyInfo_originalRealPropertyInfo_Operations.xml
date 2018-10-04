@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="RealPropertyInfo_originalRealPropertyInfo_Operations"
+          Package="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+          BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.RealPropertyInfo_originalRealPropertyInfo_Operations"
+          isJavaBased="false">
+  <BuiltinOperation id="CreateInsert"/>
+  <BuiltinOperation id="Delete"/>
+</JavaBean>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="TAMAssignedDC" Package="gov.laca.amp.tam.model.pdc"
+          BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignedDC"
+          isJavaBased="true">
+  <Attribute Name="userHighestRole" Type="java.lang.String"/>
+  <Attribute Name="loggedInUserId" Type="java.lang.String"/>
+  <Attribute Name="loggedInUserDisplayName" Type="java.lang.String"/>
+  <Attribute Name="totalInitiatableAssignedCount" Type="java.lang.Integer"/>
+  <AccessorAttribute id="tamAssigedPojoList" IsCollection="true"
+                     BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="userDistricts" IsCollection="true"
+                     Type="java.util.ArrayList"
+                     CollectionBeanClass="UpdateableCollection">
+    <Attribute Name="element" Type="java.lang.String"/>
+  </AccessorAttribute>
+  <AccessorAttribute id="userDistrictsToInitiate" IsCollection="true"
+                     Type="java.util.List"
+                     CollectionBeanClass="UpdateableCollection">
+    <Attribute Name="element" Type="java.lang.String"/>
+  </AccessorAttribute>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="initateBaseYearEventMgmtService" ReturnNodeName="Return">
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="aoid" Type="java.lang.Long" isStructured="false"/>
+    <ParameterInfo id="userId" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="ownerId" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="processType" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="source" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="executeInitializations"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="userId" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="java.util.List"
+                  id="getUserDistrictsByUserDtls" ReturnNodeName="String"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="userHighestRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="userId" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="userDetails"
+                   Type="gov.laca.amp.proxy.soap.identitylookupservice.client.gen.UserDetailsType"
+                   isStructured="true"/>
+    <Attribute Name="element" Type="java.lang.String"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="verifyBaseYearEvents" ReturnNodeName="Return">
+    <ParameterInfo id="tamId" Type="java.math.BigInteger" isStructured="false"/>
+    <ParameterInfo id="district" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="assignedToId" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedById" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="processType" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="source" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="setUserDistricts"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="userDistricts" Type="java.util.ArrayList"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true"
+                  Type="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                  BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                  id="retrieveAssignedAINs" ReturnNodeName="TAMAssignmentPojo"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="assignedTo" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="district" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="region" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="cluster" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="batchNumber" Type="java.lang.Integer"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.tam.model.pdc.TAMAssignedDC"
+                     BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignedDC"
+                     id="TAMAssignedDC">
+    <ParameterInfo id="tamAssigedPojoList" Type="java.util.List"
+                   isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.tam.model.pdc.TAMAssignedDC"
+                     BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignedDC"
+                     id="TAMAssignedDC"/>
+</JavaBean>

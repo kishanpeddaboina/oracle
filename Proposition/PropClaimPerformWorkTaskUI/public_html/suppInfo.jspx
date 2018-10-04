@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:h="http://java.sun.com/jsf/html">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:trh="http://myfaces.apache.org/trinidad/html"
+            xmlns:wf="http://xmlns.oracle.com/bpel/workflow/workflow-taglib.tld"
+            xmlns:wlc="http://xmlns.oracle.com/bpel/workflow/worklist">
+        <af:document title="Supporting Information" id="d1">
+            <af:messages id="m1"/>
+            <af:resource type="javascript" source="/jsLibs/taskDetails.js"/>
+            <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>
+            <af:resource type="javascript" source="/resources/js/ampclientformat.js"/>
+                <af:resource type="javascript">
+    function chstp(evnt) {
+      //  alert('hi');
+       evnt.preventUserInput();
+    }
+    </af:resource>
+            <af:form id="f1" usesUpload="true">
+                <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStrechtWidth" inlineStyle="padding-left:20px;padding-right:30px;height:1600px! important">
+                    <!--<af:panelGroupLayout id="pgl3" layout="horizontal">
+                        <af:outputFormatted value="Proposition&#160;-&#160;" id="plam1"
+                                            inlineStyle="font-weight:bold; font-size:x-large;"/>
+                        <af:outputFormatted value=" AIN:&#160;" id="plam2"
+                                            inlineStyle="font-weight:lighter; font-size:large;"/>
+                        <af:outputFormatted value="#{bindings.AIN.inputValue}" id="of5"
+                                            inlineStyle="font-weight:bold;font-size:large;"/>
+                       
+                        <af:spacer width="20" height="10" id="s2"/>
+                        <af:outputFormatted value=" Scanned Date:&#160;" id="of3"
+                                            inlineStyle="font-weight:lighter; font-size:large;"/>
+                        <af:outputFormatted value="#{bindings.claimReceivedDate.inputValue}" id="of4"
+                                            inlineStyle="font-weight:bold;font-size:large;"/>
+                        <af:spacer width="900" height="10" id="s4"/>
+                        <af:link text="View Scanned Claim Image" id="l1" inlineStyle="font-size:large;"/>
+                    </af:panelGroupLayout>-->
+                    <af:panelStretchLayout id="psl2" topHeight="0px" endWidth="300px"
+                                           styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-5"
+                                           bottomHeight="0px" startWidth="650px">
+                        <f:facet name="start">
+                            <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                <af:outputFormatted value="Proposition&#160;-&#160;" id="plam1"
+                                                    inlineStyle="font-weight:bold; font-size:large;"/>
+                                <af:outputFormatted value=" AIN:&#160;" id="plam2"
+                                                    inlineStyle="font-weight:lighter; font-size:medium;"/>
+                                <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                                     rendered="#{fn:length(bindings.AIN.inputValue)>9}">
+                                    <af:outputFormatted value="#{fn:substring(bindings.AIN.inputValue,0,4)}" id="of5"
+                                                        inlineStyle="font-weight:bold;font-size:large;"/>
+                                    <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,4,7)}" id="of7"
+                                                        inlineStyle="font-weight:bold;font-size:large;"/>
+                                    <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,7,10)}" id="of8"
+                                                        inlineStyle="font-weight:bold;font-size:large;"/>
+                                </af:panelGroupLayout>
+                                <af:spacer width="20" height="10" id="s2"/>
+                                <af:outputFormatted value=" Scanned Date:&#160;" id="of3"
+                                                    inlineStyle="font-weight:lighter; font-size:medium;"/>
+                                <af:outputFormatted value="#{bindings.claimReceivedDate.inputValue}" id="of4"
+                                                    inlineStyle="font-weight:bold; font-size:large;">
+                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                </af:outputFormatted>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="end">
+                            <af:panelGroupLayout id="pgl32" layout="horizontal" halign="end" styleClass="padding-top-5">
+                                <af:link text="View Scanned Claim Image" id="l1" inlineStyle="font-size:small;"
+                                         targetFrame="_blank"
+                                         icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/expand-window.png"
+                                         iconPosition="trailing"
+                                         destination="#{ampConnections.psrGenSuppDocs}#{bindings.DocumentId.inputValue}"
+                                         rendered="#{bindings.EventSource.inputValue == 'WCC'}"/>
+                                <af:link text="View Scanned Claim Image" id="l2" inlineStyle="font-size:small;"
+                                         targetFrame="_blank"
+                                         icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/expand-window.png"
+                                         iconPosition="trailing"
+                                         destination="#{ampConnections.docUrl}/#{bindings.DocumentId.inputValue}/content-media"
+                                         rendered="#{bindings.EventSource.inputValue == 'ECX'}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                    <af:panelGroupLayout id="pg13" layout="horizontal"
+                                         styleClass="amp-border-top amp-border AFStretchWidth">
+                        <af:panelGroupLayout id="pgl7_train" halign="center" layout="horizontal" styleClass="AMPTrain">
+                            <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="t1"
+                                      var="trainNode">
+                                <f:facet name="nodeStamp">
+                                    <af:commandNavigationItem text="#{trainNode.textAndAccessKey}" id="cni1"
+                                                              visited="#{trainNode.visited}"
+                                                              disabled="#{trainNode.disabled}" immediate="false"
+                                                              actionListener="#{trainHandlerBean.onSuppTrainStopNext}"
+                                                              action="#{trainHandlerBean.getOutcomeAction}">
+                                        <f:attribute name="trainStopNode" value="#{trainNode}"/>
+                                    </af:commandNavigationItem>
+                                </f:facet>
+                            </af:train>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl12" halign="end" styleClass="padding-top-5" layout="vertical"
+                                             inlineStyle="padding-right:30px">
+                            <f:facet name="separator">
+                                <af:spacer height="5" id="s5"/>
+                            </f:facet>
+                            <!--<af:button id="b1" text="Correspondence"/>-->
+                            <af:button text="Correspondence" id="b7" clientComponent="true" partialSubmit="true"
+                                       action="#{CorrespondenceBPMBean.onclickCorrespondence}">
+                                <af:setPropertyListener from="12347" to="#{viewScope.propsId}" type="action"/>
+                                <af:setPropertyListener from="false" to="#{viewScope.readOnlyMode}" type="action"/>
+                                <af:setPropertyListener from="Exclusions" to="#{viewScope.category}" type="action"/>
+                                <af:setPropertyListener from="Prop58" to="#{viewScope.subcategory}" type="action"/>
+                                <af:setPropertyListener from="333" to="#{viewScope.WorkUnitId}" type="action"/>
+                                <af:setPropertyListener from="#{CorrespondenceBPMBean.dispcorrAppr}"
+                                                        to="#{requestScope.sbmtApprValue}" type="action"/>
+                                <af:setPropertyListener from="#{CorrespondenceBPMBean.dispcorrRel}"
+                                                        to="#{requestScope.sbmtRelValue}" type="action"/>
+                            </af:button>
+                            <af:button text="Add/View Remarks" id="remBtn" clientComponent="true" partialSubmit="true">
+                                <af:showPopupBehavior triggerType="click" popupId="remarksPopup"/>
+                                <!--<af:setPropertyListener from="#{row.propId}" to="#{pageFlowScope.propId}" type="action"/>-->
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    <!--<af:panelStretchLayout id="psl1" topHeight="0px" endWidth="300px" styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-25 padding-top-5 AMPTrain" bottomHeight="10px" startWidth="100px">
+                        <f:facet name="center">
+                            <af:panelGroupLayout id="pgl7_train" halign="center" layout="vertical">
+                                <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="t1"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="end">
+                            <af:panelGroupLayout id="pgl12" halign="end" styleClass="padding-top-5" layout="vertical">
+                                <f:facet name="separator">
+                                    <af:spacer width="10" id="s1"/>
+                                </f:facet>
+                                -->
+                    <!--<af:button id="b1" text="Correspondence"/>-->
+                    <!--
+                                <af:button text="Correspondence" id="b7" clientComponent="true" partialSubmit="true"
+                                action="#{CorrespondenceBPMBean.onclickCorrespondence}">
+                                <af:setPropertyListener from="12347" to="#{viewScope.propsId}" type="action"/>
+                                <af:setPropertyListener from="false" to="#{viewScope.readOnlyMode}" type="action"/>
+                                <af:setPropertyListener from="Exclusions" to="#{viewScope.category}" type="action"/>
+                                <af:setPropertyListener from="Prop58" to="#{viewScope.subcategory}" type="action"/>
+                                <af:setPropertyListener from="333" to="#{viewScope.WorkUnitId}" type="action"/>
+                                <af:setPropertyListener from="true" to="#{requestScope.sbmtRelValue}" type="action"/>
+                                <af:setPropertyListener from="true" to="#{requestScope.sbmtApprValue}" type="action"/>
+                                </af:button>
+                                
+                                <af:button text="Add/View Remarks" id="remBtn" clientComponent="true" partialSubmit="true">
+                                <af:showPopupBehavior  triggerType="click"  popupId="remarksPopup"/>
+                                -->
+                    <!--<af:setPropertyListener from="#{row.propId}" to="#{pageFlowScope.propId}" type="action"/>-->
+                    <!--
+                                </af:button>
+                
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>-->
+                    <af:popup id="remarksPopup" autoCancel="disabled" launcherVar="source"
+                              contentDelivery="lazyUncached" eventContext="launcher" childCreation="immediate"
+                              partialTriggers="t1">
+                        <af:dialog id="d2" resize="on" stretchChildren="first" title=" Add/View Remarks"
+                                   closeIconVisible="true" type="ok" modal="true" styleClass="AMPReadOnlyDialog"
+                                   contentWidth="1030" contentHeight="600" affirmativeTextAndAccessKey="Done">
+                            <af:panelGroupLayout id="pgl41" layout="scroll">
+                                <!--Redrag the remarks taskflow-->
+                                <af:region value="#{bindings.ampremarksbtf1.regionModel}" id="r2"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+                    <af:popup id="correspondencePopUP" autoCancel="disabled" contentDelivery="lazyUncached"
+                              childCreation="immediate" binding="#{CorrespondenceBPMBean.correspondencePopUp1}">
+                        <af:dialog id="dialcorres" resize="on" stretchChildren="first" title="Correspondence"
+                                   closeIconVisible="true" type="none" modal="true" styleClass="AMPReadOnlyDialog"
+                                   contentWidth="1300" contentHeight="600">
+                            <af:panelGroupLayout id="pgl51" layout="scroll">
+                                <!--<af:outputText value="RS :sbmtRelValue ::#{requestScope.sbmtRelValue}" id="ot5"/>
+                <af:outputText value=" RS  :sbmtApprValue ::#{requestScope.sbmtApprValue}" id="ot6"/>
+                <af:outputText value="VS PROP ID   #{viewScope.propsId}" id="ot26"/>
+                <af:outputText value="WUID ON POP UP -2::  #{viewScope.WorkUnitId}" id="ot36"/>-->
+                                <af:region value="#{bindings.ampbpmcorrespondencebtf1.regionModel}" id="r1"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+                    <af:panelHeader text="Supporting Information" id="ph2"
+                                    styleClass="margin-top-15 amp-border-top padding-top-5"
+                                    inlineStyle="font-weight:bold;">
+                        <af:panelGroupLayout id="pgl31" layout="horizontal" halign="start"
+                                             styleClass="AFStretchWidth padding-top-5"
+                                             inlineStyle="background-color: #EEEEEE;">
+                            <af:outputText value="List of Available Documents" id="ot1"
+                                           inlineStyle="width:130px;font-weight:bold;background-color: #EEEEEE;"/>
+                            <af:panelGroupLayout id="pgl35" layout="horizontal" halign="end" styleClass="padding-top-5">
+                                <af:button text="Add to List" immediate="true" id="b4" shortDesc="Add to List">
+                                    <af:showPopupBehavior popupId="supportInfodocadd" triggerType="click"/>
+                                </af:button>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:panelGroupLayout id="pgl9" binding="#{backingBeanScope.propSuppInfoBean.availableDocsGrp}">
+                            <af:table value="#{bindings.availableDocument.collectionModel}" var="row"
+                                      rows="#{bindings.availableDocument.rangeSize}" inlineStyle="padding-bottom:5px;"
+                                      styleClass=" AFStretchWidth AMPLightWeightTable" autoHeightRows="10"
+                                      rowBandingInterval="1" scrollPolicy="page"
+                                      emptyText="#{bindings.availableDocument.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.availableDocument.rangeSize}" id="t2"
+                                      selectedRowKeys="#{bindings.availableDocument.collectionModel.selectedRow}"
+                                      partialTriggers="cil1"
+                                      selectionListener="#{bindings.availableDocument.collectionModel.makeCurrent}"
+                                      binding="#{backingBeanScope.propSuppInfoBean.suppDocTable}" varStatus="vs"
+                                      rowSelection="single">
+                                <af:column headerText="" id="c1" align="center" width="5%">
+                                    <af:commandImageLink id="cil1" clientComponent="true"
+                                                         icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/remove-ownership.png"
+                                                         actionListener="#{backingBeanScope.propSuppInfoBean.deleteDocumentList}"
+                                                         rendered="#{row.bindings.lovid.inputValue == null}"
+                                                         visible="#{row.bindings.lovid.inputValue == null}">
+                                        <f:attribute name="idx" value="#{vs.index}"/>
+                                    </af:commandImageLink>
+                                </af:column>
+                                <af:column headerText="Document Name" id="c5" align="center" width="40%">
+                                    <af:outputText value="#{row.bindings.docName.inputValue}"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"
+                                                   shortDesc="#{bindings.availableDocument.hints.docName.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column headerText="Received" id="c2" align="center" width="10%">
+                                    <af:selectBooleanCheckbox value="#{row.bindings.received.inputValue}"
+                                                              label="#{row.bindings.received.label}"
+                                                              shortDesc="#{bindings.availableDocument.hints.received.tooltip}"
+                                                              id="sbc1" autoSubmit="true"
+                                                              valueChangeListener="#{backingBeanScope.propSuppInfoBean.onChangeReceived}"
+                                                              binding="#{backingBeanScope.propSuppInfoBean.requestedCheckBox}">
+                                        <f:attribute name="idx" value="#{vs.index}"/>
+                                        <af:clientListener method="chstp" type="valueChange"/>
+                                    </af:selectBooleanCheckbox>
+                                </af:column>
+                                <af:column headerText="Requested" id="c3" align="center" width="10%">
+                                    <af:selectBooleanCheckbox value="#{row.bindings.requested.inputValue}"
+                                                              label="#{row.bindings.requested.label}" autoSubmit="true"
+                                                              shortDesc="#{bindings.availableDocument.hints.requested.tooltip}"
+                                                              valueChangeListener="#{backingBeanScope.propSuppInfoBean.onChangeRequested}"
+                                                              id="sbc2"
+                                                              >
+                                        <f:attribute name="idx" value="#{vs.index}"/>
+                                        <af:clientListener method="chstp" type="valueChange"/>
+                                    </af:selectBooleanCheckbox>
+                                </af:column>
+                                <af:column headerText="Requested Date" id="c4" align="center" width="35%">
+                                    <af:outputText value="#{row.bindings.requestedDate.inputValue}" rendered="#{row.bindings.requested.inputValue=='true'}"
+                                                   shortDesc="#{bindings.availableDocument.hints.requestedDate.tooltip}"
+                                                   id="ot3">
+                                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.availableDocument.hints.lovid.label}" id="c6"
+                                           rendered="false">
+                                    <af:outputText value="#{row.bindings.lovid.inputValue}"
+                                                   shortDesc="#{bindings.availableDocument.hints.lovid.tooltip}"
+                                                   id="ot4"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelGroupLayout>
+                        <af:popup id="supportInfodocadd" autoCancel="disabled" launcherVar="source"
+                                  contentDelivery="lazyUncached" eventContext="launcher" childCreation="immediate"
+                                  partialTriggers="t1">
+                            <af:dialog id="d3" resize="on" stretchChildren="first" title=" Add to List"
+                                       closeIconVisible="true" type="none" modal="true" styleClass="AMPReadOnlyDialog"
+                                       contentWidth="400" contentHeight="150">
+                                <af:panelGroupLayout id="pgl5" layout="scroll" styleClass="AFStrechtWidth">
+                                    <!--<af:inputText label="Label 1" id="it3"/>-->
+                                    <af:panelGridLayout id="pgl6">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                                                <af:panelGroupLayout id="pgl8" layout="vertical"
+                                                                     styleClass="AFStrechtWidth"
+                                                                     inlineStyle="padding-bottom:20px;">
+                                                    <f:facet name="separator">
+                                                        <af:spacer height="5px" id="s10"/>
+                                                    </f:facet>
+                                                    <af:panelLabelAndMessage label="Document Name" id="plam6"
+                                                                             showRequired="true"
+                                                                             labelStyle="vertical-align: top;"/>
+                                                    <af:inputText id="it4" label="" simple="true"
+                                                                  contentStyle="width:390px" maximumLength="400"
+                                                                  binding="#{backingBeanScope.propSuppInfoBean.documentName}"
+                                                                  autoSubmit="true"/>
+                                                </af:panelGroupLayout>
+                                                <af:panelGroupLayout id="pgl7" halign="end" layout="horizontal"
+                                                                     styleClass="AFStrechtWidth amp-border-top padding-top-20">
+                                                    <af:commandButton text="Cancel" id="b2"
+                                                                      actionListener="#{backingBeanScope.propSuppInfoBean.closeAddDocListPopUp}">
+                                                        <af:resetActionListener/>
+                                                    </af:commandButton>
+                                                    <af:spacer width="10" height="10" id="s3"/>
+                                                    <af:commandButton text="Add" id="b6"
+                                                                      actionListener="#{backingBeanScope.propSuppInfoBean.addDocument}"></af:commandButton>
+                                                </af:panelGroupLayout>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:panelGroupLayout>
+                            </af:dialog>
+                        </af:popup>
+                    </af:panelHeader>
+                    <af:region value="#{bindings.ampsupportingdocsbtf1.regionModel}" id="r3"/>
+                    <af:panelStretchLayout id="psl3" topHeight="0px" endWidth="300px"
+                                           styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-5"
+                                           bottomHeight="0px" startWidth="100px">
+                        <f:facet name="start">
+                            <af:panelGroupLayout id="pgsil2" layout="horizontal" halign="start"
+                                                 styleClass="padding-top-5">
+                                <af:button text="Back" id="b5" action="back"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="end">
+                            <af:panelGroupLayout id="pgl4" layout="horizontal" halign="end" styleClass="padding-top-5">
+                                <f:facet name="separator">
+                                    <af:spacer width="10" id="s27"/>
+                                </f:facet>
+                                <af:button text="Save" immediate="true" id="b1" shortDesc="Save"
+                                           action="#{backingBeanScope.propSuppInfoBean.onSuppInfoSave}"></af:button>
+                                <af:button text="Next" id="b3" shortDesc="Next"
+                                           action="#{propClaimPerformBean.onNextAction}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </af:panelGroupLayout>
+                <!-- Dont remove these buttons -->
+                <af:button actionListener="#{invokeActionBean.setOperation}"
+                           text="#{wf:getResourceValue('SubmitForCorrespondenceApproval', 'bindings.customActions')}"
+                           disabled="#{!bindings.SubmitForCorrespondenceApproval.enabled}"
+                           action="#{invokeActionBean.invokeOperation}" partialSubmit="false" visible="false" id="b22"
+                           binding="#{CorrespondenceBPMBean.submitForCorrespondenceApproval}">
+                    <f:attribute name="DC_OPERATION_BINDING" value="bindings.SubmitForCorrespondenceApproval"/>
+                </af:button>
+                <af:button actionListener="#{invokeActionBean.setOperation}"
+                           text="#{wf:getResourceValue('SubmitForCorrespondenceRelease', 'bindings.customActions')}"
+                           disabled="#{!bindings.SubmitForCorrespondenceRelease.enabled}"
+                           action="#{invokeActionBean.invokeOperation}" partialSubmit="false" visible="false" id="b32"
+                           binding="#{CorrespondenceBPMBean.submitForCorrespondenceRelease}">
+                    <f:attribute name="DC_OPERATION_BINDING" value="bindings.SubmitForCorrespondenceRelease"/>
+                </af:button>
+                <af:button text="Cancel" visible="false" id="bclose1" action="closeTaskFlow"
+                           binding="#{CorrespondenceBPMBean.closeBtn}"/>
+                <!-- Dont remove these buttons -->
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

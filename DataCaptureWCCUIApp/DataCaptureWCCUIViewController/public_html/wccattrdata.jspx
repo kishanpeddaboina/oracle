@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="DataCaptureHT_TaskDetails.jspx" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1">
+                <af:panelStretchLayout id="psl1" topHeight="200px" dimensionsFrom="parent">
+                    <f:facet name="start"/>
+                    <f:facet name="end"/>
+                    <f:facet name="top">
+                        <af:panelGroupLayout id="pgl1" layout="vertical">
+                         
+                            <af:panelFormLayout id="pfl1">
+                                <af:inputText value="#{bindings.dDocName.inputValue}"
+                                              label="#{bindings.dDocName.hints.label}"
+                                              required="#{bindings.dDocName.hints.mandatory}"
+                                              columns="#{bindings.dDocName.hints.displayWidth}"
+                                              maximumLength="#{bindings.dDocName.hints.precision}"
+                                              shortDesc="#{bindings.dDocName.hints.tooltip}" id="it1">
+                                    <f:validator binding="#{bindings.dDocName.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.category.inputValue}"
+                                              label="#{bindings.category.hints.label}"
+                                              required="#{bindings.category.hints.mandatory}"
+                                              columns="#{bindings.category.hints.displayWidth}"
+                                              maximumLength="#{bindings.category.hints.precision}"
+                                              shortDesc="#{bindings.category.hints.tooltip}" id="it2">
+                                    <f:validator binding="#{bindings.category.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.subCategory.inputValue}"
+                                              label="#{bindings.subCategory.hints.label}"
+                                              required="#{bindings.subCategory.hints.mandatory}"
+                                              columns="#{bindings.subCategory.hints.displayWidth}"
+                                              maximumLength="#{bindings.subCategory.hints.precision}"
+                                              shortDesc="#{bindings.subCategory.hints.tooltip}" id="it3">
+                                    <f:validator binding="#{bindings.subCategory.validator}"/>
+                                </af:inputText>
+                                <af:button actionListener="#{bindings.populateAttributeModel.execute}"
+                                           text="populateAttributeModel"
+                                            id="b1" action="#{attrDataBean.afterPopupulate}"/>
+                            </af:panelFormLayout>
+                            <af:separator id="s1"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="bottom"/>
+                    <f:facet name="center">
+              <!--   <af:region value="#{bindings.wccdocDtlflow1.regionModel}" id="r1"/> -->
+                       <af:panelCollection id="pc1" partialTriggers="::b1">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t2">
+                                    <af:outputText value="Count : #{bindings.attrModelListIterator.estimatedRowCount}" id="ot12"/>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.attrModelList.collectionModel}" var="row"
+                                      rows="#{bindings.attrModelList.rangeSize}"
+                                      emptyText="#{bindings.attrModelList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0" fetchSize="#{bindings.attrModelList.rangeSize}" id="t1">
+                                <af:column headerText="#{bindings.attrModelList.hints.id.label}" id="c1">
+                                    <af:outputText value="#{row.id}"
+                                                   shortDesc="#{bindings.attrModelList.hints.id.tooltip}" id="ot1"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.name.label}" id="c2">
+                                    <af:outputText value="#{row.name}"
+                                                   shortDesc="#{bindings.attrModelList.hints.name.tooltip}" id="ot2"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.visible.label}" id="c3">
+                                    <af:outputText value="#{row.visible}"
+                                                   shortDesc="#{bindings.attrModelList.hints.visible.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.required.label}" id="c4">
+                                    <af:outputText value="#{row.required}"
+                                                   shortDesc="#{bindings.attrModelList.hints.required.tooltip}"
+                                                   id="ot4"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.value.label}" id="c5">
+                                    <af:outputText value="#{row.value}"
+                                                   shortDesc="#{bindings.attrModelList.hints.value.tooltip}" id="ot5"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.validationMessage.label}" id="c6">
+                                    <af:outputText value="#{row.validationMessage}"
+                                                   shortDesc="#{bindings.attrModelList.hints.validationMessage.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.attributeType.label}" id="c7">
+                                    <af:outputText value="#{row.attributeType}"
+                                                   shortDesc="#{bindings.attrModelList.hints.attributeType.tooltip}"
+                                                   id="ot7"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.component.label}" id="c8">
+                                    <af:outputText value="#{row.component}"
+                                                   shortDesc="#{bindings.attrModelList.hints.component.tooltip}"
+                                                   id="ot8"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.order.label}" id="c9">
+                                    <af:outputText value="#{row.order}"
+                                                   shortDesc="#{bindings.attrModelList.hints.order.tooltip}" id="ot9">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.attrModelList.hints.order.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.dataType.label}" id="c10">
+                                    <af:outputText value="#{row.dataType}"
+                                                   shortDesc="#{bindings.attrModelList.hints.dataType.tooltip}"
+                                                   id="ot10"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.attrModelList.hints.maxLength.label}" id="c11">
+                                    <af:outputText value="#{row.maxLength}"
+                                                   shortDesc="#{bindings.attrModelList.hints.maxLength.tooltip}"
+                                                   id="ot11">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.attrModelList.hints.maxLength.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection> 
+                    </f:facet>
+                </af:panelStretchLayout>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

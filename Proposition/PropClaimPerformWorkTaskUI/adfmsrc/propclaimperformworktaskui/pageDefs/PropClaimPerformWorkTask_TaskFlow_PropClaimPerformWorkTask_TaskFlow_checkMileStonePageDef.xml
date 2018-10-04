@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_checkMileStonePageDef"
+                Package="propclaimperformworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                    RangeSize="25" BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.task" id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.PropClaimPerformWorkTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator id="AMPWorkTaskIterator" MasterBinding="payloadIterator" Binds="AMPWorkTask" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.AMPWorkTask"/>
+    <accessorIterator MasterBinding="AMPWorkTaskIterator" Binds="PropertyIdentificationList" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.PropertyIdentificationList"
+                      id="PropertyIdentificationListIterator"/>
+    <accessorIterator id="PropertyIdentificationIterator" MasterBinding="PropertyIdentificationListIterator"
+                      Binds="PropertyIdentification" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.PropertyIdentificationType"/>
+    <accessorIterator id="systemAttributesIterator" MasterBinding="taskIterator" Binds="systemAttributes" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.systemAttributesType"/>
+    <accessorIterator id="WorkTaskDetailsIterator" MasterBinding="AMPWorkTaskIterator" Binds="WorkTaskDetails"
+                      RangeSize="25" DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.WorkTaskDetails"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="11.1.1.66.73" id="DataControls"
+                    Package="gov.laca.amp.tam.model">
+  <AdapterDataControl id="TAMAssignmentDC"
+                      FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="gov.laca.amp.tam.model.pdc.TAMAssignmentDC"
+                      BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignmentDC"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"/>
+      <TypeInfo FullName="gov.laca.amp.tam.model.pdc.TAMAssignmentDC"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignmentDC"
+                       xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="TAMAssignedDC"
+                      FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="gov.laca.amp.tam.model.pdc.TAMAssignedDC"
+                      BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignedDC"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"/>
+      <TypeInfo FullName="gov.laca.amp.tam.model.pdc.TAMAssignedDC"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignedDC"
+                       xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

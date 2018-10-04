@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="gov.laca.amp.bvm" ClientType="Generic">
+  <pageMap>
+    <page path="/gov/laca/amp/bvm/view/bye-details-btf/HistoricalEventDetails.jsff"
+          usageId="gov_laca_amp_bvm_ByeDetailsPageDef"/>
+    <page path="/gov/laca/amp/bvm/view/bye-details-btf/CurrentEventDetails.jsff"
+          usageId="gov_laca_amp_bvm_CurrentEventDetailsPageDef"/>
+    <page path="/gov/laca/amp/bvm/view/bye-details-btf/CurrentEventDetails.jspx"
+          usageId="gov_laca_amp_bvm_CurrentEventDetailsPageDef1"/>
+    <page path="/gov/laca/amp/bvm/view/bye-details-btf/HistoricalEventDetails.jspx"
+          usageId="gov_laca_amp_bvm_HistoricalEventDetailsPageDef1"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="gov_laca_amp_bvm_ByeDetailsPageDef"
+          path="gov.laca.amp.bvm.view.bye_details_btf.HistoricalEventDetailsPageDef"/>
+    <page id="gov_laca_amp_bvm_CurrentEventDetailsPageDef"
+          path="gov.laca.amp.bvm.view.bye_details_btf.CurrentEventDetailsPageDef"/>
+    <page id="gov_laca_amp_bvm_CurrentEventDetailsPageDef1"
+          path="gov.laca.amp.bvm.view.bye_details_btf.CurrentEventDetailsPageDef1"/>
+    <page id="gov_laca_amp_bvm_HistoricalEventDetailsPageDef1"
+          path="gov.laca.amp.bvm.view.bye_details_btf.HistoricalEventDetailsPageDef1"/>
+    <page id="gov_laca_amp_bvm_base_year_event_calculatorPageDef"
+          path="gov.laca.amp.bvm.view.base_year_event_calculator.base_year_event_calculatorPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="InitiateBaseYearEvent"
+        path="gov.laca.amp.bvm.model.InitiateBaseYearEvent"/>
+  </dataControlUsages>  
+</Application>

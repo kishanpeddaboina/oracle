@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.16.48" id="ainList"
+          Package="DataCaptureWCCUIViewController_DataCaptureHT"
+          BeanClass="DataCaptureWCCUIViewController_DataCaptureHT.ainList" isJavaBased="false">
+  <Attribute Name="ain" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="2147483640"/>
+        <Property Name="LABEL" Value="Ain"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="ain"/>
+        <Property Name="targetNamespace" Value="http://assessor.lacounty.gov/amp/xsd/DataCaptureOB"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+</JavaBean>

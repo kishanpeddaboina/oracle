@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:region value="#{bindings.ampcorrespondencesbtf1.regionModel}" id="r1"/>
+  
+  <af:panelStretchLayout id="psl1" topHeight="0px" endWidth="800px" inlineStyle="padding-bottom:10px"
+                                   styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-10 padding-top-10"
+                                   bottomHeight="0px" startWidth="100px">
+    <f:facet name="start"/>
+    <f:facet name="end">
+     <af:panelGroupLayout id="pgl2" layout="horizontal"
+                         styleClass="AFStretchWidth" binding="#{RefreshParentComponentBean.pgl}">
+    <!--<af:outputText value="Refreshed value: #{requestScope.sbmtApprValue}" id="ot1"
+                     partialTriggers="r1"
+                     binding="#{RefreshParentComponentBean.sbmtApprValueBnd}"/>
+                     
+         <af:outputText value="Refreshed value: #{requestScope.sbmtRelValue} :PF: #{pageFlowScope.sbmtRelValue}" id="ot2"
+         partialTriggers="r1"
+         binding="#{RefreshParentComponentBean.sbmtRelValueBnd}"/>-->
+    
+      <af:panelGroupLayout id="pgl31" layout="horizontal" halign="end" styleClass="padding-top-5">
+        <f:facet name="separator">
+          <af:spacer width="10" height="10" id="s1"/>
+        </f:facet>
+        <af:button text="Cancel"  id="b3" action="#{CorrespondenceBean.cancelPopUP}"
+                   actionListener="#{CorrespondenceBean.closepopupLstnr}"/>
+        
+            <af:button actionListener="#{bindings.SubmitForCorrespondenceApproval.execute}"
+            disabled="#{!requestScope.sbmtApprValue}"   text="Submit For Correspondence Approval"
+             binding="#{RefreshParentComponentBean.sbmtApprValueBnd}" id="b4"/>
+            <af:button actionListener="#{bindings.SubmitForCorrespondenceRelease.execute}"
+            disabled="#{!requestScope.sbmtRelValue}" text="Submit For Correspondence Release" 
+            binding="#{RefreshParentComponentBean.sbmtRelValueBnd}" id="b5"/>
+            
+      </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top"/>
+    <f:facet name="bottom"/>
+    <f:facet name="center"/>
+  </af:panelStretchLayout>
+</jsp:root>

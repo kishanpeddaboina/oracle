@@ -1,0 +1,26 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="dcdocs-idc-conn" className="oracle.adf.mbean.share.connection.wcc.WccConnection" xmlns="">
+    <Factory className="oracle.adf.mbean.share.connection.wcc.WccConnectionFactory"/>
+    <RefAddresses>
+      <StringRefAddr addrType="oracle.wcc.ridc.connection.protocol">
+        <Contents>idc</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="oracle.wcc.ridc.connection.url">
+        <Contents>idc://amp-stg-ridcwcc.isd.lacounty.gov:4444</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="oracle.wcc.ridc.credential.username">
+        <Contents>soabpm2wcc_serviceaccount</Contents>
+      </StringRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="dcdocs-wccurl-conn" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="dcdocs-wccurl-conn">
+        <Contents>
+          <urlconnection name="dcdocs-wccurl-conn" url="http://assessorportalstg.assessor.lacounty.gov/wcc/wccproxy/d"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://assessor.lacounty.gov/amp/data/bvm/DynmicAssignment/v1.0"
+            targetNamespace="http://assessor.lacounty.gov/amp/data/bvm/DynmicAssignment/v1.0"
+            elementFormDefault="qualified">
+  <xsd:element name="dynamicParticipantList">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="userId" minOccurs="0" type="xsd:string"/>
+        <xsd:element name="group" minOccurs="0" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

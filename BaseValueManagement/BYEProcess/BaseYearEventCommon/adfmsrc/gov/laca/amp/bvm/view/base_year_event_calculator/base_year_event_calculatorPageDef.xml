@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="base_year_event_calculatorPageDef"
+                Package="gov.laca.amp.bvm.view.base_year_event_calculator">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="InitiateBaseYearEvent"
+              id="InitiateBaseYearEventIterator"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="trendEventList" RangeSize="10"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.Event"
+                      id="trendEventListIterator" CacheResults="false"/>
+<accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="trendHeaderList" RangeSize="10"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.Header"
+                      id="trendHeaderListIterator" CacheResults="false"/>
+  </executables>
+  <bindings>
+    <methodAction id="generateBaseYearEventData"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="generateBaseYearEventData"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.InitiateBaseYearEvent.methodResults.generateBaseYearEventData_InitiateBaseYearEvent_dataProvider_generateBaseYearEventData_result">
+      <NamedData NDName="targetYear" NDType="long"/>
+      <NamedData NDName="operationType" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="trendEventListIterator" id="trendEventList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Event"
+                      Name="trendEventList0">
+        <AttrNames>
+          <Item Value="eventName"/>
+          <Item Value="eventType"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="yearList"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Year"
+                      Name="trendEventList1">
+        <AttrNames>
+          <Item Value="tyear"/>
+          <Item Value="baseYear"/>
+          <Item Value="fixture"/>
+          <Item Value="imp"/>
+          <Item Value="land"/>
+          <Item Value="total"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="trendHeaderListIterator" id="trendHeaderList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Header"
+                      Name="trendHeaderList0">
+        <AttrNames>
+          <Item Value="hbaseYear"/>
+          <Item Value="hyear"/>
+          <Item Value="trendFactor"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

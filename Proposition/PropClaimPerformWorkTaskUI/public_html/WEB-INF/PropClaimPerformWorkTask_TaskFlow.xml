@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+    <task-flow-definition id="PropClaimPerformWorkTask_TaskFlow">
+        <default-activity>checkMileStone</default-activity>
+        <data-control-scope>
+            <isolated/>
+        </data-control-scope>
+        <input-parameter-definition id="__1">
+            <name>bpmWorklistContext</name>
+            <value>#{pageFlowScope.bpmWorklistContext}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__2">
+            <name>bpmWorklistTaskId</name>
+            <value>#{pageFlowScope.bpmWorklistTaskId}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__3">
+            <name>bpmWorklistTaskVersion</name>
+            <value>#{pageFlowScope.bpmWorklistTaskVersion}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__4">
+            <name>bpmWorklistHttpURL</name>
+            <value>#{pageFlowScope.bpmWorklistHttpURL}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__5">
+            <name>parentURL</name>
+            <value>#{pageFlowScope.parentURL}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__6">
+            <name>bpmWorklistHome</name>
+            <value>#{pageFlowScope.bpmWorklistHome}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__7">
+            <name>bpmWorklistLogin</name>
+            <value>#{pageFlowScope.bpmWorklistLogin}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__8">
+            <name>bpmWorklistLogout</name>
+            <value>#{pageFlowScope.bpmWorklistLogout}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__9">
+            <name>bpmWorklistReassign</name>
+            <value>#{pageFlowScope.bpmWorklistReassign}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__10">
+            <name>bpmWorklistHistory</name>
+            <value>#{pageFlowScope.bpmWorklistHistory}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__11">
+            <name>bpmWorklistRequestInfo</name>
+            <value>#{pageFlowScope.bpmWorklistRequestInfo}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__12">
+            <name>bpmWorklistRoute</name>
+            <value>#{pageFlowScope.bpmWorklistRoute}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__13">
+            <name>bpmClientType</name>
+            <value>#{pageFlowScope.bpmClientType}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__14">
+            <name>bpmBrowserWindowStatus</name>
+            <value>#{pageFlowScope.bpmBrowserWindowStatus}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__15">
+            <name>bpmWorklistBackPage</name>
+            <value>#{pageFlowScope.bpmWorklistBackPage}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__16">
+            <name>bpmWorklistSecurity</name>
+            <value>#{pageFlowScope.bpmWorklistSecurity}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__17">
+            <name>bpmWorklistGraphHistory</name>
+            <value>#{pageFlowScope.bpmWorklistGraphSecurity}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__18">
+            <name>enableNavigationButton</name>
+            <value>#{pageFlowScope.enableNavigationButton}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__19">
+            <name>lg</name>
+            <value>#{pageFlowScope.lg}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__20">
+            <name>cy</name>
+            <value>#{pageFlowScope.cy}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__21">
+            <name>vr</name>
+            <value>#{pageFlowScope.vr}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__22">
+            <name>tz</name>
+            <value>#{pageFlowScope.tz}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__23">
+            <name>df</name>
+            <value>#{pageFlowScope.df}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__24">
+            <name>tf</name>
+            <value>#{pageFlowScope.tf}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__25">
+            <name>dt</name>
+            <value>#{pageFlowScope.dt}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__26">
+            <name>dateTimePattern</name>
+            <value>#{pageFlowScope.dateTimePattern}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__27">
+            <name>datePattern</name>
+            <value>#{pageFlowScope.datePattern}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__28">
+            <name>timePattern</name>
+            <value>#{pageFlowScope.timePattern}</value>
+            <class></class>
+        </input-parameter-definition>
+        <input-parameter-definition id="__74">
+            <name>wuid</name>
+            <value>#{pageFlowScope.wuid}</value>
+        </input-parameter-definition>
+        <managed-bean id="__39">
+            <managed-bean-name>docMgmtBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.DocMgmtBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__40">
+            <managed-bean-name>redirectBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.PageRedirectBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__41">
+            <managed-bean-name>addCommentBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.AddCommentBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__42">
+            <managed-bean-name>taskDocumentationBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.TaskDocumentationBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__43">
+            <managed-bean-name>addAttachmentBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.AddAttachmentBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__44">
+            <managed-bean-name>readAttachmentBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.ReadAttachmentBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__45">
+            <managed-bean-name>addDocumentBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.AddDocumentBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__46">
+            <managed-bean-name>readDocumentBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.ReadDocumentBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__47">
+            <managed-bean-name>popupBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.ADFPopupBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__48">
+            <managed-bean-name>actionAvailable</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.ActionEnablerBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__49">
+            <managed-bean-name>invokeActionBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.InvokeActionBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+            <managed-property id="__50">
+                <property-name>isReturnActivity</property-name>
+                <value>true</value>
+            </managed-property>
+            <managed-property id="__51">
+                <property-name>taskFormVersion</property-name>
+                <value>121130</value>
+            </managed-property>
+        </managed-bean>
+        <managed-bean id="__52">
+            <managed-bean-name>aleComponentBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.ALEComponentBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__53">
+            <managed-bean-name>taskFlowReassignBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.TaskFlowReassignBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__54">
+            <managed-bean-name>identityBrowserView</managed-bean-name>
+            <managed-bean-class>oracle.bpel.worklistapp.dc.idbrowser.beans.view.IdentityBrowserView</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__55">
+            <managed-bean-name>userPreferencesBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.worklistapp.userprefs.UserPreferencesBean</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__56">
+            <managed-bean-name>commentBean</managed-bean-name>
+            <managed-bean-class>oracle.bpel.services.workflow.worklist.adf.CommentBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__57">
+            <managed-bean-name>propClaimPerformBean</managed-bean-name>
+            <managed-bean-class>gov.laca.amp.propclaimperform.view.backing.PropClaimPerformBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__58">
+            <managed-bean-name>propQualConclBean</managed-bean-name>
+            <managed-bean-class>gov.laca.amp.propclaimperform.view.backing.PropQualConclBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__67">
+            <managed-bean-name>propReviewSubmitBean</managed-bean-name>
+            <managed-bean-class>gov.laca.amp.propclaimperform.view.backing.PropReviewSubmitBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__80">
+            <managed-bean-name>propClaimAddrBean</managed-bean-name>
+            <managed-bean-class>gov.laca.amp.propclaimperform.view.backing.PropClaimAddressValidatnBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__77">
+            <managed-bean-name>propSuppInfoBean</managed-bean-name>
+            <managed-bean-class>gov.laca.amp.propclaimperform.view.backing.PropSuppInfoBean</managed-bean-class>
+            <managed-bean-scope>backingBean</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__92">
+            <managed-bean-name>trainHandlerBean</managed-bean-name>
+            <managed-bean-class>gov.laca.amp.propclaimperform.view.backing.TrainHandlerBean</managed-bean-class>
+            <managed-bean-scope>request</managed-bean-scope>
+            <managed-property id="__94">
+                <property-name>trainHandlerBeanHelper</property-name>
+                <property-class>gov.laca.amp.propclaimperform.view.backing.TrainHandlerBeanHelper</property-class>
+                <value>#{viewScope.trainHandlerBeanHelper}</value>
+            </managed-property>
+        </managed-bean>
+        <managed-bean id="__93">
+            <managed-bean-name>trainHandlerBeanHelper</managed-bean-name>
+            <managed-bean-class>gov.laca.amp.propclaimperform.view.backing.TrainHandlerBeanHelper</managed-bean-class>
+            <managed-bean-scope>view</managed-bean-scope>
+        </managed-bean>
+        <managed-bean id="__95">
+            <managed-bean-name>PropClaimValidator</managed-bean-name>
+            <managed-bean-class>gov.laca.amp.propclaimperform.view.validator.PropClaimValidator</managed-bean-class>
+            <managed-bean-scope>pageFlow</managed-bean-scope>
+        </managed-bean>
+        <finalizer>#{invokeActionBean.invokeScript}</finalizer>
+        <view id="PropClaimPerformWorkTask_TaskDetails_jspx">
+            <page>/PropClaimPerformWorkTask_TaskDetails.jspx</page>
+            <train-stop>
+                <display-name>Claim Information</display-name>
+            </train-stop>
+        </view>
+        <task-flow-return id="taskReturn">
+            <outcome>
+                <name>done</name>
+            </outcome>
+        </task-flow-return>
+        <task-flow-return id="taskFlowRefresh">
+            <outcome>
+                <name>refresh</name>
+            </outcome>
+        </task-flow-return>
+        <task-flow-return id="previousTaskFlow">
+            <outcome>
+                <name>previous</name>
+            </outcome>
+        </task-flow-return>
+        <task-flow-return id="nextTaskFlow">
+            <outcome>
+                <name>next</name>
+            </outcome>
+        </task-flow-return>
+        <task-flow-return id="taskFlowCompleted">
+            <outcome>
+                <name>new</name>
+            </outcome>
+        </task-flow-return>
+        <router id="QualRouter">
+            <case id="__79">
+                <expression>#{pageFlowScope.CALLOPA == 'YES'}</expression>
+                <outcome>invokeOPA</outcome>
+            </case>
+            <default-outcome>fetchPropFilings</default-outcome>
+        </router>
+        <method-call id="invokeOPA">
+            <method>#{propClaimPerformBean.onInvokeOPA}</method>
+            <outcome>
+                <fixed-outcome>gotoQualUI1</fixed-outcome>
+            </outcome>
+        </method-call>
+        <method-call id="loadPropsLOV">
+            <method>#{propClaimPerformBean.loadPropsLOV}</method>
+            <outcome>
+                <fixed-outcome>launchUI</fixed-outcome>
+            </outcome>
+        </method-call>
+        <method-call id="getOtherPropFilings">
+            <method>#{propClaimPerformBean.onGetOtherPropFilings}</method>
+            <outcome>
+                <fixed-outcome>gotoQualUI2</fixed-outcome>
+            </outcome>
+        </method-call>
+        <view id="suppInfo">
+            <page>/suppInfo.jspx</page>
+            <train-stop>
+                <display-name>Supporting Information</display-name>
+            </train-stop>
+        </view>
+        <view id="qualConcl">
+            <page>/qualConcl.jspx</page>
+            <train-stop>
+                <display-name>Qualification and Conclusion</display-name>
+            </train-stop>
+        </view>
+        <view id="ReviewSubmit">
+            <page>/ReviewSubmit.jspx</page>
+            <train-stop>
+                <display-name>Review and Submit</display-name>
+            </train-stop>
+        </view>
+        <method-call id="loadPropsData">
+            <method>#{propClaimPerformBean.loadPropsData}</method>
+            <outcome>
+                <fixed-outcome>loadLov</fixed-outcome>
+            </outcome>
+        </method-call>
+        <method-call id="initAvailableDocs">
+            <method>#{backingBeanScope.propSuppInfoBean.initAvailableDocs}</method>
+            <outcome>
+                <fixed-outcome>gotoSuppInfoUI</fixed-outcome>
+            </outcome>
+        </method-call>
+        <view id="Unassign_PropsClaimPerformTask">
+            <page>/Unassign_PropsClaimPerformTask.jspx</page>
+        </view>
+        <method-call id="checkMileStone">
+            <method>#{propClaimPerformBean.checkMileStone}</method>
+            <outcome>
+                <fixed-outcome>gotoRouter</fixed-outcome>
+            </outcome>
+        </method-call>
+        <router id="router1">
+            <case id="__91">
+                <expression>#{pageFlowScope.enableReassign=='Y'}</expression>
+                <outcome>launchUnassignedUI</outcome>
+            </case>
+            <case id="__97">
+                <expression>#{pageFlowScope.withdrawntask=='Y'}</expression>
+                <outcome>withdrawn</outcome>
+            </case>
+            <default-outcome>launchPerformUI</default-outcome>
+        </router>
+        <view id="withdrawn">
+            <page>/withdrawn.jspx</page>
+        </view>
+        <train/>
+        <control-flow-rule id="__29">
+            <from-activity-id>*</from-activity-id>
+            <control-flow-case id="__30">
+                <from-outcome>closeTaskFlow</from-outcome>
+                <to-activity-id>taskReturn</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__31">
+            <from-activity-id>*</from-activity-id>
+            <control-flow-case id="__32">
+                <from-outcome>refreshTaskFlow</from-outcome>
+                <to-activity-id>taskReturn</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__33">
+            <from-activity-id>*</from-activity-id>
+            <control-flow-case id="__34">
+                <from-outcome>fetchPreviousTask</from-outcome>
+                <to-activity-id>taskReturn</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__35">
+            <from-activity-id>*</from-activity-id>
+            <control-flow-case id="__36">
+                <from-outcome>fetchNextTask</from-outcome>
+                <to-activity-id>taskReturn</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__37">
+            <from-activity-id>*</from-activity-id>
+            <control-flow-case id="__38">
+                <from-outcome>fetchNewTask</from-outcome>
+                <to-activity-id>taskReturn</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__68">
+            <from-activity-id>suppInfo</from-activity-id>
+            <control-flow-case id="__69">
+                <from-outcome>gotoQual</from-outcome>
+                <to-activity-id>QualRouter</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__60">
+                <from-outcome>back</from-outcome>
+                <to-activity-id>PropClaimPerformWorkTask_TaskDetails_jspx</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__75">
+            <from-activity-id>QualRouter</from-activity-id>
+            <control-flow-case id="__76">
+                <from-outcome>invokeOPA</from-outcome>
+                <to-activity-id>invokeOPA</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__70">
+                <from-outcome>fetchPropFilings</from-outcome>
+                <to-activity-id>getOtherPropFilings</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__65">
+            <from-activity-id>qualConcl</from-activity-id>
+            <control-flow-case id="__66">
+                <from-outcome>gotoReviewSubmit</from-outcome>
+                <to-activity-id>ReviewSubmit</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__63">
+                <from-outcome>back</from-outcome>
+                <to-activity-id>suppInfo</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__61">
+            <from-activity-id>invokeOPA</from-activity-id>
+            <control-flow-case id="__62">
+                <from-outcome>gotoQualUI1</from-outcome>
+                <to-activity-id>qualConcl</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__71">
+            <from-activity-id>getOtherPropFilings</from-activity-id>
+            <control-flow-case id="__72">
+                <from-outcome>gotoQualUI2</from-outcome>
+                <to-activity-id>qualConcl</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__59">
+            <from-activity-id>loadPropsLOV</from-activity-id>
+            <control-flow-case id="__64">
+                <from-outcome>launchUI</from-outcome>
+                <to-activity-id>PropClaimPerformWorkTask_TaskDetails_jspx</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__167">
+            <from-activity-id>loadPropsData</from-activity-id>
+            <control-flow-case id="__73">
+                <from-outcome>loadLov</from-outcome>
+                <to-activity-id>loadPropsLOV</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__81">
+            <from-activity-id>PropClaimPerformWorkTask_TaskDetails_jspx</from-activity-id>
+            <control-flow-case id="__82">
+                <from-outcome>gotoSuppInfo</from-outcome>
+                <to-activity-id>initAvailableDocs</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__83">
+            <from-activity-id>initAvailableDocs</from-activity-id>
+            <control-flow-case id="__84">
+                <from-outcome>gotoSuppInfoUI</from-outcome>
+                <to-activity-id>suppInfo</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__78">
+            <from-activity-id>checkMileStone</from-activity-id>
+            <control-flow-case id="__85">
+                <from-outcome>gotoRouter</from-outcome>
+                <to-activity-id>router1</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__86">
+            <from-activity-id>router1</from-activity-id>
+            <control-flow-case id="__87">
+                <from-outcome>launchPerformUI</from-outcome>
+                <to-activity-id>loadPropsData</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__90">
+                <from-outcome>launchUnassignedUI</from-outcome>
+                <to-activity-id>Unassign_PropsClaimPerformTask</to-activity-id>
+            </control-flow-case>
+            <control-flow-case id="__96">
+                <from-outcome>withdrawn</from-outcome>
+                <to-activity-id>withdrawn</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <control-flow-rule id="__88">
+            <from-activity-id>ReviewSubmit</from-activity-id>
+            <control-flow-case id="__89">
+                <from-outcome>back</from-outcome>
+                <to-activity-id>qualConcl</to-activity-id>
+            </control-flow-case>
+        </control-flow-rule>
+        <visibility>
+            <url-invoke-allowed/>
+        </visibility>
+    </task-flow-definition>
+</adfc-config>

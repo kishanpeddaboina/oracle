@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="ReviewChenagesPageDef"
+                Package="gov.laca.amp.bvm.view.amp_initiate_base_year_event_btf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="InitiateBaseYearEvent"
+              id="InitiateBaseYearEventIterator"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="reviewEventsList"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="reviewEventsListIterator" Refresh="ifNeeded"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="reviewEventsListIterator" id="reviewEventsList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      Name="reviewEventsList0">
+        <AttrNames>
+          <Item Value="eventDescriptionKey"/>
+          <Item Value="eventDate"/>
+          <Item Value="baseYear"/>
+          <Item Value="subUnitNumber"/>
+          <Item Value="percentOwnership"/>
+          <Item Value="eventNameKey"/>
+          <Item Value="percentageAppliedToValue"/>
+          <Item Value="landValue"/>
+          <Item Value="landReasonCodeKey"/>
+          <Item Value="improvementValue"/>
+          <Item Value="improvementReasonCodeKey"/>
+          <Item Value="totalValue"/>
+          <Item Value="fixtureValue"/>
+          <Item Value="effectiveBeginDate"/>
+          <Item Value="effectiveEndDate"/>
+          <Item Value="verificationDate"/>
+          <Item Value="inactiveDate"/>
+          <Item Value="blendedValueFlag"/>
+          <Item Value="recordingDate"/>
+          <Item Value="sequenceNumber"/>
+          <Item Value="documentNumber"/>
+          <Item Value="ownershipCode"/>
+          <Item Value="newConstructionDate"/>
+          <Item Value="partiallyCompleteNumber"/>
+          <Item Value="retainedLandValue"/>
+          <Item Value="retainedImprovementValue"/>
+          <Item Value="retainedTotalValue"/>
+          <Item Value="retainedFixtureValue"/>
+          <Item Value="subUnitDescription"/>
+          <Item Value="personalPropertyType"/>
+          <Item Value="ppDescription"/>
+          <Item Value="totalAdjAcquisitionCost"/>
+          <Item Value="percentageFixture"/>
+          <Item Value="originalAIN"/>
+          <Item Value="notes"/>
+          <Item Value="ppAssessmentNumber"/>
+          <Item Value="byeId"/>
+          <Item Value="verifiedBy"/>
+          <Item Value="modifiedBy"/>
+          <Item Value="modifiedDate"/>
+          <Item Value="byeLegacySourceSystem"/>
+          <Item Value="eventSource"/>
+          <Item Value="createdData"/>
+          <Item Value="transactionType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

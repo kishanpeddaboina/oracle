@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="PropClaimPerformWorkTask_TaskDetails.jspx" id="d1">
+            <af:form id="f1">
+            
+              <af:button text="Correspondence" id="b7" clientComponent="true" partialSubmit="true"
+                               action="#{CorrespondenceBPMBean.onclickCorrespondence}">
+                <af:setPropertyListener from="12347" to="#{viewScope.propsId}" type="action"/>
+                <af:setPropertyListener from="false" to="#{viewScope.readOnlyMode}" type="action"/>
+                <af:setPropertyListener from="Exclusions" to="#{viewScope.category}" type="action"/>
+                <af:setPropertyListener from="Prop58" to="#{viewScope.subcategory}" type="action"/>
+                <af:setPropertyListener from="333" to="#{viewScope.WorkUnitId}" type="action"/>
+                <af:setPropertyListener from="true" to="#{requestScope.sbmtRelValue}" type="action"/>
+                <af:setPropertyListener from="true" to="#{requestScope.sbmtApprValue}" type="action"/>
+                        <!--<af:clientAttribute name="propsId" value="12347"/>
+                <af:clientAttribute name="readOnlyMode" value="false"/>
+                <af:clientAttribute name="category" value="Exclusions"/>
+                <af:clientAttribute name="subcategory" value="Prop58"/>
+                <af:clientAttribute name="wuid" value="333"/>
+                <af:showPopupBehavior popupId="correspondencePopUP" triggerType="action" />-->
+                </af:button>
+             
+                <!--<af:button actionListener="#{invokeActionBean.setOperation}"
+                                                       text="#{wf:getResourceValue('SubmitForCorrespondenceApproval', 'bindings.customActions')}"
+                                                       disabled="#{!bindings.SubmitForCorrespondenceApproval.enabled}"
+                                                       action="#{invokeActionBean.invokeOperation}"
+                                                       partialSubmit="false"
+                                                       visible="#{wf:isCustomActionAvailable('SubmitForCorrespondenceApproval', 'bindings.customActions')}"
+                                                       id="b6">
+                                                <f:attribute name="DC_OPERATION_BINDING"
+                                                             value="bindings.SubmitForCorrespondenceApproval"/>
+                                            </af:button>-->
+                <af:popup id="correspondencePopUP" autoCancel="disabled"  contentDelivery="lazyUncached"
+                childCreation="immediate"  binding="#{CorrespondenceBPMBean.correspondencePopup}">
+              
+                <af:dialog id="dialcorres" resize="on" stretchChildren="first" title="Correspondence" closeIconVisible="true" type="none" modal="true" styleClass="AMPReadOnlyDialog" 
+                contentWidth="1300" contentHeight="600">
+               <af:panelGroupLayout id="pgl41" layout="scroll" >
+               <!--<af:outputText value="RS :sbmtRelValue ::#{requestScope.sbmtRelValue}" id="ot5"/>
+                <af:outputText value=" RS  :sbmtApprValue ::#{requestScope.sbmtApprValue}" id="ot6"/>
+                <af:outputText value="VS PROP ID   #{viewScope.propsId}" id="ot26"/>
+                <af:outputText value="WUID ON POP UP -2::  #{viewScope.WorkUnitId}" id="ot36"/>-->
+                            <af:region value="#{bindings.ampbpmcorrespondencebtf1.regionModel}" id="r1"/>
+                        </af:panelGroupLayout>
+                    </af:dialog>
+                    
+            </af:popup>
+
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

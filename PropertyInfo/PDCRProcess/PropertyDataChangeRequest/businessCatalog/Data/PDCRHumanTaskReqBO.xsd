@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.9.0.1.7" build="1.7" fullName="Data.PDCRHumanTaskReqBO" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskReqBO" elementFormDefault="qualified" xmlns:ns1="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"  xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskReqBO"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:import namespace="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0" schemaLocation="oramds:/apps/amp/xsd/ao/ManagePDCR.xsd"/>
+    <xs:complexType name="PDCRHumanTaskReqBOType">
+        <xs:sequence>
+            <xs:element ref="ns1:managePDCRRequest" bpmo:name="pdcrHumanTaskReq"/>
+            <xs:element name="assignTo_UserID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                User Id for the Submit Task
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="assignTo_GroupID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                Group ID for Review Task
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="assignTo_ManagerID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                User Id for the Manage Task
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="role" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                It’s a value passed by BPM to UI, based on which Role need to work on the human task - Appraiser, Supervisor, Principal Appraiser and Chief Appraiser
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ownerID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                Person who initiated the process from PDCR screens
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="checkPDCR" nillable="true" type="xs:boolean">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                Vijay asked for CheckBYE attribute as Boolen for C3, hence creating similar for C5
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="clientID" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                Client Id will be derived from the security and is passed to UI as Client Id need to travel to DB for any SOA to DB interactions.
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PDCRHumanTaskReqBO" type="PDCRHumanTaskReqBOType"/>
+</xs:schema>

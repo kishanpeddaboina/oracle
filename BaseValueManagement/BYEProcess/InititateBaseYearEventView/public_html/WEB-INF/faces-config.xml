@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<faces-config version="2.2" xmlns="http://java.sun.com/xml/ns/javaee">
+  <application>
+    <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
+  </application>
+  <converter>
+    <converter-id>AMPConvertNumber</converter-id>
+    <converter-class>gov.laca.amp.portal.converters.AMPConvertNumber</converter-class>
+  </converter>
+  <validator>
+    <validator-id>ValidateYearRange</validator-id>
+    <validator-class>gov.laca.amp.portal.validators.ValidateYearRange</validator-class>
+  </validator>
+  <validator>
+    <validator-id>ValidateWholeNumbers</validator-id>
+    <validator-class>gov.laca.amp.portal.validators.ValidateWholeNumbers</validator-class>
+  </validator>
+  <validator>
+    <validator-id>ValidateDecimal</validator-id>
+    <validator-class>gov.laca.amp.portal.validators.ValidateDecimal</validator-class>
+  </validator>
+</faces-config>

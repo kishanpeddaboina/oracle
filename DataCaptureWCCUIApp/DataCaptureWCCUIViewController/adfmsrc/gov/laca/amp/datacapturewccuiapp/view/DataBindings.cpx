@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="gov.laca.amp.datacapturewccuiapp.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/wccattrdata.jspx" usageId="gov_laca_amp_datacapturewccuiapp_view_wccattrdataPageDef"/>
+    <page path="/WEB-INF/gov/laca/amp/datacapturewccuiapp/pageflows/wcc-docDtl-flow.xml#wcc-docDtl-flow@populateAttributeModel"
+          usageId="gov_laca_amp_datacapturewccuiapp_view_wcc_docDtl_flow_wcc_docDtl_flow_populateAttributeModelPageDef"/>
+    <page path="/gov/laca/amp/datacapturewccuiapp/view/fragement/wccDocDtl.jsff"
+          usageId="gov_laca_amp_datacapturewccuiapp_view_wccDocDtlPageDef"/>
+    <page path="/gov/laca/amp/datacapturewccuiapp/view/page/DataCaptureHT_TaskDetails.jspx"
+          usageId="gov_laca_amp_datacapturewccuiapp_view_DataCaptureHT_TaskDetailsPageDef"/>
+    <page path="/WEB-INF/DataCaptureHT_TaskFlow.xml#DataCaptureHT_TaskFlow@getTaskDetails"
+          usageId="gov_laca_amp_datacapturewccuiapp_view_DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_getTaskDetailsPageDef"/>
+    <page path="/WEB-INF/DataCaptureHT_TaskFlow.xml#DataCaptureHT_TaskFlow@methodCall1"
+          usageId="gov_laca_amp_datacapturewccuiapp_view_DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_methodCall1PageDef"/>
+    <page path="/WEB-INF/DataCaptureHT_TaskFlow.xml#DataCaptureHT_TaskFlow@methodCall2"
+          usageId="gov_laca_amp_datacapturewccuiapp_view_DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_methodCall2PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="gov_laca_amp_datacapturewccuiapp_view_wccattrdataPageDef"
+          path="gov.laca.amp.datacapturewccuiapp.view.pageDefs.wccattrdataPageDef"/>
+    <page id="gov_laca_amp_datacapturewccuiapp_view_wcc_docDtl_flow_wcc_docDtl_flow_populateAttributeModelPageDef"
+          path="gov.laca.amp.datacapturewccuiapp.pageflows.wcc_docDtl_flow_wcc_docDtl_flow_populateAttributeModelPageDef"/>
+    <page id="gov_laca_amp_datacapturewccuiapp_view_wccDocDtlPageDef"
+          path="gov.laca.amp.datacapturewccuiapp.view.fragement.wccDocDtlPageDef"/>
+    <page id="gov_laca_amp_datacapturewccuiapp_view_DataCaptureHT_TaskDetailsPageDef"
+          path="gov.laca.amp.datacapturewccuiapp.view.page.DataCaptureHT_TaskDetailsPageDef"/>
+    <page id="gov_laca_amp_datacapturewccuiapp_view_DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_getTaskDetailsPageDef"
+          path="gov.laca.amp.datacapturewccuiapp.pageflows.DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_getTaskDetailsPageDef"/>
+    <page id="gov_laca_amp_datacapturewccuiapp_view_DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_methodCall1PageDef"
+          path="gov.laca.amp.datacapturewccuiapp.pageflows.DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_methodCall1PageDef"/>
+    <page id="gov_laca_amp_datacapturewccuiapp_view_DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_methodCall2PageDef"
+          path="datacapturewccuiviewcontroller.pageDefs.DataCaptureHT_TaskFlow_DataCaptureHT_TaskFlow_methodCall2PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="DataCaptureWCCUIViewController_DataCaptureHT"
+        path="datacapturewccuiviewcontroller.DataCaptureWCCUIViewController_DataCaptureHT"/>
+    <dc id="DataCaptureWCCUIDC" path="gov.laca.amp.datacapturewccuiapp.model.DataCaptureWCCUIDC"/>
+  </dataControlUsages>
+</Application>

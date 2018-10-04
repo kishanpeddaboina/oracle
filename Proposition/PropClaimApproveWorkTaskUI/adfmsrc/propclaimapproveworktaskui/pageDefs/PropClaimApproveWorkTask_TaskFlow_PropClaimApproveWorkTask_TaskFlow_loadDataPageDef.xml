@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="PropClaimApproveWorkTask_TaskFlow_PropClaimApproveWorkTask_TaskFlow_loadDataPageDef"
+                Package="propclaimapproveworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask"
+                    RangeSize="25" BeanClass="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask"
+                      BeanClass="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask.task" id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask"
+                      BeanClass="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask.PropClaimApproveWorkTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator id="AMPWorkTaskIterator" MasterBinding="payloadIterator" Binds="AMPWorkTask" RangeSize="25"
+                      DataControl="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask"
+                      BeanClass="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask.AMPWorkTask"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.PropClaimApproveWorkTaskUI_PropClaimApproveWorkTask.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

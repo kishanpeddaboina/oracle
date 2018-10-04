@@ -1,0 +1,1789 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:selectBooleanCheckbox value="#{bindings.verified.inputValue}"
+                                  label="#{bindings.verified.label}"
+                                  shortDesc="#{bindings.verified.hints.tooltip}"
+                                  id="sbc1"/>
+        <af:panelGridLayout id="pgl4">
+          <af:gridRow marginTop="5px" height="auto" id="gr5">
+            <af:gridCell marginStart="5px" width="25%" id="gc5"/>
+            <af:gridCell marginStart="5px" width="25%" id="gc6">
+              <af:outputLabel value="Original Information" id="ol1"
+                              inlineStyle="font-weight:bolder;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="25%" id="gc10"
+                         rendered="#{pageFlowScope.isEdit}">
+              <af:outputLabel value="Edited Information" id="outputLabel1"
+                              inlineStyle="font-weight:bolder;"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc1"
+                         rendered="#{!pageFlowScope.isEdit}">
+              <af:outputLabel value="Current Information" id="outputLabel2"
+                              inlineStyle="font-weight:bolder;"/>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+        <af:panelGroupLayout id="pgl1">
+          <af:panelHeader text="#{pageFlowScope.isRealProperty ? 'BYE - Land and Improvements' : 'BYE- Fixtures'}"
+                          id="ph1">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelGridLayout id="pgl3">
+              <af:gridRow marginTop="5px" height="auto" id="gr9">
+                <af:gridCell marginStart="5px" width="25%" id="gc9">
+                  <af:panelLabelAndMessage label="#{bindings.byeId.hints.label}"
+                                           id="plam1"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc2">
+                  <af:inputText value="#{bindings.byeId.inputValue}"
+                                simple="true"
+                                required="#{bindings.byeId.hints.mandatory}"
+                                columns="#{bindings.byeId.hints.displayWidth}"
+                                maximumLength="#{bindings.byeId.hints.precision}"
+                                shortDesc="#{bindings.byeId.hints.tooltip}"
+                                id="it72" disabled="true">
+                    <f:validator binding="#{bindings.byeId.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc15"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.byeId1.inputValue}"
+                                simple="true"
+                                required="#{bindings.byeId1.hints.mandatory}"
+                                columns="#{bindings.byeId1.hints.displayWidth}"
+                                maximumLength="#{bindings.byeId1.hints.precision}"
+                                shortDesc="#{bindings.byeId1.hints.tooltip}"
+                                id="it14" disabled="true">
+                    <f:validator binding="#{bindings.byeId1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc28" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.byeId1.inputValue}"
+                                simple="true"
+                                required="#{bindings.byeId1.hints.mandatory}"
+                                columns="#{bindings.byeId1.hints.displayWidth}"
+                                maximumLength="#{bindings.byeId1.hints.precision}"
+                                shortDesc="#{bindings.byeId1.hints.tooltip}"
+                                id="it91" disabled="true">
+                    <f:validator binding="#{bindings.byeId1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr3"
+                          rendered="#{pageFlowScope.isRealProperty}">
+                <af:gridCell marginStart="5px" width="25%" id="gc27">
+                  <af:panelLabelAndMessage label="#{bindings.ain.hints.label}"
+                                           id="plam2"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc35">
+                  <af:inputText value="#{bindings.ain.inputValue}" simple="true"
+                                required="#{bindings.ain.hints.mandatory}"
+                                columns="#{bindings.ain.hints.displayWidth}"
+                                maximumLength="#{bindings.ain.hints.precision}"
+                                shortDesc="#{bindings.ain.hints.tooltip}"
+                                id="it73" disabled="true">
+                    <f:validator binding="#{bindings.ain.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc3"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.ain1.inputValue}"
+                                simple="true"
+                                required="#{bindings.ain1.hints.mandatory}"
+                                columns="#{bindings.ain1.hints.displayWidth}"
+                                maximumLength="#{bindings.ain1.hints.precision}"
+                                shortDesc="#{bindings.ain1.hints.tooltip}"
+                                id="it15" disabled="true">
+                    <f:validator binding="#{bindings.ain1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc32" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.ain1.inputValue}"
+                                simple="true"
+                                required="#{bindings.ain1.hints.mandatory}"
+                                columns="#{bindings.ain1.hints.displayWidth}"
+                                maximumLength="#{bindings.ain1.hints.precision}"
+                                shortDesc="#{bindings.ain1.hints.tooltip}"
+                                id="it92" disabled="true">
+                    <f:validator binding="#{bindings.ain1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr2"
+                          rendered="#{pageFlowScope.isPersonalProperty}">
+                <af:gridCell marginStart="5px" width="25%" id="gc33">
+                  <af:panelLabelAndMessage label="#{bindings.ppAssessmentNumber.hints.label}"
+                                           id="plam8"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc4">
+                  <af:inputText value="#{bindings.ppAssessmentNumber.inputValue}"
+                                simple="true"
+                                required="#{bindings.ppAssessmentNumber.hints.mandatory}"
+                                columns="#{bindings.ppAssessmentNumber.hints.displayWidth}"
+                                maximumLength="#{bindings.ppAssessmentNumber.hints.precision}"
+                                shortDesc="#{bindings.ppAssessmentNumber.hints.tooltip}"
+                                id="it74" disabled="true">
+                    <f:validator binding="#{bindings.ppAssessmentNumber.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc22"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.ppAssessmentNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.ppAssessmentNumber1.hints.mandatory}"
+                                columns="#{bindings.ppAssessmentNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.ppAssessmentNumber1.hints.precision}"
+                                shortDesc="#{bindings.ppAssessmentNumber1.hints.tooltip}"
+                                id="it16" disabled="true">
+                    <f:validator binding="#{bindings.ppAssessmentNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc11" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.ppAssessmentNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.ppAssessmentNumber1.hints.mandatory}"
+                                columns="#{bindings.ppAssessmentNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.ppAssessmentNumber1.hints.precision}"
+                                shortDesc="#{bindings.ppAssessmentNumber1.hints.tooltip}"
+                                id="it93" disabled="true">
+                    <f:validator binding="#{bindings.ppAssessmentNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr6">
+                <af:gridCell marginStart="5px" width="25%" id="gc20">
+                  <af:panelLabelAndMessage label="#{bindings.eventNameKey.hints.label}"
+                                           id="plam7"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc14">
+                  <af:inputText value="#{bindings.eventNameKey.inputValue}"
+                                simple="true"
+                                required="#{bindings.eventNameKey.hints.mandatory}"
+                                columns="#{bindings.eventNameKey.hints.displayWidth}"
+                                maximumLength="#{bindings.eventNameKey.hints.precision}"
+                                shortDesc="#{bindings.eventNameKey.hints.tooltip}"
+                                id="it75" disabled="true">
+                    <f:validator binding="#{bindings.eventNameKey.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc19"
+                             rendered="#{pageFlowScope.isEdit}">
+         <af:selectOneChoice id="soc2"
+                          value="#{bindings.eventNameKey1.inputValue}"
+                          required="#{bindings.eventNameKey1.hints.mandatory}"                            
+                            shortDesc="#{bindings.eventNameKey1.hints.tooltip}"
+                            disabled="#{bindings.transactionType.inputValue eq 'C' ? false: true}">
+<f:selectItem id="si90" itemValue="Change of Ownership" itemLabel="Change of Ownership" />
+<f:selectItem id="si91" itemValue="Establish 1975 Base Value" itemLabel="Establish 1975 Base Value" />
+<f:selectItem id="si92" itemValue="New Construction" itemLabel="New Construction" />
+</af:selectOneChoice>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc18" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.eventNameKey1.inputValue}"
+                                simple="true"
+                                required="#{bindings.eventNameKey1.hints.mandatory}"
+                                columns="#{bindings.eventNameKey1.hints.displayWidth}"
+                                maximumLength="#{bindings.eventNameKey1.hints.precision}"
+                                shortDesc="#{bindings.eventNameKey1.hints.tooltip}"
+                                id="it94" disabled="true">
+                    <f:validator binding="#{bindings.eventNameKey1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr1">
+                <af:gridCell marginStart="5px" width="25%" id="gc17">
+                  <af:panelLabelAndMessage label="#{bindings.eventDescriptionKey.hints.label}"
+                                           id="plam3"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc29">
+                  <af:inputText value="#{bindings.eventDescriptionKey.inputValue}"
+                                simple="true"
+                                required="#{bindings.eventDescriptionKey.hints.mandatory}"
+                                columns="#{bindings.eventDescriptionKey.hints.displayWidth}"
+                                maximumLength="#{bindings.eventDescriptionKey.hints.precision}"
+                                shortDesc="#{bindings.eventDescriptionKey.hints.tooltip}"
+                                id="it76" disabled="true">
+                    <f:validator binding="#{bindings.eventDescriptionKey.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc24"
+                             rendered="#{pageFlowScope.isEdit}">
+                    <af:selectOneChoice id="soc1"
+                          value="#{bindings.eventDescriptionKey1.inputValue}"
+                          required="#{bindings.eventDescriptionKey1.hints.mandatory}"                            
+                            shortDesc="#{bindings.eventDescriptionKey1.hints.tooltip}">
+<f:selectItem id="si0" itemValue="100% Interest Transfer" itemLabel="100% Interest Transfer" />
+<f:selectItem id="si1" itemValue="35 YR Lease Reappraisal" itemLabel="35 YR Lease Reappraisal" />
+<f:selectItem id="si2" itemValue="35 YR Lease Termination" itemLabel="35 YR Lease Termination" />
+<f:selectItem id="si3" itemValue="Annual Fixture Prop 13" itemLabel="Annual Fixture Prop 13" />
+<f:selectItem id="si4" itemValue="Annual Landfill Prop13" itemLabel="Annual Landfill Prop13" />
+<f:selectItem id="si5" itemValue="Annual Mining Rights Prop 13" itemLabel="Annual Mining Rights Prop 13" />
+<f:selectItem id="si6" itemValue="Annual Mutual Water Co. Prop 13" itemLabel="Annual Mutual Water Co. Prop 13" />
+<f:selectItem id="si7" itemValue="Annual Pipeline Prop 13" itemLabel="Annual Pipeline Prop 13" />
+<f:selectItem id="si8" itemValue="Annual PUC Prop 13" itemLabel="Annual PUC Prop 13" />
+<f:selectItem id="si9" itemValue="Annual Quarry Prop 13" itemLabel="Annual Quarry Prop 13" />
+<f:selectItem id="si10" itemValue="Corporate Change in Control" itemLabel="Corporate Change in Control" />
+<f:selectItem id="si12" itemValue="Date of Death" itemLabel="Date of Death" />
+<f:selectItem id="si13" itemValue="Demolition" itemLabel="Demolition" />
+<f:selectItem id="si14" itemValue="Development Rights (Acquiring Parcel)" itemLabel="Development Rights (Acquiring Parcel)" />
+<f:selectItem id="si15" itemValue="Development Rights (Transferring Parcel)" itemLabel="Development Rights (Transferring Parcel)" />
+<f:selectItem id="si16" itemValue="Fixture Addition" itemLabel="Fixture Addition" />
+<f:selectItem id="si17" itemValue="Fixture Disposal" itemLabel="Fixture Disposal" />
+<f:selectItem id="si18" itemValue="Fixture Relocation" itemLabel="Fixture Relocation" />
+<f:selectItem id="si19" itemValue="Green Code (Section 11) Transfer" itemLabel="Green Code (Section 11) Transfer" />
+<f:selectItem id="si20" itemValue="Land Contract (Recorded)" itemLabel="Land Contract (Recorded)" />
+<f:selectItem id="si21" itemValue="Land Contract (Unrecorded)" itemLabel="Land Contract (Unrecorded)" />
+<f:selectItem id="si22" itemValue="NCC CONEX" itemLabel="NCC CONEX" />
+<f:selectItem id="si23" itemValue="New Construction Completion" itemLabel="New Construction Completion" />
+<f:selectItem id="si24" itemValue="O.Y.O. or CO-OP (Non-Segregated)" itemLabel="O.Y.O. or CO-OP (Non-Segregated)" />
+<f:selectItem id="si25" itemValue="P.I. Additions to Land" itemLabel="P.I. Additions to Land" />
+<f:selectItem id="si26" itemValue="P.I. Assignment" itemLabel="P.I. Assignment" />
+<f:selectItem id="si180" itemValue="P.I. Creation" itemLabel="P.I. Creation" />
+<f:selectItem id="si190" itemValue="P.I. Renewal" itemLabel="P.I. Renewal" />
+<f:selectItem id="si200" itemValue="P.I. Sublease" itemLabel="P.I. Sublease" />
+<f:selectItem id="si210" itemValue="Parcel Combine" itemLabel="Parcel Combine" />
+<f:selectItem id="si220" itemValue="Parcel Creation" itemLabel="Parcel Creation" />
+<f:selectItem id="si230" itemValue="Parcel Cut" itemLabel="Parcel Cut" />
+<f:selectItem id="si240" itemValue="Partial Completion" itemLabel="Partial Completion" />
+<f:selectItem id="si250" itemValue="Partial Completion Closeout" itemLabel="Partial Completion Closeout" />
+<f:selectItem id="si260" itemValue="Partial Interest &lt; 5%" itemLabel="Partial Interest &lt; 5%" />
+<f:selectItem id="si270" itemValue="Partial Interest Transfer" itemLabel="Partial Interest Transfer" />
+<f:selectItem id="si280" itemValue="Portion Added (Parcel Change)" itemLabel="Portion Added (Parcel Change)" />
+<f:selectItem id="si290" itemValue="Portion Taken (Parcel Change)" itemLabel="Portion Taken (Parcel Change)" />
+<f:selectItem id="si300" itemValue="Prop 50/171 Approved" itemLabel="Prop 50/171 Approved" />
+<f:selectItem id="si310" itemValue="Prop 58/193 Approved" itemLabel="Prop 58/193 Approved" />
+<f:selectItem id="si320" itemValue="Prop 60/90 or 110 Approved" itemLabel="Prop 60/90 or 110 Approved" />
+<f:selectItem id="si330" itemValue="Prop. 110 Approved (Permanently Disabled)" itemLabel="Prop. 110 Approved (Permanently Disabled)" />
+<f:selectItem id="si340" itemValue="Prop. 171 Approved (Disaster -Out of County)" itemLabel="Prop. 171 Approved (Disaster -Out of County)" />
+<f:selectItem id="si350" itemValue="Prop. 193 &gt; $1,000,000" itemLabel="Prop. 193 &gt; $1,000,000" />
+<f:selectItem id="si360" itemValue="Prop. 3 Approved ( Eminent Domain)" itemLabel="Prop. 3 Approved ( Eminent Domain)" />
+<f:selectItem id="si370" itemValue="Prop. 50 Approved (Disaster - L.A. County)" itemLabel="Prop. 50 Approved (Disaster - L.A. County)" />
+<f:selectItem id="si380" itemValue="Prop. 58 &gt; $1,000,000" itemLabel="Prop. 58 &gt; $1,000,000" />
+<f:selectItem id="si390" itemValue="Prop. 60 Approved (Sr Citizen B.V. Trfr - L.A. County)" itemLabel="Prop. 60 Approved (Sr Citizen B.V. Trfr - L.A. County)" />
+<f:selectItem id="si40" itemValue="Prop. 90 Approved (Sr Citizen B.V. Trfr - Out of County)" itemLabel="Prop. 90 Approved (Sr Citizen B.V. Trfr - Out of County)" />
+<f:selectItem id="si41" itemValue="Unimpaired Prop 13" itemLabel="Unimpaired Prop 13" />
+
+                    </af:selectOneChoice>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc30" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.eventDescriptionKey1.inputValue}"
+                                simple="true"
+                                required="#{bindings.eventDescriptionKey1.hints.mandatory}"
+                                columns="#{bindings.eventDescriptionKey1.hints.displayWidth}"
+                                maximumLength="#{bindings.eventDescriptionKey1.hints.precision}"
+                                shortDesc="#{bindings.eventDescriptionKey1.hints.tooltip}"
+                                id="it95" disabled="true">
+                    <f:validator binding="#{bindings.eventDescriptionKey1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr8">
+                <af:gridCell marginStart="5px" width="25%" id="gc21">
+                  <af:panelLabelAndMessage label="#{bindings.eventDate.hints.label}"
+                                           id="plam4"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc25">
+                  <af:inputText value="#{bindings.eventDate.inputValue}"
+                                required="#{bindings.eventDate.hints.mandatory}"
+                                columns="#{bindings.eventDate.hints.displayWidth}"
+                                maximumLength="#{bindings.eventDate.hints.precision}"
+                                shortDesc="#{bindings.eventDate.hints.tooltip}"
+                                id="it77" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.eventDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.eventDate.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc23"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputDate value="#{bindings.eventDate1.inputValue}"
+                                required="#{bindings.eventDate1.hints.mandatory}"
+                                shortDesc="#{bindings.eventDate1.hints.tooltip}"
+                                id="id1" simple="true">
+                    <f:validator binding="#{bindings.eventDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.eventDate1.format}"/>
+                  </af:inputDate>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc31" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.eventDate1.inputValue}"
+                                required="#{bindings.eventDate1.hints.mandatory}"
+                                columns="#{bindings.eventDate1.hints.displayWidth}"
+                                maximumLength="#{bindings.eventDate1.hints.precision}"
+                                shortDesc="#{bindings.eventDate1.hints.tooltip}"
+                                id="it96" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.eventDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.eventDate1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr7">
+                <af:gridCell marginStart="5px" width="25%" id="gc8">
+                  <af:panelLabelAndMessage label="#{bindings.baseYear.hints.label}"
+                                           id="plam5"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc7">
+                  <af:inputText value="#{bindings.baseYear.inputValue}"
+                                simple="true"
+                                required="#{bindings.baseYear.hints.mandatory}"
+                                columns="#{bindings.baseYear.hints.displayWidth}"
+                                maximumLength="#{bindings.baseYear.hints.precision}"
+                                shortDesc="#{bindings.baseYear.hints.tooltip}"
+                                id="it78" disabled="true">
+                    <f:validator binding="#{bindings.baseYear.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc16"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.baseYear1.inputValue}"
+                                simple="true"
+                                required="#{bindings.baseYear1.hints.mandatory}"
+                                columns="#{bindings.baseYear1.hints.displayWidth}"
+                                maximumLength="#{bindings.baseYear1.hints.precision}"
+                                shortDesc="#{bindings.baseYear1.hints.tooltip}"
+                                id="it2" autoSubmit="true"
+                                converter="javax.faces.BigInteger">
+                    <f:validator binding="#{bindings.baseYear1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc13" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.baseYear1.inputValue}"
+                                simple="true"
+                                required="#{bindings.baseYear1.hints.mandatory}"
+                                columns="#{bindings.baseYear1.hints.displayWidth}"
+                                maximumLength="#{bindings.baseYear1.hints.precision}"
+                                shortDesc="#{bindings.baseYear1.hints.tooltip}"
+                                id="it97" disabled="true">
+                    <f:validator binding="#{bindings.baseYear1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                          id="gr4">
+                <af:gridCell marginStart="5px" width="25%" id="gc36">
+                  <af:panelLabelAndMessage label="#{bindings.originalAIN.hints.label}"
+                                           id="plam6"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc12">
+                  <af:inputText value="#{bindings.originalAIN.inputValue}"
+                                simple="true"
+                                required="#{bindings.originalAIN.hints.mandatory}"
+                                columns="#{bindings.originalAIN.hints.displayWidth}"
+                                maximumLength="#{bindings.originalAIN.hints.precision}"
+                                shortDesc="#{bindings.originalAIN.hints.tooltip}"
+                                id="it79" disabled="true">
+                    <f:validator binding="#{bindings.originalAIN.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc26"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.originalAIN1.inputValue}"
+                                simple="true"
+                                required="#{bindings.originalAIN1.hints.mandatory}"
+                                columns="#{bindings.originalAIN1.hints.displayWidth}"
+                                maximumLength="#{bindings.originalAIN1.hints.precision}"
+                                shortDesc="#{bindings.originalAIN1.hints.tooltip}"
+                                id="it3">
+                    <f:validator binding="#{bindings.originalAIN1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc34" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.originalAIN1.inputValue}"
+                                simple="true"
+                                required="#{bindings.originalAIN1.hints.mandatory}"
+                                columns="#{bindings.originalAIN1.hints.displayWidth}"
+                                maximumLength="#{bindings.originalAIN1.hints.precision}"
+                                shortDesc="#{bindings.originalAIN1.hints.tooltip}"
+                                id="it98" disabled="true">
+                    <f:validator binding="#{bindings.originalAIN1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+          </af:panelHeader>
+          <af:panelHeader text="Event Information" id="eventInfo">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelGridLayout id="pgl2">
+              <af:gridRow marginTop="5px" height="auto" id="gr16">
+                <af:gridCell marginStart="5px" width="25%" id="gc70">
+                  <af:panelLabelAndMessage label="#{bindings.ownershipCode.hints.label}"
+                                           id="plam9">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc65">
+                  <af:inputText value="#{bindings.ownershipCode.inputValue}"
+                                simple="true"
+                                required="#{bindings.ownershipCode.hints.mandatory}"
+                                columns="#{bindings.ownershipCode.hints.displayWidth}"
+                                maximumLength="#{bindings.ownershipCode.hints.precision}"
+                                shortDesc="#{bindings.ownershipCode.hints.tooltip}"
+                                id="it80" disabled="true">
+                    <f:validator binding="#{bindings.ownershipCode.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc73"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.ownershipCode1.inputValue}"
+                                simple="true"
+                                required="#{bindings.ownershipCode1.hints.mandatory}"
+                                columns="#{bindings.ownershipCode1.hints.displayWidth}"
+                                maximumLength="#{bindings.ownershipCode1.hints.precision}"
+                                shortDesc="#{bindings.ownershipCode1.hints.tooltip}"
+                                id="it4" disabled="#{bindings.transactionType.inputValue eq 'C' ? false: true}">
+                    <f:validator binding="#{bindings.ownershipCode1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc44" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.ownershipCode1.inputValue}"
+                                simple="true"
+                                required="#{bindings.ownershipCode1.hints.mandatory}"
+                                columns="#{bindings.ownershipCode1.hints.displayWidth}"
+                                maximumLength="#{bindings.ownershipCode1.hints.precision}"
+                                shortDesc="#{bindings.ownershipCode1.hints.tooltip}"
+                                id="it99" disabled="true">
+                    <f:validator binding="#{bindings.ownershipCode1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr12">
+                <af:gridCell marginStart="5px" width="25%" id="gc60">
+                  <af:panelLabelAndMessage label="#{bindings.documentNumber.hints.label}"
+                                           id="plam10">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc37">
+                  <af:inputText value="#{bindings.documentNumber.inputValue}"
+                                simple="true"
+                                required="#{bindings.documentNumber.hints.mandatory}"
+                                columns="#{bindings.documentNumber.hints.displayWidth}"
+                                maximumLength="#{bindings.documentNumber.hints.precision}"
+                                shortDesc="#{bindings.documentNumber.hints.tooltip}"
+                                id="it81" disabled="true">
+                    <f:validator binding="#{bindings.documentNumber.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc64"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.documentNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.documentNumber1.hints.mandatory}"
+                                columns="#{bindings.documentNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.documentNumber1.hints.precision}"
+                                shortDesc="#{bindings.documentNumber1.hints.tooltip}"
+                                id="it5" disabled="#{bindings.transactionType.inputValue eq 'C' ? false: true}">
+                    <f:validator binding="#{bindings.documentNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc59" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.documentNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.documentNumber1.hints.mandatory}"
+                                columns="#{bindings.documentNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.documentNumber1.hints.precision}"
+                                shortDesc="#{bindings.documentNumber1.hints.tooltip}"
+                                id="it100" disabled="true">
+                    <f:validator binding="#{bindings.documentNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr13">
+                <af:gridCell marginStart="5px" width="25%" id="gc61">
+                  <af:panelLabelAndMessage label="#{bindings.recordingDate.hints.label}"
+                                           id="plam11">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc43">
+                  <af:inputText value="#{bindings.recordingDate.inputValue}"
+                                required="#{bindings.recordingDate.hints.mandatory}"
+                                columns="#{bindings.recordingDate.hints.displayWidth}"
+                                maximumLength="#{bindings.recordingDate.hints.precision}"
+                                shortDesc="#{bindings.recordingDate.hints.tooltip}"
+                                id="it82" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.recordingDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.recordingDate.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc66"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.recordingDate1.inputValue}"
+                                required="#{bindings.recordingDate1.hints.mandatory}"
+                                columns="#{bindings.recordingDate1.hints.displayWidth}"
+                                maximumLength="#{bindings.recordingDate1.hints.precision}"
+                                shortDesc="#{bindings.recordingDate1.hints.tooltip}"
+                                id="it6"
+                                disabled="#{bindings.eventNameKey1.inputValue ne 'Change of Ownership'}" simple="true">
+                    <f:validator binding="#{bindings.recordingDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.recordingDate1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc50" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.recordingDate1.inputValue}"
+                                required="#{bindings.recordingDate1.hints.mandatory}"
+                                columns="#{bindings.recordingDate1.hints.displayWidth}"
+                                maximumLength="#{bindings.recordingDate1.hints.precision}"
+                                shortDesc="#{bindings.recordingDate1.hints.tooltip}"
+                                id="it101" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.recordingDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.recordingDate1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr20">
+                <af:gridCell marginStart="5px" width="25%" id="gc56">
+                  <af:panelLabelAndMessage label="#{bindings.sequenceNumber.hints.label}"
+                                           id="plam12">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc63">
+                  <af:inputText value="#{bindings.sequenceNumber.inputValue}"
+                                simple="true"
+                                required="#{bindings.sequenceNumber.hints.mandatory}"
+                                columns="#{bindings.sequenceNumber.hints.displayWidth}"
+                                maximumLength="#{bindings.sequenceNumber.hints.precision}"
+                                shortDesc="#{bindings.sequenceNumber.hints.tooltip}"
+                                id="it83" disabled="true">
+                    <f:validator binding="#{bindings.sequenceNumber.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc69"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.sequenceNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.sequenceNumber1.hints.mandatory}"
+                                columns="#{bindings.sequenceNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.sequenceNumber1.hints.precision}"
+                                shortDesc="#{bindings.sequenceNumber1.hints.tooltip}"
+                                id="it7" disabled="#{bindings.transactionType.inputValue eq 'C' ? false: true}">
+                    <f:validator binding="#{bindings.sequenceNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc42" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.sequenceNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.sequenceNumber1.hints.mandatory}"
+                                columns="#{bindings.sequenceNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.sequenceNumber1.hints.precision}"
+                                shortDesc="#{bindings.sequenceNumber1.hints.tooltip}"
+                                id="it102" disabled="true">
+                    <f:validator binding="#{bindings.sequenceNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr17">
+                <af:gridCell marginStart="5px" width="25%" id="gc38">
+                  <af:panelLabelAndMessage label="#{bindings.percentOwnership.hints.label}"
+                                           id="plam13">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc51">
+                  <af:inputText value="#{bindings.percentOwnership.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentOwnership.hints.mandatory}"
+                                columns="#{bindings.percentOwnership.hints.displayWidth}"
+                                maximumLength="#{bindings.percentOwnership.hints.precision}"
+                                shortDesc="#{bindings.percentOwnership.hints.tooltip}"
+                                id="it84" disabled="true">
+                    <f:validator binding="#{bindings.percentOwnership.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc75"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.percentOwnership1.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentOwnership1.hints.mandatory}"
+                                columns="#{bindings.percentOwnership1.hints.displayWidth}"
+                                maximumLength="#{bindings.percentOwnership1.hints.precision}"
+                                shortDesc="#{bindings.percentOwnership1.hints.tooltip}"
+                                id="it8" converter="javax.faces.BigDecimal"
+                                autoSubmit="true">
+                    <f:validator binding="#{bindings.percentOwnership1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc67" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.percentOwnership1.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentOwnership1.hints.mandatory}"
+                                columns="#{bindings.percentOwnership1.hints.displayWidth}"
+                                maximumLength="#{bindings.percentOwnership1.hints.precision}"
+                                shortDesc="#{bindings.percentOwnership1.hints.tooltip}"
+                                id="it103" disabled="true">
+                    <f:validator binding="#{bindings.percentOwnership1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr14">
+                <af:gridCell marginStart="5px" width="25%" id="gc48">
+                  <af:panelLabelAndMessage label="#{bindings.newConstructionDate.hints.label}"
+                                           id="plam14">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc58">
+                  <af:inputText value="#{bindings.newConstructionDate.inputValue}"
+                                required="#{bindings.newConstructionDate.hints.mandatory}"
+                                columns="#{bindings.newConstructionDate.hints.displayWidth}"
+                                maximumLength="#{bindings.newConstructionDate.hints.precision}"
+                                shortDesc="#{bindings.newConstructionDate.hints.tooltip}"
+                                id="it85" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.newConstructionDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.newConstructionDate.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc78"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.newConstructionDate1.inputValue}"
+                                required="#{bindings.newConstructionDate1.hints.mandatory}"
+                                columns="#{bindings.newConstructionDate1.hints.displayWidth}"
+                                maximumLength="#{bindings.newConstructionDate1.hints.precision}"
+                                shortDesc="#{bindings.newConstructionDate1.hints.tooltip}"
+                                id="it18" disabled="#{bindings.transactionType.inputValue eq 'C' ? false: true}" simple="true">
+                    <f:validator binding="#{bindings.newConstructionDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.newConstructionDate1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc41" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.newConstructionDate1.inputValue}"
+                                required="#{bindings.newConstructionDate1.hints.mandatory}"
+                                columns="#{bindings.newConstructionDate1.hints.displayWidth}"
+                                maximumLength="#{bindings.newConstructionDate1.hints.precision}"
+                                shortDesc="#{bindings.newConstructionDate1.hints.tooltip}"
+                                id="it104" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.newConstructionDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.newConstructionDate1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr15">
+                <af:gridCell marginStart="5px" width="25%" id="gc79">
+                  <af:panelLabelAndMessage label="#{bindings.partiallyCompleteNumber.hints.label}"
+                                           id="plam15">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc40">
+                  <af:inputText value="#{bindings.partiallyCompleteNumber.inputValue}"
+                                simple="true"
+                                required="#{bindings.partiallyCompleteNumber.hints.mandatory}"
+                                columns="#{bindings.partiallyCompleteNumber.hints.displayWidth}"
+                                maximumLength="#{bindings.partiallyCompleteNumber.hints.precision}"
+                                shortDesc="#{bindings.partiallyCompleteNumber.hints.tooltip}"
+                                id="it86" disabled="true">
+                    <f:validator binding="#{bindings.partiallyCompleteNumber.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc62"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.partiallyCompleteNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.partiallyCompleteNumber1.hints.mandatory}"
+                                columns="#{bindings.partiallyCompleteNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.partiallyCompleteNumber1.hints.precision}"
+                                shortDesc="#{bindings.partiallyCompleteNumber1.hints.tooltip}"
+                                id="it9"
+                                disabled="#{bindings.transactionType.inputValue eq 'C' ? false : (bindings.eventNameKey1.inputValue ne 'New Construction' ? true : false) }">
+                    <f:validator binding="#{bindings.partiallyCompleteNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc53" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.partiallyCompleteNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.partiallyCompleteNumber1.hints.mandatory}"
+                                columns="#{bindings.partiallyCompleteNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.partiallyCompleteNumber1.hints.precision}"
+                                shortDesc="#{bindings.partiallyCompleteNumber1.hints.tooltip}"
+                                id="it105" disabled="true">
+                    <f:validator binding="#{bindings.partiallyCompleteNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr10">
+                <af:gridCell marginStart="5px" width="25%" id="gc76">
+                  <af:panelLabelAndMessage label="#{bindings.subUnitDescription.hints.label}"
+                                           id="plam16">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc74">
+                  <af:inputText value="#{bindings.subUnitDescription.inputValue}"
+                                simple="true"
+                                required="#{bindings.subUnitDescription.hints.mandatory}"
+                                columns="#{bindings.subUnitDescription.hints.displayWidth}"
+                                maximumLength="#{bindings.subUnitDescription.hints.precision}"
+                                shortDesc="#{bindings.subUnitDescription.hints.tooltip}"
+                                id="it87" disabled="true">
+                    <f:validator binding="#{bindings.subUnitDescription.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc80"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.subUnitDescription1.inputValue}"
+                                simple="true"
+                                required="#{bindings.subUnitDescription1.hints.mandatory}"
+                                columns="#{bindings.subUnitDescription1.hints.displayWidth}"
+                                maximumLength="#{bindings.subUnitDescription1.hints.precision}"
+                                shortDesc="#{bindings.subUnitDescription1.hints.tooltip}"
+                                id="it10">
+                    <f:validator binding="#{bindings.subUnitDescription1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc49" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.subUnitDescription1.inputValue}"
+                                simple="true"
+                                required="#{bindings.subUnitDescription1.hints.mandatory}"
+                                columns="#{bindings.subUnitDescription1.hints.displayWidth}"
+                                maximumLength="#{bindings.subUnitDescription1.hints.precision}"
+                                shortDesc="#{bindings.subUnitDescription1.hints.tooltip}"
+                                id="it106" disabled="true">
+                    <f:validator binding="#{bindings.subUnitDescription1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr18">
+                <af:gridCell marginStart="5px" width="25%" id="gc55">
+                  <af:panelLabelAndMessage label="#{bindings.subUnitNumber.hints.label}"
+                                           id="plam17">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc68">
+                  <af:inputText value="#{bindings.subUnitNumber.inputValue}"
+                                simple="true"
+                                required="#{bindings.subUnitNumber.hints.mandatory}"
+                                columns="#{bindings.subUnitNumber.hints.displayWidth}"
+                                maximumLength="#{bindings.subUnitNumber.hints.precision}"
+                                shortDesc="#{bindings.subUnitNumber.hints.tooltip}"
+                                id="it88" disabled="true">
+                    <f:validator binding="#{bindings.subUnitNumber.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc39"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.subUnitNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.subUnitNumber1.hints.mandatory}"
+                                columns="#{bindings.subUnitNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.subUnitNumber1.hints.precision}"
+                                shortDesc="#{bindings.subUnitNumber1.hints.tooltip}"
+                                id="it11" autoSubmit="true"
+                                converter="javax.faces.BigInteger">
+                    <f:validator binding="#{bindings.subUnitNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc45" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.subUnitNumber1.inputValue}"
+                                simple="true"
+                                required="#{bindings.subUnitNumber1.hints.mandatory}"
+                                columns="#{bindings.subUnitNumber1.hints.displayWidth}"
+                                maximumLength="#{bindings.subUnitNumber1.hints.precision}"
+                                shortDesc="#{bindings.subUnitNumber1.hints.tooltip}"
+                                id="it107" disabled="true">
+                    <f:validator binding="#{bindings.subUnitNumber1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr19"
+                          rendered="#{pageFlowScope.isPersonalProperty}">
+                <af:gridCell marginStart="5px" width="25%" id="gc57">
+                  <af:panelLabelAndMessage label="#{bindings.personalPropertyType.hints.label}"
+                                           id="plam18">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc71">
+                  <af:inputText value="#{bindings.personalPropertyType.inputValue}"
+                                simple="true"
+                                required="#{bindings.personalPropertyType.hints.mandatory}"
+                                columns="#{bindings.personalPropertyType.hints.displayWidth}"
+                                maximumLength="#{bindings.personalPropertyType.hints.precision}"
+                                shortDesc="#{bindings.personalPropertyType.hints.tooltip}"
+                                id="it89" disabled="true">
+                    <f:validator binding="#{bindings.personalPropertyType.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc54"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.personalPropertyType1.inputValue}"
+                                simple="true"
+                                required="#{bindings.personalPropertyType1.hints.mandatory}"
+                                columns="#{bindings.personalPropertyType1.hints.displayWidth}"
+                                maximumLength="#{bindings.personalPropertyType1.hints.precision}"
+                                shortDesc="#{bindings.personalPropertyType1.hints.tooltip}"
+                                id="it12">
+                    <f:validator binding="#{bindings.personalPropertyType1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc47" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.personalPropertyType1.inputValue}"
+                                simple="true"
+                                required="#{bindings.personalPropertyType1.hints.mandatory}"
+                                columns="#{bindings.personalPropertyType1.hints.displayWidth}"
+                                maximumLength="#{bindings.personalPropertyType1.hints.precision}"
+                                shortDesc="#{bindings.personalPropertyType1.hints.tooltip}"
+                                id="it108" disabled="true">
+                    <f:validator binding="#{bindings.personalPropertyType1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                          id="gr11"
+                          rendered="#{pageFlowScope.isPersonalProperty}">
+                <af:gridCell marginStart="5px" width="25%" id="gc72">
+                  <af:panelLabelAndMessage label="#{bindings.ppDescription.hints.label}"
+                                           id="plam19">
+                  </af:panelLabelAndMessage>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc46">
+                  <af:inputText value="#{bindings.ppDescription1.inputValue}"
+                                simple="true"
+                                required="#{bindings.ppDescription1.hints.mandatory}"
+                                columns="#{bindings.ppDescription1.hints.displayWidth}"
+                                maximumLength="#{bindings.ppDescription1.hints.precision}"
+                                shortDesc="#{bindings.ppDescription1.hints.tooltip}"
+                                id="it90" disabled="true">
+                    <f:validator binding="#{bindings.ppDescription1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc77"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.ppDescription.inputValue}"
+                                simple="true"
+                                required="#{bindings.ppDescription.hints.mandatory}"
+                                columns="#{bindings.ppDescription.hints.displayWidth}"
+                                maximumLength="#{bindings.ppDescription.hints.precision}"
+                                shortDesc="#{bindings.ppDescription.hints.tooltip}"
+                                id="it13">
+                    <f:validator binding="#{bindings.ppDescription.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc52" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.ppDescription.inputValue}"
+                                simple="true"
+                                required="#{bindings.ppDescription.hints.mandatory}"
+                                columns="#{bindings.ppDescription.hints.displayWidth}"
+                                maximumLength="#{bindings.ppDescription.hints.precision}"
+                                shortDesc="#{bindings.ppDescription.hints.tooltip}"
+                                id="it109" disabled="true">
+                    <f:validator binding="#{bindings.ppDescription.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+          </af:panelHeader>
+          <af:panelHeader text="Value Information" id="valueInformation">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelGridLayout id="realPropertyValueInfo"
+                                rendered="#{pageFlowScope.isRealProperty}">
+              <af:gridRow marginTop="5px" height="auto" id="gr26">
+                <af:gridCell marginStart="5px" width="25%" id="gc83">
+                  <af:panelLabelAndMessage label="#{bindings.blendedValueFlag.hints.label}"
+                                           id="plam20"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc97">
+                  <af:inputText value="#{bindings.blendedValueFlag.inputValue}"
+                                simple="true"
+                                required="#{bindings.blendedValueFlag.hints.mandatory}"
+                                columns="#{bindings.blendedValueFlag.hints.displayWidth}"
+                                maximumLength="#{bindings.blendedValueFlag.hints.precision}"
+                                shortDesc="#{bindings.blendedValueFlag.hints.tooltip}"
+                                id="it20" disabled="true">
+                    <f:validator binding="#{bindings.blendedValueFlag.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc96"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.blendedValueFlag1.inputValue}"
+                                simple="true"
+                                required="#{bindings.blendedValueFlag1.hints.mandatory}"
+                                columns="#{bindings.blendedValueFlag1.hints.displayWidth}"
+                                maximumLength="#{bindings.blendedValueFlag1.hints.precision}"
+                                shortDesc="#{bindings.blendedValueFlag1.hints.tooltip}"
+                                id="it26">
+                    <f:validator binding="#{bindings.blendedValueFlag1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc89" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.blendedValueFlag1.inputValue}"
+                                simple="true"
+                                required="#{bindings.blendedValueFlag1.hints.mandatory}"
+                                columns="#{bindings.blendedValueFlag1.hints.displayWidth}"
+                                maximumLength="#{bindings.blendedValueFlag1.hints.precision}"
+                                shortDesc="#{bindings.blendedValueFlag1.hints.tooltip}"
+                                id="it29" disabled="true">
+                    <f:validator binding="#{bindings.blendedValueFlag1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr25">
+                <af:gridCell marginStart="5px" width="25%" id="gc101">
+                  <af:panelLabelAndMessage label="#{bindings.percentageAppliedToValue.hints.label}"
+                                           id="plam21"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc93">
+                  <af:inputText value="#{bindings.percentageAppliedToValue.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentageAppliedToValue.hints.mandatory}"
+                                columns="#{bindings.percentageAppliedToValue.hints.displayWidth}"
+                                maximumLength="#{bindings.percentageAppliedToValue.hints.precision}"
+                                shortDesc="#{bindings.percentageAppliedToValue.hints.tooltip}"
+                                id="it19" disabled="true">
+                    <f:validator binding="#{bindings.percentageAppliedToValue.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc92"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.percentageAppliedToValue1.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentageAppliedToValue1.hints.mandatory}"
+                                columns="#{bindings.percentageAppliedToValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.percentageAppliedToValue1.hints.precision}"
+                                shortDesc="#{bindings.percentageAppliedToValue1.hints.tooltip}"
+                                id="it27" converter="javax.faces.BigDecimal">
+                    <f:validator binding="#{bindings.percentageAppliedToValue1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc91" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.percentageAppliedToValue1.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentageAppliedToValue1.hints.mandatory}"
+                                columns="#{bindings.percentageAppliedToValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.percentageAppliedToValue1.hints.precision}"
+                                shortDesc="#{bindings.percentageAppliedToValue1.hints.tooltip}"
+                                id="it28" disabled="true">
+                    <f:validator binding="#{bindings.percentageAppliedToValue1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr27">
+                <af:gridCell marginStart="5px" width="25%" id="gc81">
+                  <af:panelLabelAndMessage label="#{bindings.landValue.hints.label}"
+                                           id="plam22"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc99">
+                  <af:inputText value="#{bindings.landValue.inputValue}"
+                                required="#{bindings.landValue.hints.mandatory}"
+                                columns="#{bindings.landValue.hints.displayWidth}"
+                                maximumLength="#{bindings.landValue.hints.precision}"
+                                shortDesc="#{bindings.landValue.hints.tooltip}"
+                                id="it21" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.landValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.landValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc82"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.landValue1.inputValue}"
+                                required="#{bindings.landValue1.hints.mandatory}"
+                                columns="#{bindings.landValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.landValue1.hints.precision}"
+                                shortDesc="#{bindings.landValue1.hints.tooltip}"
+                                id="it30" simple="true"
+                                converter="javax.faces.Double"
+                                styleClass="AFFieldNumberMarker">
+                    <f:validator binding="#{bindings.landValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.landValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc103" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.landValue1.inputValue}"
+                                required="#{bindings.landValue1.hints.mandatory}"
+                                columns="#{bindings.landValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.landValue1.hints.precision}"
+                                shortDesc="#{bindings.landValue1.hints.tooltip}"
+                                id="it31" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.landValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.landValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr22">
+                <af:gridCell marginStart="5px" width="25%" id="gc95">
+                  <af:panelLabelAndMessage label="#{bindings.landReasonCodeKey.hints.label}"
+                                           id="plam23"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc108">
+                  <af:inputText value="#{bindings.landReasonCodeKey.inputValue}"
+                                simple="true" autoSubmit="true"
+                                required="#{bindings.landReasonCodeKey.hints.mandatory}"
+                                columns="#{bindings.landReasonCodeKey.hints.displayWidth}"
+                                maximumLength="#{bindings.landReasonCodeKey.hints.precision}"
+                                shortDesc="#{bindings.landReasonCodeKey.hints.tooltip}"
+                                id="it22" disabled="true">
+                   <f:validator binding="#{bindings.landReasonCodeKey.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc84"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.landReasonCodeKey1.inputValue}"
+                                simple="true" autoSubmit="true"
+                                required="#{bindings.landReasonCodeKey1.hints.mandatory}"
+                                columns="#{bindings.landReasonCodeKey1.hints.displayWidth}"
+                                maximumLength="#{bindings.landReasonCodeKey1.hints.precision}"
+                                shortDesc="#{bindings.landReasonCodeKey1.hints.tooltip}"
+                                id="it32">
+                   <f:validator binding="#{bindings.landReasonCodeKey1.validator}"/>
+                   </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc102" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.landReasonCodeKey1.inputValue}"
+                                simple="true" autoSubmit="true"
+                                required="#{bindings.landReasonCodeKey1.hints.mandatory}"
+                                columns="#{bindings.landReasonCodeKey1.hints.displayWidth}"
+                                maximumLength="#{bindings.landReasonCodeKey1.hints.precision}"
+                                shortDesc="#{bindings.landReasonCodeKey1.hints.tooltip}"
+                                id="it33" disabled="true">
+                    <f:validator binding="#{bindings.landReasonCodeKey1.validator}"/>
+                </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr23">
+                <af:gridCell marginStart="5px" width="25%" id="gc100">
+                  <af:panelLabelAndMessage label="#{bindings.improvementValue.hints.label}"
+                                           id="plam25"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc94">
+                  <af:inputText value="#{bindings.improvementValue.inputValue}"
+                                required="#{bindings.improvementValue.hints.mandatory}"
+                                columns="#{bindings.improvementValue.hints.displayWidth}"
+                                maximumLength="#{bindings.improvementValue.hints.precision}"
+                                shortDesc="#{bindings.improvementValue.hints.tooltip}"
+                                id="it24" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.improvementValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.improvementValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc90"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.improvementValue1.inputValue}"
+                                required="#{bindings.improvementValue1.hints.mandatory}"
+                                columns="#{bindings.improvementValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.improvementValue1.hints.precision}"
+                                shortDesc="#{bindings.improvementValue1.hints.tooltip}"
+                                id="it34" simple="true"
+                                converter="javax.faces.Double">
+                    <f:validator binding="#{bindings.improvementValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.improvementValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc87" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.improvementValue1.inputValue}"
+                                required="#{bindings.improvementValue1.hints.mandatory}"
+                                columns="#{bindings.improvementValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.improvementValue1.hints.precision}"
+                                shortDesc="#{bindings.improvementValue1.hints.tooltip}"
+                                id="it35" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.improvementValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.improvementValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr21">
+                <af:gridCell marginStart="5px" width="25%" id="gc104">
+                  <af:panelLabelAndMessage label="#{bindings.improvementReasonCodeKey.hints.label}"
+                                           id="plam24"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc85">
+                  <af:inputText value="#{bindings.improvementReasonCodeKey.inputValue}"
+                                simple="true"
+                                required="#{bindings.improvementReasonCodeKey.hints.mandatory}"
+                                columns="#{bindings.improvementReasonCodeKey.hints.displayWidth}"
+                                maximumLength="#{bindings.improvementReasonCodeKey.hints.precision}"
+                                shortDesc="#{bindings.improvementReasonCodeKey.hints.tooltip}"
+                                id="it23" disabled="true">
+                    <f:validator binding="#{bindings.improvementReasonCodeKey.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc98"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.improvementReasonCodeKey1.inputValue}"
+                                simple="true"
+                                required="#{bindings.improvementReasonCodeKey1.hints.mandatory}"
+                                columns="#{bindings.improvementReasonCodeKey1.hints.displayWidth}"
+                                maximumLength="#{bindings.improvementReasonCodeKey1.hints.precision}"
+                                shortDesc="#{bindings.improvementReasonCodeKey1.hints.tooltip}"
+                                id="it36">
+                    <f:validator binding="#{bindings.improvementReasonCodeKey1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc88" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.improvementReasonCodeKey1.inputValue}"
+                                simple="true"
+                                required="#{bindings.improvementReasonCodeKey1.hints.mandatory}"
+                                columns="#{bindings.improvementReasonCodeKey1.hints.displayWidth}"
+                                maximumLength="#{bindings.improvementReasonCodeKey1.hints.precision}"
+                                shortDesc="#{bindings.improvementReasonCodeKey1.hints.tooltip}"
+                                id="it37" disabled="true">
+                    <f:validator binding="#{bindings.improvementReasonCodeKey1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                          id="gr24">
+                <af:gridCell marginStart="5px" width="25%" id="gc106">
+                  <af:panelLabelAndMessage label="#{bindings.totalValue.hints.label}"
+                                           id="plam26"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc105">
+                  <af:inputText value="#{bindings.totalValue.inputValue}"
+                                required="#{bindings.totalValue.hints.mandatory}"
+                                columns="#{bindings.totalValue.hints.displayWidth}"
+                                maximumLength="#{bindings.totalValue.hints.precision}"
+                                shortDesc="#{bindings.totalValue.hints.tooltip}"
+                                id="it25" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.totalValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.totalValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc86"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.totalValue1.inputValue}"
+                                required="#{bindings.totalValue1.hints.mandatory}"
+                                columns="#{bindings.totalValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.totalValue1.hints.precision}"
+                                shortDesc="#{bindings.totalValue1.hints.tooltip}"
+                                id="it38" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.totalValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.totalValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc107" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.totalValue1.inputValue}"
+                                required="#{bindings.totalValue1.hints.mandatory}"
+                                columns="#{bindings.totalValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.totalValue1.hints.precision}"
+                                shortDesc="#{bindings.totalValue1.hints.tooltip}"
+                                id="it39" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.totalValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.totalValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:separator id="s1"/>
+            <af:panelGridLayout id="retainedPanel"
+                                rendered="#{pageFlowScope.isRealProperty}">
+              <af:gridRow marginTop="5px" height="auto" id="gr34">
+                <af:gridCell marginStart="5px" width="25%" id="gc136">
+                  <af:panelLabelAndMessage label="#{bindings.retainedLandValue1.hints.label}"
+                                           id="plam27"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc131">
+                  <af:inputText value="#{bindings.retainedLandValue1.inputValue}"
+                                required="#{bindings.retainedLandValue1.hints.mandatory}"
+                                columns="#{bindings.retainedLandValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedLandValue1.hints.precision}"
+                                shortDesc="#{bindings.retainedLandValue1.hints.tooltip}"
+                                id="it47" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedLandValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedLandValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc137"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.retainedLandValue.inputValue}"
+                                required="#{bindings.retainedLandValue.hints.mandatory}"
+                                columns="#{bindings.retainedLandValue.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedLandValue.hints.precision}"
+                                shortDesc="#{bindings.retainedLandValue.hints.tooltip}"
+                                id="it44" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedLandValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedLandValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc138" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.retainedLandValue.inputValue}"
+                                required="#{bindings.retainedLandValue.hints.mandatory}"
+                                columns="#{bindings.retainedLandValue.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedLandValue.hints.precision}"
+                                shortDesc="#{bindings.retainedLandValue.hints.tooltip}"
+                                id="inputText1" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedLandValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedLandValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr33">
+                <af:gridCell marginStart="5px" width="25%" id="gc132">
+                  <af:panelLabelAndMessage label="#{bindings.retainedImprovementValue1.hints.label}"
+                                           id="plam28"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc133">
+                  <af:inputText value="#{bindings.retainedImprovementValue1.inputValue}"
+                                required="#{bindings.retainedImprovementValue1.hints.mandatory}"
+                                columns="#{bindings.retainedImprovementValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedImprovementValue1.hints.precision}"
+                                shortDesc="#{bindings.retainedImprovementValue1.hints.tooltip}"
+                                id="it48" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedImprovementValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedImprovementValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc139"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.retainedImprovementValue.inputValue}"
+                                required="#{bindings.retainedImprovementValue.hints.mandatory}"
+                                columns="#{bindings.retainedImprovementValue.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedImprovementValue.hints.precision}"
+                                shortDesc="#{bindings.retainedImprovementValue.hints.tooltip}"
+                                id="it45" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedImprovementValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedImprovementValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc140" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.retainedImprovementValue.inputValue}"
+                                required="#{bindings.retainedImprovementValue.hints.mandatory}"
+                                columns="#{bindings.retainedImprovementValue.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedImprovementValue.hints.precision}"
+                                shortDesc="#{bindings.retainedImprovementValue.hints.tooltip}"
+                                id="inputText2" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedImprovementValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedImprovementValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                          id="gr35">
+                <af:gridCell marginStart="5px" width="25%" id="gc129">
+                  <af:panelLabelAndMessage label="#{bindings.retainedTotalValue1.hints.label}"
+                                           id="plam29"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc135">
+                  <af:inputText value="#{bindings.retainedTotalValue1.inputValue}"
+                                required="#{bindings.retainedTotalValue1.hints.mandatory}"
+                                columns="#{bindings.retainedTotalValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedTotalValue1.hints.precision}"
+                                shortDesc="#{bindings.retainedTotalValue1.hints.tooltip}"
+                                id="it49" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedTotalValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedTotalValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc134"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.retainedTotalValue.inputValue}"
+                                required="#{bindings.retainedTotalValue.hints.mandatory}"
+                                columns="#{bindings.retainedTotalValue.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedTotalValue.hints.precision}"
+                                shortDesc="#{bindings.retainedTotalValue.hints.tooltip}"
+                                id="it46" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedTotalValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedTotalValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc130" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.retainedTotalValue.inputValue}"
+                                required="#{bindings.retainedTotalValue.hints.mandatory}"
+                                columns="#{bindings.retainedTotalValue.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedTotalValue.hints.precision}"
+                                shortDesc="#{bindings.retainedTotalValue.hints.tooltip}"
+                                id="inputText3" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedTotalValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedTotalValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:separator id="separator1"/>
+            <af:panelGridLayout id="personalPropertyValueInfo"
+                                rendered="#{pageFlowScope.isPersonalProperty}">
+              <af:gridRow marginTop="5px" height="auto" id="gr32">
+                <af:gridCell marginStart="5px" width="25%" id="gc122">
+                  <af:panelLabelAndMessage label="#{bindings.blendedValueFlag2.hints.label}"
+                                           id="plam34"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc111">
+                  <af:inputText value="#{bindings.blendedValueFlag2.inputValue}"
+                                simple="true"
+                                required="#{bindings.blendedValueFlag2.hints.mandatory}"
+                                columns="#{bindings.blendedValueFlag2.hints.displayWidth}"
+                                maximumLength="#{bindings.blendedValueFlag2.hints.precision}"
+                                shortDesc="#{bindings.blendedValueFlag2.hints.tooltip}"
+                                id="it68" disabled="true">
+                    <f:validator binding="#{bindings.blendedValueFlag2.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc120"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.blendedValueFlag1.inputValue}"
+                                simple="true"
+                                required="#{bindings.blendedValueFlag1.hints.mandatory}"
+                                columns="#{bindings.blendedValueFlag1.hints.displayWidth}"
+                                maximumLength="#{bindings.blendedValueFlag1.hints.precision}"
+                                shortDesc="#{bindings.blendedValueFlag1.hints.tooltip}"
+                                id="it54">
+                    <f:validator binding="#{bindings.blendedValueFlag1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc110" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.blendedValueFlag1.inputValue}"
+                                simple="true"
+                                required="#{bindings.blendedValueFlag1.hints.mandatory}"
+                                columns="#{bindings.blendedValueFlag1.hints.displayWidth}"
+                                maximumLength="#{bindings.blendedValueFlag1.hints.precision}"
+                                shortDesc="#{bindings.blendedValueFlag1.hints.tooltip}"
+                                id="it55" disabled="true">
+                    <f:validator binding="#{bindings.blendedValueFlag1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr29">
+                <af:gridCell marginStart="5px" width="25%" id="gc124">
+                  <af:panelLabelAndMessage label="#{bindings.percentageAppliedToValue2.hints.label}"
+                                           id="plam35"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc118">
+                  <af:inputText value="#{bindings.percentageAppliedToValue2.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentageAppliedToValue2.hints.mandatory}"
+                                columns="#{bindings.percentageAppliedToValue2.hints.displayWidth}"
+                                maximumLength="#{bindings.percentageAppliedToValue2.hints.precision}"
+                                shortDesc="#{bindings.percentageAppliedToValue2.hints.tooltip}"
+                                id="it67" disabled="true">
+                    <f:validator binding="#{bindings.percentageAppliedToValue2.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc114"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.percentageAppliedToValue1.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentageAppliedToValue1.hints.mandatory}"
+                                columns="#{bindings.percentageAppliedToValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.percentageAppliedToValue1.hints.precision}"
+                                shortDesc="#{bindings.percentageAppliedToValue1.hints.tooltip}"
+                                id="it56" converter="javax.faces.BigDecimal"
+                                autoSubmit="true">
+                    <f:validator binding="#{bindings.percentageAppliedToValue1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc121" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.percentageAppliedToValue1.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentageAppliedToValue1.hints.mandatory}"
+                                columns="#{bindings.percentageAppliedToValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.percentageAppliedToValue1.hints.precision}"
+                                shortDesc="#{bindings.percentageAppliedToValue1.hints.tooltip}"
+                                id="it57" disabled="true">
+                    <f:validator binding="#{bindings.percentageAppliedToValue1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr31">
+                <af:gridCell marginStart="5px" width="25%" id="gc115">
+                  <af:panelLabelAndMessage label="#{bindings.totalAdjAcquisitionCost1.hints.label}"
+                                           id="plam36"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc125">
+                  <af:inputText value="#{bindings.totalAdjAcquisitionCost1.inputValue}"
+                                required="#{bindings.totalAdjAcquisitionCost1.hints.mandatory}"
+                                columns="#{bindings.totalAdjAcquisitionCost1.hints.displayWidth}"
+                                maximumLength="#{bindings.totalAdjAcquisitionCost1.hints.precision}"
+                                shortDesc="#{bindings.totalAdjAcquisitionCost1.hints.tooltip}"
+                                id="it66" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.totalAdjAcquisitionCost1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.totalAdjAcquisitionCost1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc112"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.totalAdjAcquisitionCost.inputValue}"
+                                required="#{bindings.totalAdjAcquisitionCost.hints.mandatory}"
+                                columns="#{bindings.totalAdjAcquisitionCost.hints.displayWidth}"
+                                maximumLength="#{bindings.totalAdjAcquisitionCost.hints.precision}"
+                                shortDesc="#{bindings.totalAdjAcquisitionCost.hints.tooltip}"
+                                id="it58" autoSubmit="true"
+                                converter="javax.faces.BigDecimal"
+                                simple="true">
+                    <f:validator binding="#{bindings.totalAdjAcquisitionCost.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.totalAdjAcquisitionCost.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc117" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.totalAdjAcquisitionCost.inputValue}"
+                                required="#{bindings.totalAdjAcquisitionCost.hints.mandatory}"
+                                columns="#{bindings.totalAdjAcquisitionCost.hints.displayWidth}"
+                                maximumLength="#{bindings.totalAdjAcquisitionCost.hints.precision}"
+                                shortDesc="#{bindings.totalAdjAcquisitionCost.hints.tooltip}"
+                                id="it59" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.totalAdjAcquisitionCost.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.totalAdjAcquisitionCost.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr28">
+                <af:gridCell marginStart="5px" width="25%" id="gc128">
+                  <af:panelLabelAndMessage label="#{bindings.percentageFixture1.hints.label}"
+                                           id="plam37"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc127">
+                  <af:inputText value="#{bindings.percentageFixture1.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentageFixture1.hints.mandatory}"
+                                columns="#{bindings.percentageFixture1.hints.displayWidth}"
+                                maximumLength="#{bindings.percentageFixture1.hints.precision}"
+                                shortDesc="#{bindings.percentageFixture1.hints.tooltip}"
+                                id="it69" disabled="true">
+                    <f:validator binding="#{bindings.percentageFixture1.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc116"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.percentageFixture.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentageFixture.hints.mandatory}"
+                                columns="#{bindings.percentageFixture.hints.displayWidth}"
+                                maximumLength="#{bindings.percentageFixture.hints.precision}"
+                                shortDesc="#{bindings.percentageFixture.hints.tooltip}"
+                                id="it60" autoSubmit="true"
+                                converter="javax.faces.BigDecimal">
+                    <f:validator binding="#{bindings.percentageFixture.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc109" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.percentageFixture.inputValue}"
+                                simple="true"
+                                required="#{bindings.percentageFixture.hints.mandatory}"
+                                columns="#{bindings.percentageFixture.hints.displayWidth}"
+                                maximumLength="#{bindings.percentageFixture.hints.precision}"
+                                shortDesc="#{bindings.percentageFixture.hints.tooltip}"
+                                id="it61" disabled="true">
+                    <f:validator binding="#{bindings.percentageFixture.validator}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                          id="gr30">
+                <af:gridCell marginStart="5px" width="25%" id="gc113">
+                  <af:panelLabelAndMessage label="#{bindings.fixtureValue1.hints.label}"
+                                           id="plam38"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc123">
+                  <af:inputText value="#{bindings.fixtureValue1.inputValue}"
+                                required="#{bindings.fixtureValue1.hints.mandatory}"
+                                columns="#{bindings.fixtureValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.fixtureValue1.hints.precision}"
+                                shortDesc="#{bindings.fixtureValue1.hints.tooltip}"
+                                id="it70" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.fixtureValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.fixtureValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc126"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.fixtureValue.inputValue}"
+                                required="#{bindings.fixtureValue.hints.mandatory}"
+                                columns="#{bindings.fixtureValue.hints.displayWidth}"
+                                maximumLength="#{bindings.fixtureValue.hints.precision}"
+                                shortDesc="#{bindings.fixtureValue.hints.tooltip}"
+                                id="it62" autoSubmit="true"
+                                converter="javax.faces.BigDecimal"
+                                simple="true"
+                                disabled="#{bindings.percentageFixture.inputValue ne null or bindings.totalAdjAcquisitionCost.inputValue ne null}"
+                                partialTriggers="it60 it58">
+                    <f:validator binding="#{bindings.fixtureValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.fixtureValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc119" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.fixtureValue.inputValue}"
+                                required="#{bindings.fixtureValue.hints.mandatory}"
+                                columns="#{bindings.fixtureValue.hints.displayWidth}"
+                                maximumLength="#{bindings.fixtureValue.hints.precision}"
+                                shortDesc="#{bindings.fixtureValue.hints.tooltip}"
+                                id="it63" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.fixtureValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.fixtureValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                          id="gridRow1">
+                <af:gridCell marginStart="5px" width="25%" id="gridCell1">
+                  <af:panelLabelAndMessage label="#{bindings.retainedFixtureValue1.hints.label}"
+                                           id="plam39"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gridCell2">
+                  <af:inputText value="#{bindings.retainedFixtureValue1.inputValue}"
+                                required="#{bindings.retainedFixtureValue1.hints.mandatory}"
+                                columns="#{bindings.retainedFixtureValue1.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedFixtureValue1.hints.precision}"
+                                shortDesc="#{bindings.retainedFixtureValue1.hints.tooltip}"
+                                id="it71" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedFixtureValue1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedFixtureValue1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gridCell3"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.retainedFixtureValue.inputValue}"
+                                required="#{bindings.retainedFixtureValue.hints.mandatory}"
+                                columns="#{bindings.retainedFixtureValue.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedFixtureValue.hints.precision}"
+                                shortDesc="#{bindings.retainedFixtureValue.hints.tooltip}"
+                                id="it64" autoSubmit="true"
+                                converter="javax.faces.BigDecimal"
+                                simple="true">
+                    <f:validator binding="#{bindings.retainedFixtureValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedFixtureValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gridCell4" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.retainedFixtureValue.inputValue}"
+                                required="#{bindings.retainedFixtureValue.hints.mandatory}"
+                                columns="#{bindings.retainedFixtureValue.hints.displayWidth}"
+                                maximumLength="#{bindings.retainedFixtureValue.hints.precision}"
+                                shortDesc="#{bindings.retainedFixtureValue.hints.tooltip}"
+                                id="it65" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.retainedFixtureValue.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.retainedFixtureValue.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:separator id="separator2"/>
+            <af:panelGridLayout id="datePanel">
+              <af:gridRow marginTop="5px" height="auto" id="gr36">
+                <af:gridCell marginStart="5px" width="25%" id="gc155">
+                  <af:panelLabelAndMessage label="#{bindings.effectiveBeginDate1.hints.label}"
+                                           id="plam30"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc152">
+                  <af:inputText value="#{bindings.effectiveBeginDate1.inputValue}"
+                                required="#{bindings.effectiveBeginDate1.hints.mandatory}"
+                                columns="#{bindings.effectiveBeginDate1.hints.displayWidth}"
+                                maximumLength="#{bindings.effectiveBeginDate1.hints.precision}"
+                                shortDesc="#{bindings.effectiveBeginDate1.hints.tooltip}"
+                                id="it50" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.effectiveBeginDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.effectiveBeginDate1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc150"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputDate value="#{bindings.effectiveBeginDate.inputValue}"
+                                required="#{bindings.effectiveBeginDate.hints.mandatory}"
+                                shortDesc="#{bindings.effectiveBeginDate.hints.tooltip}"
+                                id="id2" simple="true">
+                    <f:validator binding="#{bindings.effectiveBeginDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.effectiveBeginDate.format}"/>
+                  </af:inputDate>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc151" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.effectiveBeginDate.inputValue}"
+                                required="#{bindings.effectiveBeginDate.hints.mandatory}"
+                                columns="#{bindings.effectiveBeginDate.hints.displayWidth}"
+                                maximumLength="#{bindings.effectiveBeginDate.hints.precision}"
+                                shortDesc="#{bindings.effectiveBeginDate.hints.tooltip}"
+                                id="it40" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.effectiveBeginDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.effectiveBeginDate.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr38">
+                <af:gridCell marginStart="5px" width="25%" id="gc153">
+                  <af:panelLabelAndMessage label="#{bindings.effectiveEndDate1.hints.label}"
+                                           id="plam31"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc156">
+                  <af:inputText value="#{bindings.effectiveEndDate1.inputValue}"
+                                required="#{bindings.effectiveEndDate1.hints.mandatory}"
+                                columns="#{bindings.effectiveEndDate1.hints.displayWidth}"
+                                maximumLength="#{bindings.effectiveEndDate1.hints.precision}"
+                                shortDesc="#{bindings.effectiveEndDate1.hints.tooltip}"
+                                id="it51" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.effectiveEndDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.effectiveEndDate1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc141"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputDate value="#{bindings.effectiveEndDate.inputValue}"
+                                required="#{bindings.effectiveEndDate.hints.mandatory}"
+                                shortDesc="#{bindings.effectiveEndDate.hints.tooltip}"
+                                id="id3" simple="true">
+                    <f:validator binding="#{bindings.effectiveEndDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.effectiveEndDate.format}"/>
+                  </af:inputDate>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc146" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.effectiveEndDate.inputValue}"
+                                required="#{bindings.effectiveEndDate.hints.mandatory}"
+                                columns="#{bindings.effectiveEndDate.hints.displayWidth}"
+                                maximumLength="#{bindings.effectiveEndDate.hints.precision}"
+                                shortDesc="#{bindings.effectiveEndDate.hints.tooltip}"
+                                id="it41" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.effectiveEndDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.effectiveEndDate.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" id="gr37">
+                <af:gridCell marginStart="5px" width="25%" id="gc154">
+                  <af:panelLabelAndMessage label="#{bindings.verificationDate1.hints.label}"
+                                           id="plam32"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc145">
+                  <af:inputText value="#{bindings.verificationDate1.inputValue}"
+                                required="#{bindings.verificationDate1.hints.mandatory}"
+                                columns="#{bindings.verificationDate1.hints.displayWidth}"
+                                maximumLength="#{bindings.verificationDate1.hints.precision}"
+                                shortDesc="#{bindings.verificationDate1.hints.tooltip}"
+                                id="it52" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.verificationDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.verificationDate1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc144"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputDate value="#{bindings.verificationDate.inputValue}"
+                                required="#{bindings.verificationDate.hints.mandatory}"
+                                shortDesc="#{bindings.verificationDate.hints.tooltip}"
+                                id="id4" simple="true">
+                    <f:validator binding="#{bindings.verificationDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.verificationDate.format}"/>
+                  </af:inputDate>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc149" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.verificationDate.inputValue}"
+                                required="#{bindings.verificationDate.hints.mandatory}"
+                                columns="#{bindings.verificationDate.hints.displayWidth}"
+                                maximumLength="#{bindings.verificationDate.hints.precision}"
+                                shortDesc="#{bindings.verificationDate.hints.tooltip}"
+                                id="it42" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.verificationDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.verificationDate.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px"
+                          id="gr39">
+                <af:gridCell marginStart="5px" width="25%" id="gc143">
+                  <af:panelLabelAndMessage label="#{bindings.inactiveDate1.hints.label}"
+                                           id="plam33"/>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc142">
+                  <af:inputText value="#{bindings.inactiveDate1.inputValue}"
+                                required="#{bindings.inactiveDate1.hints.mandatory}"
+                                columns="#{bindings.inactiveDate1.hints.displayWidth}"
+                                maximumLength="#{bindings.inactiveDate1.hints.precision}"
+                                shortDesc="#{bindings.inactiveDate1.hints.tooltip}"
+                                id="it53" disabled="true" simple="true">
+                    <f:validator binding="#{bindings.inactiveDate1.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.inactiveDate1.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" id="gc148"
+                             rendered="#{pageFlowScope.isEdit}">
+                  <af:inputDate value="#{bindings.inactiveDate.inputValue}"
+                                required="#{bindings.inactiveDate.hints.mandatory}"
+                                shortDesc="#{bindings.inactiveDate.hints.tooltip}"
+                                id="id5" simple="true">
+                    <f:validator binding="#{bindings.inactiveDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.inactiveDate.format}"/>
+                  </af:inputDate>
+                </af:gridCell>
+                <af:gridCell marginStart="5px" width="25%" marginEnd="5px"
+                             id="gc147" rendered="#{!pageFlowScope.isEdit}">
+                  <af:inputText value="#{bindings.inactiveDate.inputValue}"
+                                required="#{bindings.inactiveDate.hints.mandatory}"
+                                columns="#{bindings.inactiveDate.hints.displayWidth}"
+                                maximumLength="#{bindings.inactiveDate.hints.precision}"
+                                shortDesc="#{bindings.inactiveDate.hints.tooltip}"
+                                id="it43" simple="true" disabled="true">
+                    <f:validator binding="#{bindings.inactiveDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.inactiveDate.format}"/>
+                  </af:inputText>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+          </af:panelHeader>
+          <af:panelGroupLayout id="pt_pgl1" layout="horizontal">
+            <af:toolbar id="pt_t1">
+              <af:commandToolbarButton text="Apply" id="pt_ctb1"
+                                       actionListener="#{backingBeanScope.bvmActionsBean.BvmOnCloseHandler}"/>
+              <af:commandToolbarButton text="Cancel" id="ctb1"
+                                       actionListener="#{backingBeanScope.bvmActionsBean.BvmOnCencelHndler}"/>
+            </af:toolbar>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

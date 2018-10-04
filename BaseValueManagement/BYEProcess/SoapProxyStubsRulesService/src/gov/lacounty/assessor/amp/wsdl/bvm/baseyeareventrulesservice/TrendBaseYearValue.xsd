@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://assessor.lacounty.gov/amp/data/bvm/TrendBaseYearValue/v1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://assessor.lacounty.gov/amp/data/bvm/TrendBaseYearValue/v1.0" xmlns:inp1="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0" xmlns:inp2="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0" xmlns:inp3="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0">
+  <xsd:import schemaLocation="RequestHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0"/>
+  <xsd:import schemaLocation="ResponseHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+  <xsd:import schemaLocation="BaseYearEvent.xsd" namespace="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+  <xsd:annotation>
+    <xsd:documentation>This schema defines request and response payload
+                       structures for TrendBaseYearValue operation of
+                       BaseYearEventRulesService SOA Service.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element name="trendBaseYearValueRequest">
+    <xsd:annotation>
+      <xsd:documentation>This defines the request payload structure for
+                         TrendBaseYearValue operation of
+                         BaseYearEventRulesService SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp1:requestHeader" minOccurs="1" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="targetRollYear" type="xsd:integer" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>list of Base Year events matching the input
+                               criterion</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="baseYearEventList" type="tns:BaseYearEventList" minOccurs="0" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>list of Base Year events</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="trendBaseYearValueResponse">
+    <xsd:annotation>
+      <xsd:documentation>This defines the response payload structure for
+                         TrendBaseYearValue operation of
+                         BaseYearEventRulesService SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp2:responseHeader" maxOccurs="1" minOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Response Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="baseYearEventRespList" type="tns:BaseYearEventRespList" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>list of Base Year events</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="BaseYearEventList">
+    <xsd:sequence>
+      <xsd:element name="baseYearEvent" type="inp3:baseYearEvent" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BaseYearEventRespList">
+    <xsd:sequence>
+      <xsd:element name="baseYearEvent" type="tns:BaseYearEventResp" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BaseYearEventResp">
+    <xsd:sequence>
+      <xsd:element name="trendObjectList" type="tns:TrendObjectList"/>
+      <xsd:element name="trendBaseValueTotalList" type="tns:TrendBaseValueTotalList"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TrendBaseValueList">
+    <xsd:sequence>
+      <xsd:element name="trendBaseValue" maxOccurs="unbounded" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="byeId" type="xsd:integer" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>TBV BYID.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="landImprovementsTotal" type="xsd:string" minOccurs="1" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>LandImprovements Total.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="fixtures" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Total Fixtures Value.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="improvements" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Total Improvements Value</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="landValue" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Total Land Value.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="year" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Year.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="operation" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>TBV operation.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TrendObjectList">
+    <xsd:sequence>
+      <xsd:element name="trendObject" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="byeId" type="xsd:integer" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>TBV BYID.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="trendBaseValueList" type="tns:TrendBaseValueList" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>TBV BYID.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TrendBaseValueTotalList">
+    <xsd:sequence>
+      <xsd:element name="trendBaseValueTotal" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="landImprovementsTotal" type="xsd:string" minOccurs="1" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>LandImprovements Total.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="operation" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Operation.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="totalFixturesValue" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Total Fixtures Value.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="totalImprovementsValue" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Total Improvements Value</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="totalLandValue" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Total Land Value.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="year" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Year.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="trendFactor" type="xsd:string" minOccurs="0" maxOccurs="1">
+              <xsd:annotation>
+                <xsd:documentation>Trend Factor.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

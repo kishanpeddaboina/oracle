@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="reviewpdcrview" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/gov/laca/amp/pdcr/review/view/jspx/ReviewPDCRView.jspx"
+          usageId="reviewpdcrview_ReviewPDCRViewPageDef"/>
+    <page path="/gov/laca/amp/pdcr/review/view/jsff/reviewPDCR.jsff"
+          usageId="reviewpdcrview_reviewPDCRPageDef"/>
+    <page path="/WEB-INF/gov/laca/amp/pdcr/review/view/btf/amp-review-pdcr-btf.xml#amp-review-pdcr-btf@retrieveRealPropertyInfo"
+          usageId="reviewpdcrview_amp_review_pdcr_btf_amp_review_pdcr_btf_retrieveRealPropertyInfoPageDef"/>
+    <page path="/gov/laca/amp/pdcr/review/view/jsff/Assign.jsff"
+          usageId="reviewpdcrview_AssignPageDef"/>
+    <page path="/gov/laca/amp/pdcr/review/view/jsff/PopupCommonHeader.jsff"
+          usageId="reviewpdcrview_PopupCommonHeaderPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="reviewpdcrview_ReviewPDCRViewPageDef"
+          path="gov.laca.amp.pdcr.review.view.jspx.ReviewPDCRViewPageDef"/>
+    <page id="reviewpdcrview_reviewPDCRPageDef"
+          path="gov.laca.amp.pdcr.review.view.jsff.reviewPDCRPageDef"/>
+    <page id="reviewpdcrview_amp_review_pdcr_btf_amp_review_pdcr_btf_retrieveRealPropertyInfoPageDef"
+          path="gov.laca.amp.pdcr.review.view.btf.amp_review_pdcr_btf_amp_review_pdcr_btf_retrieveRealPropertyInfoPageDef"/>
+    <page id="reviewpdcrview_AssignPageDef"
+          path="gov.laca.amp.pdcr.review.view.jsff.AssignPageDef"/>
+    <page id="reviewpdcrview_PopupCommonHeaderPageDef"
+          path="gov.laca.amp.pdcr.review.view.jsff.PopupCommonHeaderPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ChangeRequestDC"
+        path="gov.laca.amp.pdcr.common.model.ChangeRequestDC"/>
+    <dc id="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+        path="reviewpdcrview.ReviewPDCRView_ReviewPropertyDataChangeRequest"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,1351 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="PropertySearchRPService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/AINLockMgmtService/AINLockMgmtService_ep?WSDL"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0}AINLockMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0}AINLockMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0}AINLockMgmtService_ep">
+                        <port name="AINLockMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0}AINLockMgmtServiceBinding">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/AINLockMgmtService/AINLockMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="AssignLock">
+                              <soap soapAction="AssignLock" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="CheckLock">
+                              <soap soapAction="CheckLock" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="BaseYearEventMgmtService"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/BaseYearEventMgmtService/BaseYearEventMgmtService_ep?WSDL"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventMgmtService/v1.0}BaseYearEventMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventMgmtService/v1.0}BaseYearEventMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventMgmtService/v1.0}BaseYearEventMgmtService_ep">
+                        <port name="BaseYearEventMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventMgmtService/v1.0}BaseYearEventMgmtServiceBinding">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/BaseYearEventMgmtService/BaseYearEventMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveBaseYearEvents">
+                              <soap soapAction="RetrieveBaseYearEvents" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="InitiateBaseYearEvent">
+                              <soap soapAction="InitiateBaseYearEvent" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <wsconnection description="file:/D:/MyProj/US13_LACA/JDevWS/AMPWCP/AmpProxyStubs/SoapProxyStubs/src/gov/laca/amp/proxy/soap/propertysearchrpservice/client/PropertySearchRPService_ep.wsdl"
+                                            service="{http://assessor.lacounty.gov/amp/wsdl/ao/PropertySearchRPService/v1.0}PropertySearchRPService_ep">
+                                 <model name="{http://assessor.lacounty.gov/amp/wsdl/ao/PropertySearchRPService/v1.0}PropertySearchRPService_ep">
+                                    <service name="{http://assessor.lacounty.gov/amp/wsdl/ao/PropertySearchRPService/v1.0}PropertySearchRPService_ep">
+                                       <port name="PropertySearchRPService_pt"
+                                             binding="{http://assessor.lacounty.gov/amp/wsdl/ao/PropertySearchRPService/v1.0}PropertySearchRPServiceBinding">
+                                          <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropertySearchRPService/PropertySearchRPService_ep"
+                                                xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                                          <operation name="RetrieveRPSummaryList">
+                                             <soap soapAction="RetrieveRPSummaryList"
+                                                   xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                                             <input name=""/>
+                                             <output name=""/>
+                                          </operation>
+                                          <operation name="RetrieveRPSearchResult">
+                                             <soap soapAction="RetrieveRPSearchResult"
+                                                   xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                                             <input name=""/>
+                                             <output name=""/>
+                                          </operation>
+                                       </port>
+                                    </service>
+                                 </model>
+                              </wsconnection>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="AINLockMgmtService" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl"
+              xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/AINLockMgmtService/AINLockMgmtService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0}AINLockMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0}AINLockMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0}AINLockMgmtService_ep">
+                        <port name="AINLockMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0}AINLockMgmtServiceBinding">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/AINLockMgmtService/AINLockMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="AssignLock">
+                              <soap soapAction="AssignLock" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="CheckLock">
+                              <soap soapAction="CheckLock" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="ReleaseLock">
+                              <soap soapAction="ReleaseLock" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="LOVMgmtService" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl"
+              xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/LOVMgmtService/LOVMgmtService_ep?WSDL"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/common/lov/LOVMgmtService/v1.0}LOVMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/common/lov/LOVMgmtService/v1.0}LOVMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/common/lov/LOVMgmtService/v1.0}LOVMgmtService_ep">
+                        <port name="LOVMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/common/lov/LOVMgmtService/v1.0}LOVMgmtServiceBinding">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/LOVMgmtService/LOVMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveLOV">
+                              <soap soapAction="RetrieveLOV" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="BaseYearEventRulesService"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0}BaseYearEventRulesService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0}BaseYearEventRulesService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0}BaseYearEventRulesService_ep">
+                        <port name="BaseYearEventRulesService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0}BaseYearEventRulesServiceBinding">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="ValidateBaseYearEevent">
+                              <soap soapAction="ValidateBaseYearEevent" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="FactoredBaseYearValue">
+                              <soap soapAction="FactoredBaseYearValue" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="DeriveEscalationPath">
+                              <soap soapAction="DeriveEscalationPath" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="IdentityLookupService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" partial="false"
+              manageInOracleEnterpriseManager="true" deployable="true" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/IdentityLookupService/IdentityLookupService_ep?WSDL"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/common/id/IdentityLookupService/v1.0}IdentityLookupService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/common/id/IdentityLookupService/v1.0}IdentityLookupService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/common/id/IdentityLookupService/v1.0}IdentityLookupService_ep">
+                        <port name="IdentityLookupService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/common/id/IdentityLookupService/v1.0}IdentityLookupServiceBinding">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/IdentityLookupService/IdentityLookupService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveAppraisers">
+                              <soap soapAction="RetrieveAppraisers" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrieveUserDetails">
+                              <soap soapAction="RetrieveUserDetails" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="PropertyDetailService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropertyDetailService/PropertyDetailService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/ao/PropertyDetailService/v1.0}PropertyDetailService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/ao/PropertyDetailService/v1.0}PropertyDetailService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/ao/PropertyDetailService/v1.0}PropertyDetailService_ep">
+                        <port name="PropertyDetailService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/ao/PropertyDetailService/v1.0}PropertyDetailServiceBinding">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropertyDetailService/PropertyDetailService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveRelatedInfo">
+                              <soap soapAction="RetrieveRelatedInfo" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrieveAsmtAppeals">
+                              <soap soapAction="RetrieveAsmtAppeals" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrievePropNotf">
+                              <soap soapAction="RetrievePropNotf" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrieveTaskCount">
+                              <soap soapAction="RetrieveTaskCount" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="PSROwnershipMgmtService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PSROwnershipMgmtService/PSROwnershipMgmtService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/psr/psrOwnershipMgmt}PSROwnershipMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/psr/psrOwnershipMgmt}PSROwnershipMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/psr/psrOwnershipMgmt}PSROwnershipMgmtService_ep">
+                        <port name="PSROwnershipMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/psr/psrOwnershipMgmt}PSROwnershipMgmtServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/psr/psrOwnershipMgmt}PSROwnershipMgmtService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PSROwnershipMgmtService/PSROwnershipMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="UpsertOwnershipCorrections">
+                              <soap soapAction="UpsertOwnershipCorrections"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="DeleteOwnershipCorrection">
+                              <soap soapAction="DeleteOwnershipCorrection"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="PropsRetrievalService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsRetrievalService/PropsRetrievalService_ep?WSDL"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/props/PropsRetrievalService}PropsRetrievalService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsRetrievalService}PropsRetrievalService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsRetrievalService}PropsRetrievalService_ep">
+                        <port name="PropsRetrievalService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/props/PropsRetrievalService}PropsRetrievalServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/props/PropsRetrievalService}PropsRetrievalService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsRetrievalService/PropsRetrievalService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrievePropsSummary">
+                              <soap soapAction="RetrievePropsSummary" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrieveProps">
+                              <soap soapAction="RetrieveProps" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrieveQualificationConclusion">
+                              <soap soapAction="RetrieveQualificationConclusion"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrieveOtherPropsFilings">
+                              <soap soapAction="RetrieveOtherPropsFilings"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="PropsReportService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsReportService/PropsReportService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/props/PropsReport}PropsReportService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsReport}PropsReportService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsReport}PropsReportService_ep">
+                        <port name="PropsReportService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/props/PropsReport}PropsReportServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/props/PropsReport}PropsReportService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsReportService/PropsReportService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrievePropsReport">
+                              <soap soapAction="RetrievePropsReport" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="InsertPropsReport">
+                              <soap soapAction="InsertPropsReport" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="GenerateProps58And193Report">
+                              <soap soapAction="GenerateProps58And193Report"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="GenerateProps6090And110Report">
+                              <soap soapAction="GenerateProps6090And110Report"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="RemarksMgmtService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/RemarksMgmtService/RemarksMgmtService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/common/remarks/RemarksMgmtService}RemarksMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/common/remarks/RemarksMgmtService}RemarksMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/common/remarks/RemarksMgmtService}RemarksMgmtService_ep">
+                        <port name="RemarksMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/common/remarks/RemarksMgmtService}RemarksMgmtServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/common/remarks/RemarksMgmtService}RemarksMgmtService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/RemarksMgmtService/RemarksMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveRemarks">
+                              <soap soapAction="RetrieveRemarks" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="InsertRemarks">
+                              <soap soapAction="InsertRemarks" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="RepositoryDocumentsMgmtService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/RepositoryDocumentsMgmtService/RepositoryDocumentsMgmtService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsMgmt}RepositoryDocumentsMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsMgmt}RepositoryDocumentsMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsMgmt}RepositoryDocumentsMgmtService_ep">
+                        <port name="RepositoryDocumentsMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsMgmt}RepositoryDocumentsMgmtServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsMgmt}RepositoryDocumentsMgmtService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/RepositoryDocumentsMgmtService/RepositoryDocumentsMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveRepositoryDocuments">
+                              <soap soapAction="RetrieveRepositoryDocuments"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="UpsertRepositoryDocuments">
+                              <soap soapAction="UpsertRepositoryDocuments"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="OwnershipCorrectionMgmtService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/OwnershipCorrectionMgmtService/OwnershipCorrectionMgmtService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/common/props/OwnershipCorrectionMgmt}OwnershipCorrectionMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/common/props/OwnershipCorrectionMgmt}OwnershipCorrectionMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/common/props/OwnershipCorrectionMgmt}OwnershipCorrectionMgmtService_ep">
+                        <port name="OwnershipCorrectionMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/common/props/OwnershipCorrectionMgmt}OwnershipCorrectionMgmtServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/common/props/OwnershipCorrectionMgmt}OwnershipCorrectionMgmtService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/OwnershipCorrectionMgmtService/OwnershipCorrectionMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveOwnershipCorrection">
+                              <soap soapAction="RetrieveOwnershipCorrection"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="UpsertOwnershipCorrection">
+                              <soap soapAction="UpsertOwnershipCorrection"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="PSRLOVService_client_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PSRLOVService/PSRLOVService_client_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/psr/psrLov}PSRLOVService_client_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/psr/psrLov}PSRLOVService_client_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/psr/psrLov}PSRLOVService_client_ep">
+                        <port name="PSRLOVService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/psr/psrLov}PSRLOVServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/psr/psrLov}PSRLOVService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PSRLOVService/PSRLOVService_client_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveLOV">
+                              <soap soapAction="RetrieveLOV" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="PropsLOVService_ep" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl"
+              xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsLOVService/PropsLOVService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/props/PropsLOV}PropsLOVService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsLOV}PropsLOVService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsLOV}PropsLOVService_ep">
+                        <port name="PropsLOVService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/props/PropsLOV}PropsLOVServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/props/PropsLOV}PropsLOVService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsLOVService/PropsLOVService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrievePropsLOV">
+                              <soap soapAction="RetrievePropsLOV" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="PropsMgmtService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsMgmtService/PropsMgmtService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/props/propsMgmt}PropsMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/props/propsMgmt}PropsMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/props/propsMgmt}PropsMgmtService_ep">
+                        <port name="PropsMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/props/propsMgmt}PropsMgmtServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/props/propsMgmt}PropsMgmtService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsMgmtService/PropsMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="UpsertProps">
+                              <soap soapAction="UpsertProps" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="UpdatePropsStatus">
+                              <soap soapAction="UpdatePropsStatus" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="AddressValidationServiceSoapBindingQSService"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/AddressValidationService/ProxyServices/AddressValidationProxyService?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/ownership/AddressValidation}AddressValidationServiceSoapBindingQSService">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/ownership/AddressValidation}AddressValidationServiceSoapBindingQSService"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/ownership/AddressValidation}AddressValidationServiceSoapBindingQSService">
+                        <port name="AddressValidationServiceSoapBindingQSPort"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/ownership/AddressValidation}AddressValidationServiceSoapBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/ownership/AddressValidation}AddressValidationService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/AddressValidationService/ProxyServices/AddressValidationProxyService"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="CleanseUnicode">
+                              <soap soapAction="CleanseUnicode" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="BIPTemplateMgmtMediator_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/BIPTemplateMgmtService/BIPTemplateMgmtMediator_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/BIPTemplate}BIPTemplateMgmtMediator_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/BIPTemplate}BIPTemplateMgmtMediator_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/BIPTemplate}BIPTemplateMgmtMediator_ep">
+                        <port name="BIPTemplateMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/BIPTemplate}BIPTemplateMgmtServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/BIPTemplate}BIPTemplateMgmtService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/BIPTemplateMgmtService/BIPTemplateMgmtMediator_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveBIPTemplateInfo">
+                              <soap soapAction="RetrieveBIPTemplateInfo" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrieveBIPTemplates">
+                              <soap soapAction="RetrieveBIPTemplates" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="CorrespondenceMgmtService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/CorrespondenceMgmtService/CorrespondenceMgmtService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/props/CorrespondenceMgmt}CorrespondenceMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/props/CorrespondenceMgmt}CorrespondenceMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/props/CorrespondenceMgmt}CorrespondenceMgmtService_ep">
+                        <port name="CorrespondenceMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/props/CorrespondenceMgmt}CorrespondenceMgmtServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/props/CorrespondenceMgmt}CorrespondenceMgmtService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/CorrespondenceMgmtService/CorrespondenceMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveCorrespondenceList">
+                              <soap soapAction="RetrieveCorrespondenceList"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="CreateCorrespondence">
+                              <soap soapAction="CreateCorrespondence" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="CloneCorrespondence">
+                              <soap soapAction="CloneCorrespondence" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="UpdateCorrespondence">
+                              <soap soapAction="UpdateCorrespondence" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="DeleteCorrespondence">
+                              <soap soapAction="DeleteCorrespondence" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="CorrespondenceWrapperMediator_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/CorrespondenceWrapperService/CorrespondenceWrapperMediator_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/props/correspondence/CorrespondenceWrapper}CorrespondenceWrapperMediator_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/props/correspondence/CorrespondenceWrapper}CorrespondenceWrapperMediator_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/props/correspondence/CorrespondenceWrapper}CorrespondenceWrapperMediator_ep">
+                        <port name="CorrespondenceWrapperService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/props/correspondence/CorrespondenceWrapper}CorrespondenceWrapperServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/props/correspondence/CorrespondenceWrapper}CorrespondenceWrapperService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/CorrespondenceWrapperService/CorrespondenceWrapperMediator_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="GenerateMasterPayload">
+                              <soap soapAction="GenerateMasterPayload" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="HandleMasterPayloadUpdate">
+                              <soap soapAction="HandleMasterPayloadUpdate"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="HandleCorrespondenceApproval">
+                              <soap soapAction="HandleCorrespondenceApproval"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="HandleCorrespondenceRedo">
+                              <soap soapAction="HandleCorrespondenceRedo"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="HandlePropsApproval">
+                              <soap soapAction="HandlePropsApproval" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="PropsPayloadMgmtService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsPayloadMgmtService/PropsPayloadMgmtService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/props/PropsPayloadMgmt}PropsPayloadMgmtService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsPayloadMgmt}PropsPayloadMgmtService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsPayloadMgmt}PropsPayloadMgmtService_ep">
+                        <port name="PropsPayloadMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/props/PropsPayloadMgmt}PropsPayloadMgmtServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/props/PropsPayloadMgmt}PropsPayloadMgmtService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsPayloadMgmtService/PropsPayloadMgmtService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrievePropsPayload">
+                              <soap soapAction="RetrievePropsPayload" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="UpdatePropsPayload">
+                              <soap soapAction="UpdatePropsPayload" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="RepositoryDocumentsLOVService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/RepositoryDocumentsLOVService/RepositoryDocumentsLOVService_ep?WSDL"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsLOV}RepositoryDocumentsLOVService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsLOV}RepositoryDocumentsLOVService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsLOV}RepositoryDocumentsLOVService_ep">
+                        <port name="RepositoryDocumentsLOVService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsLOV}RepositoryDocumentsLOVServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/common/supportingdocs/RepositoryDocumentsLOV}RepositoryDocumentsLOVService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/RepositoryDocumentsLOVService/RepositoryDocumentsLOVService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveRepoDocsLOV">
+                              <soap soapAction="RetrieveRepoDocsLOV" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+  <Reference name="DocumentMgmtService_client"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/DocumentMgmtService/DocumentMgmtService_client?WSDL"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/docs/DocumentMgmtService/v1.0}DocumentMgmtService_client">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/docs/DocumentMgmtService/v1.0}DocumentMgmtService_client"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/docs/DocumentMgmtService/v1.0}DocumentMgmtService_client">
+                        <port name="DocumentMgmtService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/docs/DocumentMgmtService/v1.0}DocumentMgmtServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/docs/DocumentMgmtService/v1.0}DocumentMgmtService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/DocumentMgmtService/DocumentMgmtService_client"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrieveRPParcelDocs">
+                              <soap soapAction="RetrieveRPParcelDocs" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrievePPParcelDocs">
+                              <soap soapAction="RetrievePPParcelDocs" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="PropsDetailsRetrievalService_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsDetailsRetrievalService/PropsDetailsRetrievalService_ep?wsdl"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/props/PropsDetailsRetrievalService}PropsDetailsRetrievalService_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsDetailsRetrievalService}PropsDetailsRetrievalService_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/props/PropsDetailsRetrievalService}PropsDetailsRetrievalService_ep">
+                        <port name="PropsDetailsRetrievalService_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/props/PropsDetailsRetrievalService}PropsDetailsRetrievalServiceBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/props/PropsDetailsRetrievalService}PropsDetailsRetrievalService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/PropsDetailsRetrievalService/PropsDetailsRetrievalService_ep"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="RetrievePropsDetails">
+                              <soap soapAction="RetrievePropsDetails" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="ExternalReportWSSService"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/xmlpserver/services/ExternalReportWSSService?WSDL"
+                             service="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSService">
+                  <model name="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSService"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSService">
+                        <port name="ExternalReportWSSService"
+                              binding="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSServiceSoapHttp"
+                              portType="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSService">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/xmlpserver/services/ExternalReportWSSService"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="getSecurityModel">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="getBIPHTTPSessionInterval">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="runReport">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="getReportDefinition">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="getTemplate">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="getReportSampleData">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="getXDOSchema">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="getReportParameters">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="getTemplateParameters">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="getFolderContents">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="getDeliveryServiceDefinition">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="deliveryService">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="validateLogin">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="hasReportAccess">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="isReportExist">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="isFolderExist">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="createReport">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="updateReportDefinition">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="createReportFolder">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="uploadTemplateForReport">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="updateTemplateForReport">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="removeTemplateForReport">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="uploadReportDataChunk">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="downloadReportDataChunk">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="uploadReportObject">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="deleteReport">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="deleteFolder">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="downloadReportObject">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="submitReport">
+                              <soap soapAction="" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+    <Reference name="ExternalReportWSSService_Service"
+             className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+    <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="WebServiceConnection">
+        <Contents>
+          <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/BIPReportService/BIPPipelineProxyService?WSDL"
+                        service="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSServiceSoapHttpQSService">
+            <model name="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSServiceSoapHttpQSService"
+                   xmlns="http://oracle.com/ws/model">
+              <service name="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSServiceSoapHttpQSService">
+                <port name="ExternalReportWSSServiceSoapHttpQSPort"
+                      binding="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSServiceSoapHttp"
+                      portType="{http://xmlns.oracle.com/oxp/service/PublicReportService}ExternalReportWSSService">
+                  <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/BIPReportService/BIPPipelineProxyService"
+                        xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                  <operation name="getSecurityModel">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getBIPHTTPSessionInterval">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="runReport">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getReportDefinition">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getTemplate">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getReportSampleData">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getXDOSchema">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getReportParameters">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getTemplateParameters">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getFolderContents">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="getDeliveryServiceDefinition">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="deliveryService">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="validateLogin">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="hasReportAccess">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="isReportExist">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="isFolderExist">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="createReport">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="updateReportDefinition">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="createReportFolder">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="uploadTemplateForReport">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="updateTemplateForReport">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="removeTemplateForReport">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="uploadReportDataChunk">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="downloadReportDataChunk">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="uploadReportObject">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="deleteReport">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="deleteFolder">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="downloadReportObject">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                  <operation name="submitReport">
+                    <soap xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                    <input name=""/>
+                    <output name=""/>
+                  </operation>
+                </port>
+              </service>
+            </model>
+          </wsconnection>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+ <Reference name="psrGenSuppDocs" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="psrGenSuppDocs">
+        <Contents>
+          <urlconnection name="psrGenSuppDocs" url="http://campwtt101.assessor.lacounty.gov:7778/wcc/faces/wccdoc?xMode=V&amp;dDocName="/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="docUrl" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="docUrl">
+        <Contents>
+          <urlconnection name="docUrl" url="http://hdevdmapp01-v.laassessor.co.la.ca.us/dctm-rest/repositories/laassessor_dev/objects/"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+   <Reference name="WCPAppURL" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+      <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WCPAppURL">
+            <Contents>
+               <urlconnection name="WCPAppURL" url="http://campwtt101.assessor.lacounty.gov:7778/webcenter/content"/>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="AmpWccConnection" className="oracle.adf.mbean.share.connection.wcc.WccConnection" xmlns="">
+    <Factory className="oracle.adf.mbean.share.connection.wcc.WccConnectionFactory"/>
+    <RefAddresses>
+      <StringRefAddr addrType="oracle.wcc.ridc.connection.protocol">
+        <Contents>idc</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="oracle.wcc.ridc.connection.url">
+        <Contents>idc://campwcct201.assessor.lacounty.gov:4444</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="oracle.wcc.ridc.credential.username">
+        <Contents>wccadfui2wccucm_serviceaccount</Contents>
+      </StringRefAddr>
+    </RefAddresses>
+  </Reference>
+    <Reference name="CORDataCaptureMediator_ep"
+              className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/CORDataCaptureService/CORDataCaptureService?WSDL"
+                             service="{http://assessor.lacounty.gov/amp/wsdl/CORDataCapture}CORDataCaptureMediator_ep">
+                  <model name="{http://assessor.lacounty.gov/amp/wsdl/CORDataCapture}CORDataCaptureMediator_ep"
+                         xmlns="http://oracle.com/ws/model">
+                     <service name="{http://assessor.lacounty.gov/amp/wsdl/CORDataCapture}CORDataCaptureMediator_ep">
+                        <port name="CORDataCapturePort_pt"
+                              binding="{http://assessor.lacounty.gov/amp/wsdl/CORDataCapture}CORDataCapturePortBinding"
+                              portType="{http://assessor.lacounty.gov/amp/wsdl/CORDataCapture}CORDataCapturePort">
+                           <soap addressUrl="http://campwtt101.assessor.lacounty.gov:7777/soa-infra/services/amp/CORDataCaptureService/CORDataCaptureService"
+                                 xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="Initialize">
+                              <soap soapAction="Initialize" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="EditPDF">
+                              <soap soapAction="EditPDF" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="PreviewPDF">
+                              <soap soapAction="PreviewPDF" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="ApprovePDF">
+                              <soap soapAction="ApprovePDF" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="Clone">
+                              <soap soapAction="Clone" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrievePayload">
+                              <soap soapAction="RetrievePayload" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="UpdatePayload">
+                              <soap soapAction="UpdatePayload" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="RetrieveStatus">
+                              <soap soapAction="RetrieveStatus" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="UpdateStatus">
+                              <soap soapAction="UpdateStatus" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="UpdateAndApprovePDF">
+                              <soap soapAction="UpdateAndApprovePDF" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                           <operation name="UpdateAndApprovePDFOneWay">
+                              <soap soapAction="UpdateAndApprovePDFOneWay"
+                                    xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <input name=""/>
+                              <output name=""/>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

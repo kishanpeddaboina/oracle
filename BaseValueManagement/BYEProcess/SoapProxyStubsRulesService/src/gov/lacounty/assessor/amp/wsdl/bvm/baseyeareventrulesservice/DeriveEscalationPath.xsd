@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://assessor.lacounty.gov/amp/data/bvm/DeriveEscalationPath/v1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://assessor.lacounty.gov/amp/data/bvm/DeriveEscalationPath/v1.0" xmlns:inp1="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0" xmlns:inp2="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0" xmlns:inp3="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0">
+  <xsd:import schemaLocation="RequestHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0"/>
+  <xsd:import schemaLocation="ResponseHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+  <xsd:import schemaLocation="BaseYearEvent.xsd" namespace="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+  <xsd:annotation>
+    <xsd:documentation>This schema defines request and response payload
+                         structures for DeriveEscalationPath operation of
+                         BaseYearEventRulesService SOA Service.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element name="deriveEscalationPathRequest">
+    <xsd:annotation>
+      <xsd:documentation>This defines the request payload structure for
+                            DeriveEscalationPath operation of
+                            BaseYearEventRulesService SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp1:requestHeader" minOccurs="1" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="region" type="xsd:string" minOccurs="1" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>region .</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="approvedBy" type="xsd:string" minOccurs="1" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>ApprovedBy .</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="modifiedBaseYearEventList" type="tns:BaseYearEventList" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>list of Modified Base Year events matching
+                                     the input criterion</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="originalBaseYearEventList" type="tns:BaseYearEventList" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>list of Original Base Year events matching
+                                     the input criterion</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="deriveEscalationPathResponse">
+    <xsd:annotation>
+      <xsd:documentation>This defines the response payload structure for
+                            DeriveEscalationPath SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp2:responseHeader" maxOccurs="1" minOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Response Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="escalationPath" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>escalation path.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="escalateTo" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>EscalateTo .</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="modifiedTotalMinusOriginalTotal" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>modified Total Minus Original Total</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="derivedPropertyType" type="xsd:string" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>derived Property Type.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="attribute1" type="xsd:string" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>attribute for flexi filed.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="attribute2" type="xsd:string" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>attribute for flexi filed.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="errorBYEId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="errorMessage" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="errorReqId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="BaseYearEventList">
+    <xsd:sequence>
+      <xsd:element name="baseYearEvent" type="inp3:baseYearEvent" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

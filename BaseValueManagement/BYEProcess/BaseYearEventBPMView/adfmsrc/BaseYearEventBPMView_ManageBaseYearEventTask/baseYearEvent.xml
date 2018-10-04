@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="baseYearEvent"
+          Package="BaseYearEventBPMView_ManageBaseYearEventTask"
+          BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.baseYearEvent"
+          isJavaBased="false">
+  <Attribute Name="ain" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="aoid"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Ain"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ain"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="byeId" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="ownershipCode"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Bye Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="byeId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ownershipCode" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="percentOwnership"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Ownership Code"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ownershipCode"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="percentOwnership" Type="java.math.BigDecimal">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="eventNameId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Percent Ownership"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="percentOwnership"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigDecimal"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventDate" Type="java.sql.Timestamp">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="recordingDate"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Event Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="eventDate"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="dateTime"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="recordingDate" Type="java.sql.Timestamp">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="documentNumber"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Recording Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="recordingDate"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="dateTime"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="documentNumber" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="sequenceNumber"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Document Number"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="documentNumber"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="sequenceNumber" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="baseYear"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Sequence Number"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="sequenceNumber"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="baseYear" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="subUnitNumber"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Base Year"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="baseYear"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="subUnitNumber" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="subUnitDescription"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Sub Unit Number"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="subUnitNumber"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="subUnitDescription" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="partiallyCompleteNumber"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Sub Unit Description"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="subUnitDescription"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="partiallyCompleteNumber" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="blendedValueFlag"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Partially Complete Number"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="partiallyCompleteNumber"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="blendedValueFlag" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="percentageAppliedToValue"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Blended Value Flag"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="blendedValueFlag"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="percentageAppliedToValue" Type="java.math.BigDecimal">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="landValue"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Percentage Applied To Value"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="percentageAppliedToValue"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigDecimal"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="landValue" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="improvementValue"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Land Value"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="landValue"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="improvementValue" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="landReasonCodeId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Improvement Value"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="improvementValue"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="fixtureValue" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="retainedLandValue"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Fixture Value"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="fixtureValue"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="retainedLandValue" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="retainedImprovementValue"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Retained Land Value"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="retainedLandValue"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="retainedImprovementValue" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="retainedFixtureValue"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Retained Improvement Value"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="retainedImprovementValue"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="retainedFixtureValue" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="ppAssessmentNumber"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Retained Fixture Value"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="retainedFixtureValue"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ppAssessmentNumber" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="personalPropertyType"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Pp Assessment Number"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ppAssessmentNumber"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="personalPropertyType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="ppDescription"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Personal Property Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="personalPropertyType"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ppDescription" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="totalAdjAcquisitionCost"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Pp Description"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ppDescription"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="totalAdjAcquisitionCost" Type="java.lang.Double">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="percentageFixture"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Total Adj Acquisition Cost"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="totalAdjAcquisitionCost"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.Double"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="percentageFixture" Type="java.math.BigDecimal">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="effectiveBeginDate"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Percentage Fixture"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="percentageFixture"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigDecimal"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="effectiveBeginDate" Type="java.sql.Timestamp">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="effectiveEndDate"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Effective Begin Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="effectiveBeginDate"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="dateTime"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="effectiveEndDate" Type="java.sql.Timestamp">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="verificationDate"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Effective End Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="effectiveEndDate"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="dateTime"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="verificationDate" Type="java.sql.Timestamp">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="eventSource"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Verification Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="verificationDate"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="dateTime"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventSource" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="verifiedBy"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Event Source"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="eventSource"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="verifiedBy" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="byeLegacySourceSystem"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Verified By"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="verifiedBy"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="byeLegacySourceSystem" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="originalAIN"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Bye Legacy Source System"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="byeLegacySourceSystem"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="originalAIN" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="originalBYEId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Original AIN"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="originalAIN"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="originalBYEId" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="rollType"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Original BYE Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="originalBYEId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="rollType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="transactionType"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Roll Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="rollType"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="transactionType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="userId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Transaction Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="transactionType"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="userId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="newConstructionDate"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="User Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="userId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="newConstructionDate" Type="java.sql.Timestamp">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="createBy"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="New Construction Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="newConstructionDate"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="dateTime"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="createBy" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="createdDate"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Create By"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="createBy"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="createdDate" Type="java.sql.Timestamp">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="modifiedBy"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Created Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="createdDate"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="dateTime"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="modifiedBy" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="inactiveDate"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Modified By"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="modifiedBy"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="inactiveDate" Type="java.sql.Timestamp">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="modifiedDate"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Inactive Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="inactiveDate"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="dateTime"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="modifiedDate" Type="java.sql.Timestamp">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="currentOnClose"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Modified Date"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="modifiedDate"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="dateTime"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="currentOnClose" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="notes"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Current On Close"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="currentOnClose"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="aoid" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="reviewRequired"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Aoid"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="aoid"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="reviewRequired" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="byeId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Review Required"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="reviewRequired"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventNameId" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="eventNameKey"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Event Name Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="eventNameId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventNameKey" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="eventNameLegend"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Event Name Key"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="eventNameKey"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventNameLegend" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="eventDescriptionId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Event Name Legend"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="eventNameLegend"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventDescriptionId" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="eventDescriptionKey"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Event Description Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="eventDescriptionId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventDescriptionKey" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="eventDescriptionLegend"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Event Description Key"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="eventDescriptionKey"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventDescriptionLegend" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="eventDate"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Event Description Legend"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="eventDescriptionLegend"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="landReasonCodeId" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="landReasonCodeKey"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Land Reason Code Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="landReasonCodeId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="landReasonCodeKey" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="landReasonCodeLegend"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Land Reason Code Key"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="landReasonCodeKey"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="landReasonCodeLegend" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="improvementReasonCodeId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Land Reason Code Legend"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="landReasonCodeLegend"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="improvementReasonCodeId" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="improvementReasonCodeKey"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Improvement Reason Code Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="improvementReasonCodeId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="improvementReasonCodeKey" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="improvementReasonCodeLegend"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Improvement Reason Code Key"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="improvementReasonCodeKey"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="improvementReasonCodeLegend" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="fixtureValue"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Improvement Reason Code Legend"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="improvementReasonCodeLegend"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="notes" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="nextSibling" Value="asmtRollId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Notes"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="notes"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="asmtRollId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Asmt Roll Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="asmtRollId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+</JavaBean>

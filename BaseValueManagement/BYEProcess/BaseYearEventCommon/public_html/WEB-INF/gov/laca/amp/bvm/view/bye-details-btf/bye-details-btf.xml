@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="bye-details-btf">
+    <default-activity id="__10">customRouter</default-activity>
+    <input-parameter-definition id="__3">
+      <name id="__2">isEdit</name>
+      <value>#{pageFlowScope.isEdit}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__12">
+      <name id="__11">eventType</name>
+      <value>#{pageFlowScope.eventType}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__14">
+      <name id="__13">isRealProperty</name>
+      <value>#{pageFlowScope.isRealProperty}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__16">
+      <name id="__15">isPersonalProperty</name>
+      <value>#{pageFlowScope.isPersonalProperty}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__20">
+      <name id="__36">userId</name>
+      <value>#{pageFlowScope.userId}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__37">
+      <name id="__35">isNew</name>
+      <value>#{pageFlowScope.isNew}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__38">
+      <name id="__39">isFixture</name>
+      <value>#{pageFlowScope.isFixture}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__41">
+      <name id="__40">isTBV</name>
+      <value>#{pageFlowScope.isTBV}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__43">
+      <name id="__42">showOriginal</name>
+      <value>#{pageFlowScope.showOriginal}</value>
+      <class>java.lang.Boolean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__44">
+      <name id="__45">popupId</name>
+      <value>#{pageFlowScope.popupId}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__49">
+      <name id="__48">sPageAction</name>
+      <value>#{pageFlowScope.sPageAction}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__18">
+      <managed-bean-name id="__9">bvmActionsBean</managed-bean-name>
+      <managed-bean-class id="__19">gov.laca.amp.bvm.view.bean.BVMActionsBean</managed-bean-class>
+      <managed-bean-scope id="__17">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="HistoricalEventDetails">
+      <page>/gov/laca/amp/bvm/view/bye-details-btf/HistoricalEventDetails.jsff</page>
+    </view>
+    <task-flow-return id="Return">
+      <outcome id="__1">
+        <name>Return</name>
+      </outcome>
+    </task-flow-return>
+    <view id="CurrentEventDetails">
+      <page>/gov/laca/amp/bvm/view/bye-details-btf/CurrentEventDetails.jsff</page>
+    </view>
+    <method-call id="customRouter">
+      <method>#{backingBeanScope.bvmActionsBean.customRouter}</method>
+      <outcome id="__34">
+        <to-string/>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__5">HistoricalEventDetails</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__8">return</from-outcome>
+        <to-activity-id id="__7">Return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id id="__22">CurrentEventDetails</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome id="__25">return</from-outcome>
+        <to-activity-id id="__24">Return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id id="__27">customRouter</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome id="__30">historical</from-outcome>
+        <to-activity-id id="__28">HistoricalEventDetails</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome id="__33">current</from-outcome>
+        <to-activity-id id="__31">CurrentEventDetails</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

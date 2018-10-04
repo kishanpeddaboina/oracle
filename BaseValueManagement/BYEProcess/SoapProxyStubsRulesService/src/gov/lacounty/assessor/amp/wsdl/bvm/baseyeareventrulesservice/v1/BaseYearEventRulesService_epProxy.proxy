@@ -1,0 +1,246 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="BaseYearEventRulesService_ep.xml"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/BYEResponseList.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/AsmtList.java"/>
+      <url path="../../../../data/bvm/validatebaseyearevent/v1/ValidateBaseYearEventRequest.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/Conflict.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/package-info.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/package-info.java"/>
+      <url path="../../../../type/bvm/baseyearevent/v1/package-info.java"/>
+      <url path="../../../../data/bvm/validatebaseyearevent/v1/package-info.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/AsmtRollList.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/Hist.java"/>
+      <url path="../../../../type/common/responseheader/v1/ObjectFactory.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/LandList.java"/>
+      <url path="../../../../type/common/requestheader/v1/ObjectFactory.java"/>
+      <url path="../../../../data/bvm/factoredbaseyearvalue/v1/ObjectFactory.java"/>
+      <url path="../../../../data/bvm/factoredbaseyearvalue/v1/FactoredBaseYearValueResponse.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/ObjectFactory.java"/>
+      <url path="../../../../data/bvm/validatebaseyearevent/v1/BaseYearEventErrList.java"/>
+      <url path="../../../../data/bvm/validatebaseyearevent/v1/BaseYearEventErr.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/TrendBaseYearValueResponse.java"/>
+      <url path="../../../../type/common/requestheader/v1/package-info.java"/>
+      <url path="../../../../data/bvm/factoredbaseyearvalue/v1/FactoredBaseYearValueRequest.java"/>
+      <url path="BaseYearEventRulesService_ptClient.java"/>
+      <url path="../../../../type/common/responseheader/v1/package-info.java"/>
+      <url path="../../../../data/bvm/validatebaseyearevent/v1/ValidateBaseYearEventResponse.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/Land.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/BaseYearEventRespList.java"/>
+      <url path="../../../../type/common/requestheader/v1/RequestHeader.java"/>
+      <url path="../../../../type/bvm/baseyearevent/v1/BaseYearEvent.java"/>
+      <url path="../../../../type/common/fault/v1/package-info.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/BYEResponse.java"/>
+      <url path="../../../../type/common/responseheader/v1/ResponseHeader.java"/>
+      <url path="../../../../data/bvm/deriveescalationpath/v1/package-info.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/BaseYearEventList.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/HistList.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/IdentifyCleanDirtyAORequest.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/ConflictList.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/TrendBaseYearValueRequest.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/IdentifyCleanDirtyAOResponse.java"/>
+      <url path="../../../../type/common/fault/v1/ObjectFactory.java"/>
+      <url path="../../../../type/common/fault/v1/Fault.java"/>
+      <url path="FaultMessage.java"/>
+      <url path="../../../../data/bvm/deriveescalationpath/v1/DeriveEscalationPathResponse.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/Asmt.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/TrendObjectList.java"/>
+      <url path="BaseYearEventRulesService_ep.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/BaseYearEventList.java"/>
+      <url path="../../../../data/bvm/deriveescalationpath/v1/BaseYearEventList.java"/>
+      <url path="../../../../type/bvm/baseyearevent/v1/ObjectFactory.java"/>
+      <url path="../../../../data/bvm/validatebaseyearevent/v1/ObjectFactory.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/ObjectFactory.java"/>
+      <url path="BaseYearEventRulesService.java"/>
+      <url path="../../../../data/bvm/deriveescalationpath/v1/DeriveEscalationPathRequest.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/TrendBaseValueTotalList.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/TrendBaseValueList.java"/>
+      <url path="../../../../data/bvm/factoredbaseyearvalue/v1/package-info.java"/>
+      <url path="../../../../data/bvm/identifycleandirtyao/v1/AsmtRoll.java"/>
+      <url path="../../../../data/bvm/validatebaseyearevent/v1/BaseYearEventList.java"/>
+      <url path="../../../../data/bvm/factoredbaseyearvalue/v1/BaseYearEventList.java"/>
+      <url path="../../../../data/bvm/trendbaseyearvalue/v1/BaseYearEventResp.java"/>
+      <url path="../../../../data/bvm/deriveescalationpath/v1/ObjectFactory.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="MTOM"/>
+      <value n="FIXED_WSDL" v="false"/>
+      <list n="LOCAL_FILES"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <url n="ORACLE_WEBSERVICES_XML" path="BaseYearEventRulesService_ep.xml"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_UNWRAP_PARAMETERS" v="false"/>
+         </hash>
+      </hash>
+      <list n="PROXY_CLIENTS">
+         <url path="BaseYearEventRulesService_ptClient.java"/>
+      </list>
+      <value n="PROXY_MAPPING_URL"/>
+      <url n="PROXY_ORIGINAL_WSDL_URL" protocol="http" host="campsoat101.assessor.lacounty.gov" port="8001" path="/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep" query="wsdl"/>
+      <hash n="PROXY_PORTS">
+         <hash n="BaseYearEventRulesService_pt">
+            <value n="ACCESSES_DOC_WRAPPPED" v="false"/>
+            <value n="ACCESSES_RPC_ENCODED" v="false"/>
+            <value n="CLASS_NAME" v="gov.lacounty.assessor.amp.wsdl.bvm.baseyeareventrulesservice.v1.BaseYearEventRulesService"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="BaseYearEventRulesService_pt"/>
+            <hash n="OPERATIONS">
+               <hash n="deriveEscalationPath">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="factoredBaseYearValue">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="identifyCleanDirtyAO">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="trendBaseYearValue">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="validateBaseYearEevent">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS">
+               <hash n="WS_CLIENT_POLICY">
+                  <value n="addressing"/>
+                  <list n="management"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.policy.PolicyClientModel"/>
+                  <value n="mtom"/>
+                  <value n="POLCIY_FROM_DD" v="true"/>
+                  <hash n="POLICY_OVERRIDE_PROPERTIES"/>
+                  <list n="security"/>
+                  <value n="wsrm"/>
+               </hash>
+            </hash>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="campwtt101.assessor.lacounty.gov" port="7777" path="/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep"/>
+            <url n="PROXY_PORT_ENDPOINT" protocol="http" host="campwtt101.assessor.lacounty.gov" port="7777" path="/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="BaseYearEventRulesService_ep"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../../../../../../SoapProxyStubsRulesService.jpr"/>
+      <list n="PROXY_WSDL_IMPORT_LIST">
+         <url path="Fault.wsdl"/>
+         <url path="BaseYearEvent.xsd"/>
+         <url path="ResponseHeader.xsd"/>
+         <url path="FactoredBaseYearValue.xsd"/>
+         <url path="ValidateBaseYearEvent.xsd"/>
+         <url path="DeriveEscalationPath.xsd"/>
+         <url path="RequestHeader.xsd"/>
+         <url path="Fault.xsd"/>
+      </list>
+      <url n="PROXY_WSDL_URL" protocol="http" host="campsoat101.assessor.lacounty.gov" port="8001" path="/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep" query="WSDL"/>
+      <hash n="REFERENCED_WEBSERVICE">
+         <list n="BD_">
+            <hash>
+               <value n="BD_DEFAULT_DOCUMENT_WRAPPED" v="false"/>
+               <value n="BOUND_PORT_TYPE" v="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0}BaseYearEventRulesService"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+               <value n="NAME" v="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0}BaseYearEventRulesServiceBinding"/>
+               <list n="OP_BINDINGS">
+                  <hash>
+                     <value n="BOUND_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.validatebaseyearevent.v1.ValidateBaseYearEventResponse.validateBaseYearEevent.gov.lacounty.assessor.amp.data.bvm.validatebaseyearevent.v1.ValidateBaseYearEventRequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.factoredbaseyearvalue.v1.FactoredBaseYearValueResponse.factoredBaseYearValue.gov.lacounty.assessor.amp.data.bvm.factoredbaseyearvalue.v1.FactoredBaseYearValueRequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.deriveescalationpath.v1.DeriveEscalationPathResponse.deriveEscalationPath.gov.lacounty.assessor.amp.data.bvm.deriveescalationpath.v1.DeriveEscalationPathRequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.identifycleandirtyao.v1.IdentifyCleanDirtyAOResponse.identifyCleanDirtyAO.gov.lacounty.assessor.amp.data.bvm.identifycleandirtyao.v1.IdentifyCleanDirtyAORequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.trendbaseyearvalue.v1.TrendBaseYearValueResponse.trendBaseYearValue.gov.lacounty.assessor.amp.data.bvm.trendbaseyearvalue.v1.TrendBaseYearValueRequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+            </hash>
+         </list>
+         <list n="BINDING_FILES"/>
+         <value n="GUID" v="2d0e4cc9-0156-1000-8002-c0a838012a89"/>
+         <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy$ProxyJavaWebService"/>
+         <list n="PO_">
+            <hash>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+               <value n="NAME" v="BaseYearEventRulesService_pt"/>
+               <value n="PORT_BINDING_NAME" v="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0}BaseYearEventRulesServiceBinding"/>
+               <list n="PORT_OPS">
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.validatebaseyearevent.v1.ValidateBaseYearEventResponse.validateBaseYearEevent.gov.lacounty.assessor.amp.data.bvm.validatebaseyearevent.v1.ValidateBaseYearEventRequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.factoredbaseyearvalue.v1.FactoredBaseYearValueResponse.factoredBaseYearValue.gov.lacounty.assessor.amp.data.bvm.factoredbaseyearvalue.v1.FactoredBaseYearValueRequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.deriveescalationpath.v1.DeriveEscalationPathResponse.deriveEscalationPath.gov.lacounty.assessor.amp.data.bvm.deriveescalationpath.v1.DeriveEscalationPathRequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.identifycleandirtyao.v1.IdentifyCleanDirtyAOResponse.identifyCleanDirtyAO.gov.lacounty.assessor.amp.data.bvm.identifycleandirtyao.v1.IdentifyCleanDirtyAORequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="gov.lacounty.assessor.amp.data.bvm.trendbaseyearvalue.v1.TrendBaseYearValueResponse.trendBaseYearValue.gov.lacounty.assessor.amp.data.bvm.trendbaseyearvalue.v1.TrendBaseYearValueRequest"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+               <url n="URL" protocol="http" host="campwtt101.assessor.lacounty.gov" port="7777" path="/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep"/>
+            </hash>
+         </list>
+         <hash n="PROPERTY_GROUPS">
+            <hash n="WSDL_TO_JAVA_PROPERTIES">
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+               <value n="WSDL2JAVA_UNWRAP_PARAMETERS" v="false"/>
+            </hash>
+         </hash>
+         <list n="PT_">
+            <hash>
+               <value n="AUTO_SERVICE_INTERFACE"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaPortType"/>
+               <value n="NAME" v="{http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0}BaseYearEventRulesService"/>
+               <hash n="PROPERTY_GROUPS"/>
+               <value n="PT_CLASS" v="gov.lacounty.assessor.amp.wsdl.bvm.baseyeareventrulesservice.v1.BaseYearEventRulesServiceImpl"/>
+               <value n="PT_SERVICE_INTERFACE" v="gov.lacounty.assessor.amp.wsdl.bvm.baseyeareventrulesservice.v1.BaseYearEventRulesService"/>
+            </hash>
+         </list>
+         <url n="TARGET_PROJECT" path="../../../../../../../../../SoapProxyStubsRulesService.jpr"/>
+         <value n="WS_ORIG_GEN_DIRECTION" v="TOP_DOWN"/>
+         <value n="WS_TARGET_NAMESPACE" v="http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0"/>
+         <value n="WS_URI" v="BaseYearEventRulesService_ep"/>
+         <url n="WS_WSDL_FILE" protocol="http" host="campsoat101.assessor.lacounty.gov" port="8001" path="/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep" query="WSDL"/>
+      </hash>
+      <value n="SERVICE_ASYNC" v="false"/>
+      <value n="USE_WSDL_LOCATION" v="true"/>
+   </hash>
+</jdevws:WebServiceProxy>

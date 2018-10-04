@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-trended-base-value-calculator-btf">
+    <default-activity id="__1">loadDataForTBV</default-activity>
+    <data-control-scope id="__28">
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__3">
+      <managed-bean-name id="__4">scratchTrendBaseEventHandlerBean</managed-bean-name>
+      <managed-bean-class id="__5">gov.laca.amp.bvm.view.bean.BTVCalculatorHandler</managed-bean-class>
+      <managed-bean-scope id="__2">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__7">
+      <managed-bean-name id="__6">initiateBVMBean</managed-bean-name>
+      <managed-bean-class id="__9">gov.laca.amp.bvm.model.InitiateBaseYearEvent</managed-bean-class>
+      <managed-bean-scope id="__8">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__11">
+      <managed-bean-name id="__13">historicalPopupTaskflowHandler</managed-bean-name>
+      <managed-bean-class id="__12">gov.laca.amp.bvm.view.bean.HistoricalPopupTaskflowHandler</managed-bean-class>
+      <managed-bean-scope id="__10">view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__14">
+      <managed-bean-name id="__17">bvmActionsBean</managed-bean-name>
+      <managed-bean-class id="__16">gov.laca.amp.bvm.view.bean.BVMActionsBean</managed-bean-class>
+      <managed-bean-scope id="__15">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__21">
+      <managed-bean-name id="__20">bvmTaskDetailsBean</managed-bean-name>
+      <managed-bean-class id="__19">gov.laca.amp.bvm.view.bean.BVMTaskDetailsBean</managed-bean-class>
+      <managed-bean-scope id="__18">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="amp-trended-base-value-calculator">
+      <page>/gov/laca/amp/bvm/view/amp-trended-base-value-calculator-btf/amp-trended-base-value-calculator.jsff</page>
+    </view>
+    <method-call id="loadDataForTBV">
+      <method>#{backingBeanScope.bvmActionsBean.initTrendCalcPg}</method>
+      <outcome>
+        <fixed-outcome>loadDataForTBV</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__22">
+      <from-activity-id>loadDataForTBV</from-activity-id>
+      <control-flow-case id="__23">
+        <from-outcome>loadDataForTBV</from-outcome>
+        <to-activity-id>amp-trended-base-value-calculator</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

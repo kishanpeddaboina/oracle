@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="BaseYearEventDO" Package="gov.laca.amp.bvm.model.data"
+          BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+          isJavaBased="true">
+  <Attribute Name="selected" Type="java.lang.Boolean">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.selected_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.selected_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventDate" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.eventDate_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.eventDate_TOOLTIP"/>
+        <FMT_FORMATTER ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMATTER"/>
+        <FMT_FORMAT ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="baseYear" Type="java.math.BigInteger">
+    <LengthValidationBean xmlns="http://xmlns.oracle.com/adfm/validation"
+                          OnAttribute="baseYear"
+                          ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.baseYear_Rule_0"
+                          Inverse="false" Severity="Error"
+                          Name="baseYear_Rule_0" DataType="CHARACTER"
+                          CompareType="EQUALTO" CompareLength="4"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.baseYear_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.baseYear_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="subUnitNumber" Type="java.math.BigInteger">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.subUnitNumber_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.subUnitNumber_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="percentOwnership" Type="java.math.BigDecimal"
+             PrecisionRule="false" Scale="0" Precision="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.percentOwnership_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.percentOwnership_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="percentageAppliedToValue" Type="java.math.BigDecimal">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.percentageAppliedToValue_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.percentageAppliedToValue_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="landValue" Type="java.lang.Double">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.landValue_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.landValue_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="improvementValue" Type="java.lang.Double">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.improvementValue_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.improvementValue_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="totalAdjAcquisitionCost" Type="java.lang.Double">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.totalAdjAcquisitionCost_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.totalAdjAcquisitionCost_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="fixtureValue" Type="java.lang.Double">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.fixtureValue_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.fixtureValue_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="effectiveBeginDate" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.effectiveBeginDate_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.effectiveBeginDate_TOOLTIP"/>
+        <FMT_FORMATTER ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMATTER"/>
+        <FMT_FORMAT ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="effectiveEndDate" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.effectiveEndDate_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.effectiveEndDate_TOOLTIP"/>
+        <FMT_FORMATTER ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMATTER"/>
+        <FMT_FORMAT ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="verificationDate" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.verificationDate_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.verificationDate_TOOLTIP"/>
+        <FMT_FORMATTER ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMATTER"/>  
+        <FMT_FORMAT ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="inactiveDate" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.inactiveDate_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.inactiveDate_TOOLTIP"/>
+        <FMT_FORMATTER ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMATTER"/>
+        <FMT_FORMAT ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="blendedValueFlag" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.blendedValueFlag_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.blendedValueFlag_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="recordingDate" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.recordingDate_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.recordingDate_TOOLTIP"/>
+        <FMT_FORMATTER ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMATTER"/>
+        <FMT_FORMAT ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="sequenceNumber" Type="java.math.BigInteger">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.sequenceNumber_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.sequenceNumber_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="documentNumber" Type="java.math.BigInteger">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.documentNumber_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.documentNumber_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ownershipCode" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.ownershipCode_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.ownershipCode_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="newConstructionDate" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.newConstructionDate_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.newConstructionDate_TOOLTIP"/>
+        <FMT_FORMATTER ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMATTER"/>
+        <FMT_FORMAT ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="partiallyCompleteNumber" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.partiallyCompleteNumber_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.partiallyCompleteNumber_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="retainedLandValue" Type="java.lang.Double">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.retainedLandValue_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.retainedLandValue_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="retainedImprovementValue" Type="java.lang.Double">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.retainedImprovementValue_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.retainedImprovementValue_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="retainedFixtureValue" Type="java.lang.Double">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.retainedFixtureValue_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.retainedFixtureValue_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="subUnitDescription" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.subUnitDescription_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.subUnitDescription_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="personalPropertyType" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.personalPropertyType_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.personalPropertyType_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ppDescription" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.ppDescription_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.ppDescription_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="percentageFixture" Type="java.math.BigDecimal">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.percentageFixture_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.percentageFixture_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="originalAIN" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.originalAIN_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.originalAIN_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ppAssessmentNumber" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.ppAssessmentNumber_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.ppAssessmentNumber_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="byeId" Type="java.math.BigInteger" PrimaryKey="true"
+             PrecisionRule="false" Precision="0" Scale="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.byeId_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.byeId_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="verifiedBy" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.verifiedBy_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.verifiedBy_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="modifiedBy" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.modifiedBy_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.modifiedBy_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="modifiedDate" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.modifiedDate_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.modifiedDate_TOOLTIP"/>
+        <FMT_FORMATTER ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMATTER"/>
+        <FMT_FORMAT ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="byeLegacySourceSystem" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.byeLegacySourceSystem_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.byeLegacySourceSystem_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventSource" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.eventSource_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.eventSource_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="createdData" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.createdData_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.createdData_TOOLTIP"/>
+        <FMT_FORMATTER ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMATTER"/>
+        <FMT_FORMAT ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.BVM_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ain" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="ain_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.ain_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="originalBYEId" Type="java.math.BigInteger"/>
+  <Attribute Name="rollType" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="rollType_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.rollType_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="transactionType" Type="java.lang.String"/>
+  <Attribute Name="userId" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="userId_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.userId_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="createBy" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="createBy_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.createBy_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="totalValue" Type="java.lang.Double">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.totalValue_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.totalValue_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="retainedTotalValue" Type="java.lang.Double">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.retainedTotalValue_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.retainedTotalValue_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="aoid" Type="java.math.BigInteger"/>
+  <Attribute Name="reviewRequired" Type="java.lang.String"/>
+  <Attribute Name="eventNameLegend" Type="java.lang.String"/>
+  <Attribute Name="eventDescriptionId" Type="java.math.BigInteger"/>
+  <Attribute Name="eventDescriptionKey" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.eventDescription_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.eventDescriptionKey_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventDescriptionLegend" Type="java.lang.String"/>
+  <Attribute Name="landReasonCodeId" Type="java.math.BigInteger"/>
+  <Attribute Name="landReasonCodeKey" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.landReasonCode_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.landReasonCodeKey_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="landReasonCodeLegend" Type="java.lang.String"/>
+  <Attribute Name="improvementReasonCodeId" Type="java.math.BigInteger"/>
+  <Attribute Name="improvementReasonCodeKey" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.improvementReasonCode_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.improvementReasonCodeKey_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="improvementReasonCodeLegend" Type="java.lang.String"/>
+  <Attribute Name="currentOnClose" Type="java.lang.String"/>
+  <Attribute Name="notes" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="notes_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.notes_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="eventNameId" Type="java.math.BigInteger"/>
+  <Attribute Name="eventNameKey" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.eventName_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.eventNameKey_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="verified" Type="java.lang.Boolean">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="verified_LABEL"/>
+        <TOOLTIP ResId="gov.laca.amp.bvm.model.data.BaseYearEventDO.verified_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <MethodAccessor IsCollection="false" Type="void" id="copy"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="bye" Type="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="clear"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="int" id="compareTo"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="baseYearEvent"
+                   Type="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     id="BaseYearEventDO"/>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="gov.laca.amp.bvm.model.InitiateBaseYearEventModelBundle"/>
+  </ResourceBundle>
+</JavaBean>

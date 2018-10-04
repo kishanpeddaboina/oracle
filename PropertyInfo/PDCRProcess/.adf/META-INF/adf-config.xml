@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adf-config xmlns="http://xmlns.oracle.com/adf/config"
+            xmlns:config="http://xmlns.oracle.com/bc4j/configuration"
+            xmlns:adf="http://xmlns.oracle.com/adf/config/properties"
+            xmlns:sec="http://xmlns.oracle.com/adf/security/config">
+  <adf-adfm-config xmlns="http://xmlns.oracle.com/adfm/config">
+    <defaults useBindVarsForViewCriteriaLiterals="true"
+              useBindValuesInFindByKey="true" executeEmptyOnException="true"/>
+    <startup>
+      <amconfig-overrides>
+        <config:Database jbo.locking.mode="optimistic"/>
+      </amconfig-overrides>
+    </startup>
+  </adf-adfm-config>
+  <adf:adf-properties-child xmlns="http://xmlns.oracle.com/adf/config/properties">
+    <adf-property name="adfAppUID" value="BYEProcess-5966"/>
+  </adf:adf-properties-child>
+  <sec:adf-security-child xmlns="http://xmlns.oracle.com/adf/security/config">
+    <CredentialStoreContext credentialStoreClass="oracle.adf.share.security.providers.jps.CSFCredentialStore"
+                            credentialStoreLocation="../../src/META-INF/jps-config.xml"/>
+    <sec:JaasSecurityContext initialContextFactoryClass="oracle.adf.share.security.JAASInitialContextFactory"
+                             jaasProviderClass="oracle.adf.share.security.providers.jps.JpsSecurityContext"
+                             authorizationEnforce="true"
+                             authenticationRequire="true"/>
+  </sec:adf-security-child>
+  <adf-mds-config xmlns="http://xmlns.oracle.com/adf/mds/config">
+    <mds-config xmlns="http://xmlns.oracle.com/mds/config">
+      <persistence-config>
+        <metadata-namespaces>
+          <namespace path="/apps" metadata-store-usage="mstore-usage_2"/>
+          <namespace path="/soa/shared" metadata-store-usage="mstore-usage_3"/>
+        </metadata-namespaces>
+        <metadata-store-usages>
+          <metadata-store-usage id="mstore-usage_2">
+            <metadata-store class-name="oracle.mds.persistence.stores.db.DBMetadataStore">
+              <property name="jdbc-userid" value="AMPDEVSOA_MDS"/>
+              <property name="jdbc-password" value="welcome1"/>
+              <property name="jdbc-url"
+                        value="jdbc:oracle:thin:@ampdbn1.mrc.co.la.ca.us:1521:fmwd1"/>
+              <property name="partition-name" value="soa-infra"/>
+            </metadata-store>
+          </metadata-store-usage>
+          <metadata-store-usage id="mstore-usage_3">
+            <metadata-store class-name="oracle.mds.persistence.stores.file.FileMetadataStore">
+              <property name="metadata-path"
+                        value="${oracle.home}/integration"/>
+              <property name="partition-name" value="seed"/>
+            </metadata-store>
+          </metadata-store-usage>
+        </metadata-store-usages>
+      </persistence-config>
+    </mds-config>
+  </adf-mds-config>
+</adf-config>

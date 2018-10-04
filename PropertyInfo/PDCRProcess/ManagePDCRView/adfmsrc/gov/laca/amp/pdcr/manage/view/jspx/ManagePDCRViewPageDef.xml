@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="ManagePDCRViewPageDef"
+                Package="gov.laca.amp.pdcr.manage.view.jspx">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                    RangeSize="25" BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.task" id="taskIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="systemActions" RangeSize="50"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.actionType" id="systemActionsIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="customActions" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.actionType" id="customActionsIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="fromUser" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.identityType" id="fromUserIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="assignees" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.identityType" id="assigneesIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.ManagePropertyDataChangeRequestPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="PDCRHumanTaskBO" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.PDCRHumanTaskBOType"
+                      id="PDCRHumanTaskBOIterator"/>
+    <accessorIterator MasterBinding="PDCRHumanTaskBOIterator" Binds="managePDCRRequest" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.managePDCRRequest"
+                      id="managePDCRRequestIterator"/>
+    <accessorIterator MasterBinding="managePDCRRequestIterator" Binds="header" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.requestHeader" id="headerIterator"/>
+    <accessorIterator MasterBinding="managePDCRRequestIterator" Binds="requestorInfo" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.requestorInfo"
+                      id="requestorInfoIterator"/>
+    <accessorIterator MasterBinding="managePDCRRequestIterator" Binds="originalRealPropertyInfo" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.RealPropertyInfo"
+                      id="originalRealPropertyInfoIterator"/>
+    <accessorIterator MasterBinding="originalRealPropertyInfoIterator" Binds="subPartList" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.subPartList" id="subPartListIterator"/>
+    <accessorIterator MasterBinding="subPartListIterator" Binds="subPart" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.subPart" id="subPartIterator"/>
+    <accessorIterator MasterBinding="originalRealPropertyInfoIterator" Binds="composite" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.composite" id="compositeIterator"/>
+    <accessorIterator MasterBinding="originalRealPropertyInfoIterator" Binds="land" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.land" id="landIterator"/>
+    <accessorIterator MasterBinding="managePDCRRequestIterator" Binds="userEnteredRealPropertyInfo" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.RealPropertyInfo"
+                      id="userEnteredRealPropertyInfoIterator"/>
+    <accessorIterator MasterBinding="userEnteredRealPropertyInfoIterator" Binds="subPartList" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.subPartList" id="subPartListIterator1"/>
+    <accessorIterator MasterBinding="subPartListIterator1" Binds="subPart" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.subPart" id="subPartIterator1"/>
+    <accessorIterator MasterBinding="userEnteredRealPropertyInfoIterator" Binds="composite" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.composite" id="compositeIterator1"/>
+    <accessorIterator MasterBinding="userEnteredRealPropertyInfoIterator" Binds="land" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.land" id="landIterator1"/>
+    <accessorIterator MasterBinding="managePDCRRequestIterator" Binds="finalRealPropertyInfo" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.RealPropertyInfo"
+                      id="finalRealPropertyInfoIterator"/>
+    <accessorIterator MasterBinding="finalRealPropertyInfoIterator" Binds="subPartList" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.subPartList" id="subPartListIterator2"/>
+    <accessorIterator MasterBinding="subPartListIterator2" Binds="subPart" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.subPart" id="subPartIterator2"/>
+    <accessorIterator MasterBinding="finalRealPropertyInfoIterator" Binds="composite" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.composite" id="compositeIterator2"/>
+    <accessorIterator MasterBinding="finalRealPropertyInfoIterator" Binds="land" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.land" id="landIterator2"/>
+    <accessorIterator MasterBinding="PDCRHumanTaskBOIterator" Binds="sortPDCR" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.SortPDCRBOType" id="sortPDCRIterator"/>
+    <accessorIterator MasterBinding="PDCRHumanTaskBOIterator" Binds="assignmentBox" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.AssignToUserOrGroupBOType"
+                      id="assignmentBoxIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="userComment" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.commentType" id="userCommentIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="userCommentIterator" Binds="updatedBy" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.identityType" id="updatedByIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="attachment" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.attachmentType" id="attachmentIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="attachmentIterator" Binds="ucmMetadataItem" RangeSize="25"
+                      DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                      BeanClass="ManagePDCRView_ManagePropertyDataChangeRequest.ucmMetadataItemType"
+                      id="ucmMetadataItemIterator" StateValidation="false"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ChangeRequestDC" id="ChangeRequestDCIterator"/>
+    <taskFlow id="ampmanagepdcrbtf1"
+              taskFlowId="/WEB-INF/gov/laca/amp/pdcr/manage/view/btf/amp-manage-pdcr-btf.xml#amp-manage-pdcr-btf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  ReturnName="data.ManagePDCRView_ManagePropertyDataChangeRequest.methodResults.getTaskDetails_ManagePDCRView_ManagePropertyDataChangeRequest_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String" NDValue=""/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String" NDValue=""/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String" NDValue=""/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="UpdateAction" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String" NDValue=""/>
+    </methodAction>
+    <attributeValues IterBinding="taskIterator" id="title">
+      <AttrNames>
+        <Item Value="title"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="taskIterator" id="update" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <navigationlist IterBinding="systemActionsIterator" ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator" id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist IterBinding="customActionsIterator" ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="Claim" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="APPROVE" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="APPROVE" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="REJECT" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="REJECT" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="ASSIGN" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="ASSIGN" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="CANCEL" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="CANCEL" IsViewObjectMethod="false"
+                  DataControl="ManagePDCRView_ManagePropertyDataChangeRequest"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="taskIterator" id="creator">
+      <AttrNames>
+        <Item Value="creator"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUser">
+      <AttrNames>
+        <Item Value="ownerUser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="priority">
+      <AttrNames>
+        <Item Value="priority"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="dueDate">
+      <AttrNames>
+        <Item Value="dueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="creatorDisplayName">
+      <AttrNames>
+        <Item Value="creatorDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUserDisplayName">
+      <AttrNames>
+        <Item Value="ownerUserDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="acquiredBy">
+      <AttrNames>
+        <Item Value="acquiredBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="assignedDate">
+      <AttrNames>
+        <Item Value="assignedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="createdDate">
+      <AttrNames>
+        <Item Value="createdDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="expirationDate">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="outcome">
+      <AttrNames>
+        <Item Value="outcome"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="taskNumber">
+      <AttrNames>
+        <Item Value="taskNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="updatedDate">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="taskViewContext">
+      <AttrNames>
+        <Item Value="taskViewContext"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="actionDisplayName">
+      <AttrNames>
+        <Item Value="actionDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="componentType">
+      <AttrNames>
+        <Item Value="componentType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="activityId">
+      <AttrNames>
+        <Item Value="activityId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="displayName">
+      <AttrNames>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="assigneesIterator" id="assignees">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.identityType" Name="assignees0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="assignTo_UserID">
+      <AttrNames>
+        <Item Value="assignTo_UserID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="assignTo_GroupID">
+      <AttrNames>
+        <Item Value="assignTo_GroupID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="assignTo_ManagerID">
+      <AttrNames>
+        <Item Value="assignTo_ManagerID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="role">
+      <AttrNames>
+        <Item Value="role"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="ownerID">
+      <AttrNames>
+        <Item Value="ownerID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="clientID">
+      <AttrNames>
+        <Item Value="clientID"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="checkPDCR">
+      <AttrNames>
+        <Item Value="checkPDCR"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="userType">
+      <AttrNames>
+        <Item Value="userType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="accquiredBy">
+      <AttrNames>
+        <Item Value="accquiredBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="returnTo">
+      <AttrNames>
+        <Item Value="returnTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PDCRHumanTaskBOIterator" id="assignedBy">
+      <AttrNames>
+        <Item Value="assignedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managePDCRRequestIterator" id="ain">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managePDCRRequestIterator" id="aoid">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managePDCRRequestIterator" id="userId">
+      <AttrNames>
+        <Item Value="userId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managePDCRRequestIterator" id="processType">
+      <AttrNames>
+        <Item Value="processType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managePDCRRequestIterator" id="actionType1">
+      <AttrNames>
+        <Item Value="actionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managePDCRRequestIterator" id="userType1">
+      <AttrNames>
+        <Item Value="userType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="managePDCRRequestIterator" id="source">
+      <AttrNames>
+        <Item Value="source"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="headerIterator" id="applicationId">
+      <AttrNames>
+        <Item Value="applicationId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="headerIterator" id="requestId">
+      <AttrNames>
+        <Item Value="requestId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoIterator" id="requestorName">
+      <AttrNames>
+        <Item Value="requestorName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoIterator" id="requestorType">
+      <AttrNames>
+        <Item Value="requestorType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoIterator" id="Phone">
+      <AttrNames>
+        <Item Value="Phone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoIterator" id="reasonForRequest">
+      <AttrNames>
+        <Item Value="reasonForRequest"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoIterator" id="comments">
+      <AttrNames>
+        <Item Value="comments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoIterator" id="dataChangeSource">
+      <AttrNames>
+        <Item Value="dataChangeSource"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="requestorInfoIterator" id="preferredContact">
+      <AttrNames>
+        <Item Value="preferredContact"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRealPropertyInfoIterator" id="ain1">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRealPropertyInfoIterator" id="aoid1">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRealPropertyInfoIterator" id="region">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRealPropertyInfoIterator" id="cluster">
+      <AttrNames>
+        <Item Value="cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRealPropertyInfoIterator" id="propertyAddress">
+      <AttrNames>
+        <Item Value="propertyAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originalRealPropertyInfoIterator" id="district">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="subPartIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="subPartIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="subPartIterator" id="subPart">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.subPart" Name="subPart0">
+        <AttrNames>
+          <Item Value="dbUniqueId"/>
+          <Item Value="ain"/>
+          <Item Value="aoid"/>
+          <Item Value="transactionType"/>
+          <Item Value="improvementNumber"/>
+          <Item Value="subPartNumber"/>
+          <Item Value="rcnYearChange"/>
+          <Item Value="designTypeRef"/>
+          <Item Value="designTypeKey"/>
+          <Item Value="designTypeLegend"/>
+          <Item Value="qualityClass"/>
+          <Item Value="yearBuilt"/>
+          <Item Value="effectiveYearBuilt"/>
+          <Item Value="depreciationTable"/>
+          <Item Value="numberOfUnits"/>
+          <Item Value="bedroomCount"/>
+          <Item Value="bathroomCount"/>
+          <Item Value="improvementSizeSqft"/>
+          <Item Value="rcnOtherTotal"/>
+          <Item Value="costFactor"/>
+          <Item Value="rcnMain"/>
+          <Item Value="percentGood"/>
+          <Item Value="addedDepreciationTypeRef"/>
+          <Item Value="addedDepreciationTypeKey"/>
+          <Item Value="addedDepreciationTypeLegend"/>
+          <Item Value="addedDepreciationPercent"/>
+          <Item Value="rcnLessDepreciation"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="compositeIterator" id="dbUniqueId">
+      <AttrNames>
+        <Item Value="dbUniqueId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator" id="ain2">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator" id="aoid2">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator" id="transactionType">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator" id="sqft">
+      <AttrNames>
+        <Item Value="sqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="dbUniqueId1">
+      <AttrNames>
+        <Item Value="dbUniqueId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="ain3">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="aoid3">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="transactionType1">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="width">
+      <AttrNames>
+        <Item Value="width"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="depth">
+      <AttrNames>
+        <Item Value="depth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="sizeSqft">
+      <AttrNames>
+        <Item Value="sizeSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="sizeUsableSqft">
+      <AttrNames>
+        <Item Value="sizeUsableSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="sizeAcreAge">
+      <AttrNames>
+        <Item Value="sizeAcreAge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="corner">
+      <AttrNames>
+        <Item Value="corner"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="sewer">
+      <AttrNames>
+        <Item Value="sewer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="traffic">
+      <AttrNames>
+        <Item Value="traffic"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="freewayProximity">
+      <AttrNames>
+        <Item Value="freewayProximity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="flightPath">
+      <AttrNames>
+        <Item Value="flightPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="golfFront">
+      <AttrNames>
+        <Item Value="golfFront"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="horses">
+      <AttrNames>
+        <Item Value="horses"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="viewCodeKey">
+      <AttrNames>
+        <Item Value="viewCodeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="viewCodeRef">
+      <AttrNames>
+        <Item Value="viewCodeRef"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="viewCodeLegend">
+      <AttrNames>
+        <Item Value="viewCodeLegend"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="useCode">
+      <AttrNames>
+        <Item Value="useCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="useType">
+      <AttrNames>
+        <Item Value="useType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator" id="codeSplit">
+      <AttrNames>
+        <Item Value="codeSplit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userEnteredRealPropertyInfoIterator" id="ain4">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userEnteredRealPropertyInfoIterator" id="aoid4">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userEnteredRealPropertyInfoIterator" id="region1">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userEnteredRealPropertyInfoIterator" id="cluster1">
+      <AttrNames>
+        <Item Value="cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userEnteredRealPropertyInfoIterator" id="propertyAddress1">
+      <AttrNames>
+        <Item Value="propertyAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userEnteredRealPropertyInfoIterator" id="district1">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="subPartIterator1" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="subPartIterator1" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="subPartIterator1" id="subPart1">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.subPart" Name="subPart10">
+        <AttrNames>
+          <Item Value="dbUniqueId"/>
+          <Item Value="ain"/>
+          <Item Value="aoid"/>
+          <Item Value="transactionType"/>
+          <Item Value="improvementNumber"/>
+          <Item Value="subPartNumber"/>
+          <Item Value="rcnYearChange"/>
+          <Item Value="designTypeRef"/>
+          <Item Value="designTypeKey"/>
+          <Item Value="designTypeLegend"/>
+          <Item Value="qualityClass"/>
+          <Item Value="yearBuilt"/>
+          <Item Value="effectiveYearBuilt"/>
+          <Item Value="depreciationTable"/>
+          <Item Value="numberOfUnits"/>
+          <Item Value="bedroomCount"/>
+          <Item Value="bathroomCount"/>
+          <Item Value="improvementSizeSqft"/>
+          <Item Value="rcnOtherTotal"/>
+          <Item Value="costFactor"/>
+          <Item Value="rcnMain"/>
+          <Item Value="percentGood"/>
+          <Item Value="addedDepreciationTypeRef"/>
+          <Item Value="addedDepreciationTypeKey"/>
+          <Item Value="addedDepreciationTypeLegend"/>
+          <Item Value="addedDepreciationPercent"/>
+          <Item Value="rcnLessDepreciation"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="compositeIterator1" id="dbUniqueId2">
+      <AttrNames>
+        <Item Value="dbUniqueId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator1" id="ain5">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator1" id="aoid5">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator1" id="transactionType2">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator1" id="sqft1">
+      <AttrNames>
+        <Item Value="sqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="dbUniqueId3">
+      <AttrNames>
+        <Item Value="dbUniqueId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="ain6">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="aoid6">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="transactionType3">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="width1">
+      <AttrNames>
+        <Item Value="width"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="depth1">
+      <AttrNames>
+        <Item Value="depth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="sizeSqft1">
+      <AttrNames>
+        <Item Value="sizeSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="sizeUsableSqft1">
+      <AttrNames>
+        <Item Value="sizeUsableSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="sizeAcreAge1">
+      <AttrNames>
+        <Item Value="sizeAcreAge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="corner1">
+      <AttrNames>
+        <Item Value="corner"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="sewer1">
+      <AttrNames>
+        <Item Value="sewer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="traffic1">
+      <AttrNames>
+        <Item Value="traffic"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="freewayProximity1">
+      <AttrNames>
+        <Item Value="freewayProximity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="flightPath1">
+      <AttrNames>
+        <Item Value="flightPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="golfFront1">
+      <AttrNames>
+        <Item Value="golfFront"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="horses1">
+      <AttrNames>
+        <Item Value="horses"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="viewCodeKey1">
+      <AttrNames>
+        <Item Value="viewCodeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="viewCodeRef1">
+      <AttrNames>
+        <Item Value="viewCodeRef"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="viewCodeLegend1">
+      <AttrNames>
+        <Item Value="viewCodeLegend"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="useCode1">
+      <AttrNames>
+        <Item Value="useCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="useType1">
+      <AttrNames>
+        <Item Value="useType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator1" id="codeSplit1">
+      <AttrNames>
+        <Item Value="codeSplit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="finalRealPropertyInfoIterator" id="ain7">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="finalRealPropertyInfoIterator" id="aoid7">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="finalRealPropertyInfoIterator" id="region2">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="finalRealPropertyInfoIterator" id="cluster2">
+      <AttrNames>
+        <Item Value="cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="finalRealPropertyInfoIterator" id="propertyAddress2">
+      <AttrNames>
+        <Item Value="propertyAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="finalRealPropertyInfoIterator" id="district2">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="subPartIterator2" id="CreateInsert2" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="subPartIterator2" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="subPartIterator2" id="subPart2">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.subPart" Name="subPart20">
+        <AttrNames>
+          <Item Value="dbUniqueId"/>
+          <Item Value="ain"/>
+          <Item Value="aoid"/>
+          <Item Value="transactionType"/>
+          <Item Value="improvementNumber"/>
+          <Item Value="subPartNumber"/>
+          <Item Value="rcnYearChange"/>
+          <Item Value="designTypeRef"/>
+          <Item Value="designTypeKey"/>
+          <Item Value="designTypeLegend"/>
+          <Item Value="qualityClass"/>
+          <Item Value="yearBuilt"/>
+          <Item Value="effectiveYearBuilt"/>
+          <Item Value="depreciationTable"/>
+          <Item Value="numberOfUnits"/>
+          <Item Value="bedroomCount"/>
+          <Item Value="bathroomCount"/>
+          <Item Value="improvementSizeSqft"/>
+          <Item Value="rcnOtherTotal"/>
+          <Item Value="costFactor"/>
+          <Item Value="rcnMain"/>
+          <Item Value="percentGood"/>
+          <Item Value="addedDepreciationTypeRef"/>
+          <Item Value="addedDepreciationTypeKey"/>
+          <Item Value="addedDepreciationTypeLegend"/>
+          <Item Value="addedDepreciationPercent"/>
+          <Item Value="rcnLessDepreciation"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="compositeIterator2" id="dbUniqueId4">
+      <AttrNames>
+        <Item Value="dbUniqueId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator2" id="ain8">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator2" id="aoid8">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator2" id="transactionType4">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="compositeIterator2" id="sqft2">
+      <AttrNames>
+        <Item Value="sqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="dbUniqueId5">
+      <AttrNames>
+        <Item Value="dbUniqueId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="ain9">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="aoid9">
+      <AttrNames>
+        <Item Value="aoid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="transactionType5">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="width2">
+      <AttrNames>
+        <Item Value="width"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="depth2">
+      <AttrNames>
+        <Item Value="depth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="sizeSqft2">
+      <AttrNames>
+        <Item Value="sizeSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="sizeUsableSqft2">
+      <AttrNames>
+        <Item Value="sizeUsableSqft"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="sizeAcreAge2">
+      <AttrNames>
+        <Item Value="sizeAcreAge"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="corner2">
+      <AttrNames>
+        <Item Value="corner"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="sewer2">
+      <AttrNames>
+        <Item Value="sewer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="traffic2">
+      <AttrNames>
+        <Item Value="traffic"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="freewayProximity2">
+      <AttrNames>
+        <Item Value="freewayProximity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="flightPath2">
+      <AttrNames>
+        <Item Value="flightPath"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="golfFront2">
+      <AttrNames>
+        <Item Value="golfFront"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="horses2">
+      <AttrNames>
+        <Item Value="horses"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="viewCodeKey2">
+      <AttrNames>
+        <Item Value="viewCodeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="viewCodeRef2">
+      <AttrNames>
+        <Item Value="viewCodeRef"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="viewCodeLegend2">
+      <AttrNames>
+        <Item Value="viewCodeLegend"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="useCode2">
+      <AttrNames>
+        <Item Value="useCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="useType2">
+      <AttrNames>
+        <Item Value="useType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="landIterator2" id="codeSplit2">
+      <AttrNames>
+        <Item Value="codeSplit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="sortPDCRIterator" id="ain10">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="sortPDCRIterator" id="district3">
+      <AttrNames>
+        <Item Value="district"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="sortPDCRIterator" id="region3">
+      <AttrNames>
+        <Item Value="region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="sortPDCRIterator" id="cluster3">
+      <AttrNames>
+        <Item Value="cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="assignmentBoxIterator" id="assignmentBox_UserId">
+      <AttrNames>
+        <Item Value="assignmentBox_UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="assignmentBoxIterator" id="assignmentBox_GroupId">
+      <AttrNames>
+        <Item Value="assignmentBox_GroupId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="assignmentBoxIterator" id="userType2">
+      <AttrNames>
+        <Item Value="userType"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="userCommentIterator" id="userComment">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.commentType" Name="userComment0">
+        <AttrNames>
+          <Item Value="comment"/>
+          <Item Value="updatedDate"/>
+          <Item Value="displayNameLanguage"/>
+          <Item Value="action"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="isSystemComment"/>
+          <Item Value="taskId"/>
+          <Item Value="commentScope"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="updatedBy"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.identityType" Name="userComment1">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="userCommentIterator" id="CreateInsert3" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="userCommentIterator" id="Delete3" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="userCommentIterator" id="comment">
+      <AttrNames>
+        <Item Value="comment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userCommentIterator" id="commentScope">
+      <AttrNames>
+        <Item Value="commentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="updatedByIterator" id="updatedBy">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.identityType" Name="updatedBy0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.attachmentType" Name="attachment0">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.ucmMetadataItemType" Name="attachment1">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="attachmentIterator" id="CreateInsert4" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="attachmentIterator" id="Delete4" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="attachmentIterator" id="content">
+      <AttrNames>
+        <Item Value="content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="mimeType">
+      <AttrNames>
+        <Item Value="mimeType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedBy1">
+      <AttrNames>
+        <Item Value="updatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="URI">
+      <AttrNames>
+        <Item Value="URI"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedDate1">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="ucmDocType">
+      <AttrNames>
+        <Item Value="ucmDocType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="securityGroup">
+      <AttrNames>
+        <Item Value="securityGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="account">
+      <AttrNames>
+        <Item Value="account"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="revision">
+      <AttrNames>
+        <Item Value="revision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="releaseDate">
+      <AttrNames>
+        <Item Value="releaseDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="expirationDate1">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="attachmentScope">
+      <AttrNames>
+        <Item Value="attachmentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ucmMetadataItemIterator" id="CreateInsert5" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ucmMetadataItemIterator" id="Delete5" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.ucmMetadataItemType"
+                      Name="ucmMetadataItem0">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="systemAttributesIterator" id="numberOfTimesModified">
+      <AttrNames>
+        <Item Value="numberOfTimesModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="version">
+      <AttrNames>
+        <Item Value="version"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="userCommentIterator" id="userComment1">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.commentType" Name="userComment10">
+        <AttrNames>
+          <Item Value="comment"/>
+          <Item Value="updatedDate"/>
+          <Item Value="displayNameLanguage"/>
+          <Item Value="action"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="isSystemComment"/>
+          <Item Value="taskId"/>
+          <Item Value="commentScope"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="updatedBy"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.identityType" Name="userComment11">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="updatedByIterator" id="updatedBy2">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.identityType" Name="updatedBy20">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment1">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.attachmentType" Name="attachment10">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.ucmMetadataItemType" Name="attachment11">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem1">
+      <nodeDefinition DefName="ManagePDCRView_ManagePropertyDataChangeRequest.ucmMetadataItemType"
+                      Name="ucmMetadataItem10">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="isRetrieveSuccess">
+      <AttrNames>
+        <Item Value="isRetrieveSuccess"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ChangeRequestDCIterator" id="ainDisplay">
+      <AttrNames>
+        <Item Value="ainDisplay"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

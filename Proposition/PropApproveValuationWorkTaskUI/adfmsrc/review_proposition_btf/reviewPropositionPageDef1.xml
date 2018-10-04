@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="reviewPropositionPageDef1"
+                Package="review_proposition_btf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="amppropositiondtlsbtf1"
+              taskFlowId="/WEB-INF/btf/amp-proposition-dtls-btf.xml#amp-proposition-dtls-btf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="wuId" value="#{pageFlowScope.workUnitId}"/>
+        <parameter id="maskData" value="true"/>
+        <parameter id="showValuation" value="true"/>
+        <parameter id="userRole" value="ExclusionValuationApprover"/>
+        <parameter id="ain" value="#{pageFlowScope.ain}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

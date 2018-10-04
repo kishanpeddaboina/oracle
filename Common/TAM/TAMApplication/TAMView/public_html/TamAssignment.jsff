@@ -1,0 +1,1149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
+  <!--<c:set var="tamviewBundle"
+         value="#{adfBundle['gov.laca.amp.tam.view.TAMViewBundle']}"/>-->
+  <!--<af:panelStretchLayout topHeight="50px" id="psl1">
+    <f:facet name="top"/>
+    <f:facet name="center">
+ 
+    <af:panelHeader text="Manage Unassigned AINs" id="ph1"
+                    styleClass="AFStretchWidth">
+      <f:facet name="context"/>
+      <f:facet name="menuBar"/>
+      <f:facet name="toolbar"/>
+      <f:facet name="legend"/>
+      <f:facet name="info"/>
+      -->
+ 
+  <af:subform id="s12">
+    <af:panelTabbed position="above" id="pt1" dimensionsFrom="auto"
+                    styleClass="AFStretchWidth">
+      <af:showDetailItem id="tab1" text="TAM Assignment"
+                         visible="#{bindings.userHighestRole  != 'Appraiser'}"
+                         immediate="true">
+        <af:panelGroupLayout id="pgl3" layout="vertical">
+          <af:panelHeader text="Search Unassigned AINs" id="ph2">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelGroupLayout id="pgl1" layout="horizontal">
+              <af:panelGroupLayout id="pgl8" layout="vertical">
+                <!--<af:selectOneChoice label="District"
+                                    value="#{bindings.district.inputValue}"
+                                    id="soc1" unselectedLabel="Select a value"
+                                    valueChangeListener="#{viewScope.tamAssignmentManagedBean.onDistrictChange}"
+                                    autoSubmit="true" required="true">
+                  <af:forEach items="#{viewScope.tamAssignmentManagedBean.userDistricts}"
+                              var="district">
+                    <af:selectItem id="sel12" label="#{district}"
+                                   value="#{district}"/>
+                  </af:forEach>
+                  --><!--<f:selectItem itemLabel="mock" itemValue="mock" id="mock"/>--><!--
+                  --><!--<f:selectItems value="#{viewScope.tamAssignmentManagedBean.userDistricts}" id="si1"/>--><!--
+                </af:selectOneChoice>-->
+                <af:selectOneChoice value="#{bindings.district.inputValue}"
+                                    label="District" unselectedLabel="Select a value"
+                                      autoSubmit="true" required="true"
+                                    shortDesc="#{bindings.userDistricts.hints.tooltip}"
+                                    valueChangeListener="#{viewScope.tamAssignmentManagedBean.onDistrictChange}"
+                                    id="soc1">
+                  <f:selectItems value="#{bindings.userDistricts.items}"
+                                 id="si1"/>
+                  <af:clientListener method="showGlasspane" type="valueChange"/> 
+                </af:selectOneChoice>
+                <af:panelGroupLayout id="g1" layout="horizontal">
+                <af:spacer width="7" height="10" id="s9"/>             
+                  <af:selectOneChoice label="Region" id="socr1"
+                                      value="#{bindings.region.inputValue}"
+                                      unselectedLabel="Select a value"
+                                      valueChangeListener="#{viewScope.tamAssignmentManagedBean.onRegionChange}"
+                                      disabled="#{bindings.district.attributeValue == null || bindings.district.attributeValue == ''}"
+                                      partialTriggers="soc1">
+                    <af:forEach items="#{viewScope.tamAssignmentManagedBean.regions}"
+                                var="region">
+                      <af:selectItem id="regSel" label="#{region}"
+                                     value="#{fn:substringBefore(region,'-')}"/>
+                    </af:forEach>
+                  </af:selectOneChoice>
+                </af:panelGroupLayout>
+                <af:spacer width="10" height="10" id="s3"/>
+                <af:commandButton text="Search" id="search"
+                                  disabled="#{!bindings.searchAINs.enabled}"
+                                  action="#{viewScope.tamAssignmentManagedBean.search_action}"
+                                  partialSubmit="true"
+                                  actionListener="#{viewScope.tamAssignmentManagedBean.searchActionLsnr}">
+                                  <af:clientListener method="showGlasspane" type="action"/>
+                </af:commandButton>
+              </af:panelGroupLayout>
+              <af:spacer width="30" height="10" id="s8"/>
+              <af:panelGroupLayout id="pgl2" layout="vertical">
+                <af:inputText label="AIN" value="#{bindings.ain.inputValue}"
+                              id="it1"
+                              disabled="#{bindings.district.attributeValue == null}"
+                              partialTriggers="soc1"/>
+                <af:selectBooleanCheckbox value="#{bindings.isAssigned.inputValue}"
+                                          label="Currently Assigned"
+                                          required="#{bindings.isAssigned.hints.mandatory}"
+                                          shortDesc="#{bindings.isAssigned.hints.tooltip}"
+                                          id="socb1"
+                                          inlineStyle="text-align:right;"
+                                          valueChangeListener="#{viewScope.tamAssignmentManagedBean.onSearchIsAssignedChange}"
+                                          autoSubmit="true"
+                                          disabled="#{bindings.district.attributeValue == null}"
+                                          partialTriggers="soc1"/>
+          <af:panelGroupLayout id="pgl102" layout="horizontal">                                 
+         <af:selectOneChoice value="#{viewScope.tamAssignmentManagedBean.searchRole}"
+                                    label="Assignee Role" unselectedLabel="Select a value"
+                                      autoSubmit="true" 
+                                    shortDesc="#{bindings.userDistricts.hints.tooltip}"
+                                    valueChangeListener="#{viewScope.tamAssignmentManagedBean.onSearchRoleChange}"
+                                    id="srchRoles" partialTriggers="soc1 socb1"
+                                    
+                                     visible="#{bindings.userHighestRole  != 'Supervisor'}"
+                             disabled="true"
+                             binding="#{viewScope.tamAssignmentManagedBean.search_Assignee_Role_UI}">
+                    <af:forEach items="#{viewScope.tamAssignmentManagedBean.searchRoleList}"
+                                var="role">
+                      <af:selectItem id="srchRole"
+                                     label="#{role}"
+                                     value="#{role}"/>
+                    </af:forEach>     
+                    
+                </af:selectOneChoice>
+                <af:spacer width="20" height="10" id="s15"/>
+                <af:commandButton text="Search Users" id="srchUsrs" visible="#{bindings.userHighestRole  != 'Supervisor'}"
+                                  partialTriggers="soc1 socb1"
+                                  
+                                  actionListener="#{viewScope.tamAssignmentManagedBean.searchUsers}"
+                                  disabled="true"
+                                  binding="#{viewScope.tamAssignmentManagedBean.search_UsersBtn_UI}">
+                    <af:clientListener method="showGlasspane" type="click"/>  
+                </af:commandButton>
+                  <af:spacer width="20" height="10" id="s17"/>
+                  <af:selectOneChoice label="Assignee" id="asgndTo"
+                                    disabled="true"
+                                    value="#{bindings.assignedTo.inputValue}"
+                                    unselectedLabel="Select a value"
+                                    binding="#{viewScope.tamAssignmentManagedBean.search_assignedTo_UI}"
+                                    partialTriggers="soc1 srchRoles"
+                                      autoSubmit="true">
+                  <af:forEach items="#{viewScope.tamAssignmentManagedBean.userIdList}"
+                              var="user">
+                               <!--<f:selectItem id="userchs" 
+                                   itemLabel="#{fn:substringAfter(user,'-')}" 
+                                   itemValue="#{user}"/>-->                                   
+                     <f:selectItem id="userchs" 
+                                   itemLabel="#{fn:contains(user , bindings.loggedInUserId) ? 'myself': fn:substringAfter(user,'-')} (#{fn:substringBefore(user,'-')})" 
+                                   itemValue="#{user}"/>                                        
+                  </af:forEach>
+                </af:selectOneChoice>
+                <af:spacer width="10" height="10" id="s2"/>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+              <af:spacer width="10" height="10" id="s4"/>
+              <af:spacer width="30" height="10" id="sp6"/>
+              <af:inputText label="Cluster"
+                            value="#{bindings.cluster.inputValue}" id="it5"
+                            visible="false"/>
+              <af:panelLabelAndMessage label="#{bindings.currentBatchNumber.hints.label}"
+                                       id="curBtch" visible="false">
+                <af:outputText value="#{bindings.currentBatchNumber.inputValue}"
+                               id="ot49">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.currentBatchNumber.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelGroupLayout id="pgl11" layout="vertical">
+                <af:panelLabelAndMessage label="Current User Role: " id="plam1"
+                                         visible="true">
+                  <af:outputText value="#{bindings.userHighestRole.inputValue}"
+                                 id="ot12"/>
+                </af:panelLabelAndMessage>
+                <af:spacer width="10" height="10" id="s13"/>
+                <af:panelLabelAndMessage label="All Districts Total Assigned Count"
+                                         id="plam4"
+                                         visible="#{bindings.assignedTo.attributeValue != null}"
+                                         partialTriggers="search">
+                  <af:outputText value="#{bindings.totalAssignedCount.inputValue}"
+                                 id="ot4"/>
+                </af:panelLabelAndMessage>
+              </af:panelGroupLayout>
+              <af:panelLabelAndMessage label="#{bindings.hasMoreRows.hints.label}"
+                                       id="plam2" visible="false">
+                <af:outputText value="#{bindings.hasMoreRows.inputValue}"
+                               id="ot29"/>
+              </af:panelLabelAndMessage>
+            </af:panelGroupLayout>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth"
+                              inlineStyle="height:auto">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <!--<f:facet name="statusbar"/>-->
+            <af:table autoHeightRows="5"
+                      value="#{bindings.tamAssignmentPojoList.collectionModel}"
+                      var="row" styleClass="AFStretchWidth"
+                      rows="#{bindings.tamAssignmentPojoList.rangeSize}"
+                      emptyText="#{bindings.tamAssignmentPojoList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.tamAssignmentPojoList.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.tamAssignmentPojoListQuery.queryDescriptor}"
+                      queryListener="#{bindings.tamAssignmentPojoListQuery.processQuery}"
+                      filterVisible="true" varStatus="vs"
+                      selectionListener="#{bindings.tamAssignmentPojoList.collectionModel.makeCurrent}"
+                      rowSelection="multiple" id="t1"
+                      partialTriggers=":::assign">
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.selected.name}"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.selected.label}"
+                         id="c15" width="54">
+                <af:panelGroupLayout id="pgl12" shortDesc="#{row.bindings.message.inputValue}">
+                  <af:selectBooleanCheckbox value="#{row.bindings.selected.inputValue}"
+                                            disabled="#{row.bindings.isReassignAllowed.inputValue == false}"
+                                            required="#{bindings.tamAssignmentPojoList.hints.selected.mandatory}"
+                                            shortDesc="#{row.bindings.message.inputValue}"
+                                            id="it14">
+                    <f:validator binding="#{row.bindings.selected.validator}"/>
+                  </af:selectBooleanCheckbox>
+                </af:panelGroupLayout>
+                <f:facet name="header">
+                  <af:panelGroupLayout id="pgl9" layout="vertical">
+                    <af:commandLink actionListener="#{bindings.selectAllRows.execute}"
+                                    text="Select All"
+                                    disabled="#{!bindings.selectAllRows.enabled}"
+                                    id="cl1" inlineStyle="color:White;"/>
+                    <af:commandLink actionListener="#{bindings.deSelectAllRows.execute}"
+                                    text="Unselect All"
+                                    disabled="#{!bindings.deSelectAllRows.enabled}"
+                                    id="cl2" inlineStyle="color:White;"/>
+                  </af:panelGroupLayout>
+                  <!--<af:selectBooleanCheckbox valueChangeListener="#{viewScope.tamAssignmentManagedBean.selectAllCheckboxValueChange}"
+                                                  label="Select All"
+                                                  id="sbc1"
+                                                  value="#{viewScope.tamAssignmentManagedBean.selectAllCheckbox}"
+                                                  autoSubmit="true">
+                            -->
+                  <!--<af:setPropertyListener from="#{'EmployeeVO'}"
+                                                    type="valueChange"
+                                                    to="#{pageFlowScope.voName}"/>-->
+                  <!--
+                        </af:selectBooleanCheckbox>-->
+                </f:facet>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamAssignedStatus.name}"
+                         filterable="true" sortable="true" id="c18" filterFeatures="caseInsensitive"
+                         headerText="Assignment Status" width="100">
+                <af:inputText value="#{row.bindings.tamAssignedStatus.inputValue}"
+                              label="Assignment Status"
+                              required="#{bindings.tamAssignmentPojoList.hints.tamAssignedStatus.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.tamAssignedStatus.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.tamAssignedStatus.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.tamAssignedStatus.tooltip}"
+                              id="it8" readOnly="true">
+                  <f:validator binding="#{row.bindings.tamAssignedStatus.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamAssignedTo.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.tamAssignedTo.label}"
+                         id="c9" width="150">
+                <af:inputText value="#{fn:substringAfter(row.bindings.tamAssignedTo.inputValue,'-')}"
+                              label="#{bindings.tamAssignmentPojoList.hints.tamAssignedTo.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.tamAssignedTo.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.tamAssignedTo.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.tamAssignedTo.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.tamAssignedTo.tooltip}"
+                              id="it21" readOnly="true">
+                  <f:validator binding="#{row.bindings.tamAssignedTo.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.ain.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.ain.label}"
+                         id="c17" width="115">
+                <af:inputText value="#{row.bindings.ain.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.ain.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.ain.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.ain.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.ain.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.ain.tooltip}"
+                              id="it24" readOnly="true">
+                  <f:validator binding="#{row.bindings.ain.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.districtName.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.districtName.label}"
+                         id="c7" width="115">
+                <af:inputText value="#{row.bindings.districtName.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.districtName.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.districtName.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.districtName.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.districtName.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.districtName.tooltip}"
+                              id="it15" readOnly="true">
+                  <f:validator binding="#{row.bindings.districtName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.region.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.region.label}"
+                         id="c24" width="115">
+                <af:inputText value="#{row.bindings.region.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.region.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.region.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.region.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.region.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.region.tooltip}"
+                              id="it6" readOnly="true">
+                  <f:validator binding="#{row.bindings.region.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.regionName.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.regionName.label}"
+                         id="c16" width="115">
+                <af:inputText value="#{row.bindings.regionName.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.regionName.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.regionName.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.regionName.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.regionName.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.regionName.tooltip}"
+                              id="it12" readOnly="true">
+                  <f:validator binding="#{row.bindings.regionName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.clusterRoute.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.clusterRoute.label}"
+                         id="c13" width="115">
+                <af:inputText value="#{row.bindings.clusterRoute.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.clusterRoute.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.clusterRoute.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.clusterRoute.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.clusterRoute.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.clusterRoute.tooltip}"
+                              id="it16" readOnly="true">
+                  <f:validator binding="#{row.bindings.clusterRoute.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.clusterRouteName.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.clusterRouteName.label}"
+                         id="c10" width="115">
+                <af:inputText value="#{row.bindings.clusterRouteName.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.clusterRouteName.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.clusterRouteName.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.clusterRouteName.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.clusterRouteName.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.clusterRouteName.tooltip}"
+                              id="it20" readOnly="true">
+                  <f:validator binding="#{row.bindings.clusterRouteName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamSource.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.tamSource.label}"
+                         id="c1" width="115">
+                <af:inputText value="#{row.bindings.tamSource.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.tamSource.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.tamSource.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.tamSource.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.tamSource.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.tamSource.tooltip}"
+                              id="it25" readOnly="true">
+                  <f:validator binding="#{row.bindings.tamSource.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.byeCount.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.byeCount.label}"
+                         id="c12" width="115">
+                <af:inputText value="#{row.bindings.byeCount.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.byeCount.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.byeCount.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.byeCount.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.byeCount.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.byeCount.tooltip}"
+                              id="it4" readOnly="true">
+                  <f:validator binding="#{row.bindings.byeCount.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.useType.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.useType.label}"
+                         id="c27" width="115" filterFeatures="caseInsensitive">
+                <af:inputText value="#{row.bindings.useType.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.useType.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.useType.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.useType.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.useType.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.useType.tooltip}"
+                              id="it11" readOnly="true">
+                  <f:validator binding="#{row.bindings.useType.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.useCodeKey.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.useCodeKey.label}"
+                         id="c26" width="115" filterFeatures="caseInsensitive">
+                <af:inputText value="#{row.bindings.useCodeKey.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.useCodeKey.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.useCodeKey.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.useCodeKey.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.useCodeKey.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.useCodeKey.tooltip}"
+                              id="it17" readOnly="true">
+                  <f:validator binding="#{row.bindings.useCodeKey.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamAssignedToRole.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.tamAssignedToRole.label}"
+                         id="c14" width="96">
+                <af:inputText value="#{row.bindings.tamAssignedToRole.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.tamAssignedToRole.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.tamAssignedToRole.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.tamAssignedToRole.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.tamAssignedToRole.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.tamAssignedToRole.tooltip}"
+                              id="it13" readOnly="true">
+                  <f:validator binding="#{row.bindings.tamAssignedToRole.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamAssignedByRole.name}"
+                         filterable="true" sortable="true" filterFeatures="caseInsensitive"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.tamAssignedByRole.label}"
+                         id="c2" width="56">
+                <af:inputText value="#{row.bindings.tamAssignedByRole.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.tamAssignedByRole.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.tamAssignedByRole.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.tamAssignedByRole.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.tamAssignedByRole.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.tamAssignedByRole.tooltip}"
+                              id="it2" readOnly="true">
+                  <f:validator binding="#{row.bindings.tamAssignedByRole.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamAssignedBy.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.tamAssignedBy.label}"
+                         id="c25" width="105" filterFeatures="caseInsensitive">
+                <af:inputText value="#{fn:substringAfter(row.bindings.tamAssignedBy.inputValue,'-')}"
+                              label="#{bindings.tamAssignmentPojoList.hints.tamAssignedBy.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.tamAssignedBy.mandatory}"
+                              columns="#{bindings.tamAssignmentPojoList.hints.tamAssignedBy.displayWidth}"
+                              maximumLength="#{bindings.tamAssignmentPojoList.hints.tamAssignedBy.precision}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.tamAssignedBy.tooltip}"
+                              id="it19" readOnly="true">
+                  <f:validator binding="#{row.bindings.tamAssignedBy.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamCreatedDateTime.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssignmentPojoList.hints.tamCreatedDateTimeStr.label}"
+                         id="c20" width="105">
+                <!--<f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.tamCreatedDateTime}"
+                                id="id4"/>
+                </f:facet>-->
+                <af:inputDate value="#{row.bindings.tamCreatedDateTimeStr.inputValue}"
+                              label="#{bindings.tamAssignmentPojoList.hints.tamCreatedDateTimeStr.label}"
+                              required="#{bindings.tamAssignmentPojoList.hints.tamCreatedDateTimeStr.mandatory}"
+                              shortDesc="#{bindings.tamAssignmentPojoList.hints.tamCreatedDateTimeStr.tooltip}"
+                              id="id2" readOnly="true">
+                  <f:validator binding="#{row.bindings.tamCreatedDateTimeStr.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.tamAssignmentPojoList.hints.tamCreatedDateTimeStr.format}"/>
+                </af:inputDate>
+              </af:column>
+              <!--<af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamModifiedDateTime.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.tamModifiedDateTime.label}"
+                           id="c21" >
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.tamModifiedDateTime}"
+                                  id="id1"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.tamModifiedDateTime.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.tamModifiedDateTime.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.tamModifiedDateTime.mandatory}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.tamModifiedDateTime.tooltip}"
+                                id="id3">
+                    <f:validator binding="#{row.bindings.tamModifiedDateTime.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.tamAssignmentPojoList.hints.tamModifiedDateTime.format}"/>
+                  </af:inputDate>
+                </af:column>-->
+              <!--
+                <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.regionRef.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.regionRef.label}"
+                           id="c5">
+                  <af:inputText value="#{row.bindings.regionRef.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.regionRef.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.regionRef.mandatory}"
+                                columns="#{bindings.tamAssignmentPojoList.hints.regionRef.displayWidth}"
+                                maximumLength="#{bindings.tamAssignmentPojoList.hints.regionRef.precision}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.regionRef.tooltip}"
+                                id="it1">
+                    <f:validator binding="#{row.bindings.regionRef.validator}"/>
+                  </af:inputText>
+                </af:column>
+                
+                
+                <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.clusterRouteRef.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.clusterRouteRef.label}"
+                           id="c3">
+                  <af:inputText value="#{row.bindings.clusterRouteRef.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.clusterRouteRef.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.clusterRouteRef.mandatory}"
+                                columns="#{bindings.tamAssignmentPojoList.hints.clusterRouteRef.displayWidth}"
+                                maximumLength="#{bindings.tamAssignmentPojoList.hints.clusterRouteRef.precision}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.clusterRouteRef.tooltip}"
+                                id="it9">
+                    <f:validator binding="#{row.bindings.clusterRouteRef.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.useCodeRef.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.useCodeRef.label}"
+                           id="c4">
+                  <af:inputText value="#{row.bindings.useCodeRef.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.useCodeRef.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.useCodeRef.mandatory}"
+                                columns="#{bindings.tamAssignmentPojoList.hints.useCodeRef.displayWidth}"
+                                maximumLength="#{bindings.tamAssignmentPojoList.hints.useCodeRef.precision}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.useCodeRef.tooltip}"
+                                id="it3">
+                    <f:validator binding="#{row.bindings.useCodeRef.validator}"/>
+                  </af:inputText>
+                </af:column>
+                  -->
+              <!--<af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamId.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.tamId.label}"
+                           id="c19Id">
+                  <af:inputText value="#{row.bindings.tamId.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.tamId.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.tamId.mandatory}"
+                                columns="#{bindings.tamAssignmentPojoList.hints.tamId.displayWidth}"
+                                maximumLength="#{bindings.tamAssignmentPojoList.hints.tamId.precision}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.tamId.tooltip}"
+                                id="it7">
+                    <f:validator binding="#{row.bindings.tamId.validator}"/>
+                  </af:inputText>
+                </af:column>-->
+              <!--<af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.useCodeDescription.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.useCodeDescription.label}"
+                           id="c22">
+                  <af:inputText value="#{row.bindings.useCodeDescription.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.useCodeDescription.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.useCodeDescription.mandatory}"
+                                columns="#{bindings.tamAssignmentPojoList.hints.useCodeDescription.displayWidth}"
+                                maximumLength="#{bindings.tamAssignmentPojoList.hints.useCodeDescription.precision}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.useCodeDescription.tooltip}"
+                                id="it22">
+                    <f:validator binding="#{row.bindings.useCodeDescription.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamProcessType.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.tamProcessType.label}"
+                           id="c6">
+                  <af:inputText value="#{row.bindings.tamProcessType.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.tamProcessType.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.tamProcessType.mandatory}"
+                                columns="#{bindings.tamAssignmentPojoList.hints.tamProcessType.displayWidth}"
+                                maximumLength="#{bindings.tamAssignmentPojoList.hints.tamProcessType.precision}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.tamProcessType.tooltip}"
+                                id="it5">
+                    <f:validator binding="#{row.bindings.tamProcessType.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamCreatedBy.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.tamCreatedBy.label}"
+                           id="c8">
+                  <af:inputText value="#{row.bindings.tamCreatedBy.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.tamCreatedBy.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.tamCreatedBy.mandatory}"
+                                columns="#{bindings.tamAssignmentPojoList.hints.tamCreatedBy.displayWidth}"
+                                maximumLength="#{bindings.tamAssignmentPojoList.hints.tamCreatedBy.precision}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.tamCreatedBy.tooltip}"
+                                id="it18">
+                    <f:validator binding="#{row.bindings.tamCreatedBy.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.tamModifiedBy.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.tamModifiedBy.label}"
+                           id="c23">
+                  <af:inputText value="#{row.bindings.tamModifiedBy.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.tamModifiedBy.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.tamModifiedBy.mandatory}"
+                                columns="#{bindings.tamAssignmentPojoList.hints.tamModifiedBy.displayWidth}"
+                                maximumLength="#{bindings.tamAssignmentPojoList.hints.tamModifiedBy.precision}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.tamModifiedBy.tooltip}"
+                                id="it23">
+                    <f:validator binding="#{row.bindings.tamModifiedBy.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamAssignmentPojoList.hints.aoid.name}"
+                           filterable="true" sortable="true"
+                           headerText="#{bindings.tamAssignmentPojoList.hints.aoid.label}"
+                           id="c11">
+                  <af:inputText value="#{row.bindings.aoid.inputValue}"
+                                label="#{bindings.tamAssignmentPojoList.hints.aoid.label}"
+                                required="#{bindings.tamAssignmentPojoList.hints.aoid.mandatory}"
+                                columns="#{bindings.tamAssignmentPojoList.hints.aoid.displayWidth}"
+                                maximumLength="#{bindings.tamAssignmentPojoList.hints.aoid.precision}"
+                                shortDesc="#{bindings.tamAssignmentPojoList.hints.aoid.tooltip}"
+                                id="it10">
+                    <f:validator binding="#{row.bindings.aoid.validator}"/>
+                  </af:inputText>
+                </af:column>
+                -->
+            </af:table>
+          </af:panelCollection>
+          <af:panelGroupLayout id="pgl4" layout="horizontal">
+            <af:commandButton text="Preview selected rows"
+                              disabled="#{!bindings.selectAINs.enabled || bindings.tamAssignmentPojoList.estimatedRowCount ==0}"
+                              id="select"
+                              actionListener="#{viewScope.tamAssignmentManagedBean.select_action}"
+                              partialTriggers="pc1:t1"/>
+            <af:spacer width="340" height="10" id="s7"/>
+            <af:commandButton text="Previous"
+                              disabled="#{!bindings.previousSearchAINs.enabled || bindings.currentBatchNumber.attributeValue ==1}"
+                              id="prev"
+                              action="#{viewScope.tamAssignmentManagedBean.prev_action}"
+                              partialTriggers="search">
+                    <af:clientListener method="showGlasspane" type="action"/>
+            </af:commandButton>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:commandButton text="Next"
+                              disabled="#{!bindings.nextSearchAINs.enabled || bindings.hasMoreRows.attributeValue == false}"
+                              id="next"
+                              action="#{viewScope.tamAssignmentManagedBean.next_action}"
+                              partialTriggers="pc1:t1">
+                    <af:clientListener method="showGlasspane" type="action"/>
+            </af:commandButton>
+          </af:panelGroupLayout>
+          <af:spacer width="10" height="10" id="s5"/>
+          <af:panelGroupLayout id="pgl5" layout="vertical">
+            <af:panelHeader text="Select User" id="ph3"
+                            partialTriggers="assign reassign unassign">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t3" inlineStyle="text-align:left;"/>
+              </f:facet>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+              <af:panelGroupLayout id="pgl10" layout="horizontal">
+                   <af:selectOneChoice value="#{viewScope.tamAssignmentManagedBean.assigneeDistrict}"
+                                    label="Assign To District"
+                                      autoSubmit="true" 
+                                    shortDesc="#{bindings.userDistricts.hints.tooltip}"
+                                    valueChangeListener="#{viewScope.tamAssignmentManagedBean.onAssigneeDistrictChange}"
+                                    id="asnDist" partialTriggers="soc1"
+                                    disabled="#{viewScope.tamAssignmentManagedBean.actionStatus == 'SUCCESS'}"
+                                    visible="#{bindings.userHighestRole  != 'Supervisor'}"
+                                    >
+                  <f:selectItems value="#{bindings.userDistricts.items}"
+                                 id="si3"/>                                   
+                </af:selectOneChoice>
+                <af:spacer width="20" height="10" id="s14"/>
+               <af:selectOneChoice value="#{viewScope.tamAssignmentManagedBean.assigneeRole}"
+                                    label="Assign To Role"
+                                      autoSubmit="true" 
+                                    shortDesc="#{bindings.userDistricts.hints.tooltip}"
+                                    valueChangeListener="#{viewScope.tamAssignmentManagedBean.onAssigneeRoleChange}"
+                                    id="asnRoles" partialTriggers="soc1"
+                                    disabled="#{viewScope.tamAssignmentManagedBean.actionStatus == 'SUCCESS'}"
+                                     visible="#{bindings.userHighestRole  != 'Supervisor'}">
+                    <af:forEach items="#{viewScope.tamAssignmentManagedBean.assigneeRoleList}"
+                                var="role">
+                      <af:selectItem id="asnRole"
+                                     label="#{role}"
+                                     value="#{role}"/>
+                    </af:forEach>     
+                    
+                </af:selectOneChoice>
+                <af:spacer width="20" height="10" id="ss15"/>
+                <af:commandButton text="Search Users" id="srchUsrs2" visible="#{bindings.userHighestRole  != 'Supervisor'}"
+                                   disabled="#{viewScope.tamAssignmentManagedBean.actionStatus == 'SUCCESS'}"
+                                  actionListener="#{viewScope.tamAssignmentManagedBean.searchAssigneeUsers}"> 
+                    <!--<af:clientListener method="showGlasspane" type="click"/>-->  
+                </af:commandButton>
+                <af:spacer width="20" height="10" id="s16"/>
+                <af:selectOneChoice label="Assign To User" id="soc2"
+                                    value="#{viewScope.tamAssignmentManagedBean.assignedTo}"
+                                    
+                                    binding="#{viewScope.tamAssignmentManagedBean.userId_UI}"
+                                    unselectedLabel="Select a value"
+                                    partialTriggers="soc1 srchUsrs2 asnRoles asnDist"
+                                    disabled="#{viewScope.tamAssignmentManagedBean.actionStatus == 'SUCCESS'}">
+                  <af:forEach items="#{viewScope.tamAssignmentManagedBean.assigneeUserList}" 
+                              var="user">
+                    <c:if test="${!fn:contains(user, fn:toLowerCase(bindings.loggedInUserId))}">
+                      <!--<f:selectItem id="userSel" 
+                                   itemLabel="#{fn:substringAfter(user,'-')}" 
+                                   itemValue="#{user}"/>-->
+                       <f:selectItem id="userSel" 
+                                   itemLabel="#{fn:substringAfter(user,'-')} (#{fn:substringBefore(user,'-')})" 
+                                   itemValue="#{user}"/>                                   
+                     </c:if>
+                  </af:forEach>
+                </af:selectOneChoice>
+                <af:spacer width="40" height="10" id="s11"/>
+                <af:panelLabelAndMessage label="Selected count of rows :"
+                                         id="plam3" partialTriggers="select">
+                  <af:outputText value="#{bindings.tamSelectedAINsPojoList.estimatedRowCount}"
+                                 id="ot1"/>
+                </af:panelLabelAndMessage>
+
+              </af:panelGroupLayout>
+              <af:commandButton text="Assign"
+                                disabled="#{bindings.tamSelectedAINsPojoList.estimatedRowCount == 0 || bindings.searchAINs_isAssigned == true || viewScope.tamAssignmentManagedBean.actionStatus == 'SUCCESS'}"
+                                id="assign" partialSubmit="true"
+                                actionListener="#{viewScope.tamAssignmentManagedBean.assignActionLsnr}"
+                                partialTriggers="search"/>
+              <af:commandButton text="Reassign"
+                                disabled="#{bindings.tamSelectedAINsPojoList.estimatedRowCount == 0 || bindings.searchAINs_isAssigned == null || bindings.searchAINs_isAssigned == false || viewScope.tamAssignmentManagedBean.actionStatus == 'SUCCESS'}"
+                                id="reassign" partialTriggers="search"
+                                actionListener="#{viewScope.tamAssignmentManagedBean.reassignActionLsnr}"/>
+              <af:commandButton text="Unassign" partialTriggers="search"
+                                disabled="#{bindings.tamSelectedAINsPojoList.estimatedRowCount == 0 || bindings.searchAINs_isAssigned == null || bindings.searchAINs_isAssigned == false || viewScope.tamAssignmentManagedBean.actionStatus == 'SUCCESS'}"
+                                id="unassign"
+                                actionListener="#{viewScope.tamAssignmentManagedBean.unassignActionLsnr}"/>
+              <af:spacer width="80" height="10" id="s10"/>
+              <af:outputText value="#{viewScope.tamAssignmentManagedBean.actionStatus}"
+                             id="ot35" partialTriggers="search"
+                             inlineStyle="outline-color:Green; background-color:Lime;"/>
+            </af:panelHeader>
+            <af:panelCollection id="pc3" styleClass="AFStretchWidth"
+                                inlineStyle="height:auto"
+                                partialTriggers="::select">
+              <f:facet name="menus"/>
+              <f:facet name="toolbar"/>
+              <!--<f:facet name="statusbar"/>-->
+              <af:table autoHeightRows="5"
+                        value="#{bindings.tamSelectedAINsPojoList.collectionModel}"
+                        var="row"
+                        rows="#{bindings.tamSelectedAINsPojoList.rangeSize}"
+                        emptyText="#{bindings.tamSelectedAINsPojoList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.tamSelectedAINsPojoList.rangeSize}"
+                        rowBandingInterval="0"
+                        selectionListener="#{bindings.tamSelectedAINsPojoList.collectionModel.makeCurrent}"
+                        rowSelection="single" id="t4" filterVisible="true"
+                        styleClass="AFStretchWidth" partialTriggers=":::assign">
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.aoid.name}"
+                           sortable="true"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.aoid.label}"
+                           id="c54" filterable="true" visible="false">
+                  <af:outputText value="#{row.aoid}" id="ot28"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedStatus.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedStatus.label}"
+                           id="c59">
+                  <af:outputText value="#{row.tamAssignedStatus}" id="ot40"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedTo.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedTo.label}"
+                           id="c58" width="150">
+                  <af:outputText value="#{fn:substringAfter(row.tamAssignedTo,'-')}" id="ot45" />
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.ain.name}"
+                           sortable="true" filterable="true"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.ain.label}"
+                           id="c62">
+                  <af:outputText value="#{row.ain}" id="ot37"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.districtName.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.districtName.label}"
+                           id="c63">
+                  <af:outputText value="#{row.districtName}" id="ot44"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.region.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.region.label}"
+                           id="c65">
+                  <af:outputText value="#{row.region}" id="ot43"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.regionName.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.regionName.label}"
+                           id="c50">
+                  <af:outputText value="#{row.regionName}" id="ot48"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.clusterRoute.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.clusterRoute.label}"
+                           id="c60">
+                  <af:outputText value="#{row.clusterRoute}" id="ot33"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.clusterRouteName.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.clusterRouteName.label}"
+                           id="c53">
+                  <af:outputText value="#{row.clusterRouteName}" id="ot32"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamSource.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.tamSource.label}"
+                           id="c46">
+                  <af:outputText value="#{row.tamSource}" id="ot42"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.byeCount.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.byeCount.label}"
+                           id="c49">
+                  <af:outputText value="#{row.byeCount}" id="ot39"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.useType.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.useType.label}"
+                           id="c66">
+                  <af:outputText value="#{row.useType}" id="ot30"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.useCodeKey.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.useCodeKey.label}"
+                           id="c64">
+                  <af:outputText value="#{row.useCodeKey}" id="ot46"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedToRole.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedToRole.label}"
+                           id="c61">
+                  <af:outputText value="#{row.tamAssignedToRole}" id="ot31"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedByRole.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedByRole.label}"
+                           id="c55">
+                  <af:outputText value="#{row.tamAssignedByRole}" id="ot38"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedBy.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.tamAssignedBy.label}"
+                           id="c57">
+                  <af:outputText value="#{fn:substringAfter(row.tamAssignedBy,'-')}" id="ot47"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamCreatedBy.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.tamCreatedBy.label}"
+                           id="c48" visible="false">
+                  <af:outputText value="#{row.tamCreatedBy}" id="ot41"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamCreatedDateTime.name}"
+                           sortable="false"
+                           headerText="#{bindings.tamSelectedAINsPojoList.hints.tamCreatedDateTime.label}"
+                           id="c51">
+                  <af:outputText value="#{row.tamCreatedDateTime}" id="ot34">
+                    <af:convertDateTime pattern="#{bindings.tamSelectedAINsPojoList.hints.tamCreatedDateTime.format}"/>
+                  </af:outputText>
+                </af:column>
+                <!--
+                  <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamProcessType.name}"
+                             sortable="false"
+                             headerText="#{bindings.tamSelectedAINsPojoList.hints.tamProcessType.label}"
+                             id="c47" >
+                    <af:outputText value="#{row.tamProcessType}" id="ot29"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamModifiedBy.name}"
+                             sortable="false"
+                             headerText="#{bindings.tamSelectedAINsPojoList.hints.tamModifiedBy.label}"
+                             id="c56" >
+                    <af:outputText value="#{row.tamModifiedBy}" id="ot36"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.tamSelectedAINsPojoList.hints.tamModifiedDateTime.name}"
+                             sortable="false"
+                             headerText="#{bindings.tamSelectedAINsPojoList.hints.tamModifiedDateTime.label}"
+                             id="c52" >
+                    <af:outputText value="#{row.tamModifiedDateTime}" id="ot35">
+                      <af:convertDateTime pattern="#{bindings.tamSelectedAINsPojoList.hints.tamModifiedDateTime.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  -->
+              </af:table>
+            </af:panelCollection>
+          </af:panelGroupLayout>
+          <af:spacer width="10" height="10" id="s6"/>
+          <af:toolbar id="t22">
+            <!-- <af:button text="Assign" id="b4"/>
+                                -->
+          </af:toolbar>
+        </af:panelGroupLayout>
+      </af:showDetailItem>
+      <af:showDetailItem text="TAM Assigned AINs" id="sdi1" immediate="true"
+      visible="#{bindings.userHighestRole  != 'Chief Appraiser'}"
+                         disclosureListener="#{viewScope.tamAssignedManagedBean.assignedDiscloseLsnr}"
+                         disclosed="#{bindings.loggedInUserId.labels.userHighestRole == 'Appraiser'}">
+        <af:panelGroupLayout id="pgl7" layout="vertical">
+                <!--<af:panelLabelAndMessage label="Selected count of rows :"
+                                         id="plam5" partialTriggers="select">
+                  <af:outputText value="#{bindings.tamAssigedPojoList.estimatedRowCount}"
+                                 id="ot555"/>
+                </af:panelLabelAndMessage>-->
+          <af:commandButton text="Refresh" id="rfrsh"
+                            action="#{viewScope.tamAssignedManagedBean.refresh_action}"/>
+          <af:panelCollection id="pc2" styleClass="AFStretchWidth"
+                              partialTriggers="::rfrsh">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <!--<f:facet name="statusbar"/>-->
+            <af:table value="#{bindings.tamAssigedPojoList.collectionModel}"
+                      var="row" rows="#{bindings.tamAssigedPojoList.rangeSize}"
+                      emptyText="#{bindings.tamAssigedPojoList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.tamAssigedPojoList.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.tamAssigedPojoListQuery.queryDescriptor}"
+                      queryListener="#{bindings.tamAssigedPojoListQuery.processQuery}"
+                      filterVisible="true" varStatus="vs" rowSelection="single"
+                      id="t2"
+                      selectionListener="#{viewScope.tamAssignedManagedBean.btnSelectionListener}"
+                      autoHeightRows="10" styleClass="AFStretchWidth"
+                      maxClientRows="1000">
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.selected.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.selected.label}"
+                         id="c4">
+                <af:commandButton id="byeBtn" text="Manage BYE"
+                                  actionListener="#{viewScope.tamAssignedManagedBean.byeButtonActionListener}"
+                                 
+                                  disabled="#{row.selected &amp;&amp; fn:contains(viewScope.tamAssignedManagedBean.loggedInUserInitiatableDistrictsList, row.districtName)}">
+                  <f:setPropertyActionListener target="#{row.selected}"
+                                               value="true"/>
+                   <af:clientListener method="showGlasspane" type="action"/>                                               
+                </af:commandButton>
+                <!--<af:outputText value="#{row.selected}" id="ot12"/>-->
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamAssignedStatus.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamAssignedStatus.label}"
+                         id="c29" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.tamAssignedStatus}" id="ot6"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamAssignedTo.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamAssignedTo.label}"
+                         id="c30" width="150" filterFeatures="caseInsensitive">
+                <af:outputText value="#{fn:substringAfter(row.tamAssignedTo,'-')}"  id="ot18"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamAssignedBy.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamAssignedBy.label}"
+                         id="c38" width="150" filterFeatures="caseInsensitive">
+                <af:outputText value="#{fn:substringAfter(row.tamAssignedBy,'-')}" id="ot9"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.ain.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.ain.label}"
+                         id="c19">
+                <af:outputText value="#{row.ain}" id="ot25"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.aoid.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.aoid.label}"
+                         id="c42">
+                <af:outputText value="#{row.aoid}" id="ot20"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.districtName.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.districtName.label}"
+                         id="c32" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.districtName}" id="ot19"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.region.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.region.label}"
+                         id="c45" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.region}" id="ot11"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.regionName.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.regionName.label}"
+                         id="c8" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.regionName}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.clusterRoute.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.clusterRoute.label}"
+                         id="c6" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.clusterRoute}" id="ot13"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.clusterRouteName.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.clusterRouteName.label}"
+                         id="c36" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.clusterRouteName}" id="ot15"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamSource.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamSource.label}"
+                         id="c5" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.tamSource}" id="ot22"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.byeCount.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.byeCount.label}"
+                         id="c40">
+                <af:outputText value="#{row.byeCount}" id="ot14"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.useType.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.useType.label}"
+                         id="c35" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.useType}" id="ot21"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.useCodeKey.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.useCodeKey.label}"
+                         id="c37" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.useCodeKey}" id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamProcessType.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamProcessType.label}"
+                         id="c3" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.tamProcessType}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamAssignedToRole.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamAssignedToRole.label}"
+                         id="c39" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.tamAssignedToRole}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamAssignedByRole.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamAssignedByRole.label}"
+                         id="c22" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.tamAssignedByRole}" id="ot10"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamCreatedDateTimeStr.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamCreatedDateTimeStr.label}"
+                         id="c43">
+                <f:facet name="filter">
+                  <!--<af:inputDate value="#{vs.filterCriteria.tamCreatedDateTime}"
+                                id="id5"/>-->
+                </f:facet>
+                <af:outputText value="#{row.tamCreatedDateTimeStr}" id="ot23">
+                  <!--<af:convertDateTime pattern="#{bindings.tamAssigedPojoList.hints.tamCreatedDateTime.format}"/>-->
+                </af:outputText>
+              </af:column>
+              <!-- <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamModifiedDateTime.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.tamAssigedPojoList.hints.tamModifiedDateTime.label}"
+                       id="c28" >
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.tamModifiedDateTime}"
+                              id="id6"/>
+              </f:facet>
+              <af:outputText value="#{row.tamModifiedDateTime}" id="ot26">
+                <af:convertDateTime pattern="#{bindings.tamAssigedPojoList.hints.tamModifiedDateTime.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.regionRef.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.tamAssigedPojoList.hints.regionRef.label}"
+                       id="c11">
+              <af:outputText value="#{row.regionRef}" id="ot8"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.useCodeRef.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.tamAssigedPojoList.hints.useCodeRef.label}"
+                       id="c44">
+              <af:outputText value="#{row.useCodeRef}" id="ot4"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.useCodeDescription.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.tamAssigedPojoList.hints.useCodeDescription.label}"
+                       id="c41">
+              <af:outputText value="#{row.useCodeDescription}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.clusterRouteRef.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.tamAssigedPojoList.hints.clusterRouteRef.label}"
+                       id="c33">
+              <af:outputText value="#{row.clusterRouteRef}" id="ot17"/>
+            </af:column>
+        -->
+            <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamId.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.tamAssigedPojoList.hints.tamId.label}" visible="false"
+                       id="c31">
+              <af:outputText value="#{row.tamId}" id="ot16"/>
+            </af:column>
+           
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamCreatedBy.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamCreatedBy.label}"
+                         id="c23" filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.tamCreatedBy}" id="ot24"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.tamAssigedPojoList.hints.tamModifiedBy.name}"
+                         filterable="true" sortable="true"
+                         headerText="#{bindings.tamAssigedPojoList.hints.tamModifiedBy.label}"
+                         id="c34">
+                <af:outputText value="#{row.tamModifiedBy}" id="ot27"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+          <af:panelGroupLayout id="pgl13" layout="vertical"
+                               visible="#{bindings.totalInitiatableAssignedCount.attributeValue > bindings.tamAssigedPojoList.estimatedRowCount}">
+            <af:commandButton text="Load More" id="more"
+                              action="#{viewScope.tamAssignedManagedBean.loadMore_action}"/>
+            <af:panelLabelAndMessage label="Total Assigned AINs: " id="plam5">
+              <af:outputText value="#{bindings.totalInitiatableAssignedCount.attributeValue} , Currently listed AINs:  #{bindings.tamAssigedPojoList.estimatedRowCount}"
+                             id="ot8"/>
+            </af:panelLabelAndMessage>
+          </af:panelGroupLayout>
+          <af:panelHeader text="AIN BPM Status" id="pb1"
+                          visible="#{viewScope.tamAssignedManagedBean.ain != null &amp;&amp; viewScope.tamAssignedManagedBean.ain != ''}">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl6" layout="vertical"
+                                 binding="#{viewScope.tamAssignedManagedBean.bpmStatus_UI}">
+              <af:panelLabelAndMessage id="ain" label="AIN: ">
+                <af:outputText value="#{viewScope.tamAssignedManagedBean.ain}"
+                               id="ot54"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage id="sts" label="BPM Status: ">
+                <af:outputText value="#{viewScope.tamAssignedManagedBean.bmpStatus}"
+                               id="ot55"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage id="inst" label="BPM Instance ID: "
+                                       visible="false">
+                <af:outputText value="#{viewScope.tamAssignedManagedBean.bpmInstanceId}"
+                               id="ot56"/>
+              </af:panelLabelAndMessage>
+            </af:panelGroupLayout>
+          </af:panelHeader>
+        </af:panelGroupLayout>
+      </af:showDetailItem>
+    </af:panelTabbed>
+  </af:subform>
+  <!-- </af:panelHeader>
+ 
+  
+    </f:facet>
+  </af:panelStretchLayout>
+  -->
+  <af:resource type="javascript">
+   function showGlasspane(event){
+    event.preventUserInput(); 
+  }
+  </af:resource>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:tamAssignedManagedBean-->
+</jsp:root>

@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">customtable1</property>
+      <property
+         name="page">/customtable.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>customtable1&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">262.79883</property>
+      <property
+         name="x">421.68652</property>
+   </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">methodCall1</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>methodCall1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">248.29883</property>
+      <property
+         name="x">257.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall3"
+      to="View2">
+      <property
+         name="fromOutcome">success</property>
+      <property
+         name="sdm:polyPoints">R50,298.0,247.94824,380.68652,262.44824,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View5">
+      <property
+         name="activityId">customtable2</property>
+      <property
+         name="page">/customtable2.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>customtable2&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">239.14355</property>
+      <property
+         name="x">551.0</property>
+   </View>
+</SDM>

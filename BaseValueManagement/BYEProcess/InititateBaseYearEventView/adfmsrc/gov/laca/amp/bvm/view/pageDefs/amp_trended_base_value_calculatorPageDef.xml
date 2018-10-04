@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="amp_trended_base_value_calculatorPageDef"
+                Package="gov.laca.amp.bvm.view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="root" RangeSize="25" DataControl="InitiateBaseYearEvent"
+              id="InitiateBaseYearEventIterator" ChangeEventPolicy="ppr"/>
+    <variableIterator id="variables"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="deTrendEventList" RangeSize="-1"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.Event"
+                      id="deTrendEventListIterator" CacheResults="false"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="detrendHeaderList" RangeSize="-1"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.Header"
+                      id="detrendHeaderListIterator" CacheResults="false"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="selectedHistoricalEvent" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="selectedHistoricalEventIterator"/>              
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="footerDeTrendEventList" RangeSize="-1"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.Event"
+                      id="footerDeTrendEventListIterator" CacheResults="false"
+                      ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="filteredHistoricalEventsList" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="filteredHistoricalEventsListIterator" ChangeEventPolicy="ppr">
+      <sortCriteria>
+        <sort attribute="effectiveEndDate" ascending="false"/>
+        <sort attribute="eventDate" ascending="false"/>
+        <sort attribute="sequenceNumber" ascending="false"/>
+      </sortCriteria>
+    </accessorIterator>
+    <taskFlow id="editHistorical"
+              taskFlowId="${viewScope.historicalPopupTaskflowHandler.dynamicTaskFlowId}"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="isEdit" value="true"/>
+        <parameter id="eventType" value="historical"/>
+        <parameter id="isRealProperty" value="true"/>
+        <parameter id="isPersonalProperty" value="false"/>
+        <parameter id="isNew" value="false"/>
+        <parameter id="isFixture" value="true"/>
+        <parameter id="isTBV" value="true"/>        
+        <parameter id="showOriginal" value="true"/>
+        <parameter id="popupId" value="historicalPopup"/>        
+      </parameters>
+    </taskFlow>
+    <taskFlow id="createHistorical"
+              taskFlowId="${viewScope.historicalPopupTaskflowHandler.dynamicTaskFlowId}"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="isEdit" value="true"/>
+        <parameter id="eventType" value="historical"/>
+        <parameter id="isRealProperty" value="true"/>
+        <parameter id="isPersonalProperty" value="false"/>
+        <parameter id="isNew" value="true"/>
+        <parameter id="isFixture" value="true"/>
+        <parameter id="isTBV" value="true"/>
+        <parameter id="popupId" value="createHistoricalPopup"/>
+        <parameter id="sPageAction" value="page"/>
+      </parameters>
+    </taskFlow>
+    <invokeAction Binds="loadDataForTBV" id="inititateTBV" Refresh="ifNeeded"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="trendEventList" RangeSize="-1"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.Event"
+                      id="trendEventListIterator" CacheResults="false"
+                      ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="footerTrendEventList" RangeSize="-1"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.Event"
+                      id="footerTrendEventListIterator" CacheResults="false"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="trendHeaderList" RangeSize="-1"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.Header"
+                      id="trendHeaderListIterator" CacheResults="false"
+                      ChangeEventPolicy="ppr"/>
+    <accessorIterator id="filteredCurrentEventsListIterator"
+                      MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="filteredCurrentEventsList" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"/>
+    <accessorIterator id="selectedCurrentEventIterator"
+                      MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="selectedCurrentEvent" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="filteredHistoricalEventsListIterator"
+          id="filteredHistoricalEventsList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      Name="filteredHistoricalEventsList0">
+        <AttrNames>
+          <Item Value="selected"/>
+          <Item Value="eventDate"/>
+          <Item Value="baseYear"/>
+          <Item Value="subUnitNumber"/>
+          <Item Value="percentOwnership"/>
+          <Item Value="percentageAppliedToValue"/>
+          <Item Value="landValue"/>
+          <Item Value="improvementValue"/>
+          <Item Value="totalAdjAcquisitionCost"/>
+          <Item Value="fixtureValue"/>
+          <Item Value="effectiveBeginDate"/>
+          <Item Value="effectiveEndDate"/>
+          <Item Value="verificationDate"/>
+          <Item Value="inactiveDate"/>
+          <Item Value="blendedValueFlag"/>
+          <Item Value="recordingDate"/>
+          <Item Value="sequenceNumber"/>
+          <Item Value="documentNumber"/>
+          <Item Value="ownershipCode"/>
+          <Item Value="newConstructionDate"/>
+          <Item Value="partiallyCompleteNumber"/>
+          <Item Value="retainedLandValue"/>
+          <Item Value="retainedImprovementValue"/>
+          <Item Value="retainedFixtureValue"/>
+          <Item Value="subUnitDescription"/>
+          <Item Value="personalPropertyType"/>
+          <Item Value="ppDescription"/>
+          <Item Value="percentageFixture"/>
+          <Item Value="originalAIN"/>
+          <Item Value="ppAssessmentNumber"/>
+          <Item Value="byeId"/>
+          <Item Value="verifiedBy"/>
+          <Item Value="modifiedBy"/>
+          <Item Value="modifiedDate"/>
+          <Item Value="byeLegacySourceSystem"/>
+          <Item Value="eventSource"/>
+          <Item Value="createdData"/>
+          <Item Value="totalValue"/>
+          <Item Value="retainedTotalValue"/>
+          <Item Value="aoid"/>
+          <Item Value="eventNameLegend"/>
+          <Item Value="eventDescriptionId"/>
+          <Item Value="eventDescriptionKey"/>
+          <Item Value="eventDescriptionLegend"/>
+          <Item Value="landReasonCodeId"/>
+          <Item Value="landReasonCodeKey"/>
+          <Item Value="landReasonCodeLegend"/>
+          <Item Value="improvementReasonCodeId"/>
+          <Item Value="improvementReasonCodeKey"/>
+          <Item Value="improvementReasonCodeLegend"/>
+          <Item Value="reviewRequired"/>
+          <Item Value="currentOnClose"/>
+          <Item Value="notes"/>
+          <Item Value="eventNameId"/>
+          <Item Value="eventNameKey"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="addEvent" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addEvent" IsViewObjectMethod="false"
+                  DataControl="InitiateBaseYearEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider">
+      <NamedData NDName="eventType" NDValue="historical"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="deleteEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="deleteEvent"
+                  IsViewObjectMethod="false" DataControl="InitiateBaseYearEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider">
+      <NamedData NDName="eventType" NDValue="historical"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="setSelectedHistoricalEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSelectedHistoricalEvent"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="byeId" NDType="java.math.BigInteger"/>
+    </methodAction>
+    <tree IterBinding="deTrendEventListIterator" id="deTrendEventList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Event"
+                      Name="deTrendEventList0">
+        <AttrNames>
+          <Item Value="eventName"/>
+          <Item Value="eventType"/>
+          <Item Value="eventDate"/>
+          <Item Value="eventId"/>
+          <Item Value="eventSequence"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="yearList"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Year"
+                      Name="deTrendEventList1">
+        <AttrNames>
+          <Item Value="tyear"/>
+          <Item Value="baseYear"/>
+          <Item Value="fixture"/>
+          <Item Value="imp"/>
+          <Item Value="land"/>
+          <Item Value="total"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="detrendHeaderListIterator" id="detrendHeaderList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Header"
+                      Name="detrendHeaderList0">
+        <AttrNames>
+          <Item Value="hbaseYear"/>
+          <Item Value="hyear"/>
+          <Item Value="trendFactor"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="footerDeTrendEventListIterator"
+          id="footerDeTrendEventList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Event"
+                      Name="footerDeTrendEventList0">
+        <AttrNames>
+          <Item Value="eventName"/>
+          <Item Value="eventType"/>
+          <Item Value="eventDate"/>
+          <Item Value="eventId"/>
+          <Item Value="eventSequence"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="yearList"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Year"
+                      Name="footerDeTrendEventList1">
+        <AttrNames>
+          <Item Value="tyear"/>
+          <Item Value="baseYear"/>
+          <Item Value="fixture"/>
+          <Item Value="imp"/>
+          <Item Value="land"/>
+          <Item Value="total"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="loadDataForTBV"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="loadDataForTBV"
+                  IsViewObjectMethod="false"/>
+    <tree IterBinding="trendEventListIterator" id="trendEventList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Event"
+                      Name="trendEventList0">
+        <AttrNames>
+          <Item Value="eventName"/>
+          <Item Value="eventDate"/>
+          <Item Value="eventId"/>
+          <Item Value="eventSequence"/>
+          <Item Value="eventType"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="yearList"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Year"
+                      Name="trendEventList1">
+        <AttrNames>
+          <Item Value="tyear"/>
+          <Item Value="baseYear"/>
+          <Item Value="fixture"/>
+          <Item Value="imp"/>
+          <Item Value="land"/>
+          <Item Value="total"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="footerTrendEventListIterator" id="footerTrendEventList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Event"
+                      Name="footerTrendEventList0">
+        <AttrNames>
+          <Item Value="eventName"/>
+          <Item Value="eventDate"/>
+          <Item Value="eventId"/>
+          <Item Value="eventSequence"/>
+          <Item Value="eventType"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="yearList"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Year"
+                      Name="footerTrendEventList1">
+        <AttrNames>
+          <Item Value="tyear"/>
+          <Item Value="baseYear"/>
+          <Item Value="fixture"/>
+          <Item Value="imp"/>
+          <Item Value="land"/>
+          <Item Value="total"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="trendHeaderListIterator" id="trendHeaderList">
+      <nodeDefinition DefName="gov.laca.amp.bvm.model.data.Header"
+                      Name="trendHeaderList0">
+        <AttrNames>
+          <Item Value="hbaseYear"/>
+          <Item Value="hyear"/>
+          <Item Value="trendFactor"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="selectedHistoricalTransactionType">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator"
+                     id="targerYear">
+      <AttrNames>
+        <Item Value="targerYear"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="calculateDeTrendBaseValues"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="calculateDeTrendBaseValues"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.InitiateBaseYearEvent.methodResults.calculateDeTrendBaseValues_InitiateBaseYearEvent_dataProvider_calculateDeTrendBaseValues_result">
+      <NamedData NDName="targetYear" NDValue="#{bindings.targerYear.inputValue}"
+                 NDType="long"/>
+    </methodAction>
+    <methodAction id="calculateTrendBaseValues"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="calculateTrendBaseValues"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.InitiateBaseYearEvent.methodResults.calculateTrendBaseValues_InitiateBaseYearEvent_dataProvider_calculateTrendBaseValues_result">
+      <NamedData NDName="targetYear" NDValue="#{bindings.targerYear.inputValue}"
+                 NDType="long"/>
+    </methodAction>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator" id="userId">
+      <AttrNames>
+        <Item Value="userId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="sortTrendEventListByDate"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="sortTrendEventListByDate"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="updateSelection"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="updateSelection"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="byeId" NDType="java.math.BigInteger"/>
+      <NamedData NDName="newValue" NDType="java.lang.Boolean"/>
+    </methodAction>
+    <methodAction id="clearTBVCalutatorData" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="clearTBVCalutatorData"
+                  IsViewObjectMethod="false" DataControl="InitiateBaseYearEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"/>
+    <methodAction id="selectedEventListSize" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="selectedEventListSize"
+                  IsViewObjectMethod="false" DataControl="InitiateBaseYearEvent"
+                  InstanceName="InitiateBaseYearEvent.dataProvider"
+                  ReturnName="data.InitiateBaseYearEvent.methodResults.selectedEventListSize_InitiateBaseYearEvent_dataProvider_selectedEventListSize_result"/>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator" id="isFixture">
+      <AttrNames>
+        <Item Value="isFixture"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="selectedHistoricalByeID">
+      <AttrNames>
+        <Item Value="byeId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

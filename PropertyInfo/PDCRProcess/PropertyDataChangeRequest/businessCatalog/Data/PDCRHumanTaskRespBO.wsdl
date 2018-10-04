@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.9.0.1.7" build="1.7" fullName="Data.PDCRHumanTaskRespBO" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<definitions targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskRespBO.Interface" name="PDCRHumanTaskRespBO" xmlns:tns="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskRespBO.Interface"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:oj="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskRespBO"  xmlns="http://schemas.xmlsoap.org/wsdl/"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xsd:annotation>
+        <xsd:documentation>
+            <bpmo:documentable>
+                <bpmo:description>
+                    Data which goes as OUTPUT of Human Tas. It;s attributes include - pdcrHumanTaskResp (it;s based on ManaePDCRReqBO) and other attributes oscillating between Human Task and BPM Process
+                </bpmo:description>
+            </bpmo:documentable>
+        </xsd:documentation>
+    </xsd:annotation>
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskRespBO" schemaLocation="PDCRHumanTaskRespBO.xsd"/>
+        </xsd:schema>
+    </types>
+    <portType name="PDCRHumanTaskRespBOPortType"/>
+    <binding name="PDCRHumanTaskRespBOPortTypeBinding" type="tns:PDCRHumanTaskRespBOPortType">
+        <bpmo:binding element="oj:PDCRHumanTaskRespBO"/>
+    </binding>
+</definitions>

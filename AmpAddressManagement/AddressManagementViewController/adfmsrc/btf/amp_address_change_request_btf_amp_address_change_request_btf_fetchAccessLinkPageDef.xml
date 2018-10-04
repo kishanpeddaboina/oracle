@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="amp_address_change_request_btf_amp_address_change_request_btf_fetchAccessLinkPageDef" Package="btf"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="fetchAccessLink" RequiresUpdateModel="true" Action="invokeMethod" MethodName="fetchAccessLink"
+                  IsViewObjectMethod="false" DataControl="AddressManagementDC"
+                  InstanceName="bindings.fetchAccessLink.dataControl.dataProvider"
+                  ReturnName="data.AddressManagementDC.methodResults.fetchAccessLink_fetchAccessLink_dataControl_dataProvider_fetchAccessLink_result">
+      <NamedData NDName="docSetId" NDValue="#{pageFlowScope.docSetId}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

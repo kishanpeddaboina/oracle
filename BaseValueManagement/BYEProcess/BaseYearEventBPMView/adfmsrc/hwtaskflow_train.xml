@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!-- BPM Scripts -->
+<hwTaskFlows xmlns="http://xmlns.oracle.com/bpel/workflow/hwTaskFlowProperties">
+   <ApplicationName>BaseYearEventBPMView</ApplicationName>
+   <LookupType>LOCAL</LookupType>
+   <TaskFlowDeploy>false</TaskFlowDeploy>
+   <TaskFlowServer>
+      <hostName>assessorportaltrn.assessor.lacounty.gov</hostName>
+      <httpPort>80</httpPort>
+      <httpsPort/>
+   </TaskFlowServer>
+   <hwTaskFlow>
+      <WorkflowName>ManageBaseYearEventTask</WorkflowName>
+      <TaskDefinitionNamespace>http://xmlns.oracle.com/AMPBPM/ManageBaseYearEvent/ManageBaseYearEventTask</TaskDefinitionNamespace>
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>
+      <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>
+   </hwTaskFlow>
+   <hwTaskFlow>
+      <WorkflowName>SubmitBaseYearEventTask</WorkflowName>
+      <TaskDefinitionNamespace>http://xmlns.oracle.com/BYEProcess/ManageBaseYearEvent/SubmitBaseYearEventTask</TaskDefinitionNamespace>
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>
+      <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>
+   </hwTaskFlow>
+   <hwTaskFlow>
+      <WorkflowName>ReviewBaseYearEventTask</WorkflowName>
+      <TaskDefinitionNamespace>http://xmlns.oracle.com/BYEProcess/ManageBaseYearEvent/ReviewBaseYearEventTask</TaskDefinitionNamespace>
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>
+      <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>
+   </hwTaskFlow>
+   <hwTaskFlow>
+      <WorkflowName>ManageBaseYearEventTask</WorkflowName>
+      <TaskDefinitionNamespace>http://xmlns.oracle.com/AMPBPM/VerifyBaseYearEvent/ManageBaseYearEventTask</TaskDefinitionNamespace>
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>
+      <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>
+   </hwTaskFlow>
+   <hwTaskFlow>
+      <WorkflowName>SubmitBaseYearEventTask</WorkflowName>
+      <TaskDefinitionNamespace>http://xmlns.oracle.com/BYEProcess/VerifyBaseYearEvent/SubmitBaseYearEventTask</TaskDefinitionNamespace>
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>
+      <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>
+   </hwTaskFlow>
+   <hwTaskFlow>
+      <WorkflowName>ReviewBaseYearEventTask</WorkflowName>
+      <TaskDefinitionNamespace>http://xmlns.oracle.com/BYEProcess/VerifyBaseYearEvent/ReviewBaseYearEventTask</TaskDefinitionNamespace>
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>
+      <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>
+   </hwTaskFlow>    
+   <!-- 10/25 New task flow is added, for VBYE only --> 
+   <hwTaskFlow>	 
+      <WorkflowName>SubmitBaseYearEventGroupTask</WorkflowName>	 
+	  <TaskDefinitionNamespace>http://xmlns.oracle.com/BYEProcess/VerifyBaseYearEvent/SubmitBaseYearEventGroupTask</TaskDefinitionNamespace>	 
+      <TaskFlowId>BaseYearEventTF_BPM</TaskFlowId>	 
+	  <TaskFlowFileName>WEB-INF/gov/laca/amp/bvm/view/BaseYearEventTF_BPM/BaseYearEventTF_BPM.xml</TaskFlowFileName>	 
+   </hwTaskFlow>      
+</hwTaskFlows>

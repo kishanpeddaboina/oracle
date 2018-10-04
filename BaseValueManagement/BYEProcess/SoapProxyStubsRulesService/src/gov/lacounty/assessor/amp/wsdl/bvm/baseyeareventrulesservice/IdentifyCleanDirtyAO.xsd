@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://assessor.lacounty.gov/amp/data/bvm/IdentifyCleanDirtyAO/v1.0" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://assessor.lacounty.gov/amp/data/bvm/IdentifyCleanDirtyAO/v1.0" xmlns:inp1="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0" xmlns:inp2="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0" xmlns:inp3="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0">
+  <xsd:import schemaLocation="RequestHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0"/>
+  <xsd:import schemaLocation="ResponseHeader.xsd" namespace="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0"/>
+  <xsd:import schemaLocation="BaseYearEvent.xsd" namespace="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0"/>
+  <xsd:annotation>
+    <xsd:documentation>This schema defines request and response payload
+                         structures for IdentifyCleanDirtyAO operation of
+                         BaseYearEventRulesService SOA Service.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element name="identifyCleanDirtyAORequest">
+    <xsd:annotation>
+      <xsd:documentation>This defines the request payload structure for
+                            IdentifyCleanDirtyAO operation of
+                            BaseYearEventRulesService SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp1:requestHeader" minOccurs="1" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="asmtList" type="tns:AsmtList" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>list of Asmt Objects</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="identifyCleanDirtyAOResponse">
+    <xsd:annotation>
+      <xsd:documentation>This defines the response payload structure for
+                            IdentifyCleanDirtyAO operation of
+                            BaseYearEventRulesService SOA Service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="header" type="inp2:responseHeader" maxOccurs="1" minOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Response Header Message.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>ASMT ID.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="byeId" type="xsd:integer" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>BYEID.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="reviewedFlag" type="xsd:string" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>ReviwedFlag.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="comments" type="xsd:string" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>Comments</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="cleanDirtyLastRunDate" type="xsd:date" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:documentation>CleanDirtyLastRunDate.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="byeResponseList" type="tns:BYEResponseList" minOccurs="0" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>OPA BYE Response List</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="BaseYearEventList">
+    <xsd:sequence>
+      <xsd:element name="baseYearEvent" type="inp3:baseYearEvent" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AsmtRollList">
+    <xsd:sequence>
+      <xsd:element name="asmtRoll" type="tns:AsmtRoll" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AsmtRoll">
+    <xsd:sequence>
+      <xsd:element name="billNumber" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="billType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="improvementReasonCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="improvementValue" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="landReasonCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="landValue" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="newConstructionType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="billStatus" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="percentPartialInterest" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="taxYear" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="seqNum" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="impValuationDate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="landValuationDate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConflictList">
+    <xsd:sequence>
+      <xsd:element name="conflict" type="tns:Conflict" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Conflict">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ptsTitanConflictFlag" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="eventName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="recordingDate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="eventDate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="eventDateSeq" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="recordingDateSeq" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AsmtList">
+    <xsd:sequence>
+      <xsd:element name="asmt" type="tns:Asmt" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Asmt">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="operationInput" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="sysdate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="byeList" type="tns:BaseYearEventList" minOccurs="0"/>
+      <xsd:element name="asmtRollList" type="tns:AsmtRollList" minOccurs="0"/>
+      <xsd:element name="conflictList" type="tns:ConflictList" minOccurs="0"/>
+      <xsd:element name="landList" type="tns:LandList" minOccurs="0"/>
+      <xsd:element name="histList" type="tns:HistList" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LandList">
+    <xsd:sequence>
+      <xsd:element name="land" type="tns:Land" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Land">
+    <xsd:sequence>
+      <xsd:element name="impairmentKey" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="landId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HistList">
+    <xsd:sequence>
+      <xsd:element name="hist" type="tns:Hist" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Hist">
+    <xsd:sequence>
+      <xsd:element name="histAIN" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BYEResponseList">
+    <xsd:sequence>
+      <xsd:element name="byeResponse" type="tns:BYEResponse" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BYEResponse">
+    <xsd:sequence>
+      <xsd:element name="byeId" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="verificationDate" type="xsd:date" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>VerificationDate.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="verifiedBy" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>VerifiedBy.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

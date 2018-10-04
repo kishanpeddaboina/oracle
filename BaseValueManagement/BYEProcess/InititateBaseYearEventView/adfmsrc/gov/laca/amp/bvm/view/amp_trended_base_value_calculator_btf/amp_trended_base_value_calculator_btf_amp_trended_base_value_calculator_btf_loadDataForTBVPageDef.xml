@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24"
+                id="amp_trended_base_value_calculator_btf_amp_trended_base_value_calculator_btf_loadDataForTBVPageDef"
+                Package="gov.laca.amp.bvm.view.amp_trended_base_value_calculator_btf" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="root" RangeSize="25" DataControl="InitiateBaseYearEvent" id="InitiateBaseYearEventIterator"/>
+    <accessorIterator id="filteredHistoricalEventsListIterator" MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="filteredHistoricalEventsList" RangeSize="25" DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"/>
+  </executables>
+  <bindings>
+    <methodAction id="loadDataForTBV" RequiresUpdateModel="true" Action="invokeMethod" MethodName="loadDataForTBV"
+                  IsViewObjectMethod="false" DataControl="InitiateBaseYearEvent"
+                  InstanceName="bindings.loadDataForTBV.dataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

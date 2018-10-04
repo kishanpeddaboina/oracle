@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.9.0.1.7" build="1.7" fullName="Data.InitiatorInfoBO" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/Data/InitiatorInfoBO" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns="http://xmlns.oracle.com/bpm/bpmobject/Data/InitiatorInfoBO"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:complexType name="InitiatorInfoBOType">
+        <xs:sequence>
+            <xs:element name="initiatorUserId" nillable="true" type="xs:string"/>
+            <xs:element name="initiatorTitle" nillable="true" type="xs:string"/>
+            <xs:element name="initiatorDistrict" nillable="true" type="xs:string"/>
+            <xs:element name="initiatorRole" nillable="true" type="xs:string"/>
+            <xs:element name="initiatorUserName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="InitiatorInfoBO" type="InitiatorInfoBOType"/>
+</xs:schema>

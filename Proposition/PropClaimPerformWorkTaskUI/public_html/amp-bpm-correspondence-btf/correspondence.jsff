@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="propclaimperformworktaskuiBundle"
+           value="#{adfBundle['propclaimperformworktaskui.PropClaimPerformWorkTaskUIBundle']}"/>
+    <!--<af:button text="button 1" id="b1" action="#{propClaimPerformBean.testMethod}" binding="#{CorrespondencesBean.savePropBtn}"/>-->
+    <af:panelGridLayout id="pgl2">
+        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+            <af:gridCell marginStart="5px" width="34%" id="gc1">
+                <af:panelGroupLayout id="pgl3" layout="vertical">
+                    <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.INVESTIGATOR_S_NAME}"
+                                             id="plam1"/>
+                    <af:inputText value="#{bindings.investigatorName.inputValue}" simple="true"
+                                  contentStyle="width:180px" required="#{bindings.investigatorName.hints.mandatory}"
+                                  columns="#{bindings.investigatorName.hints.displayWidth}"
+                                  maximumLength="50"
+                                  shortDesc="#{bindings.investigatorName.hints.tooltip}" id="it1" autoSubmit="true"
+                                  valueChangeListener="#{propClaimPerformBean.correspondenceVLC}">
+                        <f:validator binding="#{bindings.investigatorName.validator}"/>
+                    </af:inputText>
+                    <f:facet name="separator">
+                        <af:spacer height="5px" id="s2"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="33%" id="gc2">
+                <af:panelGroupLayout id="pgl4" layout="vertical">
+                    <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.INVESTIGATOR_S_PHONE_NUMBER}"
+                                             id="plam3"/>
+                    <af:inputText value="#{bindings.investigatorPhone.inputValue}" 
+                    placeholder="(_)_ _"
+                    simple="true"
+                                  contentStyle="width:180px" required="#{bindings.investigatorPhone.hints.mandatory}"
+                                  columns="#{bindings.investigatorPhone.hints.displayWidth}"
+                                  maximumLength="#{bindings.investigatorPhone.hints.precision}" autoSubmit="true"
+                                  valueChangeListener="#{propClaimPerformBean.correspondenceVLC}"
+                                  shortDesc="#{bindings.investigatorPhone.hints.tooltip}" id="it2">
+                       <af:clientListener method="handlePhNumberFormatConversion('(xxx)-xxx-xxxx','-')" type="keyDown"/>
+                                                        <af:validateRegExp pattern="\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}$" messageDetailNoMatch="Invalid Phone Number. Need to be in (NNN) NNN-NNNN format"/>
+                    </af:inputText>
+                    <f:facet name="separator">
+                        <af:spacer height="5px" id="s3"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc3">
+                <af:panelGroupLayout id="pgl5" layout="vertical">
+                    <af:panelLabelAndMessage label="#{propclaimperformworktaskuiBundle.INVESTIGATOR_S_LOCATION_ROOM_NUMBER}"
+                                             id="plam2"/>
+                    <af:inputText value="#{bindings.investigatorLocation.inputValue}" simple="true"
+                                  contentStyle="width:180px" required="#{bindings.investigatorLocation.hints.mandatory}"
+                                  columns="#{bindings.investigatorLocation.hints.displayWidth}"
+                                  maximumLength="20" autoSubmit="true"
+                                  valueChangeListener="#{propClaimPerformBean.correspondenceVLC}"
+                                  shortDesc="#{bindings.investigatorLocation.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.investigatorLocation.validator}"/>
+                    </af:inputText>
+                    <f:facet name="separator">
+                        <af:spacer height="5px" id="s4"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+    <af:region value="#{bindings.ampcorrespondencesbtf1.regionModel}" id="r1"/>
+    <af:panelGroupLayout id="pgl31" layout="horizontal" halign="end" styleClass="padding-top-5" partialTriggers="pgl1"
+                         binding="#{CorrespondenceBPMBean.parentPgl}">
+        <f:facet name="separator">
+            <af:spacer width="10px" height="10" id="s1"/>
+        </f:facet>
+        <af:button text="Cancel" id="b3" action="#{CorrespondenceBPMBean.cancelPopUP}"
+                 immediate="true"  actionListener="#{CorrespondenceBPMBean.closepopupLstnr}"/>
+        <af:panelGroupLayout id="pgl1" binding="#{RefreshParentComponentBean.pgl}" partialTriggers="r1" layout="horizontal">
+            <af:panelGroupLayout id="pgl22" partialTriggers="pgl1" binding="#{RefreshParentComponentBean.pgl1}" layout="horizontal">
+                <af:button text="Submit For Correspondence Approval" id="ot3"
+                           visible="#{requestScope.sbmtApprValue}" action="#{CorrespondenceBPMBean.sbmtApprValue}"
+                           partialTriggers="pgl1" binding="#{RefreshParentComponentBean.sbmtApprValueBnd}"/>
+                
+                <!--<af:button text="LV showSubFrCorrApprData : : #{requestScope.sbmtApprValue}" id="ot4" disabled="true"
+                           visible="#{!requestScope.sbmtApprValue}" partialTriggers="pgl1"/>-->
+                
+                 <af:button text="Submit For Correspondence Release" id="ot5"
+                       partialTriggers="pgl1" visible="#{requestScope.sbmtRelValue}" action="#{CorrespondenceBPMBean.SbmtRelvalue}"
+                       binding="#{RefreshParentComponentBean.sbmtRelValueBnd}"/>
+                       
+                       <!--<af:button text="LV showSubFrCorrRELData : #{requestScope.sbmtRelValue}" id="ot7"
+                       visible="#{!requestScope.sbmtRelValue}" partialTriggers="pgl1"
+                       disabled="true"/>-->
+            </af:panelGroupLayout>
+           
+                       
+        </af:panelGroupLayout>
+    </af:panelGroupLayout>
+</jsp:root>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="managePDCRRequest"
+          Package="SubmitPDCRView_SubmitPropertyDataChangeRequest"
+          BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.managePDCRRequest"
+          isJavaBased="false">
+  <Attribute Name="ain" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="nextSibling" Value="aoid"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Ain"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="ain"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="aoid" Type="java.math.BigInteger">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="nextSibling" Value="userId"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="fractionDigits" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Aoid"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="aoid"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="type" Value="java.math.BigInteger"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="userId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="nextSibling" Value="processType"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="User Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="userId"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="processType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="nextSibling" Value="actionType"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Process Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="processType"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="actionType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="nextSibling" Value="userType"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Action Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="actionType"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="userType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="nextSibling" Value="requestorInfo"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="User Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="userType"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+        <Property Name="enumeration" Value="[Internal, External]"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="source" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="nextSibling" Value="originalRealPropertyInfo"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Source"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="source"/>
+        <Property Name="targetNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+        <Property Name="enumeration" Value="[EditPDCR, CreatePDCR]"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="header" IsCollection="true"
+                     BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.requestHeader"
+                     CollectionBeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.requestHeader_header_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+      <Property Name="nextSibling" Value="ain"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Header"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="header"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="requestorInfo" IsCollection="true"
+                     BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.requestorInfo"
+                     CollectionBeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.requestorInfo_requestorInfo_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+      <Property Name="nextSibling" Value="source"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Requestor Info"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="requestorInfo"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="originalRealPropertyInfo" IsCollection="true"
+                     BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.RealPropertyInfo"
+                     CollectionBeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.RealPropertyInfo_originalRealPropertyInfo_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+      <Property Name="nextSibling" Value="userEnteredRealPropertyInfo"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Original Real Property Info"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="originalRealPropertyInfo"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="userEnteredRealPropertyInfo" IsCollection="true"
+                     BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.RealPropertyInfo"
+                     CollectionBeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.RealPropertyInfo_userEnteredRealPropertyInfo_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+      <Property Name="nextSibling" Value="finalRealPropertyInfo"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="User Entered Real Property Info"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="userEnteredRealPropertyInfo"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="finalRealPropertyInfo" IsCollection="true"
+                     BeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.RealPropertyInfo"
+                     CollectionBeanClass="SubmitPDCRView_SubmitPropertyDataChangeRequest.RealPropertyInfo_finalRealPropertyInfo_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Final Real Property Info"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="finalRealPropertyInfo"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/ao/ManagePDCR/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

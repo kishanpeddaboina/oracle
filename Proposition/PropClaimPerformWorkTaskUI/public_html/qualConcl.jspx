@@ -1,0 +1,1059 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="labels" value="#{adfBundle['propclaimperformworktaskui.PropClaimPerformWorkTaskUIBundle']}"/>
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:trh="http://myfaces.apache.org/trinidad/html"
+            xmlns:wf="http://xmlns.oracle.com/bpel/workflow/workflow-taglib.tld"
+            xmlns:wlc="http://xmlns.oracle.com/bpel/workflow/worklist">
+        <af:document title="Qualification and Conclusion" id="d1">
+            <af:messages id="m1"/>
+            <af:resource type="javascript" source="/jsLibs/taskDetails.js"/>
+            <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>
+             <af:resource type="javascript" source="/resources/js/ampclientformat.js"/>
+                <af:resource type="javascript">
+    function chstp(evnt) {
+      //  alert('hi');
+       evnt.preventUserInput();
+    }
+    </af:resource>
+            <af:form id="f1" usesUpload="true">
+                <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStrechtWidth" inlineStyle="padding-left:20px;padding-right:30px;height:1600px! important">
+                    <af:panelStretchLayout id="psl2" topHeight="0px" endWidth="300px"
+                                           styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-5"
+                                           bottomHeight="0px" startWidth="650px">
+                        <f:facet name="start">
+                            <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                <af:outputFormatted value="Proposition&#160;-&#160;" id="plam1"
+                                                    inlineStyle="font-weight:bold; font-size:large;"/>
+                                <af:outputFormatted value=" AIN:&#160;" id="plam2"
+                                                    inlineStyle="font-weight:lighter; font-size:medium;"/>
+                                <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                                     rendered="#{fn:length(bindings.AIN.inputValue)>9}">
+                                    <af:outputFormatted value="#{fn:substring(bindings.AIN.inputValue,0,4)}" id="of5"
+                                                        inlineStyle="font-weight:bold;font-size:large;"/>
+                                    <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,4,7)}" id="of7"
+                                                        inlineStyle="font-weight:bold;font-size:large;"/>
+                                    <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,7,10)}" id="of8"
+                                                        inlineStyle="font-weight:bold;font-size:large;"/>
+                                </af:panelGroupLayout>
+                                <af:spacer width="20" height="10" id="s2"/>
+                                <af:outputFormatted value=" Scanned Date:&#160;" id="of3"
+                                                    inlineStyle="font-weight:lighter; font-size:medium;"/>
+                                <af:outputFormatted value="#{bindings.claimReceivedDate.inputValue}" id="of4"
+                                                    inlineStyle="font-weight:bold;font-size:medium;">
+                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                </af:outputFormatted>
+                                <!--<af:outputFormatted value="XXX" id="of4" rendered="#{pageFlowScope.maskData}" inlineStyle="font-weight:bold;font-size:large;"/>-->
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="end">
+                            <af:panelGroupLayout id="pgl32" layout="horizontal" halign="end" styleClass="padding-top-5">
+                                <af:link text="View Scanned Claim Image" id="l1" inlineStyle="font-size:small;"
+                                         targetFrame="_blank"
+                                         icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/expand-window.png"
+                                         iconPosition="trailing"
+                                         destination="#{ampConnections.psrGenSuppDocs}#{bindings.DocumentId.inputValue}"
+                                         rendered="#{bindings.EventSource.inputValue == 'WCC'}"/>
+                                <af:link text="View Scanned Claim Image" id="l2" inlineStyle="font-size:small;"
+                                         targetFrame="_blank"
+                                         icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/expand-window.png"
+                                         iconPosition="trailing"
+                                         destination="#{ampConnections.docUrl}/#{bindings.DocumentId.inputValue}/content-media"
+                                         rendered="#{bindings.EventSource.inputValue == 'ECX'}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                    <af:panelGroupLayout id="pg13" layout="horizontal"
+                                         styleClass="amp-border-top amp-border AFStretchWidth">
+                        <af:panelGroupLayout id="pgl7_train" halign="center" layout="horizontal" styleClass="AMPTrain">
+                            <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="t1"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl12" halign="end" styleClass="padding-top-5" layout="vertical"
+                                             inlineStyle="padding-right:30px">
+                            <f:facet name="separator">
+                                <af:spacer height="5" id="s_15"/>
+                            </f:facet>
+                            <!--<af:button id="b1" text="Correspondence"/>-->
+                            <af:button text="Correspondence" id="b7"
+                                       clientComponent="true" partialSubmit="true"
+                                       action="#{CorrespondenceBPMBean.onclickCorrespondence}">
+                                <af:setPropertyListener from="12347" to="#{viewScope.propsId}" type="action"/>
+                                <af:setPropertyListener from="false" to="#{viewScope.readOnlyMode}" type="action"/>
+                                <af:setPropertyListener from="Exclusions" to="#{viewScope.category}" type="action"/>
+                                <af:setPropertyListener from="Prop58" to="#{viewScope.subcategory}" type="action"/>
+                                <af:setPropertyListener from="333" to="#{viewScope.WorkUnitId}" type="action"/>
+                                <af:setPropertyListener from="#{CorrespondenceBPMBean.dispcorrAppr}" to="#{requestScope.sbmtApprValue}" type="action"/>
+                                <af:setPropertyListener from="#{CorrespondenceBPMBean.dispcorrRel}" to="#{requestScope.sbmtRelValue}" type="action"/>
+                            </af:button>
+                            <af:button text="Add/View Remarks" id="remBtn" clientComponent="true" partialSubmit="true">
+                                <af:showPopupBehavior triggerType="click" popupId="remarksPopup"/>
+                                <!--<af:setPropertyListener from="#{row.propId}" to="#{pageFlowScope.propId}" type="action"/>-->
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    <af:panelHeader text="Qualification &amp; Conclusion" id="ph1" inlineStyle="font-weight:bold;">
+                        <!-- <af:outputText value="Qualification &amp; Conclusion" inlineStyle="font-weight:bold;" id="ot12"/>-->
+                        <af:panelHeader text="Qualification" id="ph3"
+                                        inlineStyle="font-weight:bold;background-color: #EEEEEE;"
+                                        styleClass="AMPBPMPanelHeader">
+                            <af:panelGroupLayout id="pgl4" layout="vertical">
+                                <af:listView value="#{bindings.qualifyQuestionnaireList.collectionModel}" var="item"
+                                             emptyText="#{bindings.qualifyQuestionnaireList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                             fetchSize="#{bindings.qualifyQuestionnaireList.rangeSize}" id="lv1">
+                                    <af:listItem id="li1">
+                                        <af:panelGridLayout id="pglqc2">
+                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                                <af:gridCell marginStart="5px" width="700px" id="gc1">
+                                                    <af:outputFormatted value="#{item.bindings.question.inputValue =='LegalEntity'?labels.QUALIFTN_QUES1:item.bindings.question.inputValue =='ClaimTimelyFiled'?labels.QUALIFTN_QUES2:item.bindings.question.inputValue =='TimeRequirementMet'?labels.QUALIFTN_QUES3:item.bindings.question.inputValue =='RelationshipApproved'?labels.QUALIFTN_QUES4:item.bindings.question.inputValue =='ClaimProvisionallyApproved'?labels.QUALIFTN_QUES5:item.bindings.question.inputValue}"
+                                                                        inlineStyle="padding-left:10px"
+                                                                        shortDesc="#{item.bindings.question.hints.tooltip}"
+                                                                        id="of1"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="500px" marginEnd="5px" id="gc2">
+                                                    <af:selectOneRadio value="#{item.bindings.answer.inputValue}"
+                                                                       required="#{bindings.answer.hints.mandatory}"
+                                                                       layout="horizontal"
+                                                                       shortDesc="#{bindings.answer.hints.tooltip}"
+                                                                       id="sor2">
+                                                        <f:selectItems value="#{bindings.propsQnrAnswersValPojo.items}"
+                                                                       id="si13"/>
+                                                    </af:selectOneRadio>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="200px" marginEnd="5px" id="gc24"></af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:listItem>
+                                </af:listView>
+                                <af:spacer width="10" height="10" id="s5"/>
+                                <af:outputFormatted value="Other Prop Filing" id="of9"
+                                                    inlineStyle="font-weight:bold;padding-right:120px"/>
+                                <af:spacer width="10" height="10" id="s6"/>
+                                <af:table value="#{bindings.otherPropList.collectionModel}" var="row"
+                                          inlineStyle="padding-bottom:5px;"
+                                          styleClass=" AFStretchWidth AMPLightWeightTable" columnStretching="last"
+                                          rows="#{bindings.otherPropList.rangeSize}" autoHeightRows="10"
+                                          rowBandingInterval="1" rowSelection="single" scrollPolicy="page"
+                                          emptyText="#{bindings.otherPropList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          fetchSize="#{bindings.otherPropList.rangeSize}" id="t2">
+                                    <af:column headerText="SSN/Tax ID Number" id="c1" align="center" width="180px">
+                                        <!--<af:outputText value="#{row.ssnTaxNumber}"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"
+                                                       shortDesc="#{bindings.otherPropList.hints.ssnTaxNumber.tooltip}"
+                                                      id="ot1"/>-->
+                                        <af:panelGroupLayout id="pgl1_1" layout="horizontal"
+                                                             rendered="#{(fn:length(row.ssnTaxNumber)>8) and !(fn:contains(row.ssnTaxNumber,'-'))}">
+                                            <af:outputFormatted value="#{fn:substring(row.ssnTaxNumber,0,3)}" id="of12"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            <af:outputFormatted value="-#{fn:substring(row.ssnTaxNumber,3,5)}" id="of6"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            <af:outputFormatted value="-#{fn:substring(row.ssnTaxNumber,5,9)}"
+                                                                id="of19"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl23" layout="horizontal"
+                                                             rendered="#{fn:contains(row.ssnTaxNumber,'-')}">
+                                            <af:outputFormatted value="#{row.ssnTaxNumber}" id="of20"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:panelGroupLayout>
+                                    </af:column>
+                                    <af:column headerText="Associated AIN" id="c2" align="center" width="180px">
+                                        <!--<af:outputText value="#{row.ain}" 
+                                                       shortDesc="#{bindings.otherPropList.hints.ain.tooltip}" id="ot2"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>-->
+                                        <af:panelGroupLayout id="pgl4_1" layout="horizontal"
+                                                             rendered="#{(fn:length(row.ain)>9) and !(fn:contains(row.ain,'-'))}">
+                                            <af:outputFormatted value="#{fn:substring(row.ain,0,4)}" id="of12_1"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            <af:outputFormatted value="-#{fn:substring(row.ain,4,7)}" id="of13"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            <af:outputFormatted value="-#{fn:substring(row.ain,7,10)}" id="of19_1"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl23_1" layout="horizontal"
+                                                             rendered="#{fn:contains(row.ain,'-')}">
+                                            <af:outputFormatted value="#{row.ain}" id="of20_1"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:panelGroupLayout>
+                                    </af:column>
+                                    <af:column headerText="Transfer Event Date" id="c3" align="center" width="180px">
+                                        <af:outputText value="#{row.transferEventDate}"
+                                                       shortDesc="#{bindings.otherPropList.hints.transferEventDate.tooltip}"
+                                                       id="ot3">
+                                            <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="Exclusion Amount" id="c4" align="center" width="180px">
+                                        <af:outputText value="#{row.exclusionAmount}"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;float:right"
+                                                       shortDesc="#{bindings.otherPropList.hints.exclusionAmount.tooltip}"
+                                                       id="ot4">
+                                           <af:convertNumber negativePrefix="$ -" minFractionDigits="2"
+                                                              pattern="$ ###,###,###,###.###;$ (###,###,###,###)"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="Claim Type" id="c5" align="center" width="180px">
+                                        <af:outputText value="#{row.claimType}"
+                                                       shortDesc="#{bindings.otherPropList.hints.claimType.tooltip}"
+                                                       id="ot5"
+                                                       />
+                                    </af:column>
+                                    <af:column headerText="Total Exclusion Amount" id="c6" align="center" width="180px">
+                                        <af:outputText value="#{row.totExclusionAmount}"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;float:right"
+                                                       shortDesc="#{bindings.otherPropList.hints.totExclusionAmount.tooltip}"
+                                                       id="ot6">
+                                            <af:convertNumber negativePrefix="$ -" minFractionDigits="2"
+                                                              pattern="$ ###,###,###,###.###;$ (###,###,###,###)"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="Claimant Name" id="c7" align="center" width="180px">
+                                        <af:outputText value="#{row.claimantFullName}"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"
+                                                       shortDesc="#{bindings.otherPropList.hints.claimantFullName.tooltip}"
+                                                       id="ot7"/>
+                                    </af:column>
+                                    <af:column headerText="Transferor" id="c8" align="center" width="180px">
+                                        <af:outputText value="#{row.transferorFullName}"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"
+                                                       shortDesc="#{bindings.otherPropList.hints.transferorFullName.tooltip}"
+                                                       id="ot8"/>
+                                    </af:column>
+                                    <af:column headerText="Claim Result" id="c9" align="center" width="180px">
+                                        <af:outputText value="#{row.claimResult}"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"
+                                                       shortDesc="#{bindings.otherPropList.hints.claimResult.tooltip}"
+                                                       id="ot9"/>
+                                    </af:column>
+                                    <af:column headerText="Claim Status" id="c10" align="center" width="180px">
+                                        <af:outputText value="#{row.claimStatus}"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"
+                                                       shortDesc="#{bindings.otherPropList.hints.claimStatus.tooltip}"
+                                                       id="ot10"/>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.otherPropList.hints.propsID.label}" id="c11"
+                                               align="center" width="180px" rendered="false">
+                                        <af:outputText value="#{row.propsID}"
+                                                       shortDesc="#{bindings.otherPropList.hints.propsID.tooltip}"
+                                                       id="ot11">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.otherPropList.hints.propsID.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.otherPropList.hints.wuid.label}" id="c13"
+                                               align="center" width="180px" rendered="false">
+                                        <af:outputText value="#{row.wuid}"
+                                                       shortDesc="#{bindings.otherPropList.hints.wuid.tooltip}"
+                                                       id="ot1">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.otherPropList.hints.wuid.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    
+                                    <af:column headerText="Associated Props" id="c12" align="center" width="180px">
+                                        <af:link text="View" id="lview1" clientComponent="true" partialSubmit="true"
+                                                 icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/expand-window.png"
+                                                 iconPosition="trailing">
+                                            <af:showPopupBehavior popupId="::propDetailsPopup" triggerType="click"/>
+                                            <af:setPropertyListener from="#{row.propsID}"
+                                                                    to="#{pageFlowScope.propsrowid}" type="action"/>
+                                            <af:setPropertyListener from="#{row.opfwuid}"
+                                                                    to="#{pageFlowScope.rwuid}" type="action"/>
+                                        </af:link>
+                                    </af:column>
+                                </af:table>
+                            </af:panelGroupLayout>
+                        </af:panelHeader>
+                        <af:panelHeader text="Conclusion" id="ph2" inlineStyle="font-weight:bold;"
+                                        styleClass="AMPBPMPanelHeader background-color: #EEEEEE;">
+                            <!--<af:panelGroupLayout id="pgl18" layout="vertical"
+                                                 >
+                                <af:panelGridLayout id="pgl33">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr7">
+                                        <af:gridCell marginStart="5px" width="15%" id="gc22">
+                                            <af:panelGroupLayout id="pgl16" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s20"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Claim Result" id="plam18"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.claimResult1.inputValue}"
+                                                                    required="#{bindings.claimResult1.hints.mandatory}"
+                                                                    simple="true"
+                                                                    shortDesc="#{bindings.claimResult1.hints.tooltip}"
+                                                                    id="soc1">
+                                                    <f:selectItems value="#{bindings.claimResult1.items}" id="si1"/>
+                                                    <f:validator binding="#{bindings.claimResult1.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc23">
+                                            <af:panelGroupLayout id="pgl5" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s7"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Type Of Approval" id="plam3"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.approvalType.inputValue}"
+                                                                    required="#{bindings.approvalType.hints.mandatory}"
+                                                                    autoSubmit="true"
+                                                                    shortDesc="#{bindings.approvalType.hints.tooltip}"
+                                                                    id="soc2"
+                                                                    valueChangeListener="#{propQualConclBean.onApprovalTypeValueChange}">
+                                                    <f:selectItems value="#{bindings.approvalType.items}" id="si12"/>
+                                                    <f:validator binding="#{bindings.approvalType.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="5%" id="gc3"
+                                                     rendered="#{pageFlowScope.PartialShow  == 'YES'}">
+                                            <af:panelGroupLayout id="pgl6" layout="vertical" partialTriggers="soc2">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s8"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="% Partial Interest Approved" id="plam4"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.partialInterestApproved.inputValue}"
+                                                              required="#{bindings.partialInterestApproved.hints.mandatory}"
+                                                              columns="#{bindings.partialInterestApproved.hints.displayWidth}"
+                                                              maximumLength="#{bindings.partialInterestApproved.hints.precision}"
+                                                              shortDesc="#{bindings.partialInterestApproved.hints.tooltip}"
+                                                              id="it6" placeholder="%">
+                                                    <f:validator binding="#{bindings.partialInterestApproved.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.partialInterestApproved.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc4">
+                                            <af:panelGroupLayout id="pgl7" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s9"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Date Of Transfer" id="plam5"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputDate value="#{bindings.transferDate.inputValue}"
+                                                              readOnly="true"
+                                                              required="#{bindings.transferDate.hints.mandatory}"
+                                                              columns="#{bindings.transferDate.hints.displayWidth}"
+                                                              shortDesc="#{bindings.transferDate.hints.tooltip}"
+                                                              id="id1">                                                   
+                                                    <f:validator binding="#{bindings.transferDate.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.transferDate.format}"/>
+                                                </af:inputDate>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc5">
+                                            <af:panelGroupLayout id="pgl8" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s10"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Effective Date of Relief" id="plam6"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputDate value="#{bindings.reliefDate.inputValue}"
+                                                              required="#{bindings.reliefDate.hints.mandatory}"
+                                                              columns="#{bindings.reliefDate.hints.displayWidth}"
+                                                              shortDesc="#{bindings.reliefDate.hints.tooltip}" id="id2">
+                                                    <f:validator binding="#{bindings.reliefDate.validator}"/>
+                                                    <af:convertDateTime pattern="#{bindings.reliefDate.format}"/>
+                                                </af:inputDate>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc6">
+                                            <af:panelGroupLayout id="pgl9" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s11"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Relief Type" id="plam7"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.reliefType.inputValue}"
+                                                                    required="#{bindings.reliefType.hints.mandatory}"
+                                                                    shortDesc="#{bindings.reliefType.hints.tooltip}"
+                                                                    id="soc3">
+                                                    <f:selectItems value="#{bindings.reliefType.items}" id="si3"/>
+                                                    <f:validator binding="#{bindings.reliefType.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="9%" marginEnd="5px" id="gc7">
+                                            <af:panelGroupLayout id="pgl10" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s12"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Exclusion Amount" id="plam8"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.exclusionAmount.inputValue}"
+                                                              contentStyle="width:140px" placeholder="$"
+                                                              required="#{bindings.exclusionAmount.hints.mandatory}"
+                                                              columns="#{bindings.exclusionAmount.hints.displayWidth}"
+                                                              maximumLength="#{bindings.exclusionAmount.hints.precision}"
+                                                              shortDesc="#{bindings.exclusionAmount.hints.tooltip}"
+                                                              id="it1">
+                                                    <f:validator binding="#{bindings.exclusionAmount.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.exclusionAmount.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                                        <af:gridCell marginStart="5px" width="15%" id="gc8">
+                                            <af:panelGroupLayout id="pgl11" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s13"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Transfer Status" id="plam9"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.transferStatus.inputValue}"
+                                                                    required="#{bindings.transferStatus.hints.mandatory}"
+                                                                    shortDesc="#{bindings.transferStatus.hints.tooltip}"
+                                                                    id="soc4">
+                                                    <f:selectItems value="#{bindings.transferStatus.items}" id="si4"/>
+                                                    <f:validator binding="#{bindings.transferStatus.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc9">
+                                            <af:panelGroupLayout id="pgl13" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s14"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Land FBV" id="plam10"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.landFBV.inputValue}"
+                                                              contentStyle="width:140px" autoSubmit="true"
+                                                              required="#{bindings.landFBV.hints.mandatory}"
+                                                              columns="#{bindings.landFBV.hints.displayWidth}"
+                                                              maximumLength="#{bindings.landFBV.hints.precision}"
+                                                              shortDesc="#{bindings.landFBV.hints.tooltip}" id="it2"
+                                                              binding="#{propQualConclBean.landFBV}" simple="true" placeholder="$"
+                                                              valueChangeListener="#{propQualConclBean.calculateTotalonLandFBV}">
+                                                    <f:validator binding="#{bindings.landFBV.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.landFBV.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc10">
+                                            <af:panelGroupLayout id="pgl14" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s15"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Imp FBV" id="plam11"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.impFBV.inputValue}"
+                                                              contentStyle="width:140px" autoSubmit="true"
+                                                              required="#{bindings.impFBV.hints.mandatory}"
+                                                              columns="#{bindings.impFBV.hints.displayWidth}"
+                                                              maximumLength="#{bindings.impFBV.hints.precision}"
+                                                              shortDesc="#{bindings.impFBV.hints.tooltip}" id="it3"
+                                                              binding="#{propQualConclBean.impFBV}" simple="true" placeholder="$"
+                                                              valueChangeListener="#{propQualConclBean.calculateTotalOnImpFBV}">
+                                                    <f:validator binding="#{bindings.impFBV.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.impFBV.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc11">
+                                            <af:panelGroupLayout id="pgl15" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s16"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Total FBV" id="plam12"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.totalFBV.inputValue}" readOnly="true"
+                                                              contentStyle="width:140px" placeholder="$"
+                                                              required="#{bindings.totalFBV.hints.mandatory}"
+                                                              columns="#{bindings.totalFBV.hints.displayWidth}"
+                                                              maximumLength="#{bindings.totalFBV.hints.precision}"
+                                                              shortDesc="#{bindings.totalFBV.hints.tooltip}" id="it4"
+                                                              partialTriggers="it2 it3">
+                                                    <f:validator binding="#{bindings.totalFBV.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.totalFBV.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc12">
+                                            <af:panelGroupLayout id="pgl17" layout="horizontal">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s17"/>
+                                                </f:facet>
+                                                <af:selectBooleanCheckbox value="#{bindings.valuationFlag.inputValue}"
+                                                                          shortDesc="#{bindings.valuationFlag.hints.tooltip}"
+                                                                          id="sbc1"/>
+                                                <af:panelLabelAndMessage label="Flag for Valuation" id="plam13"
+                                                                         labelStyle="vertical-align: top;"/>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" id="gc13"></af:gridCell>
+                                        <af:gridCell marginStart="5px" width="14%" marginEnd="5px" id="gc14"></af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                                <af:panelGroupLayout id="pgl19" layout="vertical">
+                                    <f:facet name="separator">
+                                        <af:spacer height="5px" id="s18"/>
+                                    </f:facet>
+                                    <af:panelLabelAndMessage label="Valuation Instructions" id="plam14"
+                                                             labelStyle="vertical-align: top;"/>
+                                    <af:inputText value="#{bindings.valuationInstructions.inputValue}" simple="true"
+                                                  required="#{bindings.valuationInstructions.hints.mandatory}"
+                                                  columns="70" rows="4"
+                                                  maximumLength="#{bindings.valuationInstructions.hints.precision}"
+                                                  shortDesc="#{bindings.valuationInstructions.hints.tooltip}" id="it5">
+                                        <f:validator binding="#{bindings.valuationInstructions.validator}"/>
+                                    </af:inputText>
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                            
+                            <af:panelGridLayout id="pgl20" rendered="#{bindings.claimResult.inputValue eq 'Denied'}">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3">
+                                    <af:gridCell marginStart="5px" width="30%" id="gc15">
+                                        <af:panelGroupLayout id="pgl25" layout="vertical">
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s19"/>
+                                            </f:facet>
+                                            <af:panelLabelAndMessage label="Claim result" id="plam15"
+                                                                     labelStyle="vertical-align: top;"/>
+                                            <af:selectOneChoice value="#{bindings.claimResult1.inputValue}"
+                                                                required="#{bindings.claimResult1.hints.mandatory}"
+                                                                shortDesc="#{bindings.claimResult1.hints.tooltip}"
+                                                                id="soc5">
+                                                <f:selectItems value="#{bindings.claimResult1.items}" id="si5"/>
+                                                <f:validator binding="#{bindings.claimResult1.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc16">
+                                        <af:panelGroupLayout id="pgl26" layout="vertical">
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s21"/>
+                                            </f:facet>
+                                            <af:panelLabelAndMessage label="Reason For Denial" id="plam16"
+                                                                     labelStyle="vertical-align: top;"/>
+                                            <af:selectOneChoice value="#{bindings.reason2.inputValue}"
+                                                                required="#{bindings.reason2.hints.mandatory}"
+                                                                shortDesc="#{bindings.reason2.hints.tooltip}" id="soc6">
+                                                <f:selectItems value="#{bindings.reason2.items}" id="si6"/>
+                                                <f:validator binding="#{bindings.reason2.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="40%" marginEnd="5px" id="gc25"></af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                           
+                            <af:panelGridLayout id="pgl21"
+                                                rendered="#{bindings.claimResult.inputValue eq 'Claim Not Required'}">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                                    <af:gridCell marginStart="5px" width="30%" id="gc17">
+                                        <af:panelGroupLayout id="pgl24" layout="vertical">
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s22"/>
+                                            </f:facet>
+                                            <af:panelLabelAndMessage label="Claim Result" id="plam17"
+                                                                     labelStyle="vertical-align: top;"/>
+                                            <af:selectOneChoice value="#{bindings.claimResult1.inputValue}"
+                                                                required="#{bindings.claimResult1.hints.mandatory}"
+                                                                shortDesc="#{bindings.claimResult1.hints.tooltip}"
+                                                                id="soc11">
+                                                <f:selectItems value="#{bindings.claimResult1.items}" id="si11"/>
+                                                <f:validator binding="#{bindings.claimResult1.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc18">
+                                        <af:panelGroupLayout id="pgl27" layout="vertical">
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s23"/>
+                                            </f:facet>
+                                            <af:panelLabelAndMessage label="Not required Reason" id="plam19"
+                                                                     labelStyle="vertical-align: top;"/>
+                                            <af:selectOneChoice value="#{bindings.reason1.inputValue}"
+                                                                required="#{bindings.reason1.hints.mandatory}"
+                                                                shortDesc="#{bindings.reason1.hints.tooltip}" id="soc7">
+                                                <f:selectItems value="#{bindings.reason1.items}" id="si7"/>
+                                                <f:validator binding="#{bindings.reason1.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="40%" marginEnd="5px" id="gc27"></af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                            
+                            <af:panelGridLayout id="pgl22" rendered="#{bindings.claimResult.inputValue eq 'Cancelled'}">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                    <af:gridCell marginStart="5px" width="30%" id="gc19">
+                                        <af:panelGroupLayout id="pgl28" layout="vertical">
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s24"/>
+                                            </f:facet>
+                                            <af:panelLabelAndMessage label="Claim result" id="plam20"
+                                                                     labelStyle="vertical-align: top;"/>
+                                            <af:selectOneChoice value="#{bindings.claimResult1.inputValue}"
+                                                                required="#{bindings.claimResult1.hints.mandatory}"
+                                                                shortDesc="#{bindings.claimResult1.hints.tooltip}"
+                                                                id="soc8">
+                                                <f:selectItems value="#{bindings.claimResult1.items}" id="si8"/>
+                                                <f:validator binding="#{bindings.claimResult1.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc20">
+                                        <af:panelGroupLayout id="pgl29" layout="vertical">
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s25"/>
+                                            </f:facet>
+                                            <af:panelLabelAndMessage label="Claim Cancellation Reason" id="plam21"
+                                                                     labelStyle="vertical-align: top;"/>
+                                            <af:selectOneChoice value="#{bindings.reason.inputValue}"
+                                                                required="#{bindings.reason.hints.mandatory}"
+                                                                shortDesc="#{bindings.reason.hints.tooltip}" id="soc9">
+                                                <f:selectItems value="#{bindings.reason.items}" id="si9"/>
+                                                <f:validator binding="#{bindings.reason.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="40%" marginEnd="5px" id="gc26"></af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                            
+                            <af:panelGridLayout id="pgl23" rendered="#{bindings.claimResult.inputValue eq 'Pending'}">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr6">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc21">
+                                        <af:panelGroupLayout id="pgl30" layout="vertical">
+                                            <f:facet name="separator">
+                                                <af:spacer height="5px" id="s26"/>
+                                            </f:facet>
+                                            <af:panelLabelAndMessage label="Claim result" id="plam22"
+                                                                     labelStyle="vertical-align: top;"/>
+                                            <af:selectOneChoice value="#{bindings.claimResult1.inputValue}"
+                                                                required="#{bindings.claimResult1.hints.mandatory}"
+                                                                shortDesc="#{bindings.claimResult1.hints.tooltip}"
+                                                                id="soc10">
+                                                <f:selectItems value="#{bindings.claimResult1.items}" id="si10"/>
+                                                <f:validator binding="#{bindings.claimResult1.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>-->
+                            <af:panelGroupLayout id="pgl16" layout="vertical" partialTriggers="soc1">
+                                <af:panelGridLayout id="pgl20" partialTriggers="soc1 soc2">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="10px" id="gr3">
+                                        <af:gridCell marginStart="5px" width="auto" id="gc15">
+                                            <af:panelGroupLayout id="pgl25" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s19"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Claim Result" id="plam15"
+                                                                         showRequired="true"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.claimResult1.inputValue}"
+                                                                    unselectedLabel="-Select-" immediate="true"
+                                                                    shortDesc="#{bindings.claimResult1.hints.tooltip}"
+                                                                    id="soc1" autoSubmit="true" simple="true" required="true"
+                                                                    valueChangeListener="#{propQualConclBean.onClaimResultValChange}"
+                                                                    binding="#{propQualConclBean.claimResultBind}"
+                                                                    label="Claim Result">
+                                                    <f:selectItems value="#{bindings.claimResult1.items}" id="si1"/>
+                                                    <f:validator binding="#{bindings.claimResult1.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc16">
+                                            <af:panelGroupLayout id="pgl5" layout="vertical"
+                                                                 rendered="#{pageFlowScope.claimResult== 'Approved'}">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s7"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Type Of Approval" id="plam3"
+                                                                         showRequired="true"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.approvalType.inputValue}"
+                                                                    unselectedLabel="-Select-" autoSubmit="true"
+                                                                    shortDesc="#{bindings.approvalType.hints.tooltip}"
+                                                                    id="soc2" simple="true" required="true" 
+                                                                    valueChangeListener="#{propQualConclBean.onApprovalTypeValueChange}"
+                                                                    binding="#{propQualConclBean.typeApprovalBind}"
+                                                                    label="Type Of Approval">
+                                                    <f:selectItems value="#{bindings.approvalType.items}" id="si12"/>
+                                                    <f:validator binding="#{bindings.approvalType.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                            <af:panelGroupLayout id="pgl26" layout="vertical"
+                                                                 rendered="#{pageFlowScope.claimResult== 'Denied'}"
+                                                                 partialTriggers="soc1">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s21"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Reason For Denial" id="plam16"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.reason2.inputValue}"
+                                                                    unselectedLabel="-Select-"
+                                                                    required="#{bindings.reason2.hints.mandatory}"
+                                                                    shortDesc="#{bindings.reason2.hints.tooltip}"
+                                                                    id="soc6">
+                                                    <f:selectItems value="#{bindings.reason2.items}" id="si6"/>
+                                                    <f:validator binding="#{bindings.reason2.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                            <af:panelGroupLayout id="pgl27" layout="vertical"
+                                                                 rendered="#{pageFlowScope.claimResult == 'Claim Not Required'}"
+                                                                 partialTriggers="soc1">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s23"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Not required Reason" id="plam19"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.reason1.inputValue}"
+                                                                    unselectedLabel="-Select-"
+                                                                    required="#{bindings.reason1.hints.mandatory}"
+                                                                    shortDesc="#{bindings.reason1.hints.tooltip}"
+                                                                    id="soc7">
+                                                    <f:selectItems value="#{bindings.reason1.items}" id="si7"/>
+                                                    <f:validator binding="#{bindings.reason1.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                            <af:panelGroupLayout id="pgl29" layout="vertical"
+                                                                 rendered="#{pageFlowScope.claimResult  == 'Cancelled'}"
+                                                                 partialTriggers="soc1">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s25"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Claim Cancellation Reason" id="plam21"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.reason.inputValue}"
+                                                                    unselectedLabel="-Select-"
+                                                                    required="#{bindings.reason.hints.mandatory}"
+                                                                    shortDesc="#{bindings.reason.hints.tooltip}"
+                                                                    id="soc9">
+                                                    <f:selectItems value="#{bindings.reason.items}" id="si9"/>
+                                                    <f:validator binding="#{bindings.reason.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" id="gc3"
+                                                     rendered="#{pageFlowScope.PartialShow  == 'YES'}">
+                                            <af:panelGroupLayout id="pgl6" layout="vertical"
+                                                                 partialTriggers="soc2 soc1">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s8"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="% Partial Interest Approved" id="plam4"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.partialInterestApproved.inputValue}"
+                                                              required="#{bindings.partialInterestApproved.hints.mandatory}"
+                                                              columns="#{bindings.partialInterestApproved.hints.displayWidth}"
+                                                              maximumLength="#{bindings.partialInterestApproved.hints.precision}"
+                                                              shortDesc="#{bindings.partialInterestApproved.hints.tooltip}"
+                                                              id="it6" placeholder="%"
+                                                              binding="#{propQualConclBean.partialInterest}">
+                                                    <f:validator binding="#{bindings.partialInterestApproved.validator}"/>
+                                                    <af:convertNumber groupingUsed="true" type="number"  maxIntegerDigits="2"
+                                                                                   minIntegerDigits="1"  maxFractionDigits="4"
+                                                                                  messageDetailConvertPercent="Enter valid percentage value"
+                                                                                   pattern="##.####"
+                                                                                   roundingMode="DOWN"/>   
+                                                                                   <f:validator validatorId="PercentValidator"/>
+                                                    <f:attribute name="minVal" value="0.0001"/>
+                                                    <f:attribute name="maxVal" value="99.9999"/>
+                                                    <f:attribute name="errMsg" value="Percentage value should be greater than 0 and less than 100 and can contain only 4 decimal digits."/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" id="gc4"
+                                                     rendered="#{pageFlowScope.claimResult== 'Approved'}">
+                                            <af:panelGroupLayout id="pgl7" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s9"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Date Of Transfer" id="plam5"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputDate value="#{bindings.transferDate.inputValue}"
+                                                              disabled="true" 
+                                                              required="#{bindings.transferDate.hints.mandatory}"
+                                                              columns="#{bindings.transferDate.hints.displayWidth}"
+                                                              shortDesc="#{bindings.transferDate.hints.tooltip}"
+                                                              id="id1" binding="#{propQualConclBean.transferDate}">
+                                                    <f:validator binding="#{bindings.transferDate.validator}"/>
+                                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                </af:inputDate>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" id="gc5"
+                                                     rendered="#{pageFlowScope.claimResult== 'Approved'}">
+                                            <af:panelGroupLayout id="pgl8" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s10"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Effective Date of Relief" id="plam6"
+                                                                         showRequired="true"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputDate value="#{bindings.reliefDate.inputValue}"
+                                                              columns="#{bindings.reliefDate.hints.displayWidth}" simple="true" required="true"
+                                                              shortDesc="#{bindings.reliefDate.hints.tooltip}" id="id2"
+                                                              binding="#{propQualConclBean.reliefDateBind}"
+                                                              label="Effective Date of Relief">
+                                                    <f:validator binding="#{bindings.reliefDate.validator}"/>
+                                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                </af:inputDate>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" id="gc6"
+                                                     rendered="#{pageFlowScope.claimResult== 'Approved'}">
+                                            <af:panelGroupLayout id="pgl9" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s11"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Relief Type" id="plam7"
+                                                                         showRequired="true"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.reliefType.inputValue}"
+                                                                    unselectedLabel="-Select-"
+                                                                    shortDesc="#{bindings.reliefType.hints.tooltip}"
+                                                                    id="soc3" simple="true" required="true"
+                                                                    binding="#{propQualConclBean.reliefTypeBind}"
+                                                                    label="Relief Type">
+                                                    <f:selectItems value="#{bindings.reliefType.items}" id="si3"/>
+                                                    <f:validator binding="#{bindings.reliefType.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" marginEnd="5px" id="gc7"
+                                                     rendered="#{pageFlowScope.claimResult== 'Approved'}">
+                                            <af:panelGroupLayout id="pgl10" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s12"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Exclusion Amount" id="plam81"
+                                                                         showRequired="true"
+                                                                         rendered="#{bindings.claimType.inputValue == '58'}"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:panelLabelAndMessage label="Exclusion Amount(Direct Descendent)"
+                                                                         id="plam8" showRequired="true" 
+                                                                         rendered="#{bindings.claimType.inputValue == '193'}"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.exclusionAmount.inputValue}"
+                                                              contentStyle="width:140px" placeholder="$"
+                                                              columns="#{bindings.exclusionAmount.hints.displayWidth}"
+                                                              maximumLength="#{bindings.exclusionAmount.hints.precision}"
+                                                              shortDesc="#{bindings.exclusionAmount.hints.tooltip}"
+                                                              id="it1" simple="true" required="true"
+                                                              binding="#{propQualConclBean.exclusionAmountBind}"
+                                                              label="Exclusion Amount">
+                                                    <f:validator binding="#{bindings.exclusionAmount.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.exclusionAmount.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <!--<af:gridCell marginStart="5px" width="40%" marginEnd="5px" id="gc25"></af:gridCell>-->
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="10px" id="gr2"
+                                                rendered="#{pageFlowScope.claimResult== 'Approved'}">
+                                        <af:gridCell marginStart="5px" width="auto" id="gc8">
+                                            <af:panelGroupLayout id="pgl11" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s13"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Transfer Status" id="plam9"
+                                                                         showRequired="true"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:selectOneChoice value="#{bindings.transferStatus.inputValue}"
+                                                                    unselectedLabel="-Select-"
+                                                                    shortDesc="#{bindings.transferStatus.hints.tooltip}"
+                                                                    id="soc4" simple="true" required="true"
+                                                                    binding="#{propQualConclBean.transferStatusBind}"
+                                                                    label="Transfer Status">
+                                                    <f:selectItems value="#{bindings.transferStatus.items}" id="si4"/>
+                                                    <f:validator binding="#{bindings.transferStatus.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" id="gc9">
+                                            <af:panelGroupLayout id="pgl13" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s14"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Land FBV" id="plam10"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.landFBV.inputValue}"
+                                                              contentStyle="width:140px" autoSubmit="true"
+                                                              required="#{bindings.landFBV.hints.mandatory}"
+                                                              columns="#{bindings.landFBV.hints.displayWidth}"
+                                                              maximumLength="#{bindings.landFBV.hints.precision}"
+                                                              shortDesc="#{bindings.landFBV.hints.tooltip}" id="it2"
+                                                              binding="#{propQualConclBean.landFBV}" simple="true"
+                                                              placeholder="$0"
+                                                              valueChangeListener="#{propQualConclBean.calculateTotalonLandFBV}">
+                                                    <f:validator binding="#{bindings.landFBV.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.landFBV.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" id="gc10">
+                                            <af:panelGroupLayout id="pgl14" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s15"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Imp FBV" id="plam11"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.impFBV.inputValue}"
+                                                              contentStyle="width:140px" autoSubmit="true"
+                                                              required="#{bindings.impFBV.hints.mandatory}"
+                                                              columns="#{bindings.impFBV.hints.displayWidth}"
+                                                              maximumLength="#{bindings.impFBV.hints.precision}"
+                                                              shortDesc="#{bindings.impFBV.hints.tooltip}" id="it3"
+                                                              binding="#{propQualConclBean.impFBV}" simple="true"
+                                                              placeholder="$0"
+                                                              valueChangeListener="#{propQualConclBean.calculateTotalOnImpFBV}">
+                                                    <f:validator binding="#{bindings.impFBV.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.impFBV.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" id="gc11">
+                                            <af:panelGroupLayout id="pgl15" layout="vertical">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s16"/>
+                                                </f:facet>
+                                                <af:panelLabelAndMessage label="Total FBV" id="plam12"
+                                                                         labelStyle="vertical-align: top;"/>
+                                                <af:inputText value="#{bindings.totalFBV.inputValue}" disabled="true"
+                                                              contentStyle="width:140px" placeholder="$"
+                                                              required="#{bindings.totalFBV.hints.mandatory}"
+                                                              columns="#{bindings.totalFBV.hints.displayWidth}"
+                                                              maximumLength="#{bindings.totalFBV.hints.precision}"
+                                                              shortDesc="#{bindings.totalFBV.hints.tooltip}" id="it4"
+                                                              partialTriggers="it2 it3"
+                                                              binding="#{propQualConclBean.totalFBV}">
+                                                    <f:validator binding="#{bindings.totalFBV.validator}"/>
+                                                    <af:convertNumber groupingUsed="false"
+                                                                      pattern="#{bindings.totalFBV.format}"/>
+                                                </af:inputText>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="auto" id="gc12" valign="bottom">
+                                            <af:panelGroupLayout id="pgl17" layout="horizontal">
+                                                <f:facet name="separator">
+                                                    <af:spacer height="5px" id="s17"/>
+                                                </f:facet>
+                                                <af:selectBooleanCheckbox value="#{bindings.valuationFlag.inputValue}"
+                                                                          shortDesc="#{bindings.valuationFlag.hints.tooltip}"
+                                                                          id="sbc1"
+                                                                          binding="#{propQualConclBean.valFlag}"/>
+                                                <af:panelLabelAndMessage label="Flag for Valuation" id="plam13"
+                                                                         labelStyle="vertical-align: top;"/>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                                <af:panelGroupLayout id="pgl19" layout="vertical"
+                                                     rendered="#{pageFlowScope.claimResult== 'Approved'}"
+                                                     partialTriggers="soc1">
+                                    <f:facet name="separator">
+                                        <af:spacer height="5px" id="s18"/>
+                                    </f:facet>
+                                    <af:panelLabelAndMessage label="Valuation Instructions" id="plam14"
+                                                             labelStyle="vertical-align: top;"/>
+                                    <af:inputText value="#{bindings.valuationInstructions.inputValue}" simple="true"
+                                                  required="#{bindings.valuationInstructions.hints.mandatory}"
+                                                  columns="70" rows="4" spellCheck="on" maximumLength="1000"
+                                                  shortDesc="#{bindings.valuationInstructions.hints.tooltip}" id="it5"
+                                                  binding="#{propQualConclBean.valInstructions}">
+                                        <f:validator binding="#{bindings.valuationInstructions.validator}"/>
+                                    </af:inputText>
+                                </af:panelGroupLayout>
+                            </af:panelGroupLayout>
+                        </af:panelHeader>
+                    </af:panelHeader>
+                    <af:spacer width="10" height="10" id="s1"/>
+                    <af:button text="Add/View Remarks" id="remBtn2" clientComponent="true" partialSubmit="true">
+                        <af:showPopupBehavior triggerType="click" popupId="remarksPopup"/>
+                        <!--<af:setPropertyListener from="#{row.propId}" to="#{pageFlowScope.propId}" type="action"/>-->
+                    </af:button>
+                    <af:spacer width="10" height="10" id="s3"/>
+                    <af:region value="#{bindings.ampownershipcorrectionsbtf1.regionModel}" id="own_r11"/>
+                    <af:popup id="remarksPopup" autoCancel="disabled" launcherVar="source"
+                              contentDelivery="lazyUncached" eventContext="launcher" childCreation="immediate"
+                              partialTriggers="t1">
+                        <af:dialog id="d2" resize="on" stretchChildren="first" title=" Add/View Remarks"
+                                   closeIconVisible="true" type="ok" modal="true" styleClass="AMPReadOnlyDialog"
+                                   contentWidth="1030" contentHeight="600" affirmativeTextAndAccessKey="Done">
+                            <af:panelGroupLayout id="pgl41" layout="scroll">
+                                <af:region value="#{bindings.ampremarksbtf1.regionModel}" id="r2"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+                    <af:popup id="propDetailsPopup" autoCancel="disabled" launcherVar="source"
+                              contentDelivery="lazyUncached" eventContext="launcher" childCreation="immediate">
+                        <af:dialog id="dprop2" resize="on" stretchChildren="first" title=" Prop Details"
+                                   closeIconVisible="true" type="ok" modal="true" styleClass="AMPReadOnlyDialog"
+                                   contentWidth="1350" contentHeight="600" affirmativeTextAndAccessKey="Done">
+                            <!--<af:outputFormatted value="#{pageFlowScope.wuid}" id="of6"/>
+                             <af:outputFormatted value="#{pageFlowScope.propsrowid}" id="of6_del"/>-->
+                            <af:panelGroupLayout id="pglp41" layout="scroll">
+                                <!--<af:region value="#{bindings.amppropsdetailsbtf1.regionModel}" id="r3"/>-->
+                                <af:region value="#{bindings.amppropsdetailsbtf2.regionModel}" id="r1"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+                    <af:popup id="correspondencePopUP" autoCancel="disabled" contentDelivery="lazyUncached"
+                              childCreation="immediate" binding="#{CorrespondenceBPMBean.correspondencePopUp1}">
+                        <af:dialog id="dialcorres" resize="on" stretchChildren="first" title="Correspondence"
+                                   closeIconVisible="true" type="none" modal="true" styleClass="AMPReadOnlyDialog"
+                                   contentWidth="1300" contentHeight="600">
+                            <af:panelGroupLayout id="pgl51" layout="scroll">
+                                <af:region value="#{bindings.ampbpmcorrespondencebtf1.regionModel}" id="r4444"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+                    <af:panelStretchLayout id="psl1" topHeight="0px" endWidth="300px"
+                                           styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-5"
+                                           bottomHeight="0px" startWidth="100px">
+                        <f:facet name="start">
+                            <af:panelGroupLayout id="pgl31" layout="horizontal" halign="start"
+                                                 styleClass="padding-top-5">
+                                <af:button text="Back" partialSubmit="true" id="b5" action="back"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="end">
+                            <af:panelGroupLayout id="pgl35" layout="horizontal" halign="end" styleClass="padding-top-5">
+                                <f:facet name="separator">
+                                    <af:spacer width="10" id="s27"/>
+                                </f:facet>
+                                <af:button text="Save" id="b4" shortDesc="Save" action="#{propQualConclBean.onSave}" actionListener="#{propQualConclBean.validateConclusion}"></af:button>
+                                <af:button text="Next" id="b3" shortDesc="Next"
+                                           action="#{propQualConclBean.validateOnNext}" partialSubmit="true"
+                                           actionListener="#{propQualConclBean.validateConclusion}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </af:panelGroupLayout>
+                <!-- Dont remove these buttons -->
+                <af:button actionListener="#{invokeActionBean.setOperation}"
+                           text="#{wf:getResourceValue('SubmitForCorrespondenceApproval', 'bindings.customActions')}"
+                           disabled="#{!bindings.SubmitForCorrespondenceApproval.enabled}"
+                           action="#{invokeActionBean.invokeOperation}" partialSubmit="false" visible="false" id="b22"
+                           binding="#{CorrespondenceBPMBean.submitForCorrespondenceApproval}">
+                    <f:attribute name="DC_OPERATION_BINDING" value="bindings.SubmitForCorrespondenceApproval"/>
+                </af:button>
+                <af:button actionListener="#{invokeActionBean.setOperation}"
+                           text="#{wf:getResourceValue('SubmitForCorrespondenceRelease', 'bindings.customActions')}"
+                           disabled="#{!bindings.SubmitForCorrespondenceRelease.enabled}"
+                           action="#{invokeActionBean.invokeOperation}" partialSubmit="false" visible="false" id="b32"
+                           binding="#{CorrespondenceBPMBean.submitForCorrespondenceRelease}">
+                    <f:attribute name="DC_OPERATION_BINDING" value="bindings.SubmitForCorrespondenceRelease"/>
+                </af:button>
+                <af:button text="Cancel" visible="false" id="bclose1" action="closeTaskFlow"
+                           binding="#{CorrespondenceBPMBean.closeBtn}"/>
+                <!-- Dont remove these buttons -->
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

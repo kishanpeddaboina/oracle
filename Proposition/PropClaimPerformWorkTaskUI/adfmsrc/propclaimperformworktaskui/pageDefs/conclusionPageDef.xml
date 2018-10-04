@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="conclusionPageDef"
+                Package="propclaimperformworktaskui.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PropsDC" id="PropsDCIterator"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsPojo" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsPojo" id="propsPojoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="conclusion" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsConclusionPojo" id="conclusionIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="conclusionIterator" id="claimResult">
+      <AttrNames>
+        <Item Value="claimResult"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="reason">
+      <AttrNames>
+        <Item Value="reason"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="approvalType">
+      <AttrNames>
+        <Item Value="approvalType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="transferDate">
+      <AttrNames>
+        <Item Value="transferDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="reliefDate">
+      <AttrNames>
+        <Item Value="reliefDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="reliefType">
+      <AttrNames>
+        <Item Value="reliefType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="exclusionAmount">
+      <AttrNames>
+        <Item Value="exclusionAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="transferStatus">
+      <AttrNames>
+        <Item Value="transferStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="landFBV">
+      <AttrNames>
+        <Item Value="landFBV"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="impFBV">
+      <AttrNames>
+        <Item Value="impFBV"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="totalFBV">
+      <AttrNames>
+        <Item Value="totalFBV"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="valuationFlag">
+      <AttrNames>
+        <Item Value="valuationFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="valuationInstructions">
+      <AttrNames>
+        <Item Value="valuationInstructions"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="claimReceivedDate">
+      <AttrNames>
+        <Item Value="claimReceivedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="claimCompletionDate">
+      <AttrNames>
+        <Item Value="claimCompletionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="completedBy">
+      <AttrNames>
+        <Item Value="completedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="claimSignedDate">
+      <AttrNames>
+        <Item Value="claimSignedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="claimApprovalDate">
+      <AttrNames>
+        <Item Value="claimApprovalDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="notificationDate">
+      <AttrNames>
+        <Item Value="notificationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="notificationMethod">
+      <AttrNames>
+        <Item Value="notificationMethod"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="assignedTo">
+      <AttrNames>
+        <Item Value="assignedTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="partialInterestApproved">
+      <AttrNames>
+        <Item Value="partialInterestApproved"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

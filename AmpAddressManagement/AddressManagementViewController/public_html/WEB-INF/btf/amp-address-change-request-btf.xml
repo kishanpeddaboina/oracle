@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-address-change-request-btf">
+    <default-activity>initilize</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__11">
+      <name>primaryAin</name>
+      <value>#{pageFlowScope.primaryAin}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__12">
+      <name>pageNav</name>
+      <value>#{pageFlowScope.pageNav}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__3">
+      <managed-bean-name>OnlineAddressChgReqBean</managed-bean-name>
+      <managed-bean-class>gov.laca.amp.modules.am.backing.OnlineAddressChgReqBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="amp-address-change-request">
+      <page>/am/amp-address-change-request-btf/amp-address-change-request.jsff</page>
+    </view>
+    <task-flow-call id="FindAIN">
+      <task-flow-reference>
+        <document>/WEB-INF/btf/FindAIN.xml</document>
+        <id>FindAIN</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <method-call id="initilize">
+      <method>#{OnlineAddressChgReqBean.initilize}</method>
+      <outcome>
+        <fixed-outcome>refreshIterator</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="amp-address-change-confirmation">
+      <page>/am/amp-address-change-request-btf/amp-address-change-confirmation.jsff</page>
+    </view>
+    <method-call id="fetchAccessLink">
+      <method>#{OnlineAddressChgReqBean.accessLink}</method>
+      <outcome>
+        <fixed-outcome>continue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>amp-address-change-request</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>findAIN</from-outcome>
+        <to-activity-id>FindAIN</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>confirm</from-outcome>
+        <to-activity-id>fetchAccessLink</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>initilize</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>refreshIterator</from-outcome>
+        <to-activity-id>amp-address-change-request</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>amp-address-change-confirmation</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>initilize</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>fetchAccessLink</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>continue</from-outcome>
+        <to-activity-id>amp-address-change-confirmation</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskBO" xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/Data/SortPDCRBO">
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/Data/PDCRHumanTaskBO" schemaLocation="../businessCatalog/Data/PDCRHumanTaskBO.xsd"/>
+   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/Data/SortPDCRBO" schemaLocation="../businessCatalog/Data/SortPDCRBO.xsd"/>
+   <complexType name="ReviewPropertyDataChangeRequestTaskPayloadType">
+      <sequence>
+         <element ref="ns0:PDCRHumanTaskBO"/>
+         <element ref="ns1:SortPDCRBO"/>
+      </sequence>
+   </complexType>
+</schema>

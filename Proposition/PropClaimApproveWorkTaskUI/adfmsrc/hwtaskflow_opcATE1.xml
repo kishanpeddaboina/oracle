@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<hwTaskFlows xmlns="http://xmlns.oracle.com/bpel/workflow/hwTaskFlowProperties">
+   <ApplicationName>worklist</ApplicationName>
+   <LookupType>LOCAL</LookupType>
+   <TaskFlowDeploy>false</TaskFlowDeploy>
+   <TaskFlowServer>
+      <hostName>campwtt101.assessor.lacounty.gov</hostName>
+      <httpPort>7778</httpPort>
+      <httpsPort/>
+   </TaskFlowServer>
+<hwTaskFlow><WorkflowName>PropClaimApproveWorkTask</WorkflowName><TaskDefinitionNamespace>http://xmlns.oracle.com/AMPBPM/AMPProposition/PropClaimApproveWorkTask</TaskDefinitionNamespace><TaskFlowId>PropClaimApproveWorkTask_TaskFlow</TaskFlowId><TaskFlowFileName>WEB-INF/PropClaimApproveWorkTask_TaskFlow.xml</TaskFlowFileName></hwTaskFlow>
+<hwTaskFlow><WorkflowName>PropCorrApproveWorkTask</WorkflowName><TaskDefinitionNamespace>http://xmlns.oracle.com/Proposition/Prop58/PropCorrApproveWorkTask</TaskDefinitionNamespace><TaskFlowId>PropClaimApproveWorkTask_TaskFlow</TaskFlowId><TaskFlowFileName>WEB-INF/PropClaimApproveWorkTask_TaskFlow.xml</TaskFlowFileName></hwTaskFlow>
+<hwTaskFlow><WorkflowName>PropCorrApproveWorkTask</WorkflowName><TaskDefinitionNamespace>http://xmlns.oracle.com/Proposition/Prop193/PropCorrApproveWorkTask</TaskDefinitionNamespace><TaskFlowId>PropClaimApproveWorkTask_TaskFlow</TaskFlowId><TaskFlowFileName>WEB-INF/PropClaimApproveWorkTask_TaskFlow.xml</TaskFlowFileName></hwTaskFlow>
+</hwTaskFlows>

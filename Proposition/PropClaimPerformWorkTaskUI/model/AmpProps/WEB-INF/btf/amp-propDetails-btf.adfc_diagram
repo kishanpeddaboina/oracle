@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="x">91.5</property>
+      <property
+         name="y">266.5</property>
+   </OverallProperties>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">fetchPropsDtls</property>
+      <property
+         name="x">91.5</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>fetchPropsDtls&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">98.79883</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">amp-props-details</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">271.0205</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>amp-props-details&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">91.149414</property>
+      <property
+         name="page">/props/amp-props-details/amp-props-details.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="tosrcid">__2</property>
+      <property
+         name="fromOutcome">fetchPropsDtls</property>
+      <property
+         name="fromsrcid">__1</property>
+      <property
+         name="sdm:polyPoints">R50,132.5,98.44824,230.02051,90.79883,L50</property>
+   </ControlFlowCase>
+</SDM>

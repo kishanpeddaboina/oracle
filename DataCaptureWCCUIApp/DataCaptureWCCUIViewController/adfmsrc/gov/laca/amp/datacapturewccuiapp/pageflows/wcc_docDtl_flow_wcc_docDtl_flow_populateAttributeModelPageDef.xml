@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="wcc_docDtl_flow_wcc_docDtl_flow_populateAttributeModelPageDef"
+                Package="gov.laca.amp.datacapturewccuiapp.pageflows" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="populateAttributeModel" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="populateAttributeModel" IsViewObjectMethod="false" DataControl="DataCaptureWCCUIDC"
+                  InstanceName="bindings.populateAttributeModel.dataControl.dataProvider"
+                  ReturnName="data.DataCaptureWCCUIDC.methodResults.populateAttributeModel_populateAttributeModel_dataControl_dataProvider_populateAttributeModel_result">
+      <NamedData NDName="dDocName" NDValue="#{pageFlowScope.documentId}" NDType="java.lang.String"/>
+      <NamedData NDName="category" NDValue="#{pageFlowScope.category}" NDType="java.lang.String"/>
+      <NamedData NDName="subCategory" NDValue="#{pageFlowScope.subCategory}" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="fetchOptions" RequiresUpdateModel="true" Action="invokeMethod" MethodName="fetchOptions"
+                  IsViewObjectMethod="false" DataControl="DataCaptureWCCUIDC"
+                  InstanceName="bindings.fetchOptions.dataControl.dataProvider"
+                  ReturnName="data.DataCaptureWCCUIDC.methodResults.fetchOptions_fetchOptions_dataControl_dataProvider_fetchOptions_result"/>
+  </bindings>
+</pageDefinition>

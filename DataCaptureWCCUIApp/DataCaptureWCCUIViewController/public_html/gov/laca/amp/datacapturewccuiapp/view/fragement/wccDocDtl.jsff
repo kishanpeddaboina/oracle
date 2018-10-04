@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="datacapturewccuiviewcontrollerBundle"
+           value="#{adfBundle['gov.laca.amp.datacapturewccuiapp.view.DataCaptureWCCUIViewControllerBundle']}"/>
+    <af:panelSplitter id="ps1" splitterPosition="450" positionedFromEnd="true" styleClass="WccDpContentSplitter" inlineStyle="bottom:15px; left:15px; right:15px;">
+        <f:facet name="first">
+          <af:inlineFrame id="if2" 
+                          source="#{bindings.docRenderUrl.inputValue}"
+                          sizing="preferred" />
+        </f:facet>
+        <f:facet name="second">
+            <af:panelGroupLayout id="pgl2" layout="scroll">
+                <af:subform id="s2">
+                    <af:panelFormLayout id="pfl1" fieldWidth="60%" labelWidth="40%">
+                        <af:iterator value="#{bindings.attrModelList.collectionModel}" var="row" id="lv1" rows="500"
+                                     varStatus="vs">
+                            <af:switcher id="s1"
+                                         facetName="#{row.bindings.component.inputValue}"
+                                         defaultFacet="STRING">
+                                <f:facet name="STRING">
+                                    <af:panelLabelAndMessage label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                             id="plam1" rendered="#{row.bindings.visible.inputValue}"
+                                                             showRequired="#{row.bindings.required.inputValue }">
+                                        <af:inputText id="it1" contentStyle="width:100%;"
+                                                      label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                      simple="true" required="#{row.bindings.required.inputValue }"
+                                                      showRequired="#{row.bindings.required.inputValue }" autoSubmit="true"
+                                                      requiredMessageDetail="#{row.bindings.validationMessage.inputValue}"
+                                                      value="#{row.bindings.value.inputValue}" maximumLength="#{row.bindings.maxLength.inputValue}"
+                                                      rows="#{row.bindings.dataType.inputValue == 'Memo' ? '8' : '1'}"/>
+                                    </af:panelLabelAndMessage>
+                                </f:facet>
+                                <f:facet name="DATE">
+                                    <af:panelLabelAndMessage label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                             id="plam2" rendered="#{row.bindings.visible.inputValue}"
+                                                             showRequired="#{row.bindings.required.inputValue }">
+                                        <af:inputDate id="it2"
+                                                      label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                      simple="true" required="#{row.bindings.required.inputValue }"
+                                                      showRequired="#{row.bindings.required.inputValue }"
+                                                      requiredMessageDetail="#{row.bindings.validationMessage.inputValue}"
+                                                      value="#{row.bindings.dateValue.inputValue}" columns="19">
+                                            <af:convertDateTime type="date" pattern="MM/dd/yyyy"/>
+                                            <af:validateDateTimeRange maximum="9999-12-31"/>
+                                        </af:inputDate>
+                                    </af:panelLabelAndMessage>
+                                </f:facet>
+                                <f:facet name="NUMBER">
+                                    <af:panelLabelAndMessage label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                             id="plam4" rendered="#{row.bindings.visible.inputValue}"
+                                                             showRequired="#{row.bindings.required.inputValue }">
+                                        <af:inputText id="it3"  contentStyle="width:100%;text-align:left;"
+                                                      label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                      simple="true" required="#{row.bindings.required.inputValue }"
+                                                      showRequired="#{row.bindings.required.inputValue }"
+                                                      requiredMessageDetail="#{row.bindings.validationMessage.inputValue}"
+                                                      value="#{row.bindings.intValue.inputValue}" maximumLength="#{row.bindings.maxLength.inputValue}"
+                                                      >
+                                            <af:convertNumber integerOnly="true" type="number" groupingUsed="false"/>
+                                        </af:inputText>
+                                    </af:panelLabelAndMessage>
+                                </f:facet>
+                                <f:facet name="SELECTONECHOICE">
+                                    <af:panelLabelAndMessage label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                             id="plam5" rendered="#{row.bindings.visible.inputValue}"
+                                                             showRequired="#{row.bindings.required.inputValue }">
+                                        <af:selectOneChoice id="it4"  contentStyle="width:100%;"
+                                                      label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                      simple="true" required="#{row.bindings.required.inputValue }"
+                                                      showRequired="#{row.bindings.required.inputValue }"
+                                                      requiredMessageDetail="#{row.bindings.validationMessage.inputValue}"
+                                                      value="#{row.bindings.value.inputValue}" autoSubmit="true">
+                                            <f:selectItem id="si1" itemLabel="Select" itemValue=""/>
+                                            <f:selectItems id="si2" value="#{pageFlowScope[row.bindings.optionKey.inputValue]}"/>
+                                        </af:selectOneChoice>
+                                    </af:panelLabelAndMessage>
+                                </f:facet>
+                                <f:facet name="CHECKBOX">
+                                    <af:panelLabelAndMessage id="plam3"
+                                                             label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                             rendered="#{row.bindings.visible.inputValue}"
+                                                             showRequired="#{row.bindings.required.inputValue }">
+                                        <af:selectBooleanCheckbox id="sbc1"
+                                                                  label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                                  simple="true" required="#{row.bindings.required.inputValue }"
+                                                                  showRequired="#{row.bindings.required.inputValue }"
+                                                                  requiredMessageDetail="#{row.bindings.validationMessage.inputValue}"
+                                                                  value="#{row.bindings.value.inputValue}"/>
+                                    </af:panelLabelAndMessage>
+                                </f:facet>
+                                <f:facet name="PERCENT">
+                                    <af:panelLabelAndMessage label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                             id="plam6" rendered="#{row.bindings.visible.inputValue}"
+                                                             showRequired="#{row.bindings.required.inputValue }">
+                                        <af:inputText id="it5"  contentStyle="width:100%;;text-align:left;"
+                                                      label="#{ ( not empty row.bindings.name.inputValue) ? row.bindings.name.inputValue : row.bindings.id.inputValue }"
+                                                      simple="true" required="#{row.bindings.required.inputValue }"
+                                                      showRequired="#{row.bindings.required.inputValue }" 
+                                                      requiredMessageDetail="#{row.bindings.validationMessage.inputValue}"
+                                                      value="#{row.bindings.decValue.inputValue}" maximumLength="8"
+                                                      converter="DecimalConverter">
+                                            
+                                            <f:validator validatorId="PercentValidator"/>
+                                        </af:inputText>
+                                    </af:panelLabelAndMessage>
+                                </f:facet>
+                            </af:switcher>
+                        </af:iterator>
+                        <f:facet name="footer"/>
+                    </af:panelFormLayout>
+                    <af:separator id="s7"/>
+                    <af:spacer width="10" height="10" id="s6"/>
+                    <af:panelGroupLayout id="pgl1" layout="horizontal" halign="end">
+                        <af:button text="#{datacapturewccuiviewcontrollerBundle.SAVE}" id="b2"  
+                                   actionListener="#{docDtlBean.onSave}"/>
+                        <af:spacer width="10" height="10" id="s3"/>
+                        <af:button text="#{datacapturewccuiviewcontrollerBundle.SUBMIT}" id="b3"
+                                   action="#{docDtlBean.onSubmit}" visible="#{pageFlowScope.isSubmitVis}">
+                           
+                        </af:button>
+                        <af:spacer width="10" height="10" id="s4"/>
+                        <af:button text="#{datacapturewccuiviewcontrollerBundle.CLOSE}" id="b1" 
+                                   immediate="true">
+                            <af:showPopupBehavior popupId="::p1" triggerType="action"/>
+                        </af:button>
+                        <af:spacer width="20" height="10" id="s5"/>
+                    </af:panelGroupLayout>
+                </af:subform>
+                <af:spacer width="10" height="10" id="s8"/>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                          binding="#{docDtlBean.canConfirmPopup}">
+                    <af:dialog id="d1" title="#{datacapturewccuiviewcontrollerBundle.CONFIRM}" type="none">
+                        <f:facet name="buttonBar">
+                            <af:panelGroupLayout id="pgl3" layout="horizontal" halign="right">
+                                <af:button text="#{datacapturewccuiviewcontrollerBundle.YES}" immediate="true" action="close" id="b4"/>
+                                <af:spacer width="5" height="10" id="s9"/>
+                                <af:button text="No" immediate="true" id="b5" actionListener="#{docDtlBean.onCancel}"/>
+                               
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <af:panelGroupLayout id="pgl4">
+                            <af:outputText value="#{datacapturewccuiviewcontrollerBundle.CanelConfirm}" id="ot1"/>
+                        </af:panelGroupLayout>
+                    </af:dialog>
+                </af:popup>
+            </af:panelGroupLayout>
+        </f:facet>
+      </af:panelSplitter>
+   
+ 
+</jsp:root>

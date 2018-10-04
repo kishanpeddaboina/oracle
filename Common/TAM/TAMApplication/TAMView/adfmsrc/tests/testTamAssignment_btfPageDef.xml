@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="testTamAssignment_btfPageDef"
+                Package="tests">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="amptammanageunverifiedainbtf1"
+              taskFlowId="/WEB-INF/btf/amp-tam-manage-unverified-ain-btf.xml#amp-tam-manage-unverified-ain-btf"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              Refresh="ifNeeded"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

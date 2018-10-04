@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="test_suppInfo_btf_test_suppInfo_btf_testUpsertPropsPageDef"
+                Package="propclaimperformworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="testUpsertProps" RequiresUpdateModel="true" Action="invokeMethod" MethodName="testUpsertProps"
+                  IsViewObjectMethod="false" DataControl="PropsDC"
+                  InstanceName="bindings.testUpsertProps.dataControl.dataProvider">
+      <NamedData NDName="p0" NDValue="1544" NDType="java.lang.Integer"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,283 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsl:stylesheet version="1.0" xmlns:ns5="http://xmlns.oracle.com/bpm/bpmobject/Data/UIStateBO" xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20" xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns9="http://xmlns.oracle.com/bpel/workflow/common" xmlns:ns8="http://assessor.lacounty.gov/amp/type/common/ResponseHeader/v1.0" xmlns:evidence="http://xmlns.oracle.com/bpel/workflow/TaskEvidenceService" xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions" xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:ns11="http://assessor.lacounty.gov/amp/data/ao/LogWorkFlowDetails/v1.0" xmlns:ns7="http://assessor.lacounty.gov/amp/type/common/RequestHeader/v1.0" xmlns:ns10="http://xmlns.oracle.com/bpm/bpmobject/Data/ProcessRoutingBO" xmlns:ora="http://schemas.oracle.com/xpath/extension" xmlns:ns2="http://xmlns.oracle.com/bpm/bpmobject/Data/SortBYEBO" xmlns:socket="http://www.oracle.com/XSL/Transform/java/oracle.tip.adapter.socket.ProtocolTranslator" xmlns:ns3="http://xmlns.oracle.com/bpm/bpmobject/Data/AssignToUserOrGroupBO" xmlns:mhdr="http://www.oracle.com/XSL/Transform/java/oracle.tip.mediator.service.common.functions.MediatorExtnFunction" xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc" xmlns:ns1="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0" xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue" xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath" xmlns:med="http://schemas.oracle.com/mediator/xpath" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath" xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk" xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions" xmlns:ns6="http://assessor.lacounty.gov/amp/type/bvm/BaseYearEvent/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" xmlns:bpmn="http://schemas.oracle.com/bpm/xpath" xmlns:ns4="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0" xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" exclude-result-prefixes="xsi xsl ns5 ns9 ns8 evidence bpmo jaxb ns11 ns7 ns10 ns2 ns3 ns1 ns0 ns6 xsd tns ns4 xp20 bpws bpel bpm ora socket mhdr oraext dvm hwf med ids xdk xref bpmn ldap" xmlns:oracle-xsl-mapper="http://www.oracle.com/xsl/mapper/schemas">
+  <oracle-xsl-mapper:schema>
+      <!--SPECIFICATION OF MAP SOURCES AND TARGETS, DO NOT MODIFY.-->
+      <oracle-xsl-mapper:mapSources>
+         <oracle-xsl-mapper:source type="XSD">
+            <oracle-xsl-mapper:schema location="../businessCatalog/Data/RetriveBYEDetails.xsd"/>
+            <oracle-xsl-mapper:rootElement name="RetriveBYEDetails" namespace="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+            <oracle-xsl-mapper:param name="RetriveBYE_PDO"/>
+         </oracle-xsl-mapper:source>
+         <oracle-xsl-mapper:source type="XSD">
+            <oracle-xsl-mapper:schema location="oramds:/soa/shared/workflow/WorkflowTask.xsd"/>
+            <oracle-xsl-mapper:rootElement name="task" namespace="http://xmlns.oracle.com/bpel/workflow/task"/>
+            <oracle-xsl-mapper:param name="execDataWFLogPDO"/>
+         </oracle-xsl-mapper:source>
+         <oracle-xsl-mapper:source type="XSD">
+            <oracle-xsl-mapper:schema location="../businessCatalog/Data/ProcessRoutingBO.xsd"/>
+            <oracle-xsl-mapper:rootElement name="ProcessRoutingBO" namespace="http://xmlns.oracle.com/bpm/bpmobject/Data/ProcessRoutingBO"/>
+            <oracle-xsl-mapper:param name="ProcessRoutingPDO"/>
+         </oracle-xsl-mapper:source>
+         <oracle-xsl-mapper:source type="XSD">
+            <oracle-xsl-mapper:schema location="oramds:/apps/amp/xsd/ao/LogWorkFlowDetails.xsd"/>
+            <oracle-xsl-mapper:rootElement name="logWorkFlowDetailsRequest" namespace="http://assessor.lacounty.gov/amp/data/ao/LogWorkFlowDetails/v1.0"/>
+            <oracle-xsl-mapper:param name="LogWorkflowDetailsPDO"/>
+         </oracle-xsl-mapper:source>
+      </oracle-xsl-mapper:mapSources>
+      <oracle-xsl-mapper:mapTargets>
+         <oracle-xsl-mapper:target type="XSD">
+            <oracle-xsl-mapper:schema location="oramds:/apps/amp/xsd/ao/LogWorkFlowDetails.xsd"/>
+            <oracle-xsl-mapper:rootElement name="logWorkFlowDetailsRequest" namespace="http://assessor.lacounty.gov/amp/data/ao/LogWorkFlowDetails/v1.0"/>
+         </oracle-xsl-mapper:target>
+      </oracle-xsl-mapper:mapTargets>
+      <oracle-xsl-mapper:mapShowPrefixes type="false"/>
+      <!--GENERATED BY ORACLE XSL MAPPER 12.2.1.2.0(XSLT Build 161003.0739.0018) AT [THU MAR 09 12:18:09 IST 2017].-->
+   </oracle-xsl-mapper:schema>
+   <!--User Editing allowed BELOW this line - DO NOT DELETE THIS LINE-->
+   <xsl:param name="execDataWFLogPDO"/>
+  <xsl:param name="ProcessRoutingPDO"/>
+  <xsl:param name="LogWorkflowDetailsPDO"/>
+  <xsl:template match="/">
+    <ns11:logWorkFlowDetailsRequest>
+      <ns11:header>
+        <ns7:applicationId>
+          <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:header/ns7:applicationId"/>
+        </ns7:applicationId>
+        <ns7:requestId>
+          <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:header/ns7:requestId"/>
+        </ns7:requestId>
+      </ns11:header>
+      <ns11:ain>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:ain"/>
+      </ns11:ain>
+      <ns11:aoid>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:aoid"/>
+      </ns11:aoid>
+      <ns11:userId>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:userId"/>
+      </ns11:userId>
+      <ns11:processType>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:processType"/>
+      </ns11:processType>
+      <ns11:initiatedBy>
+        <xsl:value-of select="$execDataWFLogPDO/tns:task/tns:creator"/>
+      </ns11:initiatedBy>
+      <ns11:initiatedDate>
+        <xsl:value-of select="$execDataWFLogPDO/tns:task/tns:startDate"/>
+      </ns11:initiatedDate>
+      <ns11:claimedBy>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:claimedBy"/>
+      </ns11:claimedBy>
+      <ns11:claimedDate>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:claimedDate"/>
+      </ns11:claimedDate>
+      <ns11:reviewedBy>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:reviewedBy"/>
+      </ns11:reviewedBy>
+      <ns11:reviewedDate>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:reviewedDate"/>
+      </ns11:reviewedDate>
+      <ns11:editStatus>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:editStatus"/>
+      </ns11:editStatus>
+      <ns11:editBy>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:editBy"/>
+      </ns11:editBy>
+      <ns11:editDate>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:editDate"/>
+      </ns11:editDate>
+      <ns11:approvedBy>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:approvedBy"/>
+      </ns11:approvedBy>
+      <ns11:approvedDate>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:approvedDate"/>
+      </ns11:approvedDate>
+      <xsl:choose>
+        <xsl:when test="contains($ProcessRoutingPDO/ns10:ProcessRoutingBO/ns10:isProcessCancelled,&quot;true&quot;) or contains($ProcessRoutingPDO/ns10:ProcessRoutingBO/ns10:isInvalid,&quot;true&quot;)">
+          <ns11:processStatus>
+            <xsl:text disable-output-escaping="no">Cancelled</xsl:text>
+          </ns11:processStatus>
+        </xsl:when>
+        <xsl:otherwise>
+          <ns11:processStatus>
+            <xsl:text disable-output-escaping="no">Completed</xsl:text>
+          </ns11:processStatus>
+        </xsl:otherwise>
+      </xsl:choose>
+      <ns11:processName>
+        <xsl:value-of select="$execDataWFLogPDO/tns:task/tns:sca/tns:compositeName"/>
+      </ns11:processName>
+      <ns11:processInstanceId>
+        <xsl:value-of select="$execDataWFLogPDO/tns:task/tns:sca/tns:compositeInstanceId"/>
+      </ns11:processInstanceId>
+      <ns11:ecid>
+        <xsl:value-of select="$execDataWFLogPDO/tns:task/tns:sca/tns:ecId"/>
+      </ns11:ecid>
+      <ns11:district>
+        <xsl:value-of select="/ns0:RetriveBYEDetails/ns1:RetrieveBYEDetails/ns1:BYEDetailsOriginal/ns1:districtName"/>
+      </ns11:district>
+      <ns11:region>
+        <xsl:value-of select="/ns0:RetriveBYEDetails/ns1:RetrieveBYEDetails/ns1:BYEDetailsOriginal/ns1:region"/>
+      </ns11:region>
+      <ns11:processStartTime>
+        <xsl:value-of select="$execDataWFLogPDO/tns:task/tns:startDate"/>
+      </ns11:processStartTime>
+      <ns11:processEndTime>
+        <xsl:value-of select="xp20:current-dateTime()"/>
+      </ns11:processEndTime>
+      <!--xsl:copy-of select="$execDataWFLogPDO/tns:task">
+        <?oracle-xsl-mapper-position ns11:processPayload?>
+      </xsl:copy-of-->
+      <ns11:processPayload>
+        <xsl:copy-of select="$execDataWFLogPDO/tns:task"/>
+      </ns11:processPayload>
+      <ns11:source>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:source"/>
+      </ns11:source>
+      <ns11:errorCode>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:errorCode"/>
+      </ns11:errorCode>
+      <ns11:errorType>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:errorType"/>
+      </ns11:errorType>
+      <ns11:errorDescription>
+        <xsl:value-of select="$LogWorkflowDetailsPDO/ns11:logWorkFlowDetailsRequest/ns11:errorDescription"/>
+      </ns11:errorDescription>
+      <xsl:choose>
+        <xsl:when test="string-length($execDataWFLogPDO/tns:task/tns:ownerGroup) > 0.0">
+          <ns11:owner>
+            <xsl:value-of select="$execDataWFLogPDO/tns:task/tns:ownerGroup"/>
+          </ns11:owner>
+        </xsl:when>
+        <xsl:otherwise>
+          <ns11:owner>
+            <xsl:value-of select="$execDataWFLogPDO/tns:task/tns:ownerUser"/>
+          </ns11:owner>
+        </xsl:otherwise>
+      </xsl:choose>
+      <ns11:notes>
+        <xsl:for-each select="$execDataWFLogPDO/tns:task/tns:userComment">
+          <ns11:notes>
+            <ns11:description>
+              <xsl:value-of select="tns:comment"/>
+            </ns11:description>
+            <ns11:updateBy>
+              <xsl:value-of select="tns:updatedBy/tns:displayName"/>
+            </ns11:updateBy>
+            <ns11:updatedDate>
+              <xsl:value-of select="tns:updatedDate"/>
+            </ns11:updatedDate>
+          </ns11:notes>
+        </xsl:for-each>
+      </ns11:notes>
+      <ns11:attachments>
+        <xsl:for-each select="$execDataWFLogPDO/tns:task/tns:attachment">
+          <ns11:attachments>
+            <ns11:content>
+              <xsl:value-of select="tns:content"/>
+            </ns11:content>
+            <ns11:mimeType>
+              <xsl:value-of select="tns:mimeType"/>
+            </ns11:mimeType>
+            <ns11:documentName>
+              <xsl:value-of select="tns:name"/>
+            </ns11:documentName>
+            <ns11:documentObjID>
+              <xsl:value-of select="tns:id"/>
+            </ns11:documentObjID>
+            <ns11:documentURL>
+              <xsl:value-of select="tns:URI"/>
+            </ns11:documentURL>
+            <ns11:systemVersionFlag>
+              <xsl:value-of select="tns:systemVersionFlag"/>
+            </ns11:systemVersionFlag>
+            <ns11:taskId>
+              <xsl:value-of select="tns:taskId"/>
+            </ns11:taskId>
+            <ns11:version>
+              <xsl:value-of select="tns:version"/>
+            </ns11:version>
+            <ns11:acl>
+              <xsl:value-of select="tns:acl"/>
+            </ns11:acl>
+            <ns11:doesBelongToParent>
+              <xsl:value-of select="tns:doesBelongToParent"/>
+            </ns11:doesBelongToParent>
+            <ns11:documentType>
+              <xsl:value-of select="tns:mimeType"/>
+            </ns11:documentType>
+            <ns11:updateBy>
+              <xsl:value-of select="tns:updatedBy"/>
+            </ns11:updateBy>
+            <ns11:updatedDate>
+              <xsl:value-of select="tns:updatedDate"/>
+            </ns11:updatedDate>
+            <ns11:correlationId>
+              <xsl:value-of select="tns:correlationId"/>
+            </ns11:correlationId>
+            <ns11:size>
+              <xsl:value-of select="tns:size"/>
+            </ns11:size>
+            <ns11:description>
+              <xsl:value-of select="tns:description"/>
+            </ns11:description>
+            <ns11:storageType>
+              <xsl:value-of select="tns:storageType"/>
+            </ns11:storageType>
+            <ns11:ucmDocType>
+              <xsl:value-of select="tns:ucmDocType"/>
+            </ns11:ucmDocType>
+            <ns11:securityGroup>
+              <xsl:value-of select="tns:securityGroup"/>
+            </ns11:securityGroup>
+            <ns11:account>
+              <xsl:value-of select="tns:account"/>
+            </ns11:account>
+            <ns11:revision>
+              <xsl:value-of select="tns:revision"/>
+            </ns11:revision>
+            <ns11:releaseDate>
+              <xsl:value-of select="tns:releaseDate"/>
+            </ns11:releaseDate>
+            <ns11:expirationDate>
+              <xsl:value-of select="tns:expirationDate"/>
+            </ns11:expirationDate>
+            <ns11:title>
+              <xsl:value-of select="tns:title"/>
+            </ns11:title>
+            <ns11:attachmentScope>
+              <xsl:value-of select="tns:attachmentScope"/>
+            </ns11:attachmentScope>
+            <ns11:isContentEncoded>
+              <xsl:value-of select="tns:isContentEncoded"/>
+            </ns11:isContentEncoded>
+            <ns11:updatedByDisplayName>
+              <xsl:value-of select="tns:updatedByDisplayName"/>
+            </ns11:updatedByDisplayName>
+            <ns11:id>
+              <xsl:value-of select="tns:id"/>
+            </ns11:id>
+            <ns11:operation>
+              <xsl:value-of select="tns:operation"/>
+            </ns11:operation>
+          </ns11:attachments>
+        </xsl:for-each>
+      </ns11:attachments>
+      <ns11:outcome>
+        <xsl:value-of select="$execDataWFLogPDO/tns:task/tns:systemAttributes/tns:outcome"/>
+      </ns11:outcome>
+      <xsl:choose>
+        <xsl:when test="contains($execDataWFLogPDO/tns:task/tns:systemAttributes/tns:outcome,&quot;APPROVE&quot;)">
+          <ns11:category>
+            <xsl:text disable-output-escaping="no">BVM-Processed</xsl:text>
+          </ns11:category>
+        </xsl:when>
+        <xsl:otherwise>
+          <ns11:category>
+            <xsl:text disable-output-escaping="no">BVM-Cancelled</xsl:text>
+          </ns11:category>
+        </xsl:otherwise>
+      </xsl:choose>
+    </ns11:logWorkFlowDetailsRequest>
+  </xsl:template>
+</xsl:stylesheet>

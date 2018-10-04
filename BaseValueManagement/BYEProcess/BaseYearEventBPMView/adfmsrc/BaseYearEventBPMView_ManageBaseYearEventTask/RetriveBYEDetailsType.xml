@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="RetriveBYEDetailsType"
+          Package="BaseYearEventBPMView_ManageBaseYearEventTask"
+          BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.RetriveBYEDetailsType"
+          isJavaBased="false">
+  <Attribute Name="assignTo_UserID" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="assignTo_GroupID"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Assign To User ID"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="assignTo_UserID"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="assignTo_GroupID" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="assignTo_ManagerID"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Assign To Group ID"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="assignTo_GroupID"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="assignTo_ManagerID" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="role"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Assign To Manager ID"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="assignTo_ManagerID"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="role" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="ownerID"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Role"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="role"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ownerID" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="clientID"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Owner ID"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="ownerID"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="clientID" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="checkBYE"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Client ID"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="clientID"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="checkBYE" Type="java.lang.Boolean">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="userType"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Check BYE"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="checkBYE"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.Boolean"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="userType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="acquiredBy"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="User Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="userType"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="acquiredBy" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="returnTo"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Acquired By"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="acquiredBy"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="returnTo" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="assignmentBox"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Return To"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="returnTo"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="assignedBy" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="nextSibling" Value="submitBy"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Assigned By"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="assignedBy"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="submitBy" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0"/>
+        <Property Name="nextSibling" Value="manageBYERequest"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Submit By"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="true"/>
+        <Property Name="originalName" Value="submitBy"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="RetrieveBYEDetails" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.RetrieveBYEDetails"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.RetrieveBYEDetails_RetrieveBYEDetails_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+      <Property Name="nextSibling" Value="sortBYE"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Retrieve BYE Details"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="RetrieveBYEDetails"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/bvm/RetrieveBYE/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="sortBYE" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.SortBYEBOType"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.SortBYEBOType_sortBYE_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+      <Property Name="nextSibling" Value="assignTo_UserID"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Sort BYE"/>
+      <Property Name="nillable" Value="true"/>
+      <Property Name="originalName" Value="sortBYE"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="assignmentBox" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.AssignToUserOrGroupBOType"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.AssignToUserOrGroupBOType_assignmentBox_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+      <Property Name="nextSibling" Value="assignedBy"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Assignment Box"/>
+      <Property Name="nillable" Value="true"/>
+      <Property Name="originalName" Value="assignmentBox"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="manageBYERequest" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.manageBYERequest"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.manageBYERequest_manageBYERequest_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Manage BYE Request"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="manageBYERequest"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/data/bvm/ManageBYE/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="uiStateBO" IsCollection="true"
+                     BeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.UIStateBOType"
+                     CollectionBeanClass="BaseYearEventBPMView_ManageBaseYearEventTask.UIStateBOType_uiStateBO_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Ui State BO"/>
+      <Property Name="nillable" Value="true"/>
+      <Property Name="originalName" Value="uiStateBO"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpm/bpmobject/Data/RetriveBYEDetails"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

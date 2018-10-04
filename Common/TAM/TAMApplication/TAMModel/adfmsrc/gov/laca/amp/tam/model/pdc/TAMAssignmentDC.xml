@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="TAMAssignmentDC" Package="gov.laca.amp.tam.model.pdc"
+          BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignmentDC"
+          isJavaBased="true">
+  <Attribute Name="currentBatchNumber" Type="java.lang.Integer"/>
+  <Attribute Name="ainL" Type="java.lang.String"/>
+  <Attribute Name="isAssignedL" Type="java.lang.Boolean"/>
+  <Attribute Name="assignedToL" Type="java.lang.String"/>
+  <Attribute Name="districtL" Type="java.lang.String"/>
+  <Attribute Name="regionL" Type="java.lang.String"/>
+  <Attribute Name="clusterL" Type="java.lang.String"/>
+  <Attribute Name="hasMoreRows" Type="java.lang.Boolean"/>
+  <Attribute Name="totalAssignedCount" Type="java.lang.String"/>
+  <Attribute Name="highestRoleL" Type="java.lang.String"/>
+  <Attribute Name="assignedToRoleL" Type="java.lang.String"/>
+  <AccessorAttribute id="tamAssignmentPojoList" IsCollection="true"
+                     BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="tamSelectedAINsPojoList" IsCollection="true"
+                     BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="tamAssignmentAccumulatedPojoList" IsCollection="true"
+                     BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="userIdNamesList" IsCollection="true"
+                     Type="java.util.List"
+                     CollectionBeanClass="UpdateableCollection">
+    <Attribute Name="element" Type="java.lang.String"/>
+  </AccessorAttribute>
+  <MethodAccessor IsCollection="true" Type="java.util.List"
+                  id="getRegionsByDistrict" ReturnNodeName="String"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="district" Type="java.lang.String" isStructured="false"/>
+    <Attribute Name="element" Type="java.lang.String"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="java.util.List"
+                  id="getClustersByRegion" ReturnNodeName="String"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="district" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="region" Type="java.lang.String" isStructured="false"/>
+    <Attribute Name="element" Type="java.lang.String"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="java.util.List"
+                  id="getDistrictsByUserId" ReturnNodeName="String"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="userId" Type="java.lang.String" isStructured="false"/>
+    <Attribute Name="element" Type="java.lang.String"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="assignAINsToUser"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="assignmentStatus" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedTo" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedToRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedBy" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedByRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="district" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="reassignAINsToUser"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="assignmentStatus" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedTo" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedToRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedBy" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedByRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="district" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="unassignAINsToUser"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="assignmentStatus" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedTo" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedToRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedBy" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedByRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="district" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true"
+                  Type="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                  BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                  id="nextSearchAINs" ReturnNodeName="TAMAssignmentPojo"
+                  CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="true"
+                  Type="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                  BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                  id="previousSearchAINs" ReturnNodeName="TAMAssignmentPojo"
+                  CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="false" Type="void" id="selectAllRows"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="deSelectAllRows"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="true" Type="java.util.List"
+                  id="getUsersListByRole" ReturnNodeName="String"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="district" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="role" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="loggedInUserId" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="loggedInUserName" Type="java.lang.String"
+                   isStructured="false"/>
+    <Attribute Name="element" Type="java.lang.String"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="selectAINs"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="true"
+                  Type="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                  BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                  id="searchAINs" ReturnNodeName="TAMAssignmentPojo"
+                  CollectionBeanClass="UpdateableCollection">
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="isAssigned" Type="java.lang.Boolean"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedTo" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="assignedToRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="district" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="region" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="cluster" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="loggedInUserId" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="highestRole" Type="java.lang.String"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.tam.model.pdc.TAMAssignmentDC"
+                     BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignmentDC"
+                     id="TAMAssignmentDC">
+    <ParameterInfo id="tamAssignmentPojoList" Type="java.util.List"
+                   isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.tam.model.pdc.TAMAssignmentDC"
+                     BeanClass="gov.laca.amp.tam.model.pdc.TAMAssignmentDC"
+                     id="TAMAssignmentDC"/>
+</JavaBean>

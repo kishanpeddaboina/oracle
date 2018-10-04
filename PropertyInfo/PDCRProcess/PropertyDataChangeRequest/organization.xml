@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.9.0.1.7" fileRevision="20090820"?>
+<ns1:organization xmlns:ns2="http://xmlns.oracle.com/bpm/lpg/peopleQuery" xmlns:ns1="http://xmlns.oracle.com/bpm/organization" xmlns:ns4="http://xmlns.oracle.com/bpel/workflow/task" xmlns:ns3="http://xmlns.oracle.com/bpel/workflow/taskQuery" xmlns:ns5="http://xmlns.oracle.com/bpm/identity">
+    <ns1:updateExistingObjects>false</ns1:updateExistingObjects>
+    <ns1:organizationalUnits/>
+    <ns1:applicationRoles>
+        <ns1:applicationRole id="PropertyDataChangeRequest.ProcessOwner" isProcessRole="false">
+            <ns5:name>PropertyDataChangeRequest.Process Owner</ns5:name>
+            <ns1:processRole id="ProcessOwner" name="Process Owner"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="PropertyDataChangeRequest.Supervisor" isProcessRole="true">
+            <ns5:name>PropertyDataChangeRequest.Supervisor</ns5:name>
+            <ns1:processRole id="Supervisor" name="Supervisor"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="PropertyDataChangeRequest.System" isProcessRole="true">
+            <ns5:name>PropertyDataChangeRequest.System</ns5:name>
+            <ns1:processRole id="System" name="System"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="PropertyDataChangeRequest.Manager" isProcessRole="false">
+            <ns5:name>PropertyDataChangeRequest.Manager</ns5:name>
+            <ns1:processRole id="Manager" name="Manager"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="PropertyDataChangeRequest.Appraiser" isProcessRole="true">
+            <ns5:name>PropertyDataChangeRequest.Appraiser</ns5:name>
+            <ns1:processRole id="Appraiser" name="Appraiser"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="PropertyDataChangeRequest.PrincipalAppraiser" isProcessRole="true">
+            <ns5:name>PropertyDataChangeRequest.PrincipalAppraiser</ns5:name>
+            <ns1:processRole id="PrincipalAppraiser" name="PrincipalAppraiser"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="PropertyDataChangeRequest.ChiefAppraiser" isProcessRole="true">
+            <ns5:name>PropertyDataChangeRequest.ChiefAppraiser</ns5:name>
+            <ns1:processRole id="ChiefAppraiser" name="ChiefAppraiser"/>
+        </ns1:applicationRole>
+        <ns1:applicationRole id="PropertyDataChangeRequest.Admin" isProcessRole="true">
+            <ns5:name>PropertyDataChangeRequest.Admin</ns5:name>
+            <ns1:processRole id="Admin" name="Admin"/>
+        </ns1:applicationRole>
+    </ns1:applicationRoles>
+    <ns1:applicationRoleOrgUnitCalendarAssociations/>
+    <ns1:participantPropertiesList/>
+    <ns1:holidayRules/>
+    <ns1:calendarRules/>
+</ns1:organization>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="InitiateBaseYearEvent" Package="gov.laca.amp.bvm.model"
+          BeanClass="gov.laca.amp.bvm.model.InitiateBaseYearEvent"
+          isJavaBased="true">
+  <Attribute Name="isBVNInitiated" Type="java.lang.Boolean"/>
+  <Attribute Name="initiatedBy" Type="java.lang.String"/>
+  <Attribute Name="filtered" Type="java.lang.Boolean"/>
+  <Attribute Name="aoid" IsUpdateable="0" Type="java.math.BigInteger"/>
+  <Attribute Name="ain" Type="java.lang.String"/>
+  <Attribute Name="userId" Type="java.lang.String"/>
+  <Attribute Name="isRealProperty" Type="java.lang.Boolean"/>
+  <Attribute Name="isPersonalProperty" Type="java.lang.Boolean"/>
+  <Attribute Name="checkDistrict" IsUpdateable="0" Type="java.lang.Boolean"/>
+  <Attribute Name="outputText" Type="java.lang.String"/>
+  <Attribute Name="targerYear" Type="java.lang.String"/>
+  <Attribute Name="isDirty" Type="java.lang.Boolean"/>
+  <Attribute Name="checkManageBVM" IsUpdateable="0" Type="java.lang.Boolean"/>
+  <Attribute Name="isFixture" Type="java.lang.Boolean"/>
+  <Attribute Name="lockedMessage" Type="java.lang.String"/>
+  <Attribute Name="isVisibleNotificationMessage" Type="java.lang.Boolean"/>
+  <Attribute Name="isBVMRecord" Type="java.lang.Boolean"/>
+  <AccessorAttribute id="filteredCurrentEventsList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="selectedEventsList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="filteredHistoricalEventsList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="currentEventsList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="reviewEventsList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="selectedCurrentEvent" IsCollection="false"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="originialCurrentEvent" IsCollection="false"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="selectedHistoricalEvent" IsCollection="false"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="originialHistoricalEvent" IsCollection="false"
+                     BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="ainDO" IsCollection="false"
+                     BeanClass="gov.laca.amp.bvm.model.data.AinDO"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="trendEventList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.Event"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="trendHeaderList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.Header"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="footerTrendEventList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.Event"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="detrendHeaderList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.Header"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="deTrendEventList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.Event"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="footerDeTrendEventList" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.data.Event"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="eventNameLov" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.LookupItem"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="eventDescriptionLov" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.LookupItem"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="valueReasonCodeLov" IsCollection="true"
+                     BeanClass="gov.laca.amp.bvm.model.LookupItem"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="false" Type="java.lang.Boolean"
+                  id="allBaseYearEvents" ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="java.lang.Boolean" id="editEvent"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="byeId" Type="java.math.BigInteger" isStructured="false"/>
+    <ParameterInfo id="listType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="reviewAllChanges"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="onSubmit"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="setSelectedCurrentEvent"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="byeId" Type="java.math.BigInteger" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void"
+                  id="setSelectedHistoricalEvent" ReturnNodeName="Return">
+    <ParameterInfo id="byeId" Type="java.math.BigInteger" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="setAoid"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="aoid" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="initiateBaseYearEvent" ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="saveToBPMPayload"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="addEvent"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="eventType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="cancel"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="isNew" Type="java.lang.Boolean" isStructured="false"/>
+    <ParameterInfo id="eventType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="onClose"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="eventType" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="isNew" Type="java.lang.Boolean" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="deleteEvent"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="eventType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Boolean"
+                  id="filterBaseYearEvents" ReturnNodeName="Return">
+    <ParameterInfo id="eventDateBegin" Type="java.util.Date"
+                   isStructured="false"/>
+    <ParameterInfo id="eventDateEnd" Type="java.util.Date"
+                   isStructured="false"/>
+    <ParameterInfo id="effectiveDateBegin" Type="java.util.Date"
+                   isStructured="false"/>
+    <ParameterInfo id="effectiveDateEnd" Type="java.util.Date"
+                   isStructured="false"/>
+    <ParameterInfo id="effectiveEndDateBegin" Type="java.util.Date"
+                   isStructured="false"/>
+    <ParameterInfo id="effectiveEndDateEnd" Type="java.util.Date"
+                   isStructured="false"/>
+    <ParameterInfo id="rollYear" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="verified" Type="java.lang.Boolean" isStructured="false"/>
+    <ParameterInfo id="unverified" Type="java.lang.Boolean"
+                   isStructured="false"/>
+    <ParameterInfo id="active" Type="java.lang.Boolean" isStructured="false"/>
+    <ParameterInfo id="inactive" Type="java.lang.Boolean" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.util.Date" id="findLienDate"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="rollYear" Type="int" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="generateBaseYearEventData" ReturnNodeName="Return">
+    <ParameterInfo id="targetYear" Type="long" isStructured="false"/>
+    <ParameterInfo id="oprerationType" Type="java.lang.String"
+                   isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="loadDataForTBV"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="resetEvent"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="eventType" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Boolean"
+                  id="IsNullOrEmpty" ReturnNodeName="Return">
+    <ParameterInfo id="value" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="updateSelection"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="byeId" Type="java.math.BigInteger" isStructured="false"/>
+    <ParameterInfo id="newValue" Type="java.lang.Boolean" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="clearTBVCalutatorData"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="updateReviewRequired"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="flag" Type="java.lang.Boolean" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Integer"
+                  id="selectedEventListSize" ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="calculateTrendBaseValues"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="targetYear" Type="long" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void"
+                  id="calculateDeTrendBaseValues" ReturnNodeName="Return">
+    <ParameterInfo id="targetYear" Type="long" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="loadData"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="source" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="userId" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="aoid" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.String"
+                  id="checkForChangedEvents" ReturnNodeName="Return">
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="aoid" Type="java.math.BigInteger" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="reapplySelection"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="loadFromBPM"
+                  ReturnNodeName="Return"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.bvm.model.InitiateBaseYearEvent"
+                     BeanClass="gov.laca.amp.bvm.model.InitiateBaseYearEvent"
+                     id="InitiateBaseYearEvent"/>
+</JavaBean>

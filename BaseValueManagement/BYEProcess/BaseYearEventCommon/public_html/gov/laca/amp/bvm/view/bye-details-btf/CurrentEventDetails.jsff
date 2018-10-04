@@ -1,0 +1,1300 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelBox text=" " id="pb1" showDisclosure="false" showHeader="always"
+               styleClass="amp-edit-box"
+               inlineStyle="background-color:InfoBackground;">
+    <f:facet name="toolbar">
+      <af:toolbar id="pt_t1" rendered="#{pageFlowScope.isEdit}">
+        <af:panelGroupLayout id="pgl2" layout="horizontal">
+          <af:commandToolbarButton text="Apply" id="pt_ctb1"
+                                   actionListener="#{backingBeanScope.bvmActionsBean.BvmOnCloseDialogHandler}"/>
+          <af:commandToolbarButton text="Cancel" id="ctb1"
+                                   actionListener="#{backingBeanScope.bvmActionsBean.BvmOnCancelDialogHandler}"
+                                   immediate="true" action="return">
+                                    <af:resetActionListener/>
+            </af:commandToolbarButton>
+          <f:facet name="separator">
+            <af:spacer width="5" height="10" id="s2"/>
+          </f:facet>
+        </af:panelGroupLayout>
+      </af:toolbar>
+    </f:facet>
+    <af:panelGroupLayout id="pgl5" layout="scroll">
+      <af:panelHeader text=" " id="ph2">
+        <af:panelGroupLayout id="pgl12" layout="horizontal">
+          <af:panelFormLayout id="pfl17" rows="1" labelWidth="250"
+                              styleClass="amp-panel-label-padding">
+            <af:outputText id="ot4"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl18" rows="1"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{(bindings.transactionType.inputValue eq 'C' ? false: true) and pageFlowScope.showOriginal}"
+                              fieldWidth="65">
+            <af:panelLabelAndMessage id="panelLabelAndMessage1"
+                                     label="Original Information"
+                                     labelStyle="padding-bottom:4px;height:20.0px;">
+              <af:outputText id="outputText1"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl19" rows="1"
+                              rendered="#{pageFlowScope.isEdit}"
+                              styleClass="amp-panel-label-padding"
+                              fieldWidth="65">
+            <af:panelLabelAndMessage id="plam45" label="Edited Information"
+                                     labelStyle="padding-bottom:4px;height:20.0px;">
+              <af:outputText id="ot3"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl20" rows="1"
+                              rendered="#{!pageFlowScope.isEdit}"
+                              styleClass="amp-panel-label-padding"
+                              fieldWidth="65">
+            <af:panelLabelAndMessage label="Current Information" id="plam46"
+                                     labelStyle="padding-bottom:4px;height:20.0px;"/>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl9" layout="horizontal"
+                             partialTriggers="sbc1"
+                             rendered="#{!pageFlowScope.isTBV}">
+          <af:panelFormLayout id="pfl1" labelWidth="250" rows="2"
+                              styleClass="amp-panel-label-padding">
+            <af:panelLabelAndMessage label="#{bindings.verificationDate.hints.label}"
+                                     id="plam32"
+                                     labelStyle="padding-bottom:4px;padding-top:8px;height:20.0px;"/>
+            <af:panelLabelAndMessage label="#{bindings.verifiedBy.hints.label}"
+                                     id="plam41"
+                                     labelStyle="padding-bottom:4px;height:20.0px;"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl11" styleClass="amp-panel-label-padding"
+                              rendered="#{(bindings.transactionType.inputValue eq 'C' ? false: true) and pageFlowScope.showOriginal}"
+                              rows="2" fieldWidth="200">
+            <af:inputText value="#{bindings.verificationDate.inputValue}"
+                          shortDesc="#{bindings.verificationDate.hints.tooltip}"
+                          id="it52" disabled="true" simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="Verification Date">
+              <af:convertDateTime pattern="#{bindings.verificationDate.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.verifiedBy.inputValue}"
+                          simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          shortDesc="#{bindings.verifiedBy.hints.tooltip}"
+                          id="it113" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="Verified By"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl2" rendered="#{pageFlowScope.isEdit}"
+                              fieldWidth="200" rows="2"
+                              styleClass="amp-panel-label-padding">
+            <af:inputText value="#{bindings.verificationDate1.inputValue}"
+                          shortDesc="#{bindings.verificationDate1.hints.tooltip}"
+                          id="it116" disabled="true" simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Verification Date">
+              <af:convertDateTime pattern="#{bindings.verificationDate1.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.verifiedBy1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.verifiedBy1.hints.tooltip}"
+                          id="it114" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Verified By"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl3" rendered="#{!pageFlowScope.isEdit}"
+                              fieldWidth="200" rows="2"
+                              styleClass="amp-panel-label-padding">
+            <af:inputText value="#{bindings.verificationDate1.inputValue}"
+                          shortDesc="#{bindings.verificationDate1.hints.tooltip}"
+                          id="it42" simple="true" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Verification Date">
+              <af:convertDateTime pattern="#{bindings.verificationDate1.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.verifiedBy1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.verifiedBy1.hints.tooltip}"
+                          id="it115" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Verified By"/>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <f:facet name="legend">
+          <af:panelGroupLayout id="pgl13" rendered="#{!pageFlowScope.isTBV}">
+            <af:panelLabelAndMessage label="#{bindings.verified1.label}"
+                                     id="plam44"
+                                     labelStyle="font-size:13px;font-weight:bold;">
+              <af:selectBooleanCheckbox value="#{bindings.verified1.inputValue}"
+                                        shortDesc="#{bindings.verified1.hints.tooltip}"
+                                        id="sbc1" autoSubmit="true"
+                                        valueChangeListener="#{backingBeanScope.bvmActionsBean.setVerifiedHandler}"
+                                        rendered="#{pageFlowScope.isEdit}"
+                                        disabled="#{bindings.verificationDate.inputValue !=  null}"
+                                        simple="true" label="Verified"/>
+            </af:panelLabelAndMessage>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelHeader>
+      <af:panelHeader text="#{pageFlowScope.isRealProperty ? 'BYE - Land and Improvements' : 'BYE- Fixtures'}"
+                      id="ph1">
+        <af:panelGroupLayout id="pgl10" layout="horizontal">
+          <af:panelFormLayout id="pfl4" labelWidth="250" rows="8"
+                              styleClass="amp-panel-label-padding">
+            <af:panelLabelAndMessage label="#{bindings.byeId.hints.label}"
+                                     id="plam1"
+                                     labelStyle="padding-bottom:4px;padding-top:8px;height:17.5px;"/>
+            <af:panelLabelAndMessage label="#{bindings.ain.hints.label}"
+                                     id="plam2"
+                                     labelStyle="padding-bottom:4px;height:17.5px;"/>
+            <af:panelLabelAndMessage label="#{bindings.ppAssessmentNumber.hints.label}"
+                                     id="plam8"
+                                     labelStyle="padding-bottom:4px;height:17.5px;"/>
+            <af:panelLabelAndMessage label="#{bindings.eventNameKey.hints.label}"
+                                     id="plam7"
+                                     labelStyle="padding-bottom:4px;height:17.5px;"/>
+            <af:panelLabelAndMessage label="#{bindings.eventDescriptionKey.hints.label}"
+                                     id="plam3"
+                                     labelStyle="padding-bottom:4px;height:17.5px;"/>
+            <af:panelLabelAndMessage label="#{bindings.eventDate.hints.label}"
+                                     id="plam4"
+                                     labelStyle="padding-bottom:4px;height:17.5px;"/>
+            <af:panelLabelAndMessage label="#{bindings.baseYear.hints.label}"
+                                     id="plam5"
+                                     labelStyle="padding-bottom:4px;height:17.5px;"/>
+            <af:panelLabelAndMessage label="#{bindings.originalAIN.hints.label}"
+                                     id="plam6"
+                                     labelStyle="padding-bottom:4px;height:17.5px;"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl10" rows="8" fieldWidth="200"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{(bindings.transactionType.inputValue eq 'C' ? false: true) and pageFlowScope.showOriginal}">
+            <af:inputText value="#{bindings.byeId.inputValue}" simple="true"
+                          shortDesc="#{bindings.byeId.hints.tooltip}" id="it72"
+                          disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="Bye Id"/>
+            <af:inputText value="#{bindings.ain.inputValue}" simple="true"
+                          shortDesc="#{bindings.ain.hints.tooltip}" id="it73"
+                          disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="AIN"/>
+            <af:inputText value="#{bindings.ppAssessmentNumber.inputValue}"
+                          simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          shortDesc="#{bindings.ppAssessmentNumber.hints.tooltip}"
+                          id="it74" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"/>
+            <af:inputText value="#{bindings.eventNameKey.inputValue}"
+                          simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          shortDesc="#{bindings.eventNameKey.hints.tooltip}"
+                          id="it75" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="Event Name"/>
+            <af:inputText value="#{bindings.eventDescriptionKey.inputValue}"
+                          simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          shortDesc="#{bindings.eventDescriptionKey.hints.tooltip}"
+                          id="it76" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="Event Description"/>
+            <af:inputText value="#{bindings.eventDate.inputValue}"
+                          shortDesc="#{bindings.eventDate.hints.tooltip}"
+                          id="it77" disabled="true" simple="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Event Date">
+              <af:convertDateTime pattern="#{bindings.eventDate.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.baseYear.inputValue}" simple="true"
+                          shortDesc="#{bindings.baseYear.hints.tooltip}"
+                          id="it78" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="Base Year"/>
+            <af:inputText value="#{bindings.originalAIN.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.originalAIN.hints.tooltip}"
+                          id="it79" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Original AIN"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl5" rendered="#{pageFlowScope.isEdit}"
+                              fieldWidth="200" rows="8"
+                              styleClass="amp-panel-label-padding">
+            <af:inputText value="#{bindings.byeId1.inputValue}" simple="true"
+                          shortDesc="#{bindings.byeId1.hints.tooltip}" id="it14"
+                          disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Bye Id"/>
+            <af:inputText value="#{bindings.ain1.inputValue}" simple="true"
+                          shortDesc="#{bindings.ain1.hints.tooltip}" id="it15"
+                          disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="AIN"/>
+            <af:inputText value="#{bindings.ppAssessmentNumber1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.ppAssessmentNumber1.hints.tooltip}"
+                          id="it16" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="PP Assesment Number"/>
+            <af:panelGroupLayout id="pgl16" layout="vertical" halign="end"
+                                 inlineStyle="width:100px;">
+              <af:selectOneChoice value="#{bindings.eventNameKey1.inputValue}"
+                                  shortDesc="#{bindings.eventNameKey1.hints.tooltip}"
+                                  disabled="#{bindings.transactionType.inputValue != 'C' or bindings.verificationDate.inputValue !=  null? true : false }"
+                                  id="soc3" autoSubmit="true"
+                                  styleClass="amp-select-one-choice-no-label"
+                                  contentStyle="width:195px;height:25px;background-color:#CCCCFF;"
+                                  label="Event Name Key">
+                <f:selectItems value="#{bindings.eventNameKey1.items}"
+                               id="si11"/>
+              </af:selectOneChoice>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl17" layout="vertical" halign="end"
+                                 inlineStyle="width:100px;">
+              <af:selectOneChoice value="#{bindings.eventDescriptionKey1.inputValue}"
+                                  shortDesc="#{bindings.eventDescriptionKey1.hints.tooltip}"
+                                  id="soc2" autoSubmit="true"
+                                  styleClass="amp-select-one-choice-no-label"
+                                  contentStyle="width:195px;height:25px;background-color:#CCCCFF;"
+                                  disabled="#{bindings.verificationDate.inputValue !=  null}"
+                                  label="Event Description Key">
+                <f:selectItems value="#{bindings.eventDescriptionKey1.items}"
+                               id="si27"/>
+              </af:selectOneChoice>
+            </af:panelGroupLayout>
+            <af:inputDate value="#{bindings.eventDate1.inputValue}"
+                          shortDesc="#{bindings.eventDate1.hints.tooltip}"
+                          id="id1" simple="true" showRequired="true"
+                          contentStyle="text-align:left;width:170px; height:20px;background-color:#CCCCFF;"
+                          disabled="#{bindings.verificationDate.inputValue !=  null}"
+                          autoSubmit="true" label="Event Date">
+              <f:validator binding="#{bindings.eventDate1.validator}"/>
+              <af:convertDateTime pattern="#{bindings.eventDate1.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.baseYear1.inputValue}" simple="true"
+                          shortDesc="#{bindings.baseYear1.hints.tooltip}"
+                          id="it2" autoSubmit="true"
+                          converter="AMPConvertNumber"
+                          contentStyle="text-align:left;width:190px; height:20px;background-color:#CCCCFF;"
+                          disabled="#{bindings.verificationDate.inputValue !=  null}"
+                          label="Base Year">
+              <f:validator validatorId="ValidateYearRange"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.originalAIN1.inputValue}" id="it3"
+                          simple="true" autoSubmit="true"
+                          shortDesc="#{bindings.originalAIN1.hints.tooltip}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          disabled="#{bindings.verificationDate.inputValue !=  null}"
+                          label="Original AIN"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl6" rendered="#{!pageFlowScope.isEdit}"
+                              fieldWidth="200" rows="8"
+                              styleClass="amp-panel-label-padding">
+            <af:inputText value="#{bindings.byeId1.inputValue}" simple="true"
+                          shortDesc="#{bindings.byeId1.hints.tooltip}" id="it91"
+                          disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Bye Id"/>
+            <af:inputText value="#{bindings.ain1.inputValue}" simple="true"
+                          shortDesc="#{bindings.ain1.hints.tooltip}" id="it92"
+                          disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="AIN"/>
+            <af:inputText value="#{bindings.ppAssessmentNumber1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.ppAssessmentNumber1.hints.tooltip}"
+                          id="it93" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="PP Assesment Number"/>
+            <af:inputText value="#{bindings.eventNameKey1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.eventNameKey1.hints.tooltip}"
+                          id="it94" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Event Name Key"/>
+            <af:inputText value="#{bindings.eventDescriptionKey1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.eventDescriptionKey1.hints.tooltip}"
+                          id="it95" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Event Description Key"/>
+            <af:inputText value="#{bindings.eventDate1.inputValue}"
+                          shortDesc="#{bindings.eventDate1.hints.tooltip}"
+                          id="it96" simple="true" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Event Date">
+              <af:convertDateTime pattern="#{bindings.eventDate1.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.baseYear1.inputValue}" simple="true"
+                          shortDesc="#{bindings.baseYear1.hints.tooltip}"
+                          id="it97" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Base Year"/>
+            <af:inputText value="#{bindings.originalAIN1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.originalAIN1.hints.tooltip}"
+                          id="it98" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Original AIN"/>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:panelHeader>
+      <af:panelHeader text="Event Information" id="eventInfo">
+        <af:panelGroupLayout id="pgl11" layout="horizontal">
+          <af:panelFormLayout id="pfl7" labelWidth="250" rows="11"
+                              styleClass="amp-panel-label-padding">
+            <af:panelLabelAndMessage label="#{bindings.ownershipCode.hints.label}"
+                                     id="plam9"
+                                     labelStyle="padding-bottom:4px;padding-top:8px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.documentNumber.hints.label}"
+                                     id="plam10"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.recordingDate.hints.label}"
+                                     id="plam11"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.sequenceNumber.hints.label}"
+                                     id="plam12"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.percentOwnership.hints.label}"
+                                     id="plam13"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.newConstructionDate.hints.label}"
+                                     id="plam14"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.partiallyCompleteNumber.hints.label}"
+                                     id="plam15"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.subUnitDescription.hints.label}"
+                                     id="plam16"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.subUnitNumber.hints.label}"
+                                     id="plam17"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.personalPropertyType.hints.label}"
+                                     id="plam18"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.ppDescription.hints.label}"
+                                     id="plam19"
+                                     labelStyle="padding-bottom:4px;height:15.6px;"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl12" fieldWidth="200"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{(bindings.transactionType.inputValue eq 'C' ? false: true) and pageFlowScope.showOriginal}"
+                              rows="11">
+            <af:inputText value="#{bindings.ownershipCode.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.ownershipCode.hints.tooltip}"
+                          id="it80" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Ownership Code"/>
+            <af:inputText value="#{bindings.documentNumber.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.documentNumber.hints.tooltip}"
+                          id="it81" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="Document Number"/>
+            <af:inputText value="#{bindings.recordingDate.inputValue}"
+                          shortDesc="#{bindings.recordingDate.hints.tooltip}"
+                          id="it82" simple="true" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Recording Date">
+              <af:convertDateTime pattern="#{bindings.recordingDate.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.sequenceNumber.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.sequenceNumber.hints.tooltip}"
+                          id="it83" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="Sequence Number"/>
+            <af:inputText value="#{bindings.percentOwnership.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.percentOwnership.hints.tooltip}"
+                          id="it84" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          converter="AMPConvertNumber"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          label="Percent Ownership">
+              <f:attribute name="pattern" value="%"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.newConstructionDate.inputValue}"
+                          shortDesc="#{bindings.newConstructionDate.hints.tooltip}"
+                          id="it85" simple="true" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="New Construction Date">
+              <af:convertDateTime pattern="#{bindings.newConstructionDate.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.partiallyCompleteNumber.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.partiallyCompleteNumber.hints.tooltip}"
+                          id="it86" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          converter="AMPConvertNumber"
+                          label="Partially Completed Number">
+              <f:attribute name="pattern" value="0"/>
+              <f:attribute name="length" value="3"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.subUnitDescription.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.subUnitDescription.hints.tooltip}"
+                          id="it87" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Sub Unit Description"/>
+            <af:inputText value="#{bindings.subUnitNumber.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.subUnitNumber.hints.tooltip}"
+                          id="it88" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          label="Sub Unit Number"/>
+            <af:inputText value="#{bindings.personalPropertyType.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.personalPropertyType.hints.tooltip}"
+                          id="it89" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Personal Property Type"/>
+            <af:inputText value="#{bindings.ppDescription.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.ppDescription.hints.tooltip}"
+                          id="it90" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="PP Description"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl9" rendered="#{pageFlowScope.isEdit}"
+                              fieldWidth="200" rows="11"
+                              styleClass="amp-panel-label-padding">
+            <af:inputText value="#{bindings.ownershipCode1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.ownershipCode1.hints.tooltip}"
+                          id="it4" autoSubmit="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          disabled="#{bindings.transactionType.inputValue eq 'C' ? false: true or bindings.eventNameKey1.inputValue eq 'New Construction' or bindings.verificationDate.inputValue !=  null}"
+                          partialTriggers="soc3" label="Ownership Code"/>
+            <af:inputText value="#{bindings.documentNumber1.inputValue}"
+                          simple="true" autoSubmit="true"
+                          shortDesc="#{bindings.documentNumber1.hints.tooltip}"
+                          id="it5" partialTriggers="soc3"
+                          disabled="#{bindings.transactionType.inputValue eq 'C' ? false: true or bindings.eventNameKey1.inputValue eq 'New Construction' or bindings.verificationDate.inputValue !=  null}"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber" label="Document Number">
+              <f:validator validatorId="ValidateWholeNumbers"/>
+              <f:attribute name="dataType" value="BigInteger"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.recordingDate1.inputValue}"
+                          shortDesc="#{bindings.recordingDate1.hints.tooltip}"
+                          id="it6" simple="true" autoSubmit="true"
+                          disabled="#{bindings.transactionType.inputValue eq 'C' ? false: true or bindings.eventNameKey1.inputValue eq 'New Construction' or bindings.verificationDate.inputValue !=  null}"
+                          partialTriggers="soc3"
+                          contentStyle="text-align:left;width:170px; height:20px;"
+                          label="Recording Date">
+              <f:validator binding="#{bindings.recordingDate1.validator}"/>
+              <af:convertDateTime pattern="#{bindings.recordingDate1.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.sequenceNumber1.inputValue}"
+                          id="it7" simple="true" 
+                          shortDesc="#{bindings.sequenceNumber1.hints.tooltip}"
+                          disabled="#{bindings.transactionType.inputValue eq 'C' ? false: true or bindings.eventNameKey1.inputValue eq 'New Construction' or bindings.verificationDate.inputValue !=  null}"
+                          partialTriggers="soc3" autoSubmit="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber" label="Sequence Number">
+              <f:validator validatorId="ValidateWholeNumbers"/>
+              <f:attribute name="dataType" value="BigInteger"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.percentOwnership1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.percentOwnership1.hints.tooltip}"
+                          id="it8" converter="AMPConvertNumber"
+                          autoSubmit="true"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          partialTriggers="soc3"
+                          contentStyle="text-align:right;width:190px; height:20px;background-color:#CCCCFF;"
+                          label="Percent Ownership">
+              <f:attribute name="pattern" value="#.####%"/>
+              <f:attribute name="dataType" value="BigDecimal"/>
+              <af:validateDoubleRange minimum="0.0" maximum="100.0"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.newConstructionDate1.inputValue}"
+                          shortDesc="#{bindings.newConstructionDate1.hints.tooltip}"
+                          id="it18" simple="true" autoSubmit="true"
+                          disabled="#{(bindings.transactionType.inputValue eq 'C' ? false: true) or (bindings.verificationDate.inputValue !=  null)}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="New Construction Date">
+              <f:validator binding="#{bindings.newConstructionDate1.validator}"/>
+              <af:convertDateTime pattern="#{bindings.newConstructionDate1.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.partiallyCompleteNumber1.inputValue}"
+                          simple="true" id="it9"
+                          shortDesc="#{bindings.partiallyCompleteNumber1.hints.tooltip}"
+                          disabled="#{(bindings.transactionType.inputValue eq 'C' ? false : (bindings.eventNameKey1.inputValue ne 'New Construction' ? true : false) ) or (bindings.verificationDate.inputValue !=  null)}"
+                          autoSubmit="true"
+                          contentStyle="text-align:right;width:190px; height:20px;background-color:#CCCCFF;"
+                          converter="AMPConvertNumber" maximumLength="3"
+                          label="Partially Complete Number">
+              <f:validator validatorId="ValidateWholeNumbers"/>
+              <f:attribute name="pattern" value="0"/>
+              <f:attribute name="length" value="3"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.subUnitDescription1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.subUnitDescription1.hints.tooltip}"
+                          id="it10" autoSubmit="true"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Sub Unit Description"/>
+            <af:inputText value="#{bindings.subUnitNumber1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.subUnitNumber1.hints.tooltip}"
+                          id="it11" autoSubmit="true"
+                          converter="AMPConvertNumber"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          label="Sub Unit Number">
+              <f:validator validatorId="ValidateWholeNumbers"/>
+              <f:attribute name="dataType" value="BigInteger"/>              
+            </af:inputText>
+            <af:inputText value="#{bindings.personalPropertyType1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.personalPropertyType1.hints.tooltip}"
+                          id="it12" autoSubmit="true"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Personal Property Type"/>
+            <af:inputText value="#{bindings.ppDescription1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.ppDescription1.hints.tooltip}"
+                          id="it13" autoSubmit="true"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="PP Description"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl8" rendered="#{!pageFlowScope.isEdit}"
+                              fieldWidth="200" rows="11"
+                              styleClass="amp-panel-label-padding">
+            <af:inputText value="#{bindings.ownershipCode1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.ownershipCode1.hints.tooltip}"
+                          id="it99" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Ownership Code"/>
+            <af:inputText value="#{bindings.documentNumber1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.documentNumber1.hints.tooltip}"
+                          id="it100" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          label="Document Number"/>
+            <af:inputText value="#{bindings.recordingDate1.inputValue}"
+                          shortDesc="#{bindings.recordingDate1.hints.tooltip}"
+                          id="it101" simple="true" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Recording Date">
+              <af:convertDateTime pattern="#{bindings.recordingDate1.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.sequenceNumber1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.sequenceNumber1.hints.tooltip}"
+                          id="it102" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          label="Sequence Number"/>
+            <af:inputText value="#{bindings.percentOwnership1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.percentOwnership1.hints.tooltip}"
+                          id="it103" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Percent Ownership">
+              <f:attribute name="pattern" value="%"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.newConstructionDate1.inputValue}"
+                          shortDesc="#{bindings.newConstructionDate1.hints.tooltip}"
+                          id="it104" simple="true" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="New Construction Date">
+              <af:convertDateTime pattern="#{bindings.newConstructionDate1.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.partiallyCompleteNumber1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.partiallyCompleteNumber1.hints.tooltip}"
+                          id="it105" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Partially Complete Number">
+              <f:attribute name="pattern" value="0"/>
+              <f:attribute name="length" value="3"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.subUnitDescription1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.subUnitDescription1.hints.tooltip}"
+                          id="it106" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Sub Unit Description"/>
+            <af:inputText value="#{bindings.subUnitNumber1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.subUnitNumber1.hints.tooltip}"
+                          id="it107" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          label="Sub Unit Number"/>
+            <af:inputText value="#{bindings.personalPropertyType1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.personalPropertyType1.hints.tooltip}"
+                          id="it108" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Personal Property Type"/>
+            <af:inputText value="#{bindings.ppDescription1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.ppDescription1.hints.tooltip}"
+                          id="it109" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="PP Description"/>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:panelHeader>
+      <af:panelHeader text="Value Information" id="valueInformation">
+        <af:panelGroupLayout id="pgl2RPVI" layout="horizontal"
+                             rendered="#{pageFlowScope.isRealProperty}">
+          <af:panelFormLayout id="pfl13" rows="7" labelWidth="250"
+                              styleClass="amp-panel-label-padding">
+            <af:panelLabelAndMessage id="plam20"
+                                     labelStyle="padding-bottom:4px;padding-top:8px;height:16.8px;"
+                                     label="#{bindings.blendedValueFlag.hints.label}"/>
+            <af:panelLabelAndMessage label="#{bindings.percentageAppliedToValue.hints.label}"
+                                     id="plam35"
+                                     labelStyle="padding-bottom:4px;height:16.8px;"/>
+            <af:panelLabelAndMessage label="#{bindings.landValue.hints.label}"
+                                     id="plam22"
+                                     labelStyle="padding-bottom:4px;height:16.8px;"/>
+            <af:panelLabelAndMessage label="#{bindings.landReasonCodeKey.hints.label}"
+                                     id="plam23"
+                                     labelStyle="padding-bottom:4px;height:16.8px;"/>
+            <af:panelLabelAndMessage label="#{bindings.improvementValue.hints.label}"
+                                     id="plam25"
+                                     labelStyle="padding-bottom:4px;height:16.8px;"/>
+            <af:panelLabelAndMessage label="#{bindings.improvementReasonCodeKey.hints.label}"
+                                     id="plam24"
+                                     labelStyle="padding-bottom:4px;height:16.8px;"/>
+            <af:panelLabelAndMessage label="#{bindings.totalValue.hints.label}"
+                                     id="plam26"
+                                     labelStyle="padding-bottom:4px;height:16.8px;"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl14" rows="7" fieldWidth="200"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{(bindings.transactionType.inputValue eq 'C' ? false: true) and pageFlowScope.showOriginal}">
+            <af:selectOneChoice value="#{bindings.blendedValueFlag.inputValue}"
+                                label="Blended Value Flag"
+                                shortDesc="#{bindings.blendedValueFlag.hints.tooltip}"
+                                id="soc1" simple="true"
+                                rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                                disabled="true"
+                                contentStyle="width:195px;height:25px;">
+              <f:selectItems value="#{bindings.blendedValueFlag.items}"
+                             id="si1"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.percentageAppliedToValue.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.percentageAppliedToValue.hints.tooltip}"
+                          id="it67" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          converter="AMPConvertNumber"
+                          label="Percentage Applied To Value">
+              <f:attribute name="pattern" value="%"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.landValue.inputValue}"
+                          shortDesc="#{bindings.landValue.hints.tooltip}"
+                          id="it21" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          converter="AMPConvertNumber" label="Land Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.landReasonCodeKey.inputValue}"
+                          simple="true" autoSubmit="true"
+                          shortDesc="#{bindings.landReasonCodeKey.hints.tooltip}"
+                          id="it22" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Land Reason Code Key">
+                          <f:validator validatorId="ValidateLandRC"/>
+                          </af:inputText>
+            <af:inputText value="#{bindings.improvementValue.inputValue}"
+                          shortDesc="#{bindings.improvementValue.hints.tooltip}"
+                          id="it24" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          converter="AMPConvertNumber"
+                          label="Improvement Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.improvementReasonCodeKey.inputValue}"
+                          simple="true" autoSubmit="true"
+                          shortDesc="#{bindings.improvementReasonCodeKey.hints.tooltip}"
+                          id="it23" disabled="true"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Improvement Reason Code Key">
+                           <f:validator validatorId="ValidateImprovementRC"/>
+                          </af:inputText>
+            <af:inputText value="#{bindings.totalValue.inputValue}"
+                          shortDesc="#{bindings.totalValue.hints.tooltip}"
+                          id="it25" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          rendered="#{bindings.transactionType.inputValue eq 'C' ? false: true}"
+                          converter="AMPConvertNumber" label="Total Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl15" rows="7"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{pageFlowScope.isEdit}"
+                              fieldWidth="200">
+            <af:selectOneChoice value="#{bindings.blendedValueFlag1.inputValue}"
+                                label="Blended Value Flag"
+                                shortDesc="#{bindings.blendedValueFlag1.hints.tooltip}"
+                                disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                                id="soc4" simple="true" autoSubmit="true"
+                                contentStyle="width:195px;height:25px;">
+              <f:selectItems value="#{bindings.blendedValueFlag1.items}"
+                             id="si2"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.percentageAppliedToValue1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.percentageAppliedToValue1.hints.tooltip}"
+                          id="it56" converter="AMPConvertNumber"
+                          autoSubmit="true" autoTab="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          label="Percentage Applied To Value">
+              <f:attribute name="pattern" value="#.####%"/>
+              <f:attribute name="dataType" value="BigDecimal"/>
+              <af:validateDoubleRange minimum="0.0" maximum="100.0"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.landValue1.inputValue}"
+                          shortDesc="#{bindings.landValue1.hints.tooltip}"
+                          id="it30" simple="true" converter="AMPConvertNumber"
+                          autoSubmit="true"
+                          contentStyle="text-align:right;width:190px; height:20px;background-color:#CCCCFF;"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          label="Land Value">
+              <f:validator validatorId="ValidateWholeNumbers"/>
+              <f:attribute name="allowNegative" value="true"/>
+              <f:attribute name="pattern" value="$###,###,###"/>
+              <f:attribute name="dataType" value="Double"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.landReasonCodeKey1.inputValue}"
+                          simple="true" 
+                          shortDesc="#{bindings.landReasonCodeKey1.hints.tooltip}"
+                          id="it32" autoSubmit="true"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          contentStyle="text-align:left;width:190px; height:20px;background-color:#CCCCFF;"
+                          label="Land Reason Code Key">
+                         <f:validator validatorId="ValidateLandRC"/>
+                          </af:inputText>
+            <af:inputText value="#{bindings.improvementValue1.inputValue}"
+                          shortDesc="#{bindings.improvementValue1.hints.tooltip}"
+                          id="it34" simple="true" converter="AMPConvertNumber"
+                          autoSubmit="true"
+                          contentStyle="text-align:right;width:190px; height:20px;background-color:#CCCCFF;"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          label="Improvement Value">
+              <f:validator validatorId="ValidateWholeNumbers"/>
+              <f:attribute name="allowNegative" value="true"/>
+              <f:attribute name="pattern" value="$###,###,###"/>
+              <f:attribute name="dataType" value="Double"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.improvementReasonCodeKey1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.improvementReasonCodeKey1.hints.tooltip}"
+                          id="it36" autoSubmit="true"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          contentStyle="text-align:left;width:190px; height:20px;background-color:#CCCCFF;"
+                          label="Improvement Reason Code Key">
+                          <f:validator validatorId="ValidateImprovementRC"/>
+                          </af:inputText>
+            <af:inputText value="#{bindings.totalValue1.inputValue}"
+                          shortDesc="#{bindings.totalValue1.hints.tooltip}"
+                          id="it38" simple="true" disabled="true"
+                          styleClass="amp-edit-disabled-inputtext"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber" label="Total Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="pfl16" rows="7"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{!pageFlowScope.isEdit}"
+                              fieldWidth="200">
+            <af:selectOneChoice value="#{bindings.blendedValueFlag1.inputValue}"
+                                label="Blended Value Flag"
+                                shortDesc="#{bindings.blendedValueFlag1.hints.tooltip}"
+                                id="selectOneChoice1" simple="true"
+                                disabled="true"
+                                contentStyle="width:195px;height:25px;">
+              <f:selectItems value="#{bindings.blendedValueFlag1.items}"
+                             id="selectItems1"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.percentageAppliedToValue1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.percentageAppliedToValue1.hints.tooltip}"
+                          id="it57" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Percentage Applied To Value">
+              <f:attribute name="pattern" value="%"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.landValue1.inputValue}"
+                          shortDesc="#{bindings.landValue1.hints.tooltip}"
+                          id="it31" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber" label="Land Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.landReasonCodeKey1.inputValue}"
+                          simple="true" autoSubmit="true"
+                          shortDesc="#{bindings.landReasonCodeKey1.hints.tooltip}"
+                          id="it33" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Land Reason Code Key">
+                          <f:validator validatorId="ValidateLandRC"/>
+                          </af:inputText>
+            <af:inputText value="#{bindings.improvementValue1.inputValue}"
+                          shortDesc="#{bindings.improvementValue1.hints.tooltip}"
+                          id="it35" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Improvement Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.improvementReasonCodeKey1.inputValue}"
+                          simple="true" autoSubmit="true"
+                          shortDesc="#{bindings.improvementReasonCodeKey1.hints.tooltip}"
+                          id="it37" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Improvement Reason Code Key">
+                           <f:validator validatorId="ValidateImprovementRC"/>
+                          </af:inputText>
+            <af:inputText value="#{bindings.totalValue1.inputValue}"
+                          shortDesc="#{bindings.totalValue1.hints.tooltip}"
+                          id="it39" simple="true" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber" label="Total Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:separator id="separator2"
+                      rendered="#{pageFlowScope.isRealProperty}"/>
+        <af:panelGroupLayout id="plgRP" layout="horizontal"
+                             rendered="#{pageFlowScope.isRealProperty}">
+          <af:panelFormLayout id="panelFormLayout1" rows="4" labelWidth="250"
+                              styleClass="amp-panel-label-padding">
+            <af:panelLabelAndMessage label="#{bindings.retainedLandValue.hints.label}"
+                                     id="plam27"
+                                     labelStyle="padding-bottom:4px;padding-top:8px;height:15.7px;"/>
+            <af:panelLabelAndMessage label="#{bindings.retainedImprovementValue.hints.label}"
+                                     id="plam28"
+                                     labelStyle="padding-bottom:4px;height:15.7px;"/>
+            <af:panelLabelAndMessage label="#{bindings.retainedTotalValue.hints.label}"
+                                     id="plam29"
+                                     labelStyle="padding-bottom:4px;height:15.7px;"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="panelFormLayout2"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{(bindings.transactionType.inputValue eq 'C' ? false: true) and pageFlowScope.showOriginal}"
+                              rows="4" fieldWidth="200">
+            <af:inputText value="#{bindings.retainedLandValue.inputValue}"
+                          shortDesc="#{bindings.retainedLandValue.hints.tooltip}"
+                          id="it47" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Land Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.retainedImprovementValue.inputValue}"
+                          shortDesc="#{bindings.retainedImprovementValue.hints.tooltip}"
+                          id="it48" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Improvement Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.retainedTotalValue.inputValue}"
+                          shortDesc="#{bindings.retainedTotalValue.hints.tooltip}"
+                          id="it49" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Total Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="panelFormLayout3"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{pageFlowScope.isEdit}" rows="4"
+                              fieldWidth="200">
+            <af:inputText value="#{bindings.retainedLandValue1.inputValue}"
+                          shortDesc="#{bindings.retainedLandValue1.hints.tooltip}"
+                          id="it44" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Land Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.retainedImprovementValue1.inputValue}"
+                          shortDesc="#{bindings.retainedImprovementValue1.hints.tooltip}"
+                          id="it45" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Improvement Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.retainedTotalValue1.inputValue}"
+                          shortDesc="#{bindings.retainedTotalValue1.hints.tooltip}"
+                          id="it46" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Total Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="panelFormLayout4"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{!pageFlowScope.isEdit}" rows="4"
+                              fieldWidth="200">
+            <af:inputText value="#{bindings.retainedLandValue1.inputValue}"
+                          shortDesc="#{bindings.retainedLandValue1.hints.tooltip}"
+                          id="inputText1" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Land Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.retainedImprovementValue1.inputValue}"
+                          shortDesc="#{bindings.retainedImprovementValue1.hints.tooltip}"
+                          id="inputText2" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Improvement Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.retainedTotalValue1.inputValue}"
+                          shortDesc="#{bindings.retainedTotalValue1.hints.tooltip}"
+                          id="inputText3" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Total Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:separator id="s1" rendered="#{pageFlowScope.isRealProperty}"/>
+        <af:panelGroupLayout id="pglPPVI" layout="horizontal"
+                             rendered="#{pageFlowScope.isFixture}">
+          <af:panelFormLayout id="panelFormLayout5" rows="5" labelWidth="250"
+                              styleClass="amp-panel-label-padding">
+            <af:panelLabelAndMessage id="panelLabelAndMessage2"
+                                     labelStyle="padding-bottom:4px;padding-top:8px;height:17.0px;"
+                                     label="#{bindings.blendedValueFlag.hints.label}"
+                                     rendered="false"/>
+            <af:panelLabelAndMessage label="#{bindings.totalAdjAcquisitionCost.hints.label}"
+                                     id="plam36"
+                                     labelStyle="padding-bottom:4px;height:17.0px;"/>
+            <af:panelLabelAndMessage label="#{bindings.percentageFixture.hints.label}"
+                                     id="plam37"
+                                     labelStyle="padding-bottom:4px;height:17.0px;"/>
+            <af:panelLabelAndMessage label="#{bindings.fixtureValue.hints.label}"
+                                     id="plam38"
+                                     labelStyle="padding-bottom:4px;height:17.0px;"/>
+            <af:panelLabelAndMessage label="#{bindings.retainedFixtureValue.hints.label}"
+                                     id="plam39"
+                                     labelStyle="padding-bottom:4px;height:17.0px;"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="panelFormLayout6"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{(bindings.transactionType.inputValue eq 'C' ? false: true) and pageFlowScope.showOriginal}"
+                              rows="5" fieldWidth="200">
+            <af:selectOneChoice value="#{bindings.blendedValueFlag.inputValue}"
+                                label="Blended Value Flag"
+                                shortDesc="#{bindings.blendedValueFlag.hints.tooltip}"
+                                id="selectOneChoice2" simple="true"
+                                disabled="true" rendered="false"
+                                contentStyle="width:195px;height:25px;">
+              <f:selectItems value="#{bindings.blendedValueFlag.items}"
+                             id="selectItems2"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.totalAdjAcquisitionCost.inputValue}"
+                          shortDesc="#{bindings.totalAdjAcquisitionCost.hints.tooltip}"
+                          id="it66" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Total Adjusted Acquisition Cost">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.percentageFixture.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.percentageFixture.hints.tooltip}"
+                          id="it69" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Percentage Fixture">
+              <f:attribute name="pattern" value="%"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.fixtureValue.inputValue}"
+                          shortDesc="#{bindings.fixtureValue.hints.tooltip}"
+                          id="it70" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber" label="Fixture Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.retainedFixtureValue.inputValue}"
+                          shortDesc="#{bindings.retainedFixtureValue.hints.tooltip}"
+                          id="it71" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Fixture Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="panelFormLayout7"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{pageFlowScope.isEdit}" rows="5"
+                              fieldWidth="200">
+            <af:selectOneChoice value="#{bindings.blendedValueFlag1.inputValue}"
+                                label="Blended Value Flag"
+                                shortDesc="#{bindings.blendedValueFlag1.hints.tooltip}"
+                                id="selectOneChoice3" simple="true"
+                                autoSubmit="true" rendered="false"
+                                contentStyle="width:195px;height:25px;">
+              <f:selectItems value="#{bindings.blendedValueFlag1.items}"
+                             id="selectItems3"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.totalAdjAcquisitionCost1.inputValue}"
+                          shortDesc="#{bindings.totalAdjAcquisitionCost1.hints.tooltip}"
+                          id="it58" autoSubmit="true"
+                          converter="AMPConvertNumber" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          label="Total Adjusted Acquisition Cost">
+              <f:validator validatorId="ValidateWholeNumbers"/>
+              <f:attribute name="allowNegative" value="true"/>
+              <f:attribute name="pattern" value="$###,###,###"/>
+              <f:attribute name="dataType" value="Double"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.percentageFixture1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.percentageFixture1.hints.tooltip}"
+                          id="it60" autoSubmit="true"
+                          converter="AMPConvertNumber"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          label="Percentage Fixture">
+              <f:attribute name="pattern" value="#.####%"/>
+              <f:attribute name="dataType" value="BigDecimal"/>
+              <af:validateDoubleRange minimum="0.0" maximum="100.0"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.fixtureValue1.inputValue}"
+                          shortDesc="#{bindings.fixtureValue1.hints.tooltip}"
+                          id="it62" autoSubmit="true"
+                          converter="AMPConvertNumber" simple="true"
+                          disabled="#{(bindings.percentageFixture1.inputValue ne null) or (bindings.totalAdjAcquisitionCost1.inputValue ne null) or (bindings.verificationDate.inputValue !=  null)}"
+                          partialTriggers="it60 it58"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          label="Fixture Value">
+              <f:validator validatorId="ValidateWholeNumbers"/>
+              <f:attribute name="allowNegative" value="true"/>
+              <f:attribute name="pattern" value="$###,###,###"/>
+              <f:attribute name="dataType" value="Double"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.retainedFixtureValue1.inputValue}"
+                          shortDesc="#{bindings.retainedFixtureValue1.hints.tooltip}"
+                          id="it64"
+                          converter="AMPConvertNumber" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          disabled="true" label="Retained Fixture Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="panelFormLayout8"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{!pageFlowScope.isEdit}" rows="5"
+                              fieldWidth="200">
+            <af:selectOneChoice value="#{bindings.blendedValueFlag1.inputValue}"
+                                label="Blended Value Flag"
+                                shortDesc="#{bindings.blendedValueFlag1.hints.tooltip}"
+                                id="selectOneChoice4" simple="true"
+                                disabled="true" rendered="false"
+                                contentStyle="width:195px;height:25px;">
+              <f:selectItems value="#{bindings.blendedValueFlag1.items}"
+                             id="selectItems4"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.totalAdjAcquisitionCost1.inputValue}"
+                          shortDesc="#{bindings.totalAdjAcquisitionCost1.hints.tooltip}"
+                          id="it59" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Total Adjusted Acquisition Cost">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.percentageFixture1.inputValue}"
+                          simple="true"
+                          shortDesc="#{bindings.percentageFixture1.hints.tooltip}"
+                          id="it61" disabled="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Percentage Fixture">
+              <f:attribute name="pattern" value="%"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.fixtureValue1.inputValue}"
+                          shortDesc="#{bindings.fixtureValue1.hints.tooltip}"
+                          id="it63" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber" label="Fixture Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.retainedFixtureValue1.inputValue}"
+                          shortDesc="#{bindings.retainedFixtureValue1.hints.tooltip}"
+                          id="it65" disabled="true" simple="true"
+                          contentStyle="text-align:right;width:190px; height:20px;"
+                          converter="AMPConvertNumber"
+                          label="Retained Fixture Value">
+              <f:attribute name="pattern" value="$###,###,###"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+        <af:separator id="separator1" rendered="#{pageFlowScope.isFixture}"/>
+        <af:panelGroupLayout id="pglDP" layout="horizontal" valign="top">
+          <af:panelFormLayout id="panelFormLayout9" rows="4" labelWidth="250"
+                              styleClass="amp-panel-label-padding">
+            <af:panelLabelAndMessage label="#{bindings.effectiveBeginDate.hints.label}"
+                                     id="plam30"
+                                     labelStyle="padding-bottom:4px;padding-top:8px;height:16.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.effectiveEndDate.hints.label}"
+                                     id="plam31"
+                                     labelStyle="padding-bottom:4px;height:16.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.inactiveDate.hints.label}"
+                                     id="plam33"
+                                     labelStyle="padding-bottom:4px;height:16.6px;"/>
+            <af:panelLabelAndMessage label="#{bindings.notes.hints.label}"
+                                     id="plam40"
+                                     labelStyle="padding-bottom:4px;height:70.5px;"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="panelFormLayout10" rows="4"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{(bindings.transactionType.inputValue eq 'C' ? false: true) and pageFlowScope.showOriginal}"
+                              fieldWidth="200">
+            <af:inputText value="#{bindings.effectiveBeginDate.inputValue}"
+                          shortDesc="#{bindings.effectiveBeginDate.hints.tooltip}"
+                          id="it50" disabled="true" simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Effective Begin Date">
+              <af:convertDateTime pattern="#{bindings.effectiveBeginDate.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.effectiveEndDate.inputValue}"
+                          shortDesc="#{bindings.effectiveEndDate.hints.tooltip}"
+                          id="it51" disabled="true" simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Effective End Date">
+              <af:convertDateTime pattern="#{bindings.effectiveEndDate.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.inactiveDate.inputValue}"
+                          shortDesc="#{bindings.inactiveDate.hints.tooltip}"
+                          id="it53" disabled="true" simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Inactive Date">
+              <af:convertDateTime pattern="#{bindings.inactiveDate.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.notes.inputValue}" simple="true"
+                          shortDesc="#{bindings.notes.hints.tooltip}" id="it112"
+                          disabled="true" rows="6"
+                          contentStyle="text-align:left;width:190px;resize:none;"
+                          label="Notes"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="panelFormLayout11" rows="4"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{pageFlowScope.isEdit}"
+                              fieldWidth="200">
+            <af:inputDate value="#{bindings.effectiveBeginDate1.inputValue}"
+                          shortDesc="#{bindings.effectiveBeginDate1.hints.tooltip}"
+                          id="id2" simple="true" autoSubmit="true"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          contentStyle="text-align:left;width:170px; height:20px;background-color:#CCCCFF;"
+                          label="Effective Begin Date">
+              <f:validator binding="#{bindings.effectiveBeginDate1.validator}"/>
+              <af:convertDateTime pattern="#{bindings.effectiveBeginDate1.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.effectiveEndDate1.inputValue}"
+                          shortDesc="#{bindings.effectiveEndDate1.hints.tooltip}"
+                          id="id3" simple="true" autoSubmit="true"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null) and (bindings.effectiveEndDate.inputValue !=null)}"
+                          contentStyle="text-align:left;width:170px; height:20px;background-color:#CCCCFF;"
+                          label="Effective End Date">
+              <f:validator binding="#{bindings.effectiveEndDate1.validator}"/>
+              <af:convertDateTime pattern="#{bindings.effectiveEndDate1.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.inactiveDate1.inputValue}"
+                          shortDesc="#{bindings.inactiveDate1.hints.tooltip}"
+                          id="id5" simple="true" autoSubmit="true"
+                          contentStyle="text-align:left;width:170px; height:20px;"
+                          disabled="#{((bindings.verificationDate.inputValue !=  null) and ( bindings.inactiveDate.inputValue !=null)) or (bindings.transactionType.attributeValue eq 'C' ? true: false) }"
+                          label="Inactive Date">
+              <f:validator binding="#{bindings.inactiveDate1.validator}"/>
+              <af:convertDateTime pattern="#{bindings.inactiveDate1.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.notes1.inputValue}"
+                          shortDesc="#{bindings.notes1.hints.tooltip}"
+                          id="it110" rows="6" simple="true"
+                          disabled="#{(bindings.verificationDate.inputValue !=  null)}"
+                          contentStyle="text-align:left;width:190px;resize:none;"
+                          label="Notes"/>
+          </af:panelFormLayout>
+          <af:panelFormLayout id="panelFormLayout12"
+                              styleClass="amp-panel-label-padding"
+                              rendered="#{!pageFlowScope.isEdit}" rows="4"
+                              fieldWidth="200">
+            <af:inputText value="#{bindings.effectiveBeginDate1.inputValue}"
+                          shortDesc="#{bindings.effectiveBeginDate1.hints.tooltip}"
+                          id="it40" disabled="true" simple="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Effective Begin Date">
+              <af:convertDateTime pattern="#{bindings.effectiveBeginDate1.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.effectiveEndDate1.inputValue}"
+                          shortDesc="#{bindings.effectiveEndDate1.hints.tooltip}"
+                          id="it41" simple="true" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Effective End Date">
+              <af:convertDateTime pattern="#{bindings.effectiveEndDate1.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.inactiveDate1.inputValue}"
+                          shortDesc="#{bindings.inactiveDate1.hints.tooltip}"
+                          id="it43" simple="true" disabled="true"
+                          contentStyle="text-align:left;width:190px; height:20px;"
+                          label="Inactive Date">
+              <af:convertDateTime pattern="#{bindings.inactiveDate1.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.notes1.inputValue}" simple="true"
+                          shortDesc="#{bindings.notes1.hints.tooltip}"
+                          id="it111" rows="6" disabled="true"
+                          contentStyle="text-align:left;width:190px;resize:none;"
+                          label="Notes"/>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:panelHeader>
+      <af:commandButton text="Return" id="returnBtn"
+                        binding="#{backingBeanScope.bvmActionsBean.retrunBtn}"
+                        action="return" visible="false"/>
+    </af:panelGroupLayout>
+  </af:panelBox>
+</jsp:root>

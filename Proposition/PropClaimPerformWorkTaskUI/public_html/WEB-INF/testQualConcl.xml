@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="testQualConcl">
+    <default-activity>loadPropsLOV</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>propClaimPerformBean</managed-bean-name>
+      <managed-bean-class>gov.laca.amp.propclaimperform.view.backing.PropClaimPerformBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__4">
+      <managed-bean-name>propQualConclBean</managed-bean-name>
+      <managed-bean-class>gov.laca.amp.propclaimperform.view.backing.PropQualConclBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="__testQualConcl1">
+      <page>/testQualConcl.jsff</page>
+    </view>
+    <method-call id="loadPropsLOV">
+      <method>#{propClaimPerformBean.loadPropsLOV}</method>
+      <outcome>
+        <fixed-outcome>launchUI</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>loadPropsLOV</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>launchUI</from-outcome>
+        <to-activity-id>__testQualConcl1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

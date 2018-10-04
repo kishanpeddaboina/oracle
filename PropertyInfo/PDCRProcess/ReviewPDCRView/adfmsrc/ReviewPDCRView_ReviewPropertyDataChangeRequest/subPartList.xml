@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="subPartList"
+          Package="ReviewPDCRView_ReviewPropertyDataChangeRequest"
+          BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.subPartList"
+          isJavaBased="false">
+  <AccessorAttribute id="subPart" IsCollection="true"
+                     BeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.subPart"
+                     CollectionBeanClass="ReviewPDCRView_ReviewPropertyDataChangeRequest.subPart_subPart_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="2147483640"/>
+      <Property Name="LABEL" Value="Sub Part"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="subPart"/>
+      <Property Name="targetNamespace"
+                Value="http://assessor.lacounty.gov/amp/type/common/RealPropertyInfo/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

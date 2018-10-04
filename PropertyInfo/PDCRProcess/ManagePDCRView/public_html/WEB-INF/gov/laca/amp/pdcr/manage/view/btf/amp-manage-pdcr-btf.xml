@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-manage-pdcr-btf">
+    <default-activity id="__1">retrieveRealPropertyInfo</default-activity>
+    <data-control-scope id="__14">
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__8">
+      <managed-bean-name id="__11">PDCRBean</managed-bean-name>
+      <managed-bean-class id="__9">gov.laca.amp.pdcr.common.view.bean.PDCRBean</managed-bean-class>
+      <managed-bean-scope id="__10">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <initializer id="__15">#{pageFlowScope.PDCRBean.getUserInformation}</initializer>
+    <method-call id="retrieveRealPropertyInfo">
+      <method>#{bindings.RetrieveRealPropertyInfo.execute}</method>
+      <outcome id="__7">
+        <fixed-outcome>next</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="managePDCR">
+      <page>/gov/laca/amp/pdcr/manage/view/jsff/managePDCR.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">retrieveRealPropertyInfo</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">next</from-outcome>
+        <to-activity-id id="__5">managePDCR</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

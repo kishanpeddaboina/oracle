@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://assessor.lacounty.gov/amp/type/common/Fault/v1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <complexType name="fault">
+    <sequence>
+      <element name="faultCode" type="string" minOccurs="0"/>
+      <element name="faultType" type="string" minOccurs="0"/>
+      <element name="faultMessage" type="string" minOccurs="0"/>
+      <element name="faultSummary" type="string" minOccurs="0"/>
+    </sequence>
+  </complexType>
+</schema>

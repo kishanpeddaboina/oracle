@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14"
+                id="PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_initAvailableDocsPageDef"
+                Package="propclaimperformworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PropsDC" id="PropsDCIterator"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsPojo" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsPojo" id="propsPojoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="supportingInfo" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsSupportingInfoPojo"
+                      id="supportingInfoIterator"/>
+    <accessorIterator id="availableDocumentIterator" MasterBinding="supportingInfoIterator" Binds="availableDocument"
+                      RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsDocumentDetailsPojo"/>
+  </executables>
+  <bindings>
+    <methodAction id="loadAvailableDocs" RequiresUpdateModel="true" Action="invokeMethod" MethodName="loadAvailableDocs"
+                  IsViewObjectMethod="false" DataControl="PropsDC"
+                  InstanceName="bindings.loadAvailableDocs.dataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Fault" targetNamespace="http://assessor.lacounty.gov/amp/wsdl/common/Fault/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:inp1="http://assessor.lacounty.gov/amp/type/common/Fault/v1.0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://assessor.lacounty.gov/amp/type/common/Fault/v1.0" schemaLocation="Fault.xsd"/>
+    </schema>
+  </types>
+  <message name="FaultMessage">
+    <part name="fault" type="inp1:fault"/>
+  </message>
+</definitions>

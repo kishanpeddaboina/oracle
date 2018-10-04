@@ -1,0 +1,2963 @@
+@charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+/** 20161025.2020-C140565-Tim Lagerhausen
+Commented out this global margin change.
+If there is a need for 0 margin then a new class should be created
+This change caused all PDCR fields to move from center to left justified **/
+
+/** 
+* {
+  margin: 0;
+}
+**/
+
+html, body {
+  height: 100%;
+}
+.amp_page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -100px; 
+}
+.amp_page-wrap:after {
+  content: "";
+  display: block;
+}
+.amp_site-footer, .amp_page-wrap:after {
+  height:100px; 
+}
+.amp_site-footer {
+  background: orange;
+}
+
+.sizeReport{
+    font-size: 1em;
+    font-weight:bold;
+    border-radius: 5px; 
+    box-shadow: 0px 0px 3px 0px rgba(51,51,51,0.8);
+    background-color:Purple;
+    padding:2%;
+    height: 100% !important;
+    min-height: 100% !important;
+    margin: 0 auto -75px !important;
+}
+ 
+/************************************
+Typography (Text, Headers, Sub-Text)
+*************************************/
+ 
+ 
+.text {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;  
+}
+ 
+.header {
+    width: 100%;
+    color: #000000;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+
+/************************************
+Divider Line
+*************************************/
+
+.divider-line {
+	border-bottom: 1px #E1E1E1 solid;
+	/** padding: 2px; **/
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+/** 20161007.1618-C140565-Tim Lagerhausen **/
+/** Divider line for AIN display in PDCR **/
+.divider-line-PDCR {
+	border-bottom: 1px #E1E1E1 solid;
+	padding: 2px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+/**************
+Total Borders
+***************/
+
+.amp-total {
+	border-top: 4px solid;
+    border-bottom: 1px solid;
+}
+
+/************************************
+Labels
+*************************************/
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 85%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.label.green {
+    background-color:#5cb85c;
+}
+
+
+.label.red {
+    background-color: #d9534f;
+}
+
+.label.orange {
+    background-color: #f0ad4e;
+}
+
+.label.blue {
+    background-color: #5bc0de;
+}
+
+ 
+/************************************
+Buttons
+*************************************/
+ 
+.button{
+    background-color: #4CAF50 !important; /* Green */
+   
+}
+ 
+.button a {
+    background-color: #4CAF50 !important; /* Green */
+
+}
+ 
+.x7j:hover, .x7l:hover, .x7k:hover, .xm9:hover, .xm7:hover, .AFNoteWindowAllButton:hover, .xm8:hover, .x7j:focus:hover, .x7l:focus:hover, .x7k:focus:hover, .xm9:focus:hover, .xm7:focus:hover, .AFNoteWindowAllButton:focus:hover, .xm8:focus:hover, .xsf:hover, .xsg:hover {
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: #A8CEFC;
+    border-right-color: #00AEFF;
+    border-bottom-color: #00AEFF;
+    border-left-color: #A8CEFC;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAATCAIAAADeafBOAAAAMUlEQ�DFu15nSjSpYD+Oh5jnbkZEjnBVAa2/GrUFVvQG/EM/EQ/yQSLyr7PZcQAAAABJRU5ErkJggg==);
+    background-color: #3696FF;
+    font-family: Tahoma, Verdana, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: #000000;
+}
+
+ 
+.button a:hover {
+    background-color: #4CAF50 !important; /* Green */
+}
+ 
+ 
+ 
+.secondary {
+    background-color: #e7e7e7 !important; /* Gray */
+    color: black; 
+}
+ 
+.dark {
+    background-color: #555555 !important; /* Black */
+}
+ 
+.info {
+    background-color: #008CBA !important; /* Blue */
+}
+ 
+.alert {
+    background-color: #f44336 !important; /* Red */
+}
+ 
+ 
+.search-field {
+    font-family: Tahoma, Verdana, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    /* border-color: #9297A6; */
+    /* border-style: solid; */
+    /* border-width: 1px; */
+    /* border-top-color: #aeb4bd; */
+    /* border-left-color: #aeb4bd; */
+    /* border-bottom-color: #e0e3e8; */
+    /* border-right-color: #e0e3e8; */
+    /* background-image: url(/RespDesign1117Test-Portal-context-root/afr/fusion/inputText_bg.png); */
+    background-repeat: repeat-x;
+    color: #333333;
+    padding: 1px 2px 1px 3px;
+    margin: 0px !important;
+    overflow-x: hidden;
+    padding: 15px;
+    overflow-y: auto;
+}
+ 
+/*******************************
+Alignment
+*******************************/
+ 
+.right {
+    position: absolute;
+    right: 0px;
+    padding: 10px;
+}
+ 
+ 
+/*******************************
+Default Screen dimensions 980 px = 960 + 20(padding)
+*******************************/
+.page {
+    /*max-width: 1000px;*/
+    background-color: white;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+ 
+.content .fullwidth {
+    width: 100%;
+    float: left;
+    background-color: #ffffff;
+    color: #000000;
+    margin:0 .5% .5% 0;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.2;
+    font-size: .8rem;
+}
+ 
+.content .half {
+    width: 50%;
+    float: left;
+    background-color: #ffffff;
+    color: #000000;
+    margin:0 .5% .5% 0;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.2;
+    font-size: .8rem;
+}
+ 
+.content .third {
+    width: 33%;
+    float: left;
+    background-color: #ffffff;
+    color: #000000;
+    margin:0 .5% .5% 0;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.2;
+    font-size: .8rem;
+}
+ 
+.content {
+    width: 65%;
+    float: left;
+    background-color: #ffffff;
+    color: #000000;
+    margin:0 .5% .5% 0;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.2;
+    font-size: .8rem;
+}
+ 
+.innerContent{
+        display: none;
+}
+ 
+.sidebar1, .sidebar2 {
+    float: left;
+    width:17%;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.2;
+    font-size: .8rem;
+}
+ 
+.sidebar1{
+    margin-right:.5%;
+}
+ 
+.header .headerblock,
+.footer .footerBlock{
+   padding: 1%;
+}
+ 
+.content .contentBlock{
+  padding: 2%;   
+}
+ 
+.sidebar1 .sbarBlock,
+.sidebar2 .sbarBlock{
+   padding: 3%; 
+}
+ 
+.headerot, .contentot, .sidebarot, .footerot {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+@media screen and (max-width:1024px) {
+    .page {
+        /*padding: 0 3% 0 3%;*/
+        margin: 0 auto;
+    }
+     
+     .sidebar1, .sidebar2 {
+        width:34.5%; 
+        float: left;
+        margin:0 0 .5% 0;
+    }
+}
+ 
+@media screen and (max-width:480px) {
+    .page {
+        padding: 0;
+    }
+ 
+    .sidebar1, .sidebar2 {
+        width: 100%;
+        float: left;
+    }
+    .content {
+        clear: both;
+        width: 100%;
+    }
+}
+ 
+
+
+@media screen and (max-width: 980px) {
+  .hide-for-small { display: none !important; }   /* hide it elsewhere */
+  .navigation img {width:60px;}
+}
+
+@media screen and (min-width: 980px) {
+  .hide-for-large { display: none !important; }   /* hide it elsewhere */
+}
+ 
+/********
+NAV
+********/
+ 
+.navigation {
+    overflow:hidden;
+    width: 100%;
+    background: #0E1A2B;
+}
+.navigation ul {
+    background: #2f3e52; 
+        list-style: none; 
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        color: rgb(51, 51, 51);
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        margin-left: -40px;
+         
+}
+.navigation li {
+    display: inline-block;
+    -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-align:center;
+}
+.navigation a {
+    padding: 15px !important; 
+        color: rgb(255, 255, 255); 
+        font-weight: bold; 
+        text-decoration: none; 
+        display: block;
+        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-size: .9rem;
+        font-weight: normal;
+        font-style: normal;
+}
+ 
+.navigation img {
+   
+     width:250px;
+     
+}
+ 
+.navigation a:hover {
+    background: #0E1A2B;
+         
+}
+ 
+.navigation .text {
+    padding: 10px !important; 
+        color: rgb(255, 255, 255); 
+        font-weight: bold; 
+        text-decoration: none; 
+        display: block;
+        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        font-style: normal;
+}
+ 
+ 
+ /***********
+ Top Links
+ ***********/
+ 
+ 
+ 
+ .topnav {
+    overflow:hidden;
+    width: 100%;
+    background: #0E1A2B;
+}
+.topnav ul {
+    background: #0E1A2B; 
+        list-style: none; 
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        color: rgb(51, 51, 51);
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        margin-left: -40px;
+         
+}
+.topnav li {
+    display: inline-block;
+    -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-align:center;
+}
+.topnav a {
+    padding-top: 36px !important;
+        color: rgb(255, 255, 255); 
+        font-weight: bold; 
+        text-decoration: none; 
+        display: block;
+        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-size: 1.0rem;
+        font-weight: normal;
+        font-style: normal;
+        margin-left: 20px;
+		margin-right: 10px;
+}
+ 
+.topnav img {
+    width:20px;
+    padding: 20px;
+     
+}
+ 
+
+ 
+.navigation .text {
+    padding: 10px !important; 
+        color: rgb(255, 255, 255); 
+        font-weight: bold; 
+        text-decoration: none; 
+        display: block;
+        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        font-style: normal;
+}
+
+/********
+SUB-NAV
+********/
+ 
+.sub-navigation {
+    overflow:auto;
+    width: 100%;
+    background: #2f3e52;
+    -webkit-scrollbar: width: 0 !important;
+    -ms-overflow-style: none;   
+}
+ 
+.sub-navigation ul {
+    background: #2f3e52; 
+        list-style: none; 
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        color: rgb(51, 51, 51);
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        margin-left: -40px;
+         
+}
+.sub-navigation li {
+    display: inline-block;
+    -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-align:center;
+}
+.sub-navigation a {
+    padding: 10px; 
+        color: rgb(255, 255, 255); 
+        font-weight: bold; 
+        text-decoration: none; 
+        display: block;
+        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-size: .9rem;
+        font-weight: normal;
+        font-style: normal;
+        background: #2f3e52; 
+}
+.sub-navigation a:hover {
+    background: #434e5d;
+         
+}
+ 
+/********
+FOOTER
+********/
+ 
+ 
+.footer {
+    width: 100%;
+    clear: both;
+    color: #CCD0D2;
+    background-color: #0E1A2B;
+    text-align: center;
+    font-size: .6rem;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    height: 50px !important;
+    position: relative !important;
+    z-index:1;
+}
+
+
+
+.footer a{
+        padding: 10px; 
+        color: rgb(255, 255, 255); 
+        font-weight: bold; 
+        text-decoration: none; 
+        display: block;
+        font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-size: .8rem !important;
+        font-weight: normal;
+        font-style: normal;
+        padding: 15px px;
+        display: inline-block;
+        margin-left:35px;
+    }
+ 
+ 
+.footer ul{
+  
+    clear: both;
+    color: #CCD0D2;
+    background-color: #0E1A2B;
+    text-align: center;
+    font-size: .6rem;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    height: 50px !important;
+    position: relative !important;
+    padding: 25px;
+    margin-left: -32px;
+
+}
+
+.footer li {
+    display: inline-block;
+    -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-align:center;
+        list-style: none ;
+}
+
+.af_panelList UL {
+    margin-top: -4px;
+    margin-bottom: -4px;
+}
+
+ .af_commandImageLink_text,.af_goImageLink_text, .af_dialog_footer-button.p_AFTextOnly {
+   margin-left: 0px;
+}
+
+/********
+HERO
+********/
+ 
+ 
+.hero {
+
+background-size: cover;
+/** NG **/
+overflow-y: hidden;
+min-height:555px;
+
+}
+ 
+.hero .intro {
+    padding: 3rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+ 
+.hero h1 {
+    color: #000;
+    font-size: 1.5rem;
+    line-height: 1em;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 2em; 
+}
+ 
+  .hero p {
+    color: #000;
+    font-weight: 200;
+    text-align: center;
+    font-size: 12px;
+}
+ 
+  .hero .tech-img {
+    background: url(../img/la-county-seal.png) no-repeat center center;
+    background-size: cover;
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;     
+}
+ 
+  @media only screen and (min-width: 30.063em) {
+ 
+ .hero .tech-img {
+    height: 18rem;
+    width: 18rem; 
+}
+ 
+ .hero h1 {
+    padding-top: 4rem;
+    text-align: right;
+    font-size: 2.3rem; 
+}
+ 
+ .hero p {
+   text-align: right; 
+   } 
+}
+
+
+.portalContent{
+
+    width: 100%;
+    float: left;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0 .5% 0 0;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.2;
+    font-size: .8rem;
+}
+
+
+.portalFooter {
+    width: 100%;
+    clear: both;
+    color: white;
+    background-color: #0E1A2B;
+    text-align: center;
+    font-size: .6rem;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    height: 75px !important;
+    position: relative !important;
+}
+
+/********/
+SLIDESHOW
+/********/
+
+.slideshow {
+  list-style: none;
+  z-index: 1;
+}
+
+.slideshow li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: transparent;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: none;
+  opacity: 0;
+  z-index: -999999;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-animation: imageAnimation 24s linear infinite 0s;
+  -moz-animation: imageAnimation 24s linear infinite 0s;
+  animation: imageAnimation 24s linear infinite 0s;
+}
+
+.slideshow li .caption {
+  position: absolute;
+  text-align: left;
+  z-index: 2;
+  bottom: 700px;
+  padding: 15px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  font-size: 2em;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  color: #fff;
+  -webkit-animation: titleAnimation 24s linear 1 0s;
+  -moz-animation: titleAnimation 24s linear 1 0s;
+  animation: titleAnimation 24s linear 1 0s;
+  font-weight: 100;
+}
+@media only screen and (min-width: 768px) {
+
+.slideshow li h3 {
+  bottom: 30px;
+  font-size: 2em;
+}
+}
+@media only screen and (min-width: 1024px) {
+
+.slideshow li h3 { font-size: 2em; }
+}
+
+.slideshow li:nth-child(1)  { background-image: url("/webcenter/adf/webcenter/webcenter_icon.png") }
+
+.slideshow li:nth-child(2)  {
+  background-image: url("/webcenter/adf/webcenter/home_ena.png");
+  -webkit-animation-delay: 6s;
+  -moz-animation-delay: 6s;
+  animation-delay: 6s;
+}
+
+.slideshow li:nth-child(3)  {
+  background-image: url("/webcenter/adf/webcenter/configure_ena.png");
+  -webkit-animation-delay: 12s;
+  -moz-animation-delay: 12s;
+  animation-delay: 12s;
+}
+
+.slideshow li:nth-child(4)  {
+  background-image: url("/webcenter/adf/webcenter/configure_ena.png");
+  -webkit-animation-delay: 18s;
+  -moz-animation-delay: 18s;
+  animation-delay: 18s;
+}
+ @-webkit-keyframes 
+imageAnimation {  0% {
+ opacity: 0;
+ -webkit-animation-timing-function: ease-in;
+}
+ 12.5% {
+ opacity: 1;
+ -webkit-animation-timing-function: ease-out;
+}
+ 25% {
+ opacity: 1;
+}
+ 37.5% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 0;
+}
+}
+@-moz-keyframes 
+imageAnimation {  0% {
+ opacity: 0;
+ -moz-animation-timing-function: ease-in;
+}
+ 12.5% {
+ opacity: 1;
+ -moz-animation-timing-function: ease-out;
+}
+ 25% {
+ opacity: 1;
+}
+ 37.5% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 0;
+}
+}
+@keyframes 
+imageAnimation {  0% {
+ opacity: 0;
+ -webkit-animation-timing-function: ease-in;
+ -moz-animation-timing-function: ease-in;
+ animation-timing-function: ease-in;
+}
+ 12.5% {
+ opacity: 1;
+ -webkit-animation-timing-function: ease-out;
+ -moz-animation-timing-function: ease-out;
+ animation-timing-function: ease-out;
+}
+ 25% {
+ opacity: 1;
+}
+ 37.5% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 0;
+}
+}
+@-webkit-keyframes 
+titleAnimation {  0% {
+ opacity: 0;
+}
+ 12.5% {
+ opacity: 1;
+}
+ 25% {
+ opacity: 1;
+}
+ 37.5% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 0;
+}
+}
+@-moz-keyframes 
+titleAnimation {  0% {
+ opacity: 0;
+}
+ 12.5% {
+ opacity: 1;
+}
+ 25% {
+ opacity: 1;
+}
+ 37.5% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 0;
+}
+}
+@keyframes 
+titleAnimation {  0% {
+ opacity: 0;
+}
+ 12.5% {
+ opacity: 1;
+}
+ 25% {
+ opacity: 1;
+}
+ 37.5% {
+ opacity: 0;
+}
+ 100% {
+ opacity: 0;
+}
+}
+
+.no-cssanimations .slideshow li { opacity: 1; }
+
+
+
+
+
+
+/* **************************
+  Framework Styles
+************************** */
+@charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+/*************
+AMP FONTS
+**************/
+
+.AFDefaultFontFamily:alias {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('font-awesome-4.6.3/fonts/fontawesome-webfont.eot?v=4.6.3');
+  src: url('font-awesome-4.6.3/fonts/fontawesome-webfont.eot?#iefix&v=4.6.3') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.6.3') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.6.3') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.6.3') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('font-awesome-4.6.3/fonts/fontawesome-webfont.eot?v=4.6.3');
+  src: url('font-awesome-4.6.3/fonts/fontawesome-webfont.eot?#iefix&v=4.6.3') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.6.3') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.6.3') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.6.3') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.search:before {
+  content: "\f002";
+  font-family: FontAwesome;
+}
+
+/*************
+AMP TEXT
+**************/
+
+.amp-ain {
+   font-size: 27px;
+   font-weight: 500;
+}
+
+.amp-ain-text {
+   font-size: 16px;
+   font-weight: normal;
+}
+
+.amp-ain-text-bold {
+   font-size: 16px;
+   font-weight:800;
+}
+
+.amp-d2 {
+  font-weight: 800;
+}
+
+.amp-sub-title {
+    font-size: 16px;
+    color: #003D5B;
+    font-weight: 400;
+}
+
+af|document {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    font-weight: 300;
+    color: #333333;
+}
+
+.amp-word-wrap {
+    width: 225px !important;
+    word-wrap: break-word; 
+}
+
+/*************
+AMP TABS
+**************/
+
+af|panelTabbed::tab-content {
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff; 
+    padding: 0px 8px 0px 8px; 
+    font-size: small; 
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px; 
+    border-left-width: 0px; 
+    border-right-width: 0px; 
+    border-top-width: 0px; 
+    border-bottom-width: 0px; 
+    border: none;
+    line-height: 16px;
+}
+
+af|panelTabbed{
+    width:100%;
+}
+
+af|panelTabbed::header {
+    padding-bottom: 0px;
+    border-top: 0px solid #BCC7D2;
+}
+
+af|panelTabbed:selected {
+    padding-bottom: 0px;
+    border-top: 0px solid #b576ff;
+    outline: none;
+}
+
+af|panelTabbed::tab-text-link {
+    color: #000000; 
+    font-size: 13px; 
+    font-weight: 400; 
+    border: none;
+    outline: none;
+}
+
+af|panelTabbed_tab.p_AFSelected af|panelTabbed_tab-text-link {
+    color: #1466b2;
+}
+
+
+af|panelTabbed::tab af|panelTabbed::tab-text-link {
+    padding: 3px 0px 3px 0px;
+    color: #000000;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+af|panelTabbed::tab:selected af|panelTabbed::tab-content {
+    border: none;
+    padding-bottom: 0px;
+    border-top: 0px solid #BCC7D2;
+    color: #000000;
+    border: none;
+    padding-bottom: 0px;
+    border-top: 0px solid #BCC7D2;
+    border-bottom: 2px solid #1466b2;
+}
+
+af|panelTabbed_tab.p_AFSelected af|panelTabbed_tab-content {
+   background-color: rgba(255, 255, 255, 0);
+}
+
+af|panelTabbed::header af|panelTabbed::tab.p|AFSelected af|panelTabbed::tab-content {
+    padding-bottom: 0px;
+    border-top: 0px solid #BCC7D2;
+}
+
+af|panelTabbed::body {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+    color: #333333;
+    overflow: hidden;
+    border-left: 1px solid #CFD8E3;
+    border-right: 1px solid #CFD8E3;
+    border-top: 1px solid #BCC7D2;
+    border-bottom: 1px solid #BCC7D2;
+    margin-top: 7px;
+    padding: 0px;
+    background-color: rgba(0, 0, 255, 0);
+    border-radius: 0px;
+    border-width: 0px;
+}
+
+
+/*************
+AMP BUTTONS
+**************/
+
+af|commandLink {
+    font-size: 13px;
+}
+
+af|goButton {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #1466b2;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+af|goButton.p_AFTextOnly {
+    text-decoration: none;
+    white-space: nowrap;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    background-color: #1466b2;
+    padding-left: 9px;
+    padding-right: 9px;
+  
+}
+
+af|goButton:hover {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: #FFE4A8;
+
+}
+
+af|goButton:active {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    text-decoration: none;
+    white-space: nowrap;
+
+}
+
+@agent (touchScreen:none) {
+
+  af|goButton:active:disabled:hover {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    text-decoration: none;
+    white-space: nowrap; 
+  }
+
+  af|goButton:text-only:disabled:hover {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    text-decoration: none;
+    white-space: nowrap;  
+  }
+
+  af|goButton:hover {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    text-decoration: none;
+    white-space: nowrap;  
+  }
+
+  af|goButton:focus:hover {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    text-decoration: none;
+    white-space: nowrap; 
+  }
+
+af|goButton:active:hover:focus {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    text-decoration: none;
+    white-space: nowrap;  
+
+  }
+
+af|goButton:active:hover {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    text-decoration: none;
+    white-space: nowrap;  
+  }
+}
+
+/*
+.amp-block-button {
+    width:250px;
+}
+
+.amp-green-button {
+    background-color: #4CAF50 !important; /* Green 
+}
+*/
+
+af|commandButton:hover {
+    background-color: #FFE4A8;
+}
+
+af|commandButton.p_AFTextOnly:hover {
+    background-color: #FFE4A8;
+}
+
+af|commandButton.p_AFTextOnly {
+    text-decoration: none;
+    white-space: nowrap;
+    margin: 0px;
+    padding-left: 9px;
+    padding-right: 9px;
+    background-color: #1466b2;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 0px;
+}
+
+af|commandButton.p_AFDisabled {
+    border-radius: 0px;
+    background-color:#F4F4F4;
+    
+}
+
+af|commandButton.p_AFTextOnly.p_AFDisabled {
+    border-radius: 0px;
+    background-color:#F4F4F4;
+}
+
+af|commandButton.p_AFTextOnly.p_AFDisabled:hover {
+    border-radius: 0px;
+    background-color:#F4F4F4;
+}
+
+.AFButtonGradientEndDisabledColor:alias {
+    color: #F4F4F4; 
+}
+
+.AFButtonBorderDisabledColor:alias {
+    color: #D5D5D5; 
+}
+
+.AFButtonBorder:alias {
+    border-radius: 0px; 
+    border-width: 0px; 
+}
+
+.AFButtonBorderDisabled:alias {
+    border-style: none; 
+    border-width: 0px; 
+}
+
+.AFButtonBorderActive:alias {
+    border-width: 0px; 
+}
+
+.AFButtonBorderHover:alias {
+    border-width: 0px; 
+}
+
+button:focus {outline:0;}
+
+.AFButtonGradientStartColor:alias {
+    color: #1466b2; 
+}
+
+.AFButtonBorderBottomColor:alias {
+    color: #547595; 
+}
+
+.AFButtonBorderColor:alias {
+    color: #547595; 
+}
+
+
+.AFButtonGradientStartActiveColor:alias {
+    color: #E7E7E7; 
+}
+
+.AFButtonBorderTopActiveColor:alias {
+    color: #A3B9C8; 
+}
+
+.AFButtonBorderActiveColor:alias {
+    color: #A3B9C8; 
+}
+
+.AFButtonGradientEndHoverColor:alias {
+    color: #FFE4A8; 
+}
+
+.AFButtonBorderBottomHoverColor:alias {
+    color: #E2CB9B; 
+}
+
+.AFButtonForeground:alias {
+    color: White; 
+}
+
+.AFButtonGradientEndActiveColor:alias {
+    color: #E7E7E7; 
+}
+
+.AFButtonGradientEndColor:alias {
+    color: #1466b2; 
+}
+
+
+/*************
+AMP OUTPUT TEXT
+**************/
+
+.amp-summary {
+    font-size:12px;
+}
+
+
+/*************
+AMP INPUT TEXT
+**************/
+
+af|inputText::content {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    background-color: #ffffff;
+    padding: 2px 2px 2px 2px;
+    width: 290px;
+    color: #333333;
+    border: 1px solid #DEE4E7;
+    margin: 0px;
+    border-radius: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: none;
+    font-size: 12px;
+}
+
+.amp-search {
+    width: 450px;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #DEE4E7;
+    padding: 10px 4px 10px 4px;
+}
+
+
+/*************
+AMP CHECKBOX
+**************/
+
+af|selectBooleanCheckbox_item-text {
+    margin: 0px 1px;
+    vertical-align: 0%;
+}
+
+.amp-search-header af|selectBooleanCheckbox_item-text {
+    margin: 0px 1px;
+    vertical-align: 0%;
+    color: #ffffff !important;
+}
+
+/** 20161026.2045-C140565-Tim Lagerhausen **/
+/** Added styles for the Search conditions selectOneRadio **/
+.amp-search-radio-header af|selectOneRadio_item-text {
+    margin: 0px 1px;
+    vertical-align: 0%;
+    color: #ffffff !important;
+}
+
+
+af|selectManyCheckbox_item-text {
+    margin: 0px 1px;
+    vertical-align: 0%;
+}
+
+/*************
+AMP ACCORDION
+**************/
+
+.AFAccordionHeaderGradientEndColor:alias {
+    color: #E6ECF3; 
+}
+
+af|panelAccordion::header, af|panelAccordion::header-subsequent, af|panelAccordion::body-content {
+    border-bottom-width: 0px; 
+    border-left-width: 0px; 
+    border-right-width: 0px; 
+}
+
+af|panelAccordion::header {
+    border-top-width: 0px; 
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px;
+    background-image: -webkit-linear-gradient(top, #f0f4fa 0%, #f0f4fa 100%);
+}
+
+/********************
+AMP SHOW DETAIL FRAME
+********************/
+
+af|showDetailFrame::header-text {
+    background-color: #eeeeee; 
+    color: #044771; 
+    padding: 7px 7px 7px 7px; 
+    font-size: 14px; 
+    font-weight: lighter; 
+    margin: 0px 0px 0px 0px; 
+}
+
+af|showDetailFrame::actionmenu-icon-style {
+  background-image: url("/images/move-up-down-blue.png");
+  background-size: 16px;
+}
+
+af|showDetailFrame::actionmenu-icon-style:hover {
+  background-image: url("/images/move-up-down-blue.png");
+  background-size: 16px;
+}
+
+af|showDetailFrame::actionmenu-icon-style:active {
+  background-image: url("/images/move-up-down-blue.png");
+  background-size: 16px;
+}
+
+
+af|showDetailFrame::undisclosed-icon:rtl {
+    padding: 7px 7px 7px 7px; 
+}
+
+af|showDetailFrame::disclosure-link {
+    background-color: #eeeeee;
+    outline: none;
+}
+
+af|showDetailFrame::header-center {
+  background-color: #eeeeee;
+}
+
+af|showDetailFrame_content {
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    overflow: auto;
+    padding: 0px;
+	height : auto !important;
+}
+
+af|showDetailFrame_content.p_AFMedium {
+    border-color: #F0F4FC;
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+}
+
+af|showDetailFrame::disclose-icon-style {
+    background-image: url("/images/toggle-close-blue.png"); 
+    height: 12px; 
+    width: 12px;; 
+    padding: 7px 7px 7px 7px;
+    margin: 0px 0px 0px 0px; 
+    background-color: #eeeeee;
+    background-size: 16px;
+}
+
+af|showDetailFrame::collapse-icon-style {
+    height: 12px; 
+    width: 12px; 
+    padding: 7px 7px 7px 7px; 
+    margin: 0px 0px 0px 0px; 
+    background-color: #eeeeee;
+    background-image: url("/images/toggle-open-blue.png");
+    background-size: 16px;
+}
+
+af|showDetailFrame::collapse-icon-style:hover{
+    background-image: url("/images/toggle-open-blue.png");
+    background-size: 16px;
+}
+
+af|showDetailFrame::collapse-icon-style:active{
+  background-image: url("/images/toggle-open-blue.png");
+  background-size: 16px;
+}
+
+af|showDetailFrame::disclose-icon-style:hover{
+  background-image: url("/images/toggle-close-blue.png");
+  background-size: 16px;
+}
+
+af|showDetailFrame::disclose-icon-style:active{
+  background-image: url("/images/toggle-close-blue.png");
+  background-size: 16px;
+}
+
+af|showDetailFrame::header.p_AFMedium {
+  border-top: 0px solid #BFC6C9;
+  border-bottom: 0px solid #CCD1D4;
+}
+
+.PEShowDetailFrameAnimIcon {
+    background-image: url(/images/wheel-blue.gif);
+    background-size: 12px;
+    width: 20px;
+}
+
+af|showDetailHeader::title-text0, af|query::title-text0 {
+    font-weight: lighter; 
+    font-size: large; 
+}
+
+
+/*********************
+AMP SHOW DETAIL HEADER
+**********************/
+
+af|showDetailHeader::title1 {
+    background-color: #eeeeee; 
+    padding: 7px 7px 7px 7px;
+    margin: 0px 0px 0px 0px;
+	
+}
+
+af|showDetailHeader_title-text1 {
+	font-weight: bold !important;  
+	font-size: 14px;
+}
+
+af|showDetailHeader_undisclosed-icon-style {
+    background-image: url("/images/toggle-close-blue.png"); 
+    height: 12px; 
+    width: 12px;; 
+    padding: 7px 7px 7px 7px;
+    margin: 0px 0px 0px 0px; 
+    background-color: #eeeeee;
+    background-size: 16px;
+    
+}
+
+
+af|showDetailHeader_undisclosed-icon-style:hover {
+    background-image: url("/images/toggle-close-blue.png") !important;
+    background-size: 16px;
+}
+
+af|showDetailHeader_disclosed-icon-style {
+    background-image: url("/images/toggle-open-blue.png"); 
+    height: 12px; 
+    width: 12px;; 
+    padding: 7px 7px 7px 7px;
+    margin: 0px 0px 0px 0px; 
+    background-color: #eeeeee;
+    background-size: 16px;
+    
+}
+
+af|showDetailHeader_disclosed-icon-style:hover {
+    background-image: url("/images/toggle-open-blue.png") !important;
+    background-size: 16px;
+}
+
+/***************
+AMP PANEL HEADER
+****************/
+af|showDetailHeader::title-text0, af|query::title-text0 {
+    font-weight: lighter; 
+    font-size: large; 
+}
+
+af|panelHeader::title0, af|showDetailHeader::title0, af|query::title0 {
+    padding: 7px 7px 7px 7px;
+}
+
+af|panelHeader::title-text1, af|showDetailHeader::title-text1, af|query::title-text1 {
+    font-weight: lighter;
+    padding: 7px 7px 7px 7px;
+    font-size:14px;
+}
+
+/*************
+AMP PANEL BOX
+**************/
+
+af|panelBox {
+  border: 0px solid #D6DFE6;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) !important;
+  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) !important;
+  border-radius: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+
+}
+
+.amp-roll-table-header af|panelBox_table {
+  padding: 0px 0px 0px 0px;
+}
+
+af|panelBox_header-element {
+    background-color: #eeeeee; 
+    color: #044771; 
+    padding: 7px 7px 7px 7px; 
+    font-size: 14px; 
+    margin: 0px 0px 0px -5px; 
+    font-variant: normal;
+}
+
+.amp-roll-details af|panelBox_header-element {
+    background-color: #1da7ff;
+    color: #ffffff;
+    padding: 4px 7px 4px 7px;
+    font-size: 12px;
+    margin: 0px 0px 0px -5px;
+    font-variant: normal;
+}
+
+.amp-roll-details-nc af|panelBox_header-element {
+    background-color: #474747;
+    color: #ffffff;
+    padding: 4px 7px 4px 7px;
+    font-size: 12px;
+    margin: 0px 0px 0px -5px;
+    font-variant: normal;
+}
+
+.amp-roll-table-header af|panelBox_table {
+  padding: 0px 0px 0px 0px;
+}
+
+
+af|panelBox_undisclosed-icon-style {
+    width: 13px;
+    height: 17px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: default;
+    background-image: url("/images/toggle-close-blue.png");
+    background-color: #eeeeee;
+    padding: 7px;
+    background-size: 16px;
+    
+}
+
+af|panelBox_undisclosed-icon-style:hover {
+    background-image: url("/images/toggle-close-blue.png") !important;
+    background-size: 16px;
+    
+}
+
+af|panelBox_disclosed-icon-style {
+    width: 13px;
+    height: 17px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: default;
+    background-image: url("/images/toggle-open-blue.png");
+    background-color: #eeeeee;
+    padding: 7px;
+    background-size: 16px;
+    
+}
+
+af|panelBox_disclosed-icon-style:hover {
+    background-image: url("/images/toggle-open-blue.png") !important;
+    background-size: 16px;
+    
+}
+
+
+af|panelBox_undisclosed-icon-style:active {
+    background-image: url("/images/toggle-close-blue.png") !important;
+    background-size: 16px;
+    
+}
+
+
+
+af|panelBox_disclosed-icon-style:active {
+    background-image: url("/images/toggle-open-blue.png") !important;
+    background-size: 16px;
+    
+}
+
+/*************
+AMP SELECT MANY
+*************
+
+af|selectManyChoice::content:focus {
+    background-color: #FFFFFF;
+    border-radius: 0px !important;
+    border: 1px solid #DEE4E7;
+    
+}
+
+
+af|selectManyChoice::dropdown {
+    background-image: none;
+    border-top: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+    border-bottom: 1px solid #b7b7b7;
+    border-left: 1px solid #b7b7b7;
+    border-width: 0px;
+    margin-left: -20px;
+}
+
+af|selectManyChoice::control {
+    border-color: #DEE4E7;
+    border-radius: 0px;
+    border-width: 0px;
+    margin: 0px;    
+}
+
+af|selectManyChoice_dropdown-icon-style:hover {
+    background-image: -moz-linear-gradient(top, RGBA(69, 160, 73, 0) 0%, RGBA(69, 160, 73, 0) 100%);
+}
+
+af|selectManyChoice_dropdown-icon-style:active {
+    background-image: -moz-linear-gradient(top, RGBA(69, 160, 73, 0) 0%, RGBA(69, 160, 73, 0) 100%);
+}
+
+af|selectManyChoice_dropdown:hover{
+   background-image: -moz-linear-gradient(top, RGBA(69, 160, 73, 0) 0%, RGBA(69, 160, 73, 0) 100%);
+}
+
+af|selectManyChoice_dropdown:active {
+    background-image: -moz-linear-gradient(top, RGBA(69, 160, 73, 0) 0%, RGBA(69, 160, 73, 0) 100%);
+}
+
+
+af|selectManyChoice_label {
+    font-weight: 800;
+    padding-right: 5px;
+    border: solid;
+    border-width: 1px;
+    border-color: #ffc649;
+    background-color: #ffc649;
+    color: #ffffff;
+}
+
+af|selectManyChoice_item.p_AFHighlighted {
+    border: 0px dotted #003286;
+}
+
+
+af|selectManyChoice_item.p_AFSelected {
+    background-color: #f0f7ff;
+}
+
+af|selectManyChoice::content {
+    width: 300px;
+    border: 1px solid #DEE4E7;
+    background-color: #FFFFFF;
+    border-radius: 0px !important;
+    
+}
+
+*/
+
+/*************
+AMP TABLES
+**************/
+
+af|column::column-header-cell {
+    background-color: #194e95; 
+    color: #ffffff;
+    text-transform: uppercase !important;
+    font-size: 11px;
+    height:30px;
+    font-weight: bold;
+    padding:2px;
+}
+
+af|table_data-table-VH-lines af|column_data-cell {
+    border-right: 1px solid #B6BDC6;
+    border-bottom: 1px solid #B6BDC6;
+  
+}
+
+af|table_data-table-VH-lines af|column_banded-data-cell {
+    border-right: 1px solid #B6BDC6;
+    border-bottom: 1px solid #B6BDC6;
+}
+
+af|column::banded-data-cell {
+    background-color: #f2f2f2;
+    font-size: 13px;
+    height:25px;
+}
+
+
+af|table_undisclosed-icon-style{
+    background-image: url(/images/table-undisclosed-icon.png);
+    background-size: 11px;
+    height: 12px;
+
+}
+
+af|table_disclosed-icon-style {
+     background-image: url(/images/table-disclosed-icon.png); 
+     background-size: 11px;
+     height: 12px;
+
+}
+
+af|table_data-row.p_AFSelected af|column_detail-cell {
+    background-color: #f0f4fa;
+}
+
+af|column_detail-cell{
+  border-right: 1px solid #B6BDC6;
+  border-bottom: 1px solid #B6BDC6;
+}
+
+af|column_data-cell {
+    padding:2px;
+    font-size: 13px;
+    height:25px;
+}
+
+af|goLink {
+    font-size: 13px;
+}
+
+af|column::data-cell af|inputText.p_AFReadOnly af|inputText::content {
+    font-size:13px;
+}
+
+af|column::banded-data-cell af|inputText.p_AFReadOnly af|inputText::content {
+    font-size:13px;
+}
+
+af|table_detail-area-cell {
+    background-color: #F2F2F2;
+}
+
+af|table::data-row {
+    height: 25px;
+}
+
+
+/*.AFHoverSecondaryColor:alias {
+    color: #E7E7E7; 
+}*/
+
+/*************
+AMP ICONS
+**************/
+
+af|panelCollection::maximize-icon {
+    content: url(/images/maximize-icon.png); 
+}
+
+af|panelCollection::qbe-icon {
+    content: url(/images/query-by-example-icons.png); 
+}
+
+
+
+.icon img {
+    width: 20px;
+    padding: 4px;
+}
+
+.AFFatalIcon:alias {
+    content: url(/images/error-icon.png);
+}
+
+.AFErrorIcon:alias {
+     content: url(/images/error-icon.png);
+}
+
+.AFWarningIcon:alias {
+    content: url(statusIconWarning/warning-icon.png); 
+}
+
+.AFInfoIcon:alias {
+    content: url(statusIconInfo/info-icon.png); 
+}
+
+.AFConfirmationIcon:alias {
+    content: url(statusIconConfirmation/confirmation-icon.png); 
+}
+
+.AFChangedIcon:alias {
+    content: url(statusIconChanged/changed-icon.png); 
+}
+
+af|column::row-header-cell:info {
+    background-image: url(iconColumnRowHeaderCellInfo/info-icon.png); 
+}
+
+af|column::row-header-cell:error, af|column::row-header-cell:fatal {
+    background-image: url(iconColumnRowHeaderCellError/error-icon.png); 
+}
+
+af|column::row-header-cell:confirmation {
+    background-image: url(iconColumnRowHeaderCellConfirmation/confirmation-icon.png); 
+}
+
+af|column::row-header-cell:warning {
+    background-image: url(iconColumnRowHeaderCellWarning/warning-icon.png); 
+}
+
+af|inputText::changed-icon {
+    width: 12px; 
+    height: 12px; 
+}
+
+af|inputDate::launch-icon-style, af|panelList af|inputDate::launch-icon-style {
+    background-image: url(/images/calendar-input-icon.png); 
+    background-size: 16px;
+}
+
+@agent (touchScreen:none) {
+
+    af|inputDate::launch-icon-style:disabled:hover {
+        background-image: url(/images/calendar-input-disb-icon.png); 
+        background-size: 16px;
+    }
+
+}
+
+af|inputDate::launch-icon-style:active {
+    background-image: url(/images/calendar-input-icon.png); 
+    background-size: 16px;
+}
+
+@agent (touchScreen:none) {
+
+    af|inputDate::launch-icon-style:hover {
+        background-image: url(/images/calendar-input-icon.png); 
+        background-size: 16px;
+    }
+
+}
+
+.amp-smry-icon {
+   width: 40px;
+   height: 40px
+}
+
+.amp-redfin {
+  width: 80px;
+  height: 80px;
+}
+
+af|inputListOfValues::search-icon-style:active {
+    background-image: url(iconLOVSearchActive/search-icon-toolbar.png);
+    background-size: 16px;
+}
+
+af|inputListOfValues::search-icon-style:hover {
+    background-image: url(iconLOVSearchHover/search-icon-toolbar.png);
+    background-size: 16px;
+}
+
+
+/*************
+AMP SEARCH
+**************/
+
+.icon-search {
+    background-size: 20px;
+    background-repeat: no-repeat !important;
+    padding: 20px !important;
+    background-image: url(/images/search-icon.png) !important;
+    background-position: center; 
+    background-color: #547595 !important;
+}
+
+.amp-search-tab {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.amp-search-region {
+  margin-right: auto;
+  width: 540px;
+  margin-left: auto;
+  background-color: rgba(255, 255, 255, .95);
+  padding: 30px;
+}
+
+.amp-search-title {
+    font-size: x-large;
+    font-color: #000000;
+    font-weight: 100;
+}
+
+.amp-srch-dpd {
+  height: 40px !important;
+  font-size: 16px !important;
+}
+
+.amp-search-input-topbar {
+  padding: 2px 4px 2px 4px !important;
+}
+
+.amp-icon-search-topbar {
+	background-size: 14px !important;
+    padding: 14px !important;
+}
+
+/** Align Search button for IE **/
+@agent ie {
+
+.icon-search {
+    background-size: 20px;
+    background-repeat: no-repeat !important;
+    padding: 20px !important;
+    background-image: url(/content/conn/ucmserver/path/spaces/assessorportal/app-icons/search-icon.png) !important;
+    background-position: center; 
+    background-color: #547595 !important;
+    margin-top: 2px !important;
+
+}
+.amp-icon-search-topbar {
+	background-size: 14px !important;
+    padding: 14px !important;
+    margin-top: 3px !important;
+}
+
+}
+
+/*************
+AMP DIALOG
+**************/
+
+af|selectManyShuttle::changed-icon {
+    height: 12px; 
+    width: 12px; 
+}
+
+af|selectManyShuttle::header {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+}
+
+af|selectOrderShuttle::header {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+}
+
+af|selectManyShuttle::description {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+    font-size: small; 
+}
+
+af|selectOrderShuttle::description {
+    font-size: small; 
+}
+
+/***
+
+af|selectOrderShuttle::move-horizontal-icon-style {
+    background-image: url("/images/shuttle-right.png"); 
+}
+
+**/
+
+
+af|selectOneRadio_item-text {
+    vertical-align: 0% !important;
+}
+
+af|dialog_title {
+    margin-top: 4px;
+    cursor: default;
+    white-space: nowrap;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px;
+    
+}
+
+af|dialog {
+    border: solid 0px #8794A3;
+    background-color: #f0f4fa;
+    border-color: #C3D0DF;
+    color: #333333;
+    border-radius: 0px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    -webkit-border-radius: 0px;
+    -webkit-box-shadow: 5px 5px 5px rgba(41, 41, 41, 0.2);
+}
+
+af|dialog::footer-button {
+	background-color:#1466b2;
+	margin-right:2px;
+	
+}
+
+
+/******************
+AMP NAVIGATION PANE
+*******************/
+af|navigationPane-list_link.p_AFSelected {
+    font-weight: bold;
+    background-color: #f2f2f2;
+    width: 100%;
+    padding: 5px;
+    border-left: 3px solid #1466b2;
+    margin-left: 0px !important;
+
+}
+
+af|navigationPane-list_link {
+    text-decoration: none;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: block;
+    white-space: nowrap;
+    color: #000000;
+    font-size: 12px;
+}
+
+/*************
+AMP TOOLBAR
+************/
+
+af|toolbar af|commandToolbarButton.p_AFTextOnly.p_AFDisabled {
+  border-radius: 0px;
+}
+af|toolbar af|commandToolbarButton.p_AFTextOnly.p_AFDepressed {
+  border-radius: 0px;
+  border-top: 0px solid #A3B9C8 !important;
+  border-right: 0px solid #A3B9C8 !important;
+  border-bottom: 0px solid #A3B9C8 !important;
+  border-left: 0px solid #A3B9C8 !important;
+}
+
+af|commandToolbarButton {
+  height: 19px;
+  background-color: #1466b2;
+}
+
+af|commandToolbarButton af|menu_bar-item.pAFHoverTarget{
+  border-top: 0px solid #A3B9C8 !important;
+  border-right: 0px solid #A3B9C8 !important; 
+  border-bottom: 0px solid #A3B9C8 !important;
+  border-left: 0px solid #A3B9C8 !important;
+}
+
+af|commandToolbarButton:depressed {
+    border: none; 
+}
+
+af|commandToolbarButton.pAFHoverTarget {
+    border: none; 
+}
+
+af|toolbar_body {
+    padding: 5px 5px;
+    
+}
+
+af|toolbox_body {
+    border-top: 1px solid #D6DFE6 !important;
+}
+
+
+af|commandToolbarButton_image {
+    width: 16px;
+}
+
+af|column_column-filter-cell {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+    font-weight: 800;
+    border-right: 1px solid #d6dfe6;
+    border-bottom: 0px solid #ffffff;
+    border-top-width: 0px;
+    padding: 4px 4px 4px 4px;
+    cursor: default;
+    overflow: hidden;
+    background-color: #f0f4fa;
+    height: 100%;
+}
+
+
+af|toolbar af|commandToolbarButton::link{
+    padding: 3px 0px 1px 0px;
+}
+
+af|toolbar af|commandToolbarButton.p_AFTextOnly af|commandToolbarButton_text {
+    padding: 0px 15px 0px 15px;
+    color: #ffffff;
+}
+
+af|commandToolbarButton::active {
+	background-color: #1466b2; 
+	border:none;  
+}
+
+/*12c Changes af|toolbar af|commandToolbarButton.p_AFTextOnly  {
+	color:white;	
+	background-color: #1466b2;
+	padding: 0px 9px 0px 9px;
+}*/
+
+af|toolbar af|commandToolbarButton.p_AFTextOnly  {
+	
+	background-color: #1466b2;
+	padding: 0px 9px 0px 9px;
+}
+af|toolbar af|commandToolbarButton.p_AFDepressed  {
+	border: none;
+}
+
+af|toolbar af|commandToolbarButton.p_AFTextOnly af|commandToolbarButton_text {
+	color:white;	
+	padding: 0px 9px 0px 9px;
+}
+
+af|toolbar af|commandToolbarButton.p_AFTextOnly.p_AFDisabled {
+	background-color: #F4F4F4;
+	padding: 0px 9px 0px 9px;
+	
+}
+
+af|commandToolbarButton.p_AFDisabled af|commandToolbarButton_text {
+	color: #6E7587 !important;
+}
+
+af|menu_bar-item {
+   padding: 3px 0px 1px 0px; 
+}
+
+af|menu_bar-item.p_AFHighlighted {
+    color:#333333;
+    background-color:#EDF2F7;
+    border-width:0px;
+    background-image:-webkit-linear-gradient(top, #FFE4A8 0%, #FFE4A8 100%);
+    padding: 3px 0px 1px 0px;
+}
+       
+af_commandToolbarButton_link.p_AFHoverTarget {
+    padding: 3px 0px 1px 0px;
+}
+
+af|menu::bar-item.p_AFDepressed {
+    border-top: 0px solid #A3B9C8;
+    border-right: 0px solid #A3B9C8;
+    border-bottom: 0px solid #A3B9C8;
+    border-left: 0px solid #A3B9C8;
+}
+
+af|toolbar af|commandToolbarButton.p_AFDepressed {
+    border-top: 0px solid #A3B9C8;
+    border-right: 0px solid #A3B9C8;
+    border-bottom: 0px solid #A3B9C8;
+    border-left: 0px solid #A3B9C8;
+}
+
+af|toolbar af|commandToolbarButton.p_AFDepressed.p_AFHoverTarget {
+    border-top: 0px solid #A3B9C8;
+    border-right: 0px solid #A3B9C8;
+    border-bottom: 0px solid #A3B9C8;
+    border-left: 0px solid #A3B9C8;
+}
+
+
+
+af|toolbar .af_commandToolbarButton_image {
+    width:16px;
+}
+
+af|toolbar {
+    background-color:#ffffff;
+    /*border-top: 1px solid #D6DFE6;*/
+}
+
+af|toolbox::leading-cell {
+    background-color:#ffffff;
+    /*border-top: 1px solid #D6DFE6;*/
+}
+
+af|menu::bar-item {
+    border-radius: 0px;
+}
+
+.AFBackgroundColor:alias {
+    color: #f2f2f2; 
+}
+
+.AFGlobalLinkActiveColor:alias {
+    color: #339BD0; 
+}
+
+af|panelAccordion_header-toolbar {
+    background-color: #f0f4fa;
+}
+
+
+
+/*************
+AMP ANIMATIONS
+**************/
+
+af|document::splash-screen-icon {
+    content: url(/images/loading.gif); 
+}
+
+/*************
+AMP PANEL FORM
+**************/
+
+af|panelFormLayout::label-cell {
+    text-align: left;
+}
+
+af|panelHeader::title-text0 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+af|panelFormLayout::label-cell {
+    font-weight: bold; 
+	font-size: 13px;
+	color : black;
+}
+
+/***************
+ALERT BADGE
+****************/
+
+.amp-badge {
+	position: absolute;
+    top: 4px;
+    right: 6px;
+    padding: 1px 7px;
+    border-radius: 100px;
+    background: -webkit-linear-gradient(top, #ff0000 0%,#ff0000 100%);
+    -webkit-background-clip: padding-box;
+    font: bold 11px/18px "Helvetica Neue", sans-serif;
+    color: white;
+    text-decoration: none;
+    /* text-shadow: 0 -1px 0 rgba(0,0,0,.6); */
+	background-color: #ff0000;
+}
+
+.amp-badge-cd {
+      display: inline-block;
+      min-width: 7px;
+      padding: 2px 7px;
+      font-size: 14px;
+      color: #fff;
+      vertical-align: middle;
+      background-color: #5F5F5F;
+      border-radius: 20px;
+      margin: 6px;
+}
+
+/***********************************
+AMP PANEL GROUP MARINE AND AIRCRAFT
+**********************************
+
+.amp-clear-side-scroll af|panelGroupLayout {
+	overflow-x:hidden;	
+}
+
+
+/************************
+AMP PANEL STRETCH LAYOUT
+************************
+
+af|panelStretchLayout {
+	 width: 100%;
+	 min-height:600px;
+}
+
+/************************
+AMP COMPONENT 3 STYLES
+*************************/
+
+.xhq.p_AFTextOnly .xhu {
+    color: white;
+}
+
+.xhm .xhq.p_AFTextOnly.p_AFDisabled {
+    background-color: #F4F4F4;
+    border-radius: 0px;
+}
+
+.xhm .xhp {
+    padding: 3px 0px 1px 0px;
+}
+
+.xhp {
+    padding: 3px 9px 1px 9px;
+}
+
+/*PanelBox Header */
+.xyd {
+    background-color: #eeeeee; 
+    color: #044771; 
+    padding: 7px 7px 7px 7px; 
+    font-size: 14px; 
+    margin: 0px 0px 0px -5px; 
+    font-variant: normal;
+	
+}
+
+.xy9 {
+    width: 13px;
+    height: 17px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: default;
+    background-image: url("/images/toggle-close-blue.png") !important;
+    background-color: #eeeeee;
+    padding: 7px;
+    background-size: 16px;
+    margin-right: -24px;
+}
+/*12c Changes
+.x1hq:hover {
+   background-image: url("/images/toggle-close-blue.png") !important;
+}
+
+.x1hr:hover {
+   background-image: url("/images/toggle-open-blue.png") !important;
+}
+
+.x1hr {
+   background-image: url("/images/toggle-open-blue.png") !important;
+}*/
+
+/*Toolbar*/
+.x12c {
+    border-top: solid 1px #d6dfe6;
+    padding: 5px 2px 5px 2px;
+}
+
+.xwx .xh0 {
+    padding: 1px;
+}
+
+/*Toolbar Icons*/
+.xhm .x1a5 {
+    padding: 0px 3px;
+    width: 16px;
+}
+
+/*Show Detial Header*/
+.x12j {
+    background-color: #eeeeee; 
+    padding: 7px 7px 7px 7px;
+    margin: 0px 0px 0px 0px;
+    margin-bottom: 4px; 	
+}
+
+.x1hp {
+/* 12c Changes
+    background-image: url("/images/toggle-open-blue.png"); 
+    */
+    height: 12px; 
+    width: 12px;; 
+    padding: 7px 7px 7px 7px;
+    margin: 0px 0px 0px 0px; 
+    background-color: #eeeeee;
+    background-size: 16px;
+	
+}
+/*12c Changes
+.x1hp:hover {
+    background-image: url("/images/toggle-open-blue.png") !important;
+    background-size: 16px;
+}*/
+
+.x1ho:hover {
+    background-image: url("/images/toggle-close-blue.png") !important;
+    background-size: 16px;
+}
+
+.x1ho {
+    background-image: url("/images/toggle-close-blue.png"); 
+    height: 12px; 
+    width: 12px;; 
+    padding: 7px 7px 7px 7px;
+    margin: 0px 0px 0px 0px; 
+    background-color: #eeeeee;
+    background-size: 16px;
+}
+
+
+.x10w {
+    width:35px;
+}
+
+.x19w {
+    width:16px;	
+}
+
+.x12u {
+    font-size:14px;	
+}
+
+.amp_txt_13 {
+    font-size:13px;
+}
+
+
+/*****************
+AMP LABEL MESSAGE
+*****************/
+af|panelLabelAndMessage_label {
+     font-weight: bold;
+}
+
+af|panelHeader_title-text3 {
+     font-size: 14px;
+     font-weight: 500;
+}
+
+
+
+/**************
+AMP DATE INPUT
+**************/
+
+af|inputDate::content {
+    padding: 2px 2px 2px 2px;
+    margin: 0px;
+    font-size: 12px;
+    border-radius: 0px;
+    background-color: #ffffff;
+}
+
+af|inputDate_content {
+    padding: 2px 2px 2px 2px;
+    margin: 0px;
+    font-size: 12px;
+    border-radius: 0px;
+    background-color: #ffffff;
+}
+
+/*****************
+AMP SELECT CHOICE
+*****************/
+
+af|selectOneChoice::content {
+    height: 20px;
+    background-color: #ffffff;
+    font-size: 12px;
+}
+
+af|selectOneChoice_content {
+    height: 20px;
+    background-color: #ffffff;
+    font-size: 12px;
+}
+
+/** 20161010.1457-C140565-Tim Lagerhausen **/
+/** Added margins for the PDCR selectOneRadio items **/
+.selectPDCRRadio label {
+   margin-right: 15px !important;
+}
+
+/** 20161026.1837-C140565-Tim Lagerhausen **/
+/** Added margins for the Search conditions selectOneRadio 
+Defect 18136 **/
+.selectSearchRadio label {
+   margin-right: 30px !important;
+}
+
+/***************
+AMP DATE SELECT
+***************/
+
+af|chooseDate {
+  border-width: 0px;
+  
+}
+
+.AFPopupSelector {
+    border-color: #eeeeee;
+}
+
+af|chooseDate::week-header-row {
+    background-color: #ffffff;
+}
+
+af|chooseDate::prev-month-day {
+    color: #d5d5d5;
+    font-size: 12px;
+}
+
+af|chooseDate::regular-day {
+    font-size: 12px;
+    line-height: 2;
+}
+
+af|chooseDate::regular-day:hover {
+    font-size: 12px;
+    line-height: 2;
+    color:#596A94;
+}
+
+af|chooseDate_regular-day:hover {
+    background-color: #d5d5d5;
+}
+
+af|chooseDate::today.p_AFSelected {
+    background-color: #d5d5d5;
+    font-size: 12px;
+    border-radius: 0px;
+}
+
+af|chooseDate::today {
+    border: 0px solid #B3C6DB;
+}
+
+af|chooseDate::today.p_AFSelected:hover {
+    border: 0px solid #B3C6DB;
+    padding-bottom:0px !important;
+    padding:0px;
+}
+
+af|chooseDate::next-month-day {
+    color: #d5d5d5;
+    background-color: #FFFFFF;
+    font-size: 12px;
+}
+
+/*******************
+AMP Sticky Header
+*******************/
+
+.AFLabelText, .af_outputLabel, .af_inputChoice_label, .af_inputFile_label, .af_inputNumberSpinbox_label, .af_inputText_label, .af_selectBooleanCheckbox_label, .af_selectBooleanRadio_label, .af_inputColor_label, .af_inputDate_label, .af_inputListOfValues_label, .af_selectManyCheckbox_label, .af_selectManyListbox_label, .af_selectOneChoice_label, .af_selectOneListbox_label, .af_selectOneRadio_label, .af_panelLabelAndMessage_label, .portlet-form-label, .portlet-icon-label, .portlet-dlg-icon-label, .portlet-form-field-label, .af_richTextEditor_label, .af_codeEditor_label, .af_selectManyShuttle_label, .af_selectOrderShuttle_label, .af_selectManyChoice_label, .af_inputComboboxListOfValues_label, .af_quickQuery_label, .af_inputNumberSlider_label, .af_inputRangeSlider_label {
+    font-size: 15px;
+}
+
+.amp-sticky-header {
+  border-bottom: 1px solid rgb(239, 239, 239);
+  box-shadow: 0px 1px 0px rgb(239, 239, 239);
+  z-index: 999999;
+  background-color: rgb(255, 255, 255);
+}
+
+.amp-sticky-header label{
+	font-size: 15px !important;
+}
+
+.amp-sticky-img af|commandImageLink::image {
+  width: 30px;
+}
+
+.amp-sticky-img af|goImageLink::image {
+  width: 30px;
+}
+
+.ain-sticky {
+  z-index:99;
+  top:120px!important; 
+  background-color:white;
+  /** Update height 50px to 60px 10/16/2016 **/
+  height:60px!important;
+  position:fixed!important;
+  padding:5px;
+}
+
+.ain-sticky-print {
+  z-index:99;
+  top:120px!important; 
+  background-color:white;
+  height:60px!important;
+  padding:5px;
+}
+
+/************
+AMP Tool Tip
+************/
+
+.AFNoteWindow {
+  background-color:rgba(0,114,188,1); 
+  color:White;
+  font-size:12px!important;
+}
+
+.AFNoteWindowRight {
+  background-color:rgba(0,114,188,1); 
+  color:White;
+}
+
+af|noteWindow {
+  background-color:rgba(0,114,188,1); 
+  color:White;
+  
+}
+
+.AFNoteWindowHintText {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+}
+
+.AFNoteWindowShortDesc {
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
+}
+
+af|message_type {
+    color: #ffffff !important;
+}
+
+af|message_detail {
+    color: #ffffff !important;
+}
+/*Notewindow styles above enabled*/
+
+/*************************
+AMP Tabel Print Formatting
+**************************/
+
+.amp-print-view {
+    display: none;
+}
+
+
+/*******************
+AMP POP-UP Selector
+*******************/
+
+.AFPopupSelector .af|commandImageLink_text {
+    background-color: #044771;
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    padding: 15px;
+    vertical-align: baseline;
+    text-decoration: none;
+    white-space: nowrap;
+    display: block;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    line-height: 1;
+    font-style: normal;
+    outline: none;
+}
+
+.AFPopupSelector .af|commandImageLink_text:hover {
+    background-color: #023250;
+    color: #ffffff;
+    outline: none;
+}
+
+
+.AFPopupSelector .af|goImageLink_text {
+    background-color: #044771;
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    padding: 15px;
+    vertical-align: baseline;
+    text-decoration: none;
+    white-space: nowrap;
+    display: block;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    line-height: 1;
+    font-style: normal;
+    outline: none;
+}
+
+.AFPopupSelector .af|goImageLink_text:hover {
+    background-color: #023250;
+    color: #ffffff;
+    outline: none;
+}
+
+.AFPopupSelector {
+    background-color: #044771;
+    margin-top: 15px;
+    border-color: #044771;
+    font-size: 12px;
+}
+
+/***************
+TAM ANCHOR COLOR
+****************/
+
+.amp-font-white af|commandLink {
+    color:#ffffff !important;
+}
+
+
+af|panelCustomizable.PEStretched
+{
+    min-height:70vh;
+}
+
+/******************
+TBV changes for 9/12/2016
+******************/
+
+.amp-tbv-cell-border-right af|panelGroupLayout {
+	border-right-color:#000000; 
+	border-right-style:solid; 
+	border-right-width:thin; 
+	height:25.0px; 
+	width:100.0px;
+	padding-right:3px;
+}
+
+.amp-tbv-cell-no-border af|panelGroupLayout {
+	height:25.0px; 
+	width:100.0px;
+}
+
+.amp-tbv-panel-grid af|panelGridLayout {        
+	border:1px solid #000000;         
+	font-weight:bold; with:400px;  
+}  
+
+.amp-panel-input-date af|inputDate::content {
+    font-size: 12px;
+}	
+.amp-select-one-choice-no-label af|selectOneChoice::label {
+    display:none;
+}
+
+.amp-select-one-choice-no-label af|selectOneChoice::content {
+    font-size:12px;
+}
+
+.amp-edit-form af|panelBox::content {
+    background-color: transparent;
+}
+
+.amp-edit-form af|panelWindow {
+    background-color: Transparent;
+    border: solid 1px #8794A3; 
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px; 
+    border-color: #C3D0DF; 
+}
+.amp-edit-form af|panelWindow::footer, 
+.amp-edit-form af|panelWindow::footer-end, 
+.amp-edit-form af|panelWindow::footer-start, 
+.amp-edit-form af|panelWindow::header-start, 
+.amp-edit-form af|panelWindow::header-end, 
+.amp-edit-form af|panelWindow::content-start, 
+.amp-edit-form af|panelWindow::content-end {
+    display: none;
+}
+
+.amp-edit-box af|panelBox {
+    border: 1px solid #D6DFE6; 
+    margin: 0px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px; 
+    background-color: transparent;
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px; 
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px; 
+    border-spacing: 0pt 0pt; 
+    border-radius: 0px; 
+    border-style: solid; 
+    border-width: thin;
+}
+
+.amp-edit-box af|panelBox::content {
+    background-color: transparent;
+    border: 1px solid #D6DFE6; 
+    margin: 0px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px; 
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px; 
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px; 
+    border-spacing: 0pt 0pt; 
+    border-radius: 0px; 
+    border-style: solid; 
+    border-width: thin;
+}
+
+.amp-edit-disabled-inputtext af|inputText{
+    background-color:#8794A3; 
+    border: 1px solid #D6DFE6;
+}
+
+.amp-edit-box af|panelBox::header-element{
+    display:none;
+}
+
+.amp-edit-box af|panelBox::content:core{
+    background-color: none;
+}
+
+.amp-panel-label-padding af_panelFormLayout_label-cell {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.amp-panel-label-padding-8 af_panelFormLayout_label-cell {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+/*12c change */
+af|panelHeader::title1 {
+    border-top: solid 1px #d6dfe6;
+    padding: 5px 2px 5px 2px;
+}
+
+af|showDetailHeader::title2 {
+    background-color: #eeeeee; 
+    padding: 7px 7px 7px 7px;
+    margin: 0px 0px 0px 0px;
+    margin-bottom: 4px; 	
+}
+
+af|panelCollection::statusbar af|toolbar {
+    border-left: 1px solid #D6DFE6;
+    border-right: 1px solid #D6DFE6;
+    border-bottom: 1px solid #D6DFE6;
+}
+
+af:showDetailHeader::title-text2 {
+    font-size: 14px;
+}
+
+
+
+af:showDetailHeader::title-text3 {
+        color: #003D5B
+}
+
+
+
+
+af|toolbar af|commandToolbarButton::image {
+    width: 16px;
+}
+
+/* with compression disabled causes issue, select by attribute
+af|toolbar af|commandToolbarButton::text {
+    color: Black; 
+} */
+div[title="Detach"] {
+    color: Black;
+}

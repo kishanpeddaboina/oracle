@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="withdrawn.jspx" id="d1">
+            <af:form id="f1"><af:panelStretchLayout id="psl1" dimensionsFrom="auto" styleClass="AFStretchWidth">
+                    <f:facet name="start"/>
+                    <f:facet name="end"/>
+                    <f:facet name="top"/>
+                    <f:facet name="bottom"/>
+                    <f:facet name="center">
+                        <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStretchWidth" halign="center" valign="middle" >
+                            <af:outputFormatted value="You are not authorized to work on a Withdrawn task." id="of1"
+                                                inlineStyle="color: RED;font-size:x-large;"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:panelStretchLayout></af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

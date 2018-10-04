@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="correspondencePageDef"
+                Package="amp_bpm_correspondence_btf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="ampcorrespondencesbtf1" taskFlowId="/WEB-INF/btf/amp-correspondences-btf.xml#amp-correspondences-btf"
+           Refresh="ifNeeded"   activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="propsId" value="#{pageFlowScope.propsId}"/>
+        <parameter id="readOnlyMode" value="#{pageFlowScope.readOnlyMode}"/>
+        <parameter id="category" value="#{pageFlowScope.category}"/>
+        <parameter id="subcategory" value="#{pageFlowScope.subcategory}"/>
+        <parameter id="WorkUnitId" value="#{pageFlowScope.WorkUnitId}"/>
+      </parameters>
+    </taskFlow>
+    <methodIterator Binds="getTaskDetails.result" DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                    RangeSize="25" BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.task" id="taskIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="SubmitForCorrespondenceApproval" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SubmitForCorrespondenceApproval" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="SubmitForCorrespondenceRelease" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SubmitForCorrespondenceRelease" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14"
+                id="PropValPerformWorkTask_TaskFlow_PropValPerformWorkTask_TaskFlow_methodCall1PageDef"
+                Package="propvalperformworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PropsDC" id="PropsDCIterator"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsPojo" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsPojo" id="propsPojoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="appraiserValuaiton" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsValuationPojo"
+                      id="appraiserValuaitonIterator"/>
+    <accessorIterator id="propspectiveEnrollmentIterator" MasterBinding="appraiserValuaitonIterator"
+                      Binds="propspectiveEnrollment" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsEnrollmentPojo"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="propspectiveEnrollmentIterator" id="isRecommendedToCancelPropClaim">
+      <AttrNames>
+        <Item Value="isRecommendedToCancelPropClaim"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

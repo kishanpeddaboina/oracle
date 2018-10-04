@@ -1,0 +1,453 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelCollection id="rpc10" featuresOff="viewMenu"
+                      styleClass="AFStretchWidth">
+    <af:table value="#{bindings.reviewEventsList.collectionModel}" var="row"
+              rows="#{bindings.reviewEventsList.rangeSize}"
+              emptyText="#{bindings.reviewEventsList.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.reviewEventsList.estimatedRowCount}"
+              rowBandingInterval="0" id="rt1" contentDelivery="immediate"
+              scrollPolicy="scroll"
+              binding="#{backingBeanScope.bvmTaskDetailsBean.reviewEventsTable}">
+      <af:column sortable="false" headerText="Review Changes" id="c2"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#f0ad4e;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#5bc0de;' : 'background-color:White;')}"
+                 align="center" width="110">
+        <af:outputText value="#{row.bindings.transactionType.inputValue == 'U' ? 'Modified' : (row.bindings.transactionType.inputValue == 'C' ? 'New' : (empty row.bindings.byeId.inputValue ? '' : 'Original'))}"
+                       id="ot1"
+                       styleClass="#{row.bindings.transactionType.inputValue == 'U' ? 'label orange' : (row.bindings.transactionType.inputValue == 'C' ? 'label blue' : (empty row.bindings.byeId.inputValue ? '' : ''))} amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.eventNameKey.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.eventNameKey.label}"
+                 id="rc45" width="115"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.eventNameKey}" id="rot22"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.eventDescriptionKey.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.eventDescriptionKey.label}"
+                 id="rc16" width="114"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.eventDescriptionKey}" id="rot17"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.eventDate.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.eventDate.label}"
+                 id="rc48" width="116"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.eventDate}" id="rot14"
+                       styleClass="amp_txt_13">
+          <af:convertDateTime pattern="#{bindings.reviewEventsList.hints.eventDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.baseYear.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.baseYear.label}"
+                 id="rc35" width="115"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.baseYear}" id="rot20"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.subUnitNumber.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.subUnitNumber.label}"
+                 id="rc27" width="114"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl16" layout="horizontal" halign="right">
+          <af:outputText value="#{row.subUnitNumber}" id="rot27"
+                         styleClass="amp_txt_13"/>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.percentOwnership.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.percentOwnership.label}"
+                 id="rc37" width="116"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl1" layout="horizontal" halign="right">
+          <af:outputText value="#{row.percentOwnership}" id="rot5"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="#.####%"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.percentageAppliedToValue.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.percentageAppliedToValue.label}"
+                 id="rc7" width="44"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl2" layout="horizontal" halign="right">
+          <af:outputText value="#{row.percentageAppliedToValue}" id="rot35"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="#.####%"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.landValue.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.landValue.label}"
+                 id="rc9" width="110"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl3" layout="horizontal" halign="right">
+          <af:outputText value="#{row.landValue}" id="rot13"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="$###,###,###"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.landReasonCodeKey.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.landReasonCodeKey.label}"
+                 id="rc3" width="110"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.landReasonCodeKey}" id="rot23"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.improvementValue.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.improvementValue.label}"
+                 id="rc30" width="110"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl4" layout="horizontal" halign="right">
+          <af:outputText value="#{row.improvementValue}" id="rot47"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="$###,###,###"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.improvementReasonCodeKey.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.improvementReasonCodeKey.label}"
+                 id="rc12" width="110"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.improvementReasonCodeKey}" id="rot37"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.totalValue.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.totalValue.label}"
+                 id="rc15" width="61"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl5" layout="horizontal" halign="right">
+          <af:outputText value="#{row.totalValue}" id="rot3"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="$###,###,###"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.fixtureValue.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.fixtureValue.label}"
+                 id="rc43" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl6" layout="horizontal" halign="right">
+          <af:outputText value="#{row.fixtureValue}" id="rot29"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="$###,###,###"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.effectiveBeginDate.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.effectiveBeginDate.label}"
+                 id="rc6" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.effectiveBeginDate}" id="rot39"
+                       styleClass="amp_txt_13">
+          <af:convertDateTime pattern="#{bindings.reviewEventsList.hints.effectiveBeginDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.effectiveEndDate.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.effectiveEndDate.label}"
+                 id="rc39" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.effectiveEndDate}" id="rot26"
+                       styleClass="amp_txt_13">
+          <af:convertDateTime pattern="#{bindings.reviewEventsList.hints.effectiveEndDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.verificationDate.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.verificationDate.label}"
+                 id="rc34" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.verificationDate}" id="rot15"
+                       styleClass="amp_txt_13">
+          <af:convertDateTime pattern="#{bindings.reviewEventsList.hints.verificationDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.inactiveDate.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.inactiveDate.label}"
+                 id="rc23" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.inactiveDate}" id="rot33"
+                       styleClass="amp_txt_13">
+          <af:convertDateTime pattern="#{bindings.reviewEventsList.hints.inactiveDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.blendedValueFlag.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.blendedValueFlag.label}"
+                 id="rc10" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.blendedValueFlag}" id="rot41"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.recordingDate.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.recordingDate.label}"
+                 id="rc42" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.recordingDate}" id="rot49"
+                       styleClass="amp_txt_13">
+          <af:convertDateTime pattern="#{bindings.reviewEventsList.hints.recordingDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.sequenceNumber.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.sequenceNumber.label}"
+                 id="rc36" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl7" layout="horizontal" halign="right">
+          <af:outputText value="#{row.sequenceNumber}" id="rot45"
+                         styleClass="amp_txt_13"/>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.documentNumber.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.documentNumber.label}"
+                 id="rc19" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl8" layout="horizontal" halign="right">
+          <af:outputText value="#{row.documentNumber}" id="rot16"
+                         styleClass="amp_txt_13"/>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.ownershipCode.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.ownershipCode.label}"
+                 id="rc32" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.ownershipCode}" id="rot30"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.newConstructionDate.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.newConstructionDate.label}"
+                 id="rc47" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.newConstructionDate}" id="rot18"
+                       styleClass="amp_txt_13">
+          <af:convertDateTime pattern="#{bindings.reviewEventsList.hints.newConstructionDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.partiallyCompleteNumber.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.partiallyCompleteNumber.label}"
+                 id="rc25" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl9" layout="horizontal" halign="right">
+          <af:outputText value="#{row.partiallyCompleteNumber}" id="rot44"
+                         styleClass="amp_txt_13" converter="AMPConvertNumber">
+            <f:attribute name="pattern" value="0"/>
+            <f:attribute name="length" value="3"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.retainedLandValue.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.retainedLandValue.label}"
+                 id="rc20" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl10" layout="horizontal" halign="right">
+          <af:outputText value="#{row.retainedLandValue}" id="rot21"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="$###,###,###"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.retainedImprovementValue.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.retainedImprovementValue.label}"
+                 id="rc46" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl11" layout="horizontal" halign="right">
+          <af:outputText value="#{row.retainedImprovementValue}" id="rot34"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="$###,###,###"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.retainedTotalValue.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.retainedTotalValue.label}"
+                 id="rc38" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl12" layout="horizontal" halign="right">
+          <af:outputText value="#{row.retainedTotalValue}" id="rot38"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="$###,###,###"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.retainedFixtureValue.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.retainedFixtureValue.label}"
+                 id="rc13" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl13" layout="horizontal" halign="right">
+          <af:outputText value="#{row.retainedFixtureValue}" id="rot48"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="$###,###,###"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.subUnitDescription.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.subUnitDescription.label}"
+                 id="rc40" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.subUnitDescription}" id="rot2"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.personalPropertyType.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.personalPropertyType.label}"
+                 id="rc49" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.personalPropertyType}" id="rot19"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.ppDescription.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.ppDescription.label}"
+                 id="rc21" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.ppDescription}" id="rot46"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.totalAdjAcquisitionCost.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.totalAdjAcquisitionCost.label}"
+                 id="rc24" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl14" layout="horizontal" halign="right">
+          <af:outputText value="#{row.totalAdjAcquisitionCost}" id="rot42"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="$###,###,###"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.percentageFixture.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.percentageFixture.label}"
+                 id="rc31" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:panelGroupLayout id="pgl15" layout="horizontal" halign="right">
+          <af:outputText value="#{row.percentageFixture}" id="rot6"
+                         converter="AMPConvertNumber" styleClass="amp_txt_13">
+            <f:attribute name="pattern" value="#.####%"/>
+          </af:outputText>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.originalAIN.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.originalAIN.label}"
+                 id="rc17" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.originalAIN}" id="rot10"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.notes.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.notes.label}"
+                 id="c1"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:inputText value="#{row.bindings.notes.inputValue}"
+                      label="#{bindings.reviewEventsList.hints.notes.label}"
+                      shortDesc="#{bindings.reviewEventsList.hints.notes.tooltip}"
+                      id="it1" disabled="true"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.ppAssessmentNumber.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.ppAssessmentNumber.label}"
+                 id="rc18" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.ppAssessmentNumber}" id="rot28"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.byeId.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.byeId.label}"
+                 id="rc41" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.byeId}" id="rot8" styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.verifiedBy.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.verifiedBy.label}"
+                 id="rc44" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.verifiedBy}" id="rot11"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.modifiedBy.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.modifiedBy.label}"
+                 id="rc22" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.modifiedBy}" id="rot36"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.modifiedDate.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.modifiedDate.label}"
+                 id="rc1" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.modifiedDate}" id="rot32"
+                       styleClass="amp_txt_13">
+          <af:convertDateTime pattern="#{bindings.reviewEventsList.hints.modifiedDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.byeLegacySourceSystem.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.byeLegacySourceSystem.label}"
+                 id="rc11" width="200"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.byeLegacySourceSystem}" id="rot24"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.eventSource.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.eventSource.label}"
+                 id="rc29" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.eventSource}" id="rot25"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.createdData.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.createdData.label}"
+                 id="rc5" width="105"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.createdData}" id="rot40"
+                       styleClass="amp_txt_13">
+          <af:convertDateTime pattern="#{bindings.reviewEventsList.hints.createdData.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="#{bindings.reviewEventsList.hints.transactionType.name}"
+                 sortable="false"
+                 headerText="#{bindings.reviewEventsList.hints.transactionType.label}"
+                 id="c3" rendered="false" visible="false"
+                 inlineStyle="#{row.bindings.transactionType.inputValue == 'U' ? 'background-color:#FFFFE0;font-weight:bold;' : (row.bindings.transactionType.inputValue == 'C' ? 'background-color:#90EE90;' : 'background-color:White;')}">
+        <af:outputText value="#{row.transactionType}" id="ot2"
+                       styleClass="amp_txt_13"/>
+      </af:column>
+    </af:table>
+  </af:panelCollection>
+</jsp:root>

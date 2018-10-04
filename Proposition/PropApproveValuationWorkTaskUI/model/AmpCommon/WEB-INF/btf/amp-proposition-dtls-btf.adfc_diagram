@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="x">94.02051</property>
+      <property
+         name="y">266.5</property>
+   </OverallProperties>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">retrievePropsDetails</property>
+      <property
+         name="x">94.02051</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>retrievePropsDetails&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">98.79883</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">propDtls</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">258.54102</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>propDtls&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">91.149414</property>
+      <property
+         name="page">/amp-proposition-dtls-btf/propDtls.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="tosrcid">__56</property>
+      <property
+         name="fromOutcome">propDetails</property>
+      <property
+         name="fromsrcid">__13</property>
+      <property
+         name="sdm:polyPoints">R50,135.02051,98.44824,217.54102,90.79883,L50</property>
+   </ControlFlowCase>
+</SDM>

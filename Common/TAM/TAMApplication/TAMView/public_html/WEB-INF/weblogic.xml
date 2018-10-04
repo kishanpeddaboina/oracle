@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<weblogic-web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.bea.com/ns/weblogic/weblogic-web-app http://www.bea.com/ns/weblogic/weblogic-web-app/1.0/weblogic-web-app.xsd"
+                  xmlns="http://www.bea.com/ns/weblogic/weblogic-web-app">
+    <library-ref>
+    <library-name>AmpProxyStubs</library-name>
+    <specification-version>4.0</specification-version>
+    <implementation-version>2016.06.23.1</implementation-version>
+  </library-ref>
+ <!--
+    <library-ref>
+    <library-name>AmpProxyStubs</library-name>
+    <specification-version>4.0</specification-version>
+    <implementation-version>2016.06.23.1</implementation-version>
+  </library-ref>
+  -->
+
+  <!-- Following for Portal-->
+  <library-ref>
+    <library-name>AmpCommon</library-name>
+    <specification-version>3.0</specification-version>
+    <implementation-version>2016.25.05</implementation-version>
+  </library-ref>
+  
+    <!-- Following for Local-->
+<!--<library-ref>
+    <library-name>AmpCommon</library-name>
+    <specification-version>1.0</specification-version>
+    <implementation-version>2016.03.08</implementation-version>
+  </library-ref>
+-->
+</weblogic-web-app>

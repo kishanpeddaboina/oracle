@@ -1,0 +1,1176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <c:set var="labels" value="#{adfBundle['propclaimperformworktaskui.PropClaimPerformWorkTaskUIBundle']}"/>
+    <f:view xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:trh="http://myfaces.apache.org/trinidad/html"
+            xmlns:wf="http://xmlns.oracle.com/bpel/workflow/workflow-taglib.tld"
+            xmlns:wlc="http://xmlns.oracle.com/bpel/workflow/worklist">
+            <af:document id="d1" title="Unassign Props Claim Perform Task"  
+                     clientComponent="true" onunload="performUnloadEvent"> 
+                  <af:messages id="m1"/>
+            <af:resource type="javascript" source="/jsLibs/taskDetails.js"/>
+            <af:resource type="javascript" source="/jsLibs/commonBPM.js"/>   
+           <af:resource type="javascript" source="/resources/js/ampbpmutil.js"/>
+            <af:serverListener type="handleOnUnload" method="#{propClaimPerformBean.onUnload}"/> 
+                   
+            <af:form id="f1" usesUpload="true">
+                <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStrechtWidth" inlineStyle="padding-left:20px;padding-right:30px;height:1500px! important">>
+                    <af:panelStretchLayout id="psl2" topHeight="0px" endWidth="300px"
+                                           styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-5"
+                                           bottomHeight="0px" startWidth="650px">
+                        <f:facet name="start">
+                            <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                <af:outputFormatted value="Proposition&#160;-&#160;" id="plam1"
+                                                    inlineStyle="font-weight:bold; font-size:large;"/>
+                                <af:outputFormatted value=" AIN:&#160;" id="plam2"
+                                                    inlineStyle="font-weight:lighter; font-size:medium;"/>
+                                <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                                     rendered="#{fn:length(bindings.AIN.inputValue)>9}">
+                                    <af:outputFormatted value="#{fn:substring(bindings.AIN.inputValue,0,4)}" id="of5"
+                                                        inlineStyle="font-weight:bold;font-size:large;"/>
+                                    <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,4,7)}" id="of7"
+                                                        inlineStyle="font-weight:bold;font-size:large;"/>
+                                    <af:outputFormatted value="-#{fn:substring(bindings.AIN.inputValue,7,10)}" id="of8"
+                                                        inlineStyle="font-weight:bold;font-size:large;"/>
+                                </af:panelGroupLayout>
+                                <af:spacer width="20" height="10" id="s2"/>
+                                <af:outputFormatted value=" Scanned Date:&#160;" id="of3"
+                                                    inlineStyle="font-weight:lighter; font-size:medium;"/>
+                                <af:outputFormatted value="#{bindings.claimReceivedDate.inputValue}" id="of4"
+                                                    inlineStyle="font-weight:bold; font-size:large;">
+                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                </af:outputFormatted>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="end">
+                            <af:panelGroupLayout id="pgl32" layout="horizontal" halign="end" styleClass="padding-top-5">
+                                <af:link text="View Scanned Claim Image" id="l1" inlineStyle="font-size:small;"
+                                         targetFrame="_blank"
+                                         icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/expand-window.png"
+                                         iconPosition="trailing"
+                                         destination="#{ampConnections.psrGenSuppDocs}#{bindings.DocumentId.inputValue}"
+                                         rendered="#{bindings.EventSource.inputValue == 'WCC'}"/>
+                                <af:link text="View Scanned Claim Image" id="l2" inlineStyle="font-size:small;"
+                                         targetFrame="_blank"
+                                         icon="#{ampConnections.WCPAppURL}/conn/ucmserver/path/spaces/assessorportal/app-icons/expand-window.png"
+                                         iconPosition="trailing"
+                                         destination="#{ampConnections.docUrl}/#{bindings.DocumentId.inputValue}/content-media"
+                                         rendered="#{bindings.EventSource.inputValue == 'ECX'}"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                    <af:panelGroupLayout id="pg13" layout="horizontal"
+                                         styleClass="amp-border-top amp-border AFStretchWidth">
+                        <af:panelGroupLayout id="pgl7_train" halign="center" layout="horizontal" styleClass="AMPTrain">
+                            <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="t1"/>
+                        </af:panelGroupLayout>
+                        <!--<af:panelGroupLayout id="pgl12" halign="end" styleClass="padding-top-5" layout="vertical"
+                                             inlineStyle="padding-right:30px">
+                            <f:facet name="separator">
+                                <af:spacer height="5" id="s5"/>
+                            </f:facet>
+                            <af:button text="Correspondence" id="b7" clientComponent="true" partialSubmit="true"
+                                       action="#{CorrespondenceBPMBean.onclickCorrespondence}">
+                                <af:setPropertyListener from="12347" to="#{viewScope.propsId}" type="action"/>
+                                <af:setPropertyListener from="false" to="#{viewScope.readOnlyMode}" type="action"/>
+                                <af:setPropertyListener from="Exclusions" to="#{viewScope.category}" type="action"/>
+                                <af:setPropertyListener from="Prop58" to="#{viewScope.subcategory}" type="action"/>
+                                <af:setPropertyListener from="333" to="#{viewScope.WorkUnitId}" type="action"/>
+                                <af:setPropertyListener from="true" to="#{requestScope.sbmtRelValue}" type="action"/>
+                                <af:setPropertyListener from="true" to="#{requestScope.sbmtApprValue}" type="action"/>
+                            </af:button>
+                            <af:button text="Add/View Remarks" id="remBtn" clientComponent="true" partialSubmit="true">
+                                <af:showPopupBehavior triggerType="click" popupId="remarksPopup"/>
+                                <af:setPropertyListener from="#{row.propId}" to="#{pageFlowScope.propId}" type="action"/>
+                            </af:button>
+                        </af:panelGroupLayout>-->
+                    </af:panelGroupLayout>
+                    <af:popup id="remarksPopup" autoCancel="disabled" launcherVar="source"
+                              contentDelivery="lazyUncached" eventContext="launcher" childCreation="immediate"
+                              partialTriggers="t1">
+                        <af:dialog id="d2" resize="on" stretchChildren="first" title=" Add/View Remarks"
+                                   closeIconVisible="true" type="ok" modal="true" styleClass="AMPReadOnlyDialog"
+                                   contentWidth="1030" contentHeight="600" affirmativeTextAndAccessKey="Done">
+                            <af:panelGroupLayout id="pgl41" layout="scroll">
+                                <af:region value="#{bindings.ampremarksbtf1.regionModel}" id="r2"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+                    <af:popup id="correspondencePopUP" autoCancel="disabled" contentDelivery="lazyUncached"
+                              childCreation="immediate" binding="#{CorrespondenceBPMBean.correspondencePopUp1}">
+                        <af:dialog id="dialcorres" resize="on" stretchChildren="first" title="Correspondence"
+                                   closeIconVisible="true" type="none" modal="true" styleClass="AMPReadOnlyDialog"
+                                   contentWidth="1300" contentHeight="600">
+                            <af:panelGroupLayout id="pgl51" layout="scroll">
+                                <af:outputText value="RS :sbmtRelValue ::#{requestScope.sbmtRelValue}" id="ot5"/>
+                                <af:outputText value=" RS  :sbmtApprValue ::#{requestScope.sbmtApprValue}" id="ot6"/>
+                                <af:outputText value="VS PROP ID   #{viewScope.propsId}" id="ot26"/>
+                                <af:outputText value="WUID ON POP UP -2::  #{viewScope.WorkUnitId}" id="ot36"/>
+                                <af:region value="#{bindings.ampbpmcorrespondencebtf1.regionModel}" id="corr_r1"/>
+                            </af:panelGroupLayout>
+                        </af:dialog>
+                    </af:popup>
+                    <!--Main Page-->
+                    <af:panelGroupLayout layout="vertical" halign="left" styleClass="AFStretchWidth" id="pgl17">
+                        <af:outputText value="Review Submit Page" id="ot1" inlineStyle="font-weight:bold;"/>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pgrsl2" layout="vertical" halign="right" styleClass="AFStretchWidth">
+                        <af:link text="#{labels.EX_ALL}" id="l3" visible="#{propReviewSubmitBean.expandAll == 'false'}"
+                                 partialSubmit="true" partialTriggers="l4" action="#{propReviewSubmitBean.expandAll}"/>
+                        <af:link text="#{labels.CO_ALL}" id="l4" visible="#{propReviewSubmitBean.expandAll}"
+                                 partialSubmit="true" partialTriggers="l3"
+                                 action="#{propReviewSubmitBean.collapseAll}"/>
+                    </af:panelGroupLayout>
+                    <af:panelAccordion discloseMany="true" discloseNone="true" id="pa1" dimensionsFrom="auto"
+                                       styleClass="AFStretchWidth AMPPsrDetailAccordion"
+                                       binding="#{propReviewSubmitBean.reviewPanelAccordion}">
+                        <af:showDetailItem disclosed="true" id="sd4" text="#{labels.CLAIM_INFORMATION}"
+                                           styleClass="padding-top-10 padding-bottom-10">
+                            <af:panelGroupLayout id="pgl8" layout="scroll" styleClass="AFStretchWidth">
+                                <af:panelGridLayout id="pgl11">
+                                    <af:gridRow marginTop="5px" height="auto" id="gr1" marginBottom="10px">
+                                        <af:gridCell marginStart="5px" width="220px" id="gc1">
+                                            <af:panelLabelAndMessage label="#{labels.CLAIMANT_NAME}:" id="plam20"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc2">
+                                            <af:outputFormatted value="#{bindings.claimantFullName.inputValue}"
+                                                                id="of24"
+                                                                inlineStyle="display:inline-block;word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc3">
+                                            <af:panelLabelAndMessage label="#{labels.ASSESS_PARCEL_NUM}:" id="plam22"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc4">
+                                            <af:outputFormatted value="#{bindings.assessorParcelNumber.inputValue}"
+                                                                id="of1"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            <!--<af:panelGroupLayout id="pgl12" layout="horizontal"
+                                                                 rendered="#{(fn:length(bindings.assessorParcelNumber.inputValue)>9) and !(fn:contains(bindings.assessorParcelNumber.inputValue,'-'))}">
+                                                <af:outputFormatted value="#{fn:substring(bindings.assessorParcelNumber.inputValue,0,4)}"
+                                                                    id="of2"
+                                                                    inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                                <af:outputFormatted value="-#{fn:substring(bindings.assessorParcelNumber.inputValue,4,7)}"
+                                                                    id="of25"
+                                                                    inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                                <af:outputFormatted value="-#{fn:substring(bindings.assessorParcelNumber.inputValue,7,10)}"
+                                                                    id="of26"
+                                                                    inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            </af:panelGroupLayout>
+                                            <af:panelGroupLayout id="pgl21" layout="horizontal"
+                                                                 rendered="#{fn:contains(bindings.assessorParcelNumber.inputValue,'-')}">
+                                                <af:outputFormatted value="#{bindings.assessorParcelNumber.inputValue}"
+                                                                    id="of33"
+                                                                    inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            </af:panelGroupLayout>-->
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc5">
+                                            <af:panelLabelAndMessage label="#{labels.RECORDS_DOCUMENT_NUM}:"
+                                                                     id="plam3"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc6">
+                                           
+                                            <af:panelGroupLayout id="pgl18_1" layout="horizontal">
+                                                <!--<af:outputFormatted value="#{bindings.recorderDocNo.inputValue}" id="of12"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>-->
+                                                <af:outputFormatted value="#{bindings.recorderDocNo.inputValue}"
+                                                                    id="of1_1"
+                                                                    inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            </af:panelGroupLayout>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr2" marginBottom="10px">
+                                        <af:gridCell marginStart="5px" width="220px" id="gc7">
+                                            <af:panelLabelAndMessage label="#{labels.DATE_OF_PURCHASE}:" id="plam4"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc8">
+                                            <af:outputText value="#{bindings.purchaseTransferDate.inputValue}"
+                                                           inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                           shortDesc="#{bindings.purchaseTransferDate.hints.tooltip}"
+                                                           id="ot37">
+                                                <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                            </af:outputText>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc9">
+                                            <af:panelLabelAndMessage label="#{labels.PROBATE_NUM}:" id="plam5"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc10">
+                                            <af:outputFormatted value="#{bindings.probateNumber.inputValue}" id="of13"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc11">
+                                            <af:panelLabelAndMessage label="#{labels.DATE_OF_DEATH}:" id="plam6"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc12">
+                                            <af:outputText value="#{bindings.deathDate.inputValue}"
+                                                           inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                           shortDesc="#{bindings.deathDate.hints.tooltip}" id="ot2">
+                                                <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                            </af:outputText>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" id="gr3" marginBottom="10px">
+                                        <af:gridCell marginStart="5px" width="220px" id="gc13">
+                                            <af:panelLabelAndMessage label="#{labels.DATE_OF_DECREE}:" id="plam7"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc14">
+                                            <af:outputText value="#{bindings.decreeDistributionDate.inputValue}"
+                                                           inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                           shortDesc="#{bindings.decreeDistributionDate.hints.tooltip}"
+                                                           id="ot3">
+                                                <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                            </af:outputText>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc15">
+                                            <af:panelLabelAndMessage label="#{labels.CLAIM_TYPE}:" id="plam8"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc16">
+                                            <af:outputFormatted value="#{bindings.claimType.inputValue}" id="of6"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc17">
+                                            <af:panelLabelAndMessage label="#{labels.CLAIM_RCVD_DATE}:" id="plam9"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" marginEnd="5px" id="gc18">
+                                            <af:outputText value="#{bindings.claimReceivedDate.inputValue}"
+                                                           inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                           shortDesc="#{bindings.claimReceivedDate.hints.tooltip}"
+                                                           id="ot4">
+                                                <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                            </af:outputText>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="10px" id="gr4">
+                                        <af:gridCell marginStart="5px" width="220px" id="gc46">
+                                            <af:panelLabelAndMessage label="#{labels.PRINCIPAL_RESIDENCE}:"
+                                                                     id="plam21"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc47">
+                                            <af:outputText value="#{bindings.principalResidence.inputValue == 'Y'?'Yes' : bindings.principalResidence.inputValue == 'N'?'No':'Unknown'}"
+                                                           inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                           shortDesc="#{bindings.principalResidence.hints.tooltip}"
+                                                           id="ot39"></af:outputText>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc19" >
+                                            <af:panelLabelAndMessage label="#{labels.EXCEMPT_ELIGIBILITY}:"
+                                                                     id="plam10"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc20"
+                                                     valign="top">
+                                            <af:panelGroupLayout id="pgl34" valign="top" layout="vertical">
+                                                <af:selectOneChoice value="#{bindings.exemptionEligibility1.inputValue}"
+                                                                    simple="true" readOnly="true"
+                                                                    label="#{labels.EXCEMPT_ELIGIBILITY}:"
+                                                                    required="#{bindings.exemptionEligibility1.hints.mandatory}"
+                                                                    shortDesc="#{bindings.exemptionEligibility1.hints.tooltip}"
+                                                                    inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                                    id="soc1">
+                                                    <f:selectItems value="#{bindings.exemptionEligibility1.items}"
+                                                                   id="si1"/>
+                                                    <f:validator binding="#{bindings.exemptionEligibility1.validator}"/>
+                                                </af:selectOneChoice>
+                                            </af:panelGroupLayout>
+                                            <!--<af:outputFormatted value="#{bindings.exemptionEligibility.inputValue}"
+                                                                id="of707"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>-->
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc21">
+                                            <af:panelLabelAndMessage label="#{labels.PROP_ADDRESS}:" id="plam11"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="220px" id="gc22">
+                                            <af:panelGroupLayout inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:180px;"
+                                                                 id="pgl30">
+                                            <af:outputFormatted value="#{bindings.propFullAddress.inputValue}" id="of08"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                      </af:panelGroupLayout>
+                                        </af:gridCell>
+                                        <!--<af:gridCell marginStart="5px" width="16%" id="gc23"></af:gridCell>
+                                        <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc24"/>-->
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sd5" text="#{labels.TRANSFEROR}"
+                                           styleClass="padding-top-10 padding-bottom-10">
+                            <af:table value="#{bindings.propsTransferorPojoInfo.collectionModel}" var="row"
+                                      inlineStyle="padding-bottom:5px;" styleClass="AFStretchWidth AMPLightWeightTable"
+                                      rows="#{bindings.propsTransferorPojoInfo.rangeSize}" rowSelection="single"
+                                      columnStretching="last" autoHeightRows="0" rowBandingInterval="1"
+                                      emptyText="#{bindings.propsTransferorPojoInfo.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.propsTransferorPojoInfo.rangeSize}" id="t3">
+                                <af:column headerText="#{labels.TRANSFEROR_NAME}" id="c1" align="center" width="220px">
+                                    <af:outputText value="#{row.bindings.transferorFullName.inputValue}"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.transferorFullName.tooltip}"
+                                                   id="it1"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.LEGAL_ENTITY}" id="c2" align="center" width="220px">
+                                    <af:outputText value="#{row.bindings.legalEntityName.inputValue}"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.legalEntityName.tooltip}"
+                                                   id="it2"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.SSN_TAX}" id="c3" align="center" width="220px">
+                                    <!--<af:outputText value="#{row.bindings.ssn.inputValue}"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.ssn.tooltip}"
+                                                   id="it3"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>-->
+                                    
+                                    <af:panelGroupLayout id="pgl22" layout="horizontal">
+                                        <af:outputFormatted value="#{row.bindings.ssn.inputValue}" id="of34"
+                                                            inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                    </af:panelGroupLayout>
+                                </af:column>
+                                <af:column headerText="#{labels.PERCENTAGE_TRANSFER}" id="c4" align="center"
+                                           width="220px">
+                                    <af:outputText value="#{row.bindings.percentTransfer.inputValue}%"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.percentTransfer.tooltip}"
+                                                   id="it4"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;float:right">
+                                        <af:convertNumber type="number" groupingUsed="false" maxFractionDigits="4" minFractionDigits="4"
+                                                          pattern="#{bindings.propsTransferorPojoInfo.hints.percentTransfer.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{labels.EXCLUSION_AMOUNT}" id="c5" align="center" width="220px">
+                                    <af:outputText value="#{row.bindings.exclusionAmount.inputValue}"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.exclusionAmount.tooltip}"
+                                                   id="it5"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;float:right">
+                                        <af:convertNumber negativePrefix="$ -" minFractionDigits="2"
+                                                          pattern="$ ###,###,###,###.###;$ (###,###,###,###)"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{labels.SIGNATURE_ON_FILE}" id="c6" align="center" width="220px">
+                                    <af:outputText value="#{row.bindings.signOnFileFlag.inputValue == 'Y' ? 'Yes' : row.bindings.signOnFileFlag.inputValue == 'N'?'No':row.bindings.signOnFileFlag.inputValue}"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.signOnFileFlag.tooltip}"
+                                                   id="it6"
+                                                   />
+                                </af:column>
+                                <af:column headerText="#{labels.SIGNED_BY_LEGAL}" id="c7" align="center" width="220px">
+                                    <af:outputText value="#{row.bindings.signedByLegalRepFlag.inputValue == 'Y' ? 'Yes' : row.bindings.signedByLegalRepFlag.inputValue == 'N'?'No':row.bindings.signedByLegalRepFlag.inputValue}"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.signedByLegalRepFlag.tooltip}"
+                                                   id="it7"
+                                                   />
+                                </af:column>
+                                <af:column headerText="#{labels.AUTH_FILE}" id="c8" align="center" width="220px">
+                                    <af:outputText value="#{row.bindings.authorizationOnFileFlag.inputValue == 'Y' ? 'Yes' : row.bindings.authorizationOnFileFlag.inputValue == 'N' ?'No':row.bindings.authorizationOnFileFlag.inputValue}"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.authorizationOnFileFlag.tooltip}"
+                                                   id="it8"
+                                                   />
+                                </af:column>
+                                <af:column headerText="#{labels.PRINTED_NAME}" id="c9" align="center" width="220px">
+                                    <af:outputText value="#{row.bindings.printedName.inputValue}"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.printedName.tooltip}"
+                                                   id="it9"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.CLAIM_SIGNATURE_DATE}" id="c10" align="center"
+                                           width="220px">
+                                    <af:outputText value="#{row.bindings.claimSignedDate.inputValue}"
+                                                   shortDesc="#{bindings.propsTransferorPojoInfo.hints.claimSignedDate.tooltip}"
+                                                   id="id1">
+                                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sd6" text="#{labels.TRANSFEREE}"
+                                           styleClass="padding-top-10 padding-bottom-10">
+                            <af:table value="#{bindings.propsTransfereeInfo.collectionModel}" var="row"
+                                      inlineStyle="padding-bottom:5px;" styleClass="AFStretchWidth AMPLightWeightTable"
+                                      rows="#{bindings.propsTransfereeInfo.rangeSize}" rowSelection="single"
+                                      columnStretching="last" autoHeightRows="0" rowBandingInterval="1"
+                                      emptyText="#{bindings.propsTransfereeInfo.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.propsTransfereeInfo.rangeSize}" id="t2">
+                                <af:column headerText="#{labels.TRANSFEREE_NAME}" id="c11" align="center" width="260px">
+                                    <af:outputText value="#{row.transfereeFullName}"
+                                                   shortDesc="#{bindings.propsTransfereeInfo.hints.transfereeFullName.tooltip}"
+                                                   id="ot48"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.SIGNATURE_ON_FILE}" id="c12" align="center" width="260px">
+                                    <af:outputText value="#{row.signOnFileFlag == 'Y' ? 'Yes' : row.signOnFileFlag == 'N'?'No':row.signOnFileFlag}"
+                                                   shortDesc="#{bindings.propsTransfereeInfo.hints.signOnFileFlag.tooltip}"
+                                                   id="ot49"
+                                                   />
+                                </af:column>
+                                <af:column headerText="#{labels.SIGNED_BY_LEGAL}" id="c13" align="center" width="260px">
+                                    <af:outputText value="#{row.signedByLegalRepFlag == 'Y' ? 'Yes' : row.signedByLegalRepFlag == 'N'? 'No':row.signedByLegalRepFlag}"
+                                                   shortDesc="#{bindings.propsTransfereeInfo.hints.signedByLegalRepFlag.tooltip}"
+                                                   id="ot7"
+                                                   />
+                                </af:column>
+                                <af:column headerText="#{labels.AUTH_FILE}" id="c14" align="center" width="260px">
+                                    <af:outputText value="#{row.authorizationOnFileFlag == 'Y' ? 'Yes' :row.authorizationOnFileFlag == 'N' ?'No':row.authorizationOnFileFlag}"
+                                                   shortDesc="#{bindings.propsTransfereeInfo.hints.authorizationOnFileFlag.tooltip}"
+                                                   id="ot8"
+                                                   />
+                                </af:column>
+                                <af:column headerText="#{labels.PRINTED_NAME}" id="c15" align="center" width="260px">
+                                    <af:outputText value="#{row.printedName}"
+                                                   shortDesc="#{bindings.propsTransfereeInfo.hints.printedName.tooltip}"
+                                                   id="ot9"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.CLAIM_SIGNATURE_DATE}" id="c16" align="center"
+                                           width="260px">
+                                    <af:outputText value="#{row.claimSignedDate}"
+                                                   shortDesc="#{bindings.propsTransfereeInfo.hints.claimSignedDate.tooltip}"
+                                                   id="ot10">
+                                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sdi1" text="#{labels.TRANS_RELATIONSHIP}"
+                                           styleClass="padding-top-10 padding-bottom-10">
+                            <af:table value="#{bindings.relationships.collectionModel}" var="row"
+                                      rows="#{bindings.relationships.rangeSize}"
+                                      emptyText="#{bindings.relationships.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      inlineStyle="padding-bottom:5px;" styleClass="AFStretchWidth AMPLightWeightTable"
+                                      columnStretching="last" autoHeightRows="0" rowBandingInterval="1"
+                                      rowSelection="single" fetchSize="#{bindings.relationships.rangeSize}" id="t5">
+                                <af:column headerText="#{labels.TRANSFEROR_NAME}" id="c31" align="center" width="240px">
+                                    <af:outputText value="#{row.transferorFullName}"
+                                                   shortDesc="#{bindings.relationships.hints.transferorFullName.tooltip}"
+                                                   id="ot25"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.REL_TRANSFEREE}" id="c32" align="center" width="240px"
+                                           rendered="#{bindings.claimType.inputValue =='58'}">
+                                    <af:outputText value="#{row.relationshipToTransferee58}"
+                                                   shortDesc="#{bindings.relationships.hints.relationshipToTransferee58.tooltip}"
+                                                   id="ot26_questn"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.REL_TRANSFEREE}" id="c46" align="center" width="240px"
+                                           rendered="#{bindings.claimType.inputValue =='193'}">
+                                    <af:outputText value="#{row.relationshipToTransferee193}"
+                                                   shortDesc="#{bindings.relationships.hints.relationshipToTransferee193.tooltip}"
+                                                   id="ot46"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.TRANSFEREE_NAME}" id="c33" align="center" width="240px">
+                                    <af:outputText value="#{row.transfereeFullName}"
+                                                   shortDesc="#{bindings.relationships.hints.transfereeFullName.tooltip}"
+                                                   id="ot27"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.REL_TRANSFEROR}" id="c34" align="center" width="240px"
+                                           rendered="#{bindings.claimType.inputValue =='58'}">
+                                    <af:outputText value="#{row.relationshipToTransferor58}"
+                                                   shortDesc="#{bindings.relationships.hints.relationshipToTransferor58.tooltip}"
+                                                   id="ot28"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.REL_TRANSFEROR}" id="c47" align="center" width="240px"
+                                           rendered="#{bindings.claimType.inputValue =='193'}">
+                                    <af:outputText value="#{row.relationshipToTransferor193}"
+                                                   shortDesc="#{bindings.relationships.hints.relationshipToTransferor193.tooltip}"
+                                                   id="ot47"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.AGE_TIME}" id="c35" align="center" width="240px">
+                                    <af:outputText value="#{row.ageAtAdoption}"
+                                                   shortDesc="#{bindings.relationships.hints.ageAtAdoption.tooltip}"
+                                                   id="ot29">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.relationships.hints.ageAtAdoption.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{labels.ADOPT_WHOM}" id="c36" align="center" width="240px">
+                                    <af:outputText value="#{row.adoptedByWhom}"
+                                                   shortDesc="#{bindings.relationships.hints.adoptedByWhom.tooltip}"
+                                                   id="ot30"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                </af:column>
+                                <af:column headerText="#{labels.PER_TRANSFER}" id="c37" align="center" width="240px">
+                                    <af:outputText value="#{row.percentageTransfer}%"
+                                                   shortDesc="#{bindings.relationships.hints.percentageTransfer.tooltip}"
+                                                   id="ot31"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;float:right">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.relationships.hints.percentageTransfer.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sdi6" text="#{labels.DIRECT_DESCENDENTS}"
+                                           rendered="#{bindings.claimType.inputValue=='193'}">
+                            <af:table value="#{bindings.propsDescendentsPojoInfo.collectionModel}" var="row"
+                                      rows="#{bindings.propsDescendentsPojoInfo.rangeSize}"
+                                      inlineStyle="padding-bottom:5px;" styleClass=" AFStretchWidth AMPLightWeightTable"
+                                      columnStretching="multiple" autoHeightRows="0" rowBandingInterval="1"
+                                      emptyText="#{bindings.propsDescendentsPojoInfo.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowSelection="single" fetchSize="#{bindings.propsDescendentsPojoInfo.rangeSize}"
+                                      id="t6">
+                                <af:column headerText="#{labels.NAME_DIRECT_DESCENDENTS}" id="c38" width="40%"
+                                           align="center">
+                                    <af:outputText value="#{row.bindings.directDescendantFullName.inputValue}"
+                                                   shortDesc="#{bindings.propsDescendentsPojoInfo.hints.directDescendantFullName.tooltip}"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"
+                                                   id="it10"/>
+                                </af:column>
+                                <af:column headerText="#{labels.DATE_OF_DEATH}" id="c39" width="20%" align="center">
+                                    <af:outputText value="#{row.bindings.deathDate.inputValue}"
+                                                   shortDesc="#{bindings.propsDescendentsPojoInfo.hints.deathDate.tooltip}"
+                                                   id="id2">
+                                        <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column headerText="#{labels.SSN_TAX_ID}" id="c42" width="20%" align="center">
+                                    <!--<af:outputText value="#{row.bindings.ssn.inputValue}"
+                                                   shortDesc="#{bindings.propsDescendentsPojoInfo.hints.ssn.tooltip}"
+                                                   id="it11"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>-->
+                                   
+                                    <af:panelGroupLayout id="pgl25" layout="horizontal">
+                                        <af:outputFormatted value="#{row.bindings.ssn.inputValue}" id="of35"
+                                                            inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                    </af:panelGroupLayout>
+                                </af:column>
+                                <af:column headerText="#{labels.EXCLUSE_AMOUNT_DIRECT}" id="c41" width="20%"
+                                           align="center">
+                                    <af:outputText value="#{row.bindings.exclusionAmount.inputValue}"
+                                                   shortDesc="#{bindings.propsDescendentsPojoInfo.hints.exclusionAmount.tooltip}"
+                                                   id="it12"
+                                                   inlineStyle="white-space:nowrap;padding-right:5px;float:right">
+                                        <af:convertNumber negativePrefix="$ -" minFractionDigits="2"
+                                                          pattern="$ ###,###,###,###.###;$ (###,###,###,###)"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sdi3" text="#{labels.TRANSFEROR_QUESTION}">
+                            <af:listView value="#{bindings.transferorQuestionnaire.collectionModel}" var="item"
+                                         emptyText="#{bindings.transferorQuestionnaire.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                         fetchSize="#{bindings.transferorQuestionnaire.rangeSize}" id="lv2">
+                                <af:listItem id="li2">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl6">
+                                        <af:outputFormatted value="#{item.bindings.question.inputValue =='OtherRealPropTransferred'?labels.TRANSFEROR_QUESTION_QUALIFIED_FOR_OTHER_RP:item.bindings.question.inputValue =='ExclusionQualified'?labels.TRANSFEROR_QUESTION_QUALIFIED_FOR_EXCLUSION:item.bindings.question.inputValue =='JointTenancyProperty'?labels.PROP_OWNED_JOINT_TEND:item.bindings.question.inputValue =='ClaimFormAttachment'?labels.ADDTN_ATTACH:item.bindings.question.inputValue}"
+                                                            inlineStyle="padding-left:10px" id="of19"/>
+                                        <af:spacer width="5" height="5" id="s7"/>
+                                        <af:outputFormatted value="(#{item.bindings.answer.inputValue == 'Y'?'Yes':item.bindings.answer.inputValue == 'N'?'No':'Not Specified'})"
+                                                            id="of20"
+                                                            inlineStyle="font-weight:bold;padding-right:10px"/>
+                                    </af:panelGroupLayout>
+                                </af:listItem>
+                            </af:listView>
+                            <af:panelGroupLayout id="pgl13" layout="vertical"
+                                                 styleClass="AFStretchWidth padding-top-10 padding-bottom-10"
+                                                 inlineStyle="padding-left:5px;margin-top:10px">
+                                <f:facet name="separator">
+                                    <af:spacer width="20" height="10" id="s3"/>
+                                </f:facet>
+                                <af:panelLabelAndMessage label="#{labels.LIST_PREV_TRANS}" id="plam23"
+                                                         labelStyle="text-align:left;white-space:nowrap;"/>
+                                <af:table value="#{bindings.transferorPrvTransfer.collectionModel}"
+                                          styleClass="AFStretchWidth AMPLightWeightTable" var="row"
+                                          rows="#{bindings.transferorPrvTransfer.rangeSize}"
+                                          emptyText="#{bindings.transferorPrvTransfer.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" fetchSize="#{bindings.transferorPrvTransfer.rangeSize}"
+                                          id="t7">
+                                    <af:column headerText="#{labels.COUNTY}" id="c40" align="center" width="20%">
+                                        <af:outputText value="#{row.county}"
+                                                       shortDesc="#{bindings.transferorPrvTransfer.hints.county.tooltip}"
+                                                       id="ot38"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                    </af:column>
+                                    <af:column headerText="Assessor’s Parcel Number" id="c43" align="center"
+                                               width="25%">
+                                        <!--<af:outputText value="#{row.assessorParcelNo}"
+                                                       shortDesc="#{bindings.transferorPrvTransfer.hints.assessorParcelNo.tooltip}"
+                                                       id="ot39"/>-->
+                                        <af:panelGroupLayout id="pgl24" layout="horizontal"
+                                                             rendered="#{(fn:length(row.assessorParcelNo)>9) and !(fn:contains(row.assessorParcelNo,'-'))}">
+                                            <af:outputFormatted value="#{fn:substring(row.assessorParcelNo,0,4)}"
+                                                                id="of44"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            <af:outputFormatted value="-#{fn:substring(row.assessorParcelNo,4,7)}"
+                                                                id="of45"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            <af:outputFormatted value="-#{fn:substring(row.assessorParcelNo,7,10)}"
+                                                                id="of46"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl29" layout="horizontal"
+                                                             rendered="#{fn:contains(row.assessorParcelNo,'-')}">
+                                            <af:outputFormatted value="#{row.assessorParcelNo}" id="of47"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:panelGroupLayout>
+                                    </af:column>
+                                    <af:column headerText="#{labels.DATE_TRANSFER}" id="c44" align="center" width="25%">
+                                        <af:outputText value="#{row.dateOfTransfer}"
+                                                       shortDesc="#{bindings.transferorPrvTransfer.hints.dateOfTransfer.tooltip}"
+                                                       id="ot40">
+                                            <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="Transferor’s Principal Residence" id="c45" align="center"
+                                               width="30%">
+                                        <af:outputText value="#{row.principalResidence == 'Y'?'Yes':row.principalResidence == 'N'?'No':'Unknown'}"
+                                                       shortDesc="#{bindings.transferorPrvTransfer.hints.principalResidence.tooltip}"
+                                                       id="ot41"
+                                                       />
+                                    </af:column>
+                                </af:table>
+                            </af:panelGroupLayout>
+                            <af:panelGridLayout id="pgl4">
+                                <af:gridRow marginTop="5px" height="auto" id="gr10" marginBottom="10px">
+                                    <af:gridCell marginStart="5px" width="14%" id="gc53">
+                                        <af:panelLabelAndMessage label="#{labels.CONTACT_NAME}:" id="plam24"
+                                                                 labelStyle="text-align:left;white-space:nowrap;"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc45">
+                                        <af:panelGroupLayout inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:250px;">
+                                            <af:outputText value="#{bindings.transferorFullName.inputValue}"
+                                                           inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                           shortDesc="#{bindings.transferorFullName.hints.tooltip}"
+                                                           id="ot42"/>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc55">
+                                        <af:panelLabelAndMessage label="#{labels.DAYTIME_PHONE}:" id="plam25"
+                                                                 labelStyle="text-align:left;white-space:nowrap;"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc56">
+                                        <af:outputText value="#{bindings.phoneNumber.inputValue}" rendered="#{fn:length(bindings.extn.inputValue)==0}"
+                                                       inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                       id="ot43"/>
+                                                       
+                                                       <af:outputText value="#{bindings.phoneNumber.inputValue} Ext.#{bindings.extn.inputValue}" rendered="#{fn:length(bindings.extn.inputValue)!=0}"
+                                                       inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                       id="ot4ext1"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="16%" id="gc58">
+                                        <af:panelLabelAndMessage label="#{labels.EMAIL}:" id="plam26"
+                                                                 labelStyle="text-align:left;white-space:nowrap;"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc57">
+                                        <af:outputText value="#{bindings.email.inputValue}"
+                                                       inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                       id="ot44"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="10px" id="gr5">
+                                    <af:gridCell marginStart="5px" width="14%" id="gc59">
+                                        <af:panelLabelAndMessage label="#{labels.MAILING_ADDRESS}:" id="plam27"
+                                                                 labelStyle="text-align:left;white-space:nowrap;"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc60" inlineStyle="column-span:all;">
+                                        <af:outputText value="#{bindings.transferorFullAddress.inputValue}"
+                                                       inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                       shortDesc="#{bindings.transferorFullAddress.hints.tooltip}"
+                                                       id="ot45"/>
+                                        <!--<af:outputText value="#{bindings.street.inputValue} #{bindings.city.inputValue} #{bindings.state.inputValue} #{bindings.zip.inputValue} #{bindings.country.inputValue}" inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                       id="ot9"/>-->
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc61"/>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc62"/>
+                                    <af:gridCell marginStart="5px" width="16%" id="gc63"/>
+                                    <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc64"/>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sdi2" text="#{labels.TRANSFEREE_QUESTION}">
+                            <af:listView value="#{bindings.transfereeQuestionnaire.collectionModel}" var="item"
+                                         emptyText="#{bindings.transfereeQuestionnaire.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                         fetchSize="#{bindings.transfereeQuestionnaire.rangeSize}" id="lv3">
+                                <af:listItem id="li3" rendered="#{item.bindings.showData.inputValue =='Y'}">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl14">
+                                        <!--<af:outputFormatted value="#{item.bindings.question.inputValue}?" id="of21"
+                                                            inlineStyle="padding-left:10px"/>-->
+                                        <af:outputFormatted value="#{item.bindings.question.inputValue =='PrntStepPrntMarriage'?labels.Prop58_QUES1:item.bindings.question.inputValue =='PrntStepPrntMarriageTermRsn'?labels.Prop58_QUES2:item.bindings.question.inputValue =='StepPrntReMarriage'?labels.Prop58_QUES3:item.bindings.question.inputValue =='InlawMarriage'?labels.Prop58_QUES4:item.bindings.question.inputValue =='InlawMarriageTermRsn'?labels.Prop58_QUES5:item.bindings.question.inputValue =='InlawReMarriage'?labels.Prop58_QUES6:item.bindings.question.inputValue}"
+                                                            inlineStyle="padding-left:10px"
+                                                            shortDesc="#{item.bindings.question.hints.tooltip}"
+                                                            id="of21"
+                                                            rendered="#{bindings.claimType.inputValue == '58'}"/>
+                                        <af:outputFormatted value="#{item.bindings.question.inputValue =='DeceasedPrntMarried'?labels.PROP193_TRANSFEREE_ADDN_QUES1:item.bindings.question.inputValue =='SpousePartnerGrandChildRel'?labels.PROP193_TRANSFEREE_ADDN_QUES2:item.bindings.question.inputValue =='SpouseRemarriage'?labels.PROP193_TRANSFEREE_ADDN_QUES3:item.bindings.question.inputValue =='PrinipleResFromPrnt'?labels.PROP193_TRANSFEREE_ADDN_QUES4:item.bindings.question.inputValue =='TransfereeOthRealProperty'?labels.PROP193_TRANSFEREE_ADDN_QUES5:item.bindings.question.inputValue}"
+                                                            inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:600px"
+                                                            shortDesc="#{item.bindings.question.hints.tooltip}"
+                                                            id="of21_2"
+                                                            rendered="#{bindings.claimType.inputValue == '193'}"/>
+                                        <af:spacer width="5" height="5" id="s8"/>
+                                        <af:outputFormatted value="(#{item.bindings.answer.inputValue == 'Y'?'Yes':item.bindings.answer.inputValue == 'N'?'No':'Not Specified'})"
+                                                            id="of22"
+                                                            rendered="#{!(item.bindings.question.inputValue =='SpousePartnerGrandChildRel') and !(item.bindings.question.inputValue =='PrntStepPrntMarriageTermRsn') and !(item.bindings.question.inputValue =='InlawMarriageTermRsn')}"
+                                                            inlineStyle="font-weight:bold;padding-right:10px"/>
+                                        <af:outputFormatted value="(#{item.bindings.answer.inputValue == 'Y'?'Parent':item.bindings.answer.inputValue == 'N'?'Step Parent':'Not Specified'})"
+                                                            id="of22Q2"
+                                                            rendered="#{bindings.claimType.inputValue =='193' and item.bindings.question.inputValue =='SpousePartnerGrandChildRel'}"
+                                                            inlineStyle="font-weight:bold;padding-right:10px"/>
+                                        <af:outputFormatted value="(#{item.bindings.answer.inputValue == 'Y'?'Death':item.bindings.answer.inputValue == 'N'?'Divorce/Termination of Partnership':'Not Specified'})"
+                                                            id="of22Q3"
+                                                            rendered="#{item.bindings.question.inputValue =='PrntStepPrntMarriageTermRsn'}"
+                                                            inlineStyle="font-weight:bold;padding-right:10px"/>
+															
+															
+															 <af:outputFormatted value="(#{item.bindings.answer.inputValue == 'Y'?'Death':item.bindings.answer.inputValue == 'N'?'Divorce/Termination of Partnership':'Not Specified'})"
+                                                            id="of23Q3"
+                                                            rendered="#{item.bindings.question.inputValue =='InlawMarriageTermRsn'}"
+                                                            inlineStyle="font-weight:bold;padding-right:10px"/>
+															
+                                    </af:panelGroupLayout>
+                                    <af:panelGridLayout id="pgl9"
+                                                        rendered="#{item.bindings.question.inputValue==labels.QUESTION1}">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="10px" id="gr7">
+                                            <af:gridCell marginStart="5px" width="25%" id="gc37">
+                                                <af:panelLabelAndMessage label="#{labels.DOD_OF_SPOUCE}:" id="plam16"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="25%" id="gc38">
+                                                <af:outputText value="#{bindings.doDSpousePartner.inputValue}"
+                                                               shortDesc="#{bindings.doDSpousePartner.hints.tooltip}"
+                                                               id="ot32">
+                                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                </af:outputText>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="25%" id="gc39">
+                                                <af:panelLabelAndMessage label="#{labels.DATE_MARRIAGE}:" id="plam17"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc40">
+                                                <af:outputText value="#{bindings.marriageDate.inputValue}"
+                                                               shortDesc="#{bindings.marriageDate.hints.tooltip}"
+                                                               id="ot33">
+                                                    <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                                </af:outputText>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                    <af:panelGridLayout id="pgl10"
+                                                        rendered="#{item.bindings.question.inputValue==labels.QUESTION2}">
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="10px" id="gr8">
+                                            <af:gridCell marginStart="5px" width="25%" id="gc41">
+                                                <af:panelLabelAndMessage label="#{labels.COUNTY}:" id="plam18"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="25%" id="gc42">
+                                                <af:outputFormatted value="#{bindings.county.inputValue}" id="of23"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="25%" id="gc43">
+                                                <af:panelLabelAndMessage label="#{labels.ASSESSOR_PARCEL_NUM}:"
+                                                                         id="plam19"/>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc44">
+                                                <af:outputFormatted value="#{bindings.assessorParcelNum.inputValue}"
+                                                                    id="of14"/>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </af:listItem>
+                            </af:listView>
+                            <af:panelGridLayout id="pgl7">
+                                <af:gridRow marginTop="5px" height="auto" id="gr11" marginBottom="10px">
+                                    <af:gridCell marginStart="5px" width="14%" id="gc25">
+                                        <af:panelLabelAndMessage label="#{labels.CONTACT_NAME}:" id="plam12"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc26">
+                                        <af:panelGroupLayout inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;width:250px;">
+                                            <af:outputText value="#{bindings.transfereeFullName.inputValue}"
+                                                           inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"
+                                                           shortDesc="#{bindings.transfereeFullName.hints.tooltip}"
+                                                           id="of18"/>
+                                        </af:panelGroupLayout>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc27">
+                                        <af:panelLabelAndMessage label="#{labels.DAYTIME_PHONE}:" id="plam13"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc28">
+                                        <af:outputFormatted value="#{bindings.phoneNumber1.inputValue}"
+                                                            id="of15" rendered="#{fn:length(bindings.extn1.inputValue)==0}"
+                                                            inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                                            
+                                    <af:outputFormatted value="#{bindings.phoneNumber1.inputValue} Ext.#{bindings.extn1.inputValue}"
+                                    id="of1extn15" rendered="#{fn:length(bindings.extn1.inputValue)!=0}"
+                                    inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="16%" id="gc29">
+                                        <af:panelLabelAndMessage label="#{labels.EMAIL}:" id="plam14"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc30">
+                                        <af:outputFormatted value="#{bindings.email1.inputValue}" id="of16"
+                                                            inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="10px" id="gr6">
+                                    <af:gridCell marginStart="5px" width="14%" id="gc31">
+                                        <af:panelLabelAndMessage label="#{labels.MAILING_ADDRESS}:" id="plam15"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="20%" id="gc32">
+                                        <af:outputFormatted value="#{bindings.transfereeFullAddress.inputValue}"
+                                                            id="of17"
+                                                            inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc33"/>
+                                    <af:gridCell marginStart="5px" width="17%" id="gc34"/>
+                                    <af:gridCell marginStart="5px" width="16%" id="gc35"/>
+                                    <af:gridCell marginStart="5px" width="16%" marginEnd="5px" id="gc36"/>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sd2" text="#{labels.SUPPORTING_INFO}">
+                            <af:panelHeader text="#{labels.AVAILABLE_DOCS}" id="ph2"
+                                            inlineStyle="font-weight:bold;background-color: #EEEEEE;"
+                                            styleClass="AMPBPMPanelHeader">
+                                <af:table value="#{bindings.availableDocument.collectionModel}" var="row"
+                                          rows="#{bindings.availableDocument.rangeSize}"
+                                          styleClass=" AFStretchWidth AMPLightWeightTable"
+                                          inlineStyle="padding-bottom:5px;padding-left:10px;padding-right:10px"
+                                          scrollPolicy="page" autoHeightRows="10" columnStretching="multiple"
+                                          emptyText="#{bindings.availableDocument.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" fetchSize="#{bindings.availableDocument.rangeSize}"
+                                          id="t4">
+                                    <af:column headerText="#{labels.DOC_NAME}" id="c27" align="center" width="20%">
+                                        <af:outputText value="#{row.docName}"
+                                                       shortDesc="#{bindings.availableDocument.hints.docName.tooltip}"
+                                                       id="ot21"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                    </af:column>
+                                    <af:column headerText="#{labels.RECIEVED}" id="c28" align="center" width="20%">
+                                        <af:outputText value="#{row.received == true ? 'Yes' : 'No'}"
+                                                       shortDesc="#{bindings.availableDocument.hints.received.tooltip}"
+                                                       id="ot22"
+                                                       />
+                                    </af:column>
+                                    <af:column headerText="#{labels.REQUESTED}" id="c29" align="center" width="20%">
+                                        <af:outputText value="#{row.requested == true ? 'Yes' : 'No'}"
+                                                       shortDesc="#{bindings.availableDocument.hints.requested.tooltip}"
+                                                       id="ot23"
+                                                       />
+                                    </af:column>
+                                    <af:column headerText="#{labels.REQUEST_DATE}" id="c30" align="center" width="40%">
+                                        <af:outputText value="#{row.requestedDate}" rendered="#{row.requested == true }"
+                                                       shortDesc="#{bindings.availableDocument.hints.requestedDate.tooltip}"
+                                                       id="ot24">
+                                            <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                        </af:outputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelHeader>
+                            <af:region value="#{bindings.ampsupportingdocsbtf1.regionModel}" id="r5"/>
+                            <!--<af:region value="#{bindings.ampsupportingdocsbtf1.regionModel}" id="r2"/>-->
+                            <!--<af:region value="#{bindings.ampcorrespondencesbtf1.regionModel}" id="r7"/>-->
+                            <af:region value="#{bindings.ampcorrespondencesbtf1.regionModel}" id="r6"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sd7" text="Qualification">
+                            <af:panelGroupLayout id="pgl15" layout="vertical">
+                         
+                                <af:listView value="#{bindings.qualifyQuestionnaireList.collectionModel}" var="item"
+                                             emptyText="#{bindings.qualifyQuestionnaireList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                             fetchSize="#{bindings.qualifyQuestionnaireList.rangeSize}" id="lv1">
+                                    <af:listItem id="li1">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl5">
+                                            <f:facet name="separator">
+                                                <af:spacer width="10" id="s1"/>
+                                            </f:facet>
+                                            <af:outputFormatted value="#{item.bindings.question.inputValue =='LegalEntity'?labels.QUALIFTN_QUES1:item.bindings.question.inputValue =='ClaimTimelyFiled'?labels.QUALIFTN_QUES2:item.bindings.question.inputValue =='TimeRequirementMet'?labels.QUALIFTN_QUES3:item.bindings.question.inputValue =='RelationshipApproved'?labels.QUALIFTN_QUES4:item.bindings.question.inputValue =='ClaimProvisionallyApproved'?labels.QUALIFTN_QUES5:item.bindings.question.inputValue}"
+                                                                inlineStyle="padding-left:10px"
+                                                                shortDesc="#{item.bindings.question.hints.tooltip}"
+                                                                id="of10"/>
+                                            <af:spacer width="5" height="5" id="s10"/>
+                                            <af:outputFormatted value="(#{item.bindings.answer.inputValue})"
+                                                                id="of11" rendered="#{item.bindings.answer.inputValue != null}"
+                                                                inlineStyle="font-weight:bold;padding-right:10px"/>
+                                              <af:outputFormatted value="(Not Specified)"
+                                                                id="of11_1" rendered="#{item.bindings.answer.inputValue == null}"
+                                                                inlineStyle="font-weight:bold;padding-right:10px"/>
+                                        </af:panelGroupLayout>
+                                    </af:listItem>
+                                </af:listView>
+                            </af:panelGroupLayout>
+                            <af:spacer width="10" height="10" id="s6"/>
+                            <af:outputFormatted value="#{labels.OTHER_PROP}" id="of9"
+                                                inlineStyle="font-weight:bold;padding-right:120px"/>
+                            <af:panelGroupLayout id="pgl16" layout="vertical">
+                                <af:table value="#{bindings.otherPropList.collectionModel}" var="row"
+                                          rows="#{bindings.otherPropList.rangeSize}"
+                                          emptyText="#{bindings.otherPropList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0" fetchSize="#{bindings.otherPropList.rangeSize}"
+                                          styleClass=" AFStretchWidth AMPLightWeightTable"
+                                          filterModel="#{bindings.otherPropListQuery.queryDescriptor}"
+                                          filterVisible="true" inlineStyle="padding-bottom:5px;"
+                                          queryListener="#{bindings.otherPropListQuery.processQuery}" varStatus="vs"
+                                          id="t8">
+                                    <af:column headerText="#{labels.SSN_TAX_ID}" id="c17" align="center" width="10%">
+                                        <!--<af:outputText value="#{row.ssnTaxNumber}"
+                                                       shortDesc="#{bindings.otherPropList.hints.ssnTaxNumber.tooltip}"
+                                                       id="ot11"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>-->
+                                        <af:panelGroupLayout id="pgl20" layout="horizontal"
+                                                             rendered="#{(fn:length(row.ssnTaxNumber)>8) and !(fn:contains(row.ssnTaxNumber,'-'))}">
+                                            <af:outputFormatted value="#{fn:substring(row.ssnTaxNumber,0,3)}" id="of30" 
+                                            inlineStyle="white-space:nowrap;padding-left:10px;float:left"/>                                                            
+                                            <af:outputFormatted value="-#{fn:substring(row.ssnTaxNumber,3,5)}" id="of31"/>                                                               
+                                            <af:outputFormatted value="-#{fn:substring(row.ssnTaxNumber,5,9)}" id="of43"
+                                                                inlineStyle="white-space:nowrap;padding-right:5px;float:left"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl28" layout="horizontal"
+                                                             rendered="#{fn:contains(row.ssnTaxNumber,'-')}">
+                                            <af:outputFormatted value="#{row.ssnTaxNumber}" id="of36"
+                                                                inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                        </af:panelGroupLayout>
+                                    </af:column>
+                                    <af:column headerText="#{labels.ASSOCIATED_AIN}" id="c18" align="center" width="8%">
+                                        <af:panelGroupLayout id="pgl26" layout="horizontal"
+                                                             rendered="#{(fn:length(row.ain)>9) and !(fn:contains(row.ain,'-'))}">
+                                            <af:outputFormatted value="#{fn:substring(row.ain,0,4)}" id="of40"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            <af:outputFormatted value="-#{fn:substring(row.ain,4,7)}" id="of39"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                            <af:outputFormatted value="-#{fn:substring(row.ain,7,10)}" id="of41"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl23" layout="horizontal"
+                                                             rendered="#{fn:contains(row.ain,'-')}">
+                                            <af:outputFormatted value="#{row.ain}" id="of42"
+                                                                inlineStyle="display:inline-block; word-wrap:break-word; text-align:left;font-weight:normal;"/>
+                                        </af:panelGroupLayout>
+                                        <!--<af:outputText value="#{row.ain}"
+                                                       shortDesc="#{bindings.otherPropList.hints.ain.tooltip}" id="ot12"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>-->
+                                    </af:column>
+                                    <af:column headerText="#{labels.TRANSFER_EVENT}" id="c19" align="center"
+                                               width="10%">
+                                        <af:outputText value="#{row.transferEventDate}"
+                                                       shortDesc="#{bindings.otherPropList.hints.transferEventDate.tooltip}"
+                                                       id="ot13">
+                                            <af:convertDateTime pattern="MM/dd/yyyy"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="#{labels.EXCLUSION_AMOUNT}" id="c20" align="center"
+                                               width="10%">
+                                        <af:outputText value="#{row.exclusionAmount}"
+                                                       shortDesc="#{bindings.otherPropList.hints.exclusionAmount.tooltip}"
+                                                       id="ot14"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;float:right">
+                                            <af:convertNumber negativePrefix="$ -" minFractionDigits="2"
+                                                              pattern="$ ###,###,###,###.###;$ (###,###,###,###)"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="#{labels.CLAIM_TYPE}" id="c21" align="center" width="8%">
+                                        <af:outputText value="#{row.claimType}"
+                                                       shortDesc="#{bindings.otherPropList.hints.claimType.tooltip}"
+                                                       id="ot15"
+                                                       />
+                                    </af:column>
+                                    <af:column headerText="#{labels.TOTAL_EXCLUSION_AMOUNT}" id="c22" align="center"
+                                               width="10%">
+                                        <af:outputText value="#{row.totExclusionAmount}"
+                                                       shortDesc="#{bindings.otherPropList.hints.totExclusionAmount.tooltip}"
+                                                       id="ot16"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;float:right">
+                                            <af:convertNumber negativePrefix="$ -" minFractionDigits="2"
+                                                              pattern="$ ###,###,###,###.###;$ (###,###,###,###)"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column headerText="#{labels.CLAIMANT_NAME}" id="c23" align="center" width="12%">
+                                        <af:outputText value="#{row.claimantFullName}"
+                                                       shortDesc="#{bindings.otherPropList.hints.claimantFullName.tooltip}"
+                                                       id="ot17"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                    </af:column>
+                                    <af:column headerText="#{labels.TRANSFEROR_NAME}" id="c24" align="center"
+                                               width="12%">
+                                        <af:outputText value="#{row.transferorFullName}"
+                                                       shortDesc="#{bindings.otherPropList.hints.transferorFullName.tooltip}"
+                                                       id="ot18"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                    </af:column>
+                                    <af:column headerText="#{labels.CLAIM_RESULT}" id="c25" align="center" width="10%">
+                                        <af:outputText value="#{row.claimResult}"
+                                                       shortDesc="#{bindings.otherPropList.hints.claimResult.tooltip}"
+                                                       id="ot19"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                    </af:column>
+                                    <af:column headerText="#{labels.CLAIM_STATUS}" id="c26" align="center" width="10%">
+                                        <af:outputText value="#{row.claimStatus}"
+                                                       shortDesc="#{bindings.otherPropList.hints.claimStatus.tooltip}"
+                                                       id="ot20"
+                                                       inlineStyle="white-space:nowrap;padding-right:5px;padding-left:10px;float:left"/>
+                                    </af:column>
+                                </af:table>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sdi5" text="Conclusion">
+                            <af:panelGroupLayout id="pgl12" layout="vertical" styleClass="AFStretchWidth">
+                                <af:region value="#{bindings.ampconclusionbtf1.regionModel}" id="r7"/>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sd3" text="Remarks" >
+                            <af:panelGroupLayout id="pgl33" layout="scroll">
+                            <af:region value="#{bindings.ampremarksbtf2.regionModel}" id="r8"/>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem disclosed="true" id="sd1" text="Correction Transation(s)">
+                            <af:panelGroupLayout id="pgl18" layout="scroll" styleClass="AFStretchWidth">
+                                <af:region value="#{bindings.ampownershipcorrectionsbtf1.regionModel}" id="r4"/>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                    </af:panelAccordion>
+                    
+                    
+                       <af:showDetailHeader size="2" text="Comments"
+                                                 disclosed="#{actionAvailable.discloseComments}"
+                                                 contentStyle="padding: 5px;" partialTriggers="commentSubmit" id="sdh1">
+                                <af:panelGroupLayout layout="vertical" inlineStyle="padding:10px;" id="dc_pgl1" partialTriggers="commentSubmit"
+                                                     binding="#{propReviewSubmitBean.commentspgl}">
+                                    <af:inputText id="cmtBox_2" rows="2" columns="80" wrap="off"
+                                                  partialTriggers="commentSubmit" value="#{commentBean.value}"
+                                                  visible="#{actionAvailable.isCommentUpdatable}" maximumLength="2000"
+                                                  label="" inlineStyle="text-align:left;"/>
+                                    <af:spacer height="5" rendered="#{actionAvailable.isCommentUpdatable}" id="s16"/>
+                                    <af:toolbar rendered="#{actionAvailable.isCommentUpdatable}" id="t12">
+                                        <af:commandButton id="commentSubmit" text="Post Comments"
+                                                          partialSubmit="true"
+                                                          
+                                                          action="#{propClaimPerformBean.postComment}"/>
+                                    </af:toolbar>
+                                    <af:spacer height="10" id="dc_s7" rendered="#{actionAvailable.isCommentUpdatable}"/>
+                                    <af:outputText value="#{resources.NO_ROWS_YET}"
+                                                   rendered="#{(actionAvailable.isCommentUpdatable) and (empty bindings.userComment)}"
+                                                   id="ot64"/>
+                                    <af:forEach items="#{bindings.userComment.children}" var="row">
+                                        <af:panelGroupLayout id="pgl45" layout="horizontal" valign="top">
+                                            <af:image source="/images/simple_16x16.png" id="i19"/>
+                                            <af:spacer width="10" height="10" id="s17"/>
+                                            <af:panelGroupLayout id="pgl46" layout="vertical">
+                                                <af:panelGroupLayout id="pgl69" layout="horizontal">
+                                                    <af:switcher facetName="#{row.updatedBy.displayName != null}"
+                                                                 id="s18">
+                                                        <f:facet name="true">
+                                                            <af:group id="g12">
+                                                                <af:outputText value="#{row.updatedBy.displayName}"
+                                                                               id="ot65"
+                                                                               inlineStyle="font-weight:bold;"/>
+                                                                <af:spacer width="10" height="10" id="s129"/>
+                                                                <af:outputText value="#{row.updatedDate}" id="ot119"
+                                                                               inlineStyle="font-size:x-small; color:Gray;">
+                                                                    <f:converter converterId="dateTimeConvertor"/>
+                                                                </af:outputText>
+                                                            </af:group>
+                                                        </f:facet>
+                                                        <f:facet name="false">
+                                                            <af:group id="g11">
+                                                                <af:outputText value="#{pageFlowScope.ADFHumanTaskBean.workflowContext.user}"
+                                                                               inlineStyle="font-weight:bold;"
+                                                                               id="ot66"/>
+                                                                <af:spacer width="10" height="10" id="s32"/>
+                                                                <af:outputText value="#{resources.TODAY}" id="ot67"/>
+                                                            </af:group>
+                                                        </f:facet>
+                                                    </af:switcher>
+                                                </af:panelGroupLayout>
+                                                <af:spacer width="10" height="5" id="s59"/>
+                                                <af:outputText value="#{row.comment}" id="ot419"/>
+                                            </af:panelGroupLayout>
+                                        </af:panelGroupLayout>
+                                    </af:forEach>
+                                </af:panelGroupLayout>
+                            </af:showDetailHeader>
+                    
+                 <!--<af:panelGroupLayout id="pgl12" layout="vertical">
+                                <af:outputText id="otS1"
+                                               value=" Assigned USER :: #{fn:toUpperCase(bindings.id1.inputValue)}"/>
+                                <af:outputText id="otS2"
+                                               value="Logged IN user :: #{fn:toUpperCase(securityContext.userName)}"/>
+                            
+                            <af:panelLabelAndMessage label="#{bindings.RoleName.hints.label}" id="plam28">
+                                    <af:outputText value="#{bindings.RoleName.inputValue}"
+                                                   shortDesc="#{bindings.RoleName.hints.tooltip}" id="ot11"/>
+                                </af:panelLabelAndMessage>
+                        <af:table value="#{bindings.assignees1.collectionModel}" var="row"
+                                  rows="#{bindings.assignees1.rangeSize}"
+                                  emptyText="#{bindings.assignees1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.assignees1.rangeSize}" id="t9">
+                            <af:column headerText="#{bindings.assignees1.hints.id.label}" id="c48">
+                                <af:outputText value="#{row.id}" shortDesc="#{bindings.assignees1.hints.id.tooltip}"
+                                               id="ot34"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.assignees1.hints.displayName.label}" id="c49">
+                                <af:outputText value="#{row.displayName}"
+                                               shortDesc="#{bindings.assignees1.hints.displayName.tooltip}" id="ot35"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.assignees1.hints.type.label}" id="c50">
+                                <af:outputText value="#{row.type}" shortDesc="#{bindings.assignees1.hints.type.tooltip}"
+                                               id="ot50"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.assignees1.hints.systemVersionFlag.label}" id="c51">
+                                <af:outputText value="#{row.systemVersionFlag}"
+                                               shortDesc="#{bindings.assignees1.hints.systemVersionFlag.tooltip}"
+                                               id="ot51"/>
+                            </af:column>
+                        </af:table>
+                        <c:set var="profileRole" value="#{bindings.RoleName.inputValue}"/>
+                                <af:outputText value=" ROLE -1:: #{profileRole}" id="ot12"/>
+                                
+                            </af:panelGroupLayout>
+                                
+                                 <c:set var="enableSubmit" value="#{false}"/>
+                                <af:iterator value="#{bindings.assignees1.collectionModel}" id="assignee1" var="assignees">
+                                
+                                <c:set var="profileRole" value="#{assignees.id}"/>
+                                <af:outputText value=" assignees ID  :: #{profileRole}" id="ot232"/>
+                                
+                                <af:outputText value=" Test Role  :: #{(securityContext.userInRole[profileRole])}" id="ot252"/>
+                                
+                                <c:set var="rolevalue" value="#{(securityContext.userInRole[profileRole])}"/>
+                                <af:outputText value=" rolevalue  :: #{rolevalue}" id="ot262"/>
+                                
+                                <c:if test="${rolevalue eq 'true'}" >
+                                INSIDE 
+                                 <c:set var="enableSubmit" value="#{true}"/>
+                                
+                                </c:if>
+                                
+                                
+                                 --><!--<c:otherwise >
+                                 <c:set var="enableSubmit" value="#{false}"/>
+                                
+                                </c:otherwise>--><!--
+                                
+                               
+                                
+                                </af:iterator>
+                    
+                    
+                     <af:outputText value=" enableSubmit  :: #{enableSubmit}" id="ot2enablebtn"/>-->
+                    
+                     <!--<af:outputText value=" Role Check  :: #{propReviewSubmitBean.enableSubmitbtn} ::LoginCheck :: #{((fn:toUpperCase(bindings.id1.inputValue) == fn:toUpperCase(securityContext.userName)))}" id="ot2enablebtn"/>-->
+                    
+                    <af:panelStretchLayout id="psl1" topHeight="0px" endWidth="300px"
+                                           styleClass="AFStrechtWidth amp-border-top amp-border-bottom padding-bottom-5 padding-top-10"
+                                           bottomHeight="0px" startWidth="100px">
+                        <f:facet name="start">
+                            <af:panelGroupLayout id="pgl31" layout="horizontal" halign="start"
+                                                 styleClass="padding-top-5">
+                                <af:button text="Back" partialSubmit="true" id="b5" action="back"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="end">
+                            <af:panelGroupLayout id="pgl35" layout="horizontal" halign="end" styleClass="padding-top-5">
+                                <f:facet name="separator">
+                                    <af:spacer width="10" id="s27"/>
+                                </f:facet>
+                                <!--<af:button text="Save" id="b4" shortDesc="Save"
+                                           action="#{propQualConclBean.onSave}" partialSubmit="true"
+                                           actionListener="#{propQualConclBean.validateConclusion}"></af:button>
+                                <af:button text="Next" id="b3" shortDesc="Next" action="gotoReviewSubmit"/>-->
+                                
+                                
+                                 
+                                <af:button text="Submit" id="b1" action="#{propReviewSubmitBean.onSubmitForApproval}" disabled="#{!((propReviewSubmitBean.enableSubmitbtn) or ((fn:toUpperCase(bindings.id1.inputValue) == fn:toUpperCase(securityContext.userName)))) }">
+                                <af:setPropertyListener from="Submit" to="#{pageFlowScope.lstbpmaction}" type="action"/>
+                                </af:button>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                    <!--End main-->
+                </af:panelGroupLayout>
+                
+              
+                            
+                <!--nnn-->
+                
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

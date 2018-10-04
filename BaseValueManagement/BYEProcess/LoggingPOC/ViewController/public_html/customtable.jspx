@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="My Custom Table">
+      <style type="text/css">
+table {
+    border-collapse: collapse;
+    width: 500px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+tr:nth-child(even){
+background-color: #f2f2f2;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+    </style>
+      <af:form id="f1">
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <af:outputText value="Base Year Events" id="ot2"/>
+                </th>
+                <af:iterator id="ith" value="#{pageFlowScope.customtablebean.headerList}" var="rowh" varStatus="vsh"
+                             rows="0">
+                  <th>
+                    <!--<af:panelGroupLayout id="pgl1" layout="vertical">-->
+                    <div id="h1" align="center">
+                    
+                      <af:outputText value="#{rowh.hyear}" id="ot3"/>
+                      <af:spacer height="10" id="s1"/>
+                      <af:outputText value="#{rowh.trendFactor}" id="ot4"/>
+                      <af:spacer height="10" id="s2"/>
+                      <af:outputText value="#{rowh.hbaseYear ? 'Original Base Values' : 'Trended Base Values'}"
+                                     id="ot5"/>
+                      <af:spacer height="10" id="s3"/>
+                      
+                     
+                      <af:panelGridLayout id="pgl1" inlineStyle="border: 1px solid black;">
+                        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr1">
+                          <af:gridCell marginStart="5px" width="25%" id="gc4">
+                            <af:outputText value="Land" id="ot6" inlineStyle="border:none!important;"/>
+                          </af:gridCell>
+                          <af:gridCell marginStart="5px" width="25%" id="gc1">
+                            <af:outputText value="Imp" id="ot7" inlineStyle="border:none!important;"/>
+                          </af:gridCell>
+                          <af:gridCell marginStart="5px" width="25%" id="gc2">
+                            <af:outputText value="Total" id="ot8" inlineStyle="border:none!important;"/>
+                          </af:gridCell>
+                          <af:gridCell marginStart="5px" marginEnd="5px" width="25%" id="gc3">
+                            <af:outputText value="Fixtures" id="ot9" inlineStyle="border:none!important;"/>
+                          </af:gridCell>
+                        </af:gridRow>
+                      </af:panelGridLayout>
+                      <!--<af:panelGroupLayout id="pgl2" layout="horizontal" inlineStyle="border:none!important;"/>-->
+                    <!--</af:panelGroupLayout>-->
+
+                   </div>
+                  </th>
+                </af:iterator>
+              </tr>
+            </thead>
+             
+            <tbody>
+              <af:iterator id="it1" value="#{pageFlowScope.customtablebean.eventList}" var="row" varStatus="vs"
+                           rows="0">
+                <tr>
+                  <td>
+                    <af:outputText value="#{row.eventName}" id="ot1"/>
+                  </td>
+                  <af:iterator id="it2" value="#{row.yearList}" var="row1" varStatus="vs1" rows="0">
+                    <!--  <td>
+                    <af:outputText value="#{row1.tyear}" id="ot21"/>
+                    </td>-->
+                    <td>
+                      <af:panelGroupLayout id="pgl0" layout="horizontal" inlineStyle="border-style:none;">
+                        <af:outputText value="#{row1.land}" id="ot22"/>
+                        <af:outputText value="#{row1.imp}" id="ot23"/>
+                        <af:outputText value="#{row1.total}" id="ot25"/>
+                        <af:outputText value="#{row1.fixture}" id="ot24"/>
+                      </af:panelGroupLayout>
+                    </td>
+                  </af:iterator>
+                </tr>
+              </af:iterator>
+            </tbody>
+          </table>
+        </div>
+        <af:commandButton text="Print" id="cb1">
+          <af:showPrintablePageBehavior/>
+        </af:commandButton>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

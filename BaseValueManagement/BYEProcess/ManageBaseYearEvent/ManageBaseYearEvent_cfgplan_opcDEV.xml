@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAConfigPlan xmlns:jca="http://platform.integration.oracle/blocks/adapter/fw/metadata"
+               xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+               xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
+               xmlns:edl="http://schemas.oracle.com/events/edl"
+               xmlns="http://schemas.oracle.com/soa/configplan">
+   <composite name="ManageBaseYearEvent">
+      <!--Add search and replace rules for the import section of a composite
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>-->
+      <import>
+         <searchReplace>
+            <search/>
+            <replace/>
+         </searchReplace>
+      </import>
+      <!--service name="UserDetails.service">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/UserDetails#wsdl.endpoint(UserDetails.service/UserDetailsPort)</replace>
+            </attribute>
+         </binding>
+      </service-->
+      <service name="ManageBaseYearEvent.service">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/ManageBaseYearEvent#wsdl.endpoint(ManageBaseYearEvent.service/ManageBaseYearEventPort)</replace>
+            </attribute>
+         </binding>
+      </service>
+      <property name="productVersion">
+         <replace>12.2.1.2.0.161003</replace>
+      </property>
+      <!--Add search and replace rules for the component properties
+	For components and service/reference bindings, you can add policy references.
+	Example:
+	<component name="*">
+		<wsp:PolicyReference orawsp:category="management" orawsp:status="enabled" URI="oracle/log_policy"/>
+	</component>-->
+      <reference name="RetriveBYEDetails">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventMgmtService/v1.0#wsdl.endpoint(BaseYearEventMgmtService_ep/BaseYearEventMgmtService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://campwtd101.assessor.lacounty.gov:7777/soa-infra/services/amp/BaseYearEventMgmtService/BaseYearEventMgmtService_ep?WSDL</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <!--<reference name="GetUserDetails">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://xmlns.oracle.com/bpel/services/IdentityService#wsdl.endpoint(IdentityService/IdentityServicePort)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://campwtd101.assessor.lacounty.gov:7777/integration/services/IdentityService/identity?wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+         <callback>
+            <binding type="ws">
+               <attribute name="port">
+                  <replace>http://xmlns.oracle.com/bpel/services/IdentityService#wsdl.endpoint(IdentityService/IdentityServicePortType_pt)</replace>
+               </attribute>
+            </binding>
+         </callback>
+      </reference>-->
+      <reference name="ReleaseLock">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0#wsdl.endpoint(AINLockMgmtService_ep/AINLockMgmtService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://campwtd101.assessor.lacounty.gov:7777/soa-infra/services/amp/AINLockMgmtService/AINLockMgmtService_ep?WSDL</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="ProcessStatus">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/ao/ProcessStatusMgmtService/v1.0#wsdl.endpoint(ProcessStatusMgmtService_ep/ProcessStatusMgmtService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://campwtd101.assessor.lacounty.gov:7777/soa-infra/services/amp/ProcessStatusMgmtService/ProcessStatusMgmtService_ep?wsdl</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <!--reference name="BPMLogging">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/ao/WorkFlowLogService/v1.0#wsdl.endpoint(WorkFlowLogService_ep/WorkFlowLogService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://ampwttrn01.isd.lacounty.gov:7777/soa-infra/services/amp/WorkFlowLogService/WorkFlowLogService_ep?WSDL</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference-->
+      <reference name="EscalationRule">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/bvm/BaseYearEventRulesService/v1.0#wsdl.endpoint(BaseYearEventRulesService_ep/BaseYearEventRulesService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://campwtd101.assessor.lacounty.gov:7777/soa-infra/services/amp/BaseYearEventRulesService/BaseYearEventRulesService_ep?WSDL</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="DeriveUserDetails">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/common/id/IdentityLookupService/v1.0#wsdl.endpoint(IdentityLookupService_ep/IdentityLookupService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://campwtd101.assessor.lacounty.gov:7777/soa-infra/services/amp/IdentityLookupService/IdentityLookupService_ep?WSDL</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="WorkflowLogging">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/ao/WorkFlowLogAsyncService/v1.0#wsdl.endpoint(WorkFlowLogAsyncService_ep/WorkFlowLogService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://campwtd101.assessor.lacounty.gov:7777/soa-infra/services/amp/WorkFlowLogService/WorkFlowLogAsyncService_ep?WSDL</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+   </composite>
+   <!--To configure monitor.config: 
+	<property name="enabled"><replace>true</replace></property>
+	<property name="dataObjectsFolder"><searchReplace><search>mydev</search><replace>myproduction</replace></searchReplace></property>
+	
+	sample properties to configure for adapter: 
+	<jca:property name="QueueName"><replace>medmq1</replace></jca:property>
+	
+	To add search and replace rules for wsdls, xsd and jca files
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>
+	-->
+   <wsdlAndSchema name="businessCatalog/Data/AINAttributesBO.wsdl|businessCatalog/Data/AINAttributesBO.xsd|businessCatalog/Data/AssignToUserOrGroupBO.wsdl|businessCatalog/Data/AssignToUserOrGroupBO.xsd|businessCatalog/Data/BYEHumanTaskBO.wsdl|businessCatalog/Data/BYEHumanTaskBO.xsd|businessCatalog/Data/ExecDataWFLogBO.wsdl|businessCatalog/Data/GetUserDetailsRequestBO.wsdl|businessCatalog/Data/GetUserDetailsResponseBO.wsdl|businessCatalog/Data/InitiatorInfoBO.wsdl|businessCatalog/Data/InitiatorInfoBO.xsd|businessCatalog/Data/ManageBYE_ReqBO.wsdl|businessCatalog/Data/ManageBYE_RespBO.wsdl|businessCatalog/Data/ProcessRoutingBO.wsdl|businessCatalog/Data/ProcessRoutingBO.xsd|businessCatalog/Data/ProcessStatusBO.wsdl|businessCatalog/Data/RetriveBYEDetails.wsdl|businessCatalog/Data/RetriveBYEDetails.xsd|businessCatalog/Data/RetriveBYEDetailsBO.wsdl|businessCatalog/Data/SortBYEBO.wsdl|businessCatalog/Data/SortBYEBO.xsd|ManageBaseYearEvent.wsdl|project_properties.wsdl|UserDetails.wsdl|xsd/DecisionPoint.xsd|xsd/DecisionServicePrimitiveTypes.xsd|xsd/DSReviewBaseYearEventWorkflowTask.xsd|xsd/DSSubmitBaseYearEventWorkflowTask.xsd|xsd/DynmicAssignment.xsd|xsd/GetUserDetails.xsd|xsd/ManageBaseYearEventPayload.xsd|xsd/ManageBaseYearEventTaskPayload.xsd|xsd/ManageBaseYearEventTaskWorkflowTask.xsd|xsd/ManageBaseYearEventWorkflowTask.xsd|xsd/NotificationPayload.xsd|xsd/NotificationTaskPayload.xsd|xsd/NotificationTaskWorkflowTask.xsd|xsd/ReviewBaseYearEventPayload.xsd|xsd/ReviewBaseYearEventTaskPayload.xsd|xsd/ReviewBaseYearEventTaskWorkflowTask.xsd|xsd/ReviewBaseYearEventWorkflowTask.xsd|xsd/RoutingSlipList.xsd|xsd/SubmitBaseYearEventPayload.xsd|xsd/SubmitBaseYearEventTaskPayload.xsd|xsd/SubmitBaseYearEventTaskWorkflowTask.xsd|xsd/SubmitManageBaseYearEventTaskPayload.xsd|xsd/TaskStateMachine.xsd">
+      <searchReplace>
+         <search/>
+         <replace/>
+      </searchReplace>
+   </wsdlAndSchema>
+</SOAConfigPlan>

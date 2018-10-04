@@ -1,0 +1,1580 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="ReviewSubmitPageDef"
+                Package="propclaimperformworktaskui.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PropsDC" id="PropsDCIterator"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsPojo" RangeSize="-1" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsPojo" id="propsPojoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="claimInfo" RangeSize="-1" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsClaimInfoPojo" id="claimInfoIterator"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                    RangeSize="25" BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.task" id="taskIterator"
+                      StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.PropClaimPerformWorkTaskPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="AMPWorkTask" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.AMPWorkTask"
+                      id="AMPWorkTaskIterator"/>
+    <accessorIterator MasterBinding="AMPWorkTaskIterator" Binds="PropertyIdentificationList" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.PropertyIdentificationList"
+                      id="PropertyIdentificationListIterator"/>
+    <accessorIterator MasterBinding="PropertyIdentificationListIterator" Binds="PropertyIdentification" RangeSize="10"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.PropertyIdentificationType"
+                      id="PropertyIdentificationIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="conclusion" RangeSize="-1" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsConclusionPojo" id="conclusionIterator"/>
+    <taskFlow id="ampremarksbtf1" taskFlowId="/WEB-INF/btf/amp-remarks-btf.xml#amp-remarks-btf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="parentId" value="#{pageFlowScope.parentId}"/>
+        <parameter id="moduleName" value="PROPS"/>
+        <parameter id="subject" value="Eligibility Reviewer"/>
+        <parameter id="readOnlyMode" value="true"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="ampremarksbtf2" taskFlowId="/WEB-INF/btf/amp-remarks-btf.xml#amp-remarks-btf" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="parentId" value="#{pageFlowScope.parentId}"/>
+        <parameter id="moduleName" value="PROPS"/>
+        <parameter id="subject" value="Eligibility Reviewer"/>
+        <parameter id="readOnlyMode" value="true"/>
+      </parameters>
+    </taskFlow>
+   
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="qualification" RangeSize="-1" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsQualificationPojo"
+                      id="qualificationIterator"/>
+    <accessorIterator MasterBinding="qualificationIterator" Binds="qualifyQuestionnaireList" RangeSize="-1"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire"
+                      id="qualifyQuestionnaireListIterator"/>
+    <accessorIterator MasterBinding="qualificationIterator" Binds="otherPropList" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsOtherPropPojo" id="otherPropListIterator"/>
+    <searchRegion Binds="otherPropListIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="otherPropListQuery"/>
+    <accessorIterator MasterBinding="claimInfoIterator" Binds="name" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsNamePojo" id="nameIterator"/>
+    <accessorIterator MasterBinding="claimInfoIterator" Binds="propertyAddress" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsAddrPojo" id="propertyAddressIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="propsTransferorPojoInfo" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsTransferorPojo"
+                      id="propsTransferorPojoInfoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="propsTransfereeInfo" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsTransfereePojo"
+                      id="propsTransfereeInfoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="relationships" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsRelationShipPojo"
+                      id="relationshipsIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="propsDescendentsPojoInfo" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsDirectDescendent"
+                      id="propsDescendentsPojoInfoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="transferorQuestionnarieContactInfo" RangeSize="25"
+                      DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsTransferorQuestionnairePojo"
+                      id="transferorQuestionnarieContactInfoIterator"/>
+    <accessorIterator MasterBinding="transferorQuestionnarieContactInfoIterator" Binds="transferorQuestionnaire"
+                      RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire"
+                      id="transferorQuestionnaireIterator"/>
+    <accessorIterator MasterBinding="transferorQuestionnarieContactInfoIterator" Binds="transferorPrvTransfer"
+                      RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsPrvTransfer"
+                      id="transferorPrvTransferIterator"/>
+    <accessorIterator MasterBinding="transferorQuestionnarieContactInfoIterator" Binds="transferorContactDtl"
+                      RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsContactDtl"
+                      id="transferorContactDtlIterator"/>
+    <accessorIterator MasterBinding="transferorContactDtlIterator" Binds="contactname" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsNamePojo"
+                      id="contactnameIterator"/>
+    <accessorIterator MasterBinding="transferorContactDtlIterator" Binds="mailingAddress" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsAddrPojo"
+                      id="mailingAddressIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="transfereeQuestionnarieContactInfo" RangeSize="25"
+                      DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsTransfereeQuestionnariePojo"
+                      id="transfereeQuestionnarieContactInfoIterator"/>
+    <accessorIterator MasterBinding="transfereeQuestionnarieContactInfoIterator" Binds="transfereeQuestionnaire"
+                      RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire"
+                      id="transfereeQuestionnaireIterator"/>
+    <accessorIterator MasterBinding="transfereeQuestionnarieContactInfoIterator" Binds="transfereeContactDtl"
+                      RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsContactDtl"
+                      id="transfereeContactDtlIterator"/>
+    <accessorIterator MasterBinding="transfereeContactDtlIterator" Binds="contactname" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsNamePojo"
+                      id="contactnameIterator1"/>
+    <accessorIterator MasterBinding="transfereeContactDtlIterator" Binds="mailingAddress" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsAddrPojo"
+                      id="mailingAddressIterator1"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="supportingInfo" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsSupportingInfoPojo"
+                      id="supportingInfoIterator"/>
+    <accessorIterator MasterBinding="supportingInfoIterator" Binds="availableDocument" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsDocumentDetailsPojo"
+                      id="availableDocumentIterator"/>
+    <accessorIterator MasterBinding="AMPWorkTaskIterator" Binds="ParameterList" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.ParameterList"
+                      id="ParameterListIterator"/>
+    <accessorIterator MasterBinding="ParameterListIterator" Binds="Parameter" RangeSize="10"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.Parameter" id="ParameterIterator"/>
+    <taskFlow id="ampconclusionbtf1" taskFlowId="/WEB-INF/amp-conclusion-btf.xml#amp-conclusion-btf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="claimResult" value="#{pageFlowScope.claimResult}"/>
+        <parameter id="PartialShow" value="#{pageFlowScope.PartialShow}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="ampownershipcorrectionsbtf1"
+              taskFlowId="/WEB-INF/btf/amp-ownership-corrections-btf.xml#amp-ownership-corrections-btf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="propsId" value="#{pageFlowScope.propsid}"/>
+        <parameter id="readOnlyMode" value="true"/>
+        <parameter id="ainList" value="#{pageFlowScope.ainList}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="ampcorrespondencesbtf1" taskFlowId="/WEB-INF/btf/amp-correspondences-btf.xml#amp-correspondences-btf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="propsId" value="#{pageFlowScope.propsid}"/>
+        <parameter id="readOnlyMode" value="true"/>
+        <parameter id="WorkUnitId" value="#{pageFlowScope.wuid}"/>
+        <parameter id="viewLinks" value="true"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="ampbpmcorrespondencebtf1"
+              taskFlowId="/WEB-INF/amp-bpm-correspondence-btf/amp-bpm-correspondence-btf.xml#amp-bpm-correspondence-btf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="propsId" value="#{pageFlowScope.propsid}"/>
+        <parameter id="readOnlyMode" value="true"/>
+        <parameter id="category" value="#{pageFlowScope.category}"/>
+        <parameter id="subcategory" value="#{pageFlowScope.subcategory}"/>
+        <parameter id="WorkUnitId" value="#{pageFlowScope.wuid}"/>
+        <parameter id="viewLinks" value="true"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="ampsupportingdocsbtf1" taskFlowId="/WEB-INF/btf/amp-supporting-docs-btf.xml#amp-supporting-docs-btf"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+              <parameters>
+	              <parameter id="wuId" value="#{pageFlowScope.wuid}"/>
+	              <parameter id="readOnlyMode" value="true"/>
+	              <parameter id="docLinksEnabled" value="#{pageFlowScope.isApprover}"/>
+	              <parameter id="ain" value="#{pageFlowScope.ain}"/>
+	              <parameter id="propertyType" value="RP"/>
+      </parameters>
+   </taskFlow>
+    <accessorIterator MasterBinding="taskIterator" Binds="systemAttributes" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.systemAttributesType"
+                      id="systemAttributesIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="systemActions" RangeSize="50"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.actionType"
+                      id="systemActionsIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="customActions" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.actionType"
+                      id="customActionsIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="fromUser" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType"
+                      id="fromUserIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="assignees" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType"
+                      id="assigneesIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="AMPWorkTaskIterator" Binds="WorkTaskDetails" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.WorkTaskDetails"
+                      id="WorkTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="AMPWorkTaskIterator" Binds="NextAssignee" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.NextAssignee"
+                      id="NextAssigneeIterator"/>
+    <accessorIterator MasterBinding="AMPWorkTaskIterator" Binds="PreviousAssignee" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.PreviousAssignee"
+                      id="PreviousAssigneeIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="userComment" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.commentType"
+                      id="userCommentIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="userCommentIterator" Binds="updatedBy" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType"
+                      id="updatedByIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="attachment" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.attachmentType"
+                      id="attachmentIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="attachmentIterator" Binds="ucmMetadataItem" RangeSize="25"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.ucmMetadataItemType"
+                      id="ucmMetadataItemIterator" StateValidation="false"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsLOV" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.lov.PropsLOV" id="propsLOVIterator"/>
+    <accessorIterator MasterBinding="propsLOVIterator" Binds="propsExemptionEligibilitiesList" RangeSize="-1"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.lov.PropsExemptionEligibilities"
+                      id="propsExemptionEligibilitiesListIterator"/>
+    <accessorIterator MasterBinding="systemAttributesIterator" Binds="assigneeUsers" RangeSize="10"
+                      DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                      BeanClass="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType"
+                      id="assigneeUsersIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="claimInfoIterator" id="claimReceivedDate">
+      <AttrNames>
+        <Item Value="claimReceivedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="PropertyIdentificationIterator" id="AIN">
+      <AttrNames>
+        <Item Value="AIN"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="taskIterator" id="SubmitForClaimApproval" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SubmitForClaimApproval" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="conclusionIterator" id="valuationFlag">
+      <AttrNames>
+        <Item Value="valuationFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="qualifyQuestionnaireListIterator" id="qualifyQuestionnaireList">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire"
+                      Name="qualifyQuestionnaireList0">
+        <AttrNames>
+          <Item Value="question"/>
+          <Item Value="answer"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="otherPropListIterator" id="otherPropList">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsOtherPropPojo" Name="otherPropList0">
+        <AttrNames>
+          <Item Value="propsPartyID"/>
+          <Item Value="propsID"/>
+          <Item Value="ssnTaxNumber"/>
+          <Item Value="ain"/>
+          <Item Value="transferEventDate"/>
+          <Item Value="exclusionAmount"/>
+          <Item Value="claimType"/>
+          <Item Value="totExclusionAmount"/>
+          <Item Value="claimResult"/>
+          <Item Value="claimStatus"/>
+          <Item Value="claimSignedDate"/>
+          <Item Value="percentTransfer"/>
+          <Item Value="printedName"/>
+          <Item Value="claimantFullName"/>
+          <Item Value="transferorFullName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="claimantName"/>
+          <Item Value="transferorName"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsNamePojo">
+        <AttrNames>
+          <Item Value="firstName"/>
+          <Item Value="lastName"/>
+          <Item Value="middleInitial"/>
+          <Item Value="suffix"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="conclusionIterator" id="claimResult">
+      <AttrNames>
+        <Item Value="claimResult"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="reason">
+      <AttrNames>
+        <Item Value="reason"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="approvalType">
+      <AttrNames>
+        <Item Value="approvalType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="transferDate">
+      <AttrNames>
+        <Item Value="transferDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="reliefDate">
+      <AttrNames>
+        <Item Value="reliefDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="reliefType">
+      <AttrNames>
+        <Item Value="reliefType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="exclusionAmount">
+      <AttrNames>
+        <Item Value="exclusionAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="transferStatus">
+      <AttrNames>
+        <Item Value="transferStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="landFBV">
+      <AttrNames>
+        <Item Value="landFBV"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="impFBV">
+      <AttrNames>
+        <Item Value="impFBV"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="totalFBV">
+      <AttrNames>
+        <Item Value="totalFBV"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="valuationInstructions">
+      <AttrNames>
+        <Item Value="valuationInstructions"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="claimReceivedDate1">
+      <AttrNames>
+        <Item Value="claimReceivedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="claimCompletionDate">
+      <AttrNames>
+        <Item Value="claimCompletionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="completedBy">
+      <AttrNames>
+        <Item Value="completedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="claimSignedDate">
+      <AttrNames>
+        <Item Value="claimSignedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="claimApprovalDate">
+      <AttrNames>
+        <Item Value="claimApprovalDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="notificationDate">
+      <AttrNames>
+        <Item Value="notificationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="notificationMethod">
+      <AttrNames>
+        <Item Value="notificationMethod"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="assignedTo">
+      <AttrNames>
+        <Item Value="assignedTo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="conclusionIterator" id="partialInterestApproved">
+      <AttrNames>
+        <Item Value="partialInterestApproved"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="operationFlag">
+      <AttrNames>
+        <Item Value="operationFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="status">
+      <AttrNames>
+        <Item Value="status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="recorderDocNo">
+      <AttrNames>
+        <Item Value="recorderDocNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="purchaseTransferDate">
+      <AttrNames>
+        <Item Value="purchaseTransferDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="deathDate">
+      <AttrNames>
+        <Item Value="deathDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="claimType">
+      <AttrNames>
+        <Item Value="claimType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="principalResidence">
+      <AttrNames>
+        <Item Value="principalResidence"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="assessorParcelNumber">
+      <AttrNames>
+        <Item Value="assessorParcelNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="probateNumber">
+      <AttrNames>
+        <Item Value="probateNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="decreeDistributionDate">
+      <AttrNames>
+        <Item Value="decreeDistributionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="exemptionEligibility">
+      <AttrNames>
+        <Item Value="exemptionEligibility"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="claimantFullName">
+      <AttrNames>
+        <Item Value="claimantFullName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="claimInfoIterator" id="propFullAddress">
+      <AttrNames>
+        <Item Value="propFullAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="firstName">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="lastName">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="middleInitial">
+      <AttrNames>
+        <Item Value="middleInitial"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="nameIterator" id="suffix">
+      <AttrNames>
+        <Item Value="suffix"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyAddressIterator" id="street">
+      <AttrNames>
+        <Item Value="street"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyAddressIterator" id="city">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyAddressIterator" id="state">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyAddressIterator" id="zip">
+      <AttrNames>
+        <Item Value="zip"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="propertyAddressIterator" id="country">
+      <AttrNames>
+        <Item Value="country"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="propsTransferorPojoInfoIterator" id="propsTransferorPojoInfo">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsTransferorPojo"
+                      Name="propsTransferorPojoInfo0">
+        <AttrNames>
+          <Item Value="legalEntityName"/>
+          <Item Value="ssn"/>
+          <Item Value="percentTransfer"/>
+          <Item Value="exclusionAmount"/>
+          <Item Value="signOnFileFlag"/>
+          <Item Value="signedByLegalRepFlag"/>
+          <Item Value="authorizationOnFileFlag"/>
+          <Item Value="printedName"/>
+          <Item Value="claimSignedDate"/>
+          <Item Value="transferorFullName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="transferorName"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsNamePojo">
+        <AttrNames>
+          <Item Value="firstName"/>
+          <Item Value="lastName"/>
+          <Item Value="middleInitial"/>
+          <Item Value="suffix"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="propsTransfereeInfoIterator" id="propsTransfereeInfo">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsTransfereePojo" Name="propsTransfereeInfo0">
+        <AttrNames>
+          <Item Value="signOnFileFlag"/>
+          <Item Value="signedByLegalRepFlag"/>
+          <Item Value="authorizationOnFileFlag"/>
+          <Item Value="printedName"/>
+          <Item Value="claimSignedDate"/>
+          <Item Value="transfereeFullName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="transfereeName"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsNamePojo">
+        <AttrNames>
+          <Item Value="firstName"/>
+          <Item Value="lastName"/>
+          <Item Value="middleInitial"/>
+          <Item Value="suffix"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="relationshipsIterator" id="relationships">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsRelationShipPojo" Name="relationships0">
+        <AttrNames>
+          <Item Value="relationshipToTransferee"/>
+          <Item Value="relationshipToTransferor"/>
+          <Item Value="adoptedByWhom"/>
+          <Item Value="percentageTransfer"/>
+          <Item Value="relationshipId"/>
+          <Item Value="ageAtAdoption"/>
+          <Item Value="transferorFullName"/>
+          <Item Value="transfereeFullName"/>
+          <Item Value="operationFlag"/>
+          <Item Value="relationshipToTransferee193"/>
+          <Item Value="relationshipToTransferee58"/>
+          <Item Value="relationshipToTransferor193"/>
+          <Item Value="relationshipToTransferor58"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="transferorName"/>
+          <Item Value="transfereeName"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsNamePojo">
+        <AttrNames>
+          <Item Value="firstName"/>
+          <Item Value="lastName"/>
+          <Item Value="middleInitial"/>
+          <Item Value="suffix"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="propsDescendentsPojoInfoIterator" id="propsDescendentsPojoInfo">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsDirectDescendent"
+                      Name="propsDescendentsPojoInfo0">
+        <AttrNames>
+          <Item Value="ssn"/>
+          <Item Value="exclusionAmount"/>
+          <Item Value="deathDate"/>
+          <Item Value="directDescendantFullName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="directDescendantName"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsNamePojo">
+        <AttrNames>
+          <Item Value="firstName"/>
+          <Item Value="lastName"/>
+          <Item Value="middleInitial"/>
+          <Item Value="suffix"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="transferorQuestionnaireIterator" id="transferorQuestionnaire">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire" Name="transferorQuestionnaire0">
+        <AttrNames>
+          <Item Value="question"/>
+          <Item Value="answer"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="transferorPrvTransferIterator" id="transferorPrvTransfer">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsPrvTransfer" Name="transferorPrvTransfer0">
+        <AttrNames>
+          <Item Value="county"/>
+          <Item Value="assessorParcelNo"/>
+          <Item Value="dateOfTransfer"/>
+          <Item Value="principalResidence"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="transferorContactDtlIterator" id="phoneNumber">
+      <AttrNames>
+        <Item Value="phoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transferorContactDtlIterator" id="fax">
+      <AttrNames>
+        <Item Value="fax"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transferorContactDtlIterator" id="email">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="transfereeFullName">
+      <AttrNames>
+        <Item Value="transfereeFullName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transferorContactDtlIterator" id="transferorFullName">
+      <AttrNames>
+        <Item Value="transferorFullName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="transfereeFullAddress">
+      <AttrNames>
+        <Item Value="transfereeFullAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transferorContactDtlIterator" id="transferorFullAddress">
+      <AttrNames>
+        <Item Value="transferorFullAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactnameIterator" id="firstName1">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactnameIterator" id="lastName1">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactnameIterator" id="middleInitial1">
+      <AttrNames>
+        <Item Value="middleInitial"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactnameIterator" id="suffix1">
+      <AttrNames>
+        <Item Value="suffix"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator" id="street1">
+      <AttrNames>
+        <Item Value="street"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator" id="city1">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator" id="state1">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator" id="zip1">
+      <AttrNames>
+        <Item Value="zip"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator" id="country1">
+      <AttrNames>
+        <Item Value="country"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="transfereeQuestionnaireIterator" id="transfereeQuestionnaire">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsQuestionnaire" Name="transfereeQuestionnaire0">
+        <AttrNames>
+          <Item Value="question"/>
+          <Item Value="answer"/>
+          <Item Value="showData"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="phoneNumber1">
+      <AttrNames>
+        <Item Value="phoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="fax1">
+      <AttrNames>
+        <Item Value="fax"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="email1">
+      <AttrNames>
+        <Item Value="email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="transfereeFullName1">
+      <AttrNames>
+        <Item Value="transfereeFullName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="transferorFullName1">
+      <AttrNames>
+        <Item Value="transferorFullName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="transfereeFullAddress1">
+      <AttrNames>
+        <Item Value="transfereeFullAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="transferorFullAddress1">
+      <AttrNames>
+        <Item Value="transferorFullAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactnameIterator1" id="firstName2">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactnameIterator1" id="lastName2">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactnameIterator1" id="middleInitial2">
+      <AttrNames>
+        <Item Value="middleInitial"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="contactnameIterator1" id="suffix2">
+      <AttrNames>
+        <Item Value="suffix"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator1" id="street2">
+      <AttrNames>
+        <Item Value="street"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator1" id="city2">
+      <AttrNames>
+        <Item Value="city"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator1" id="state2">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator1" id="zip2">
+      <AttrNames>
+        <Item Value="zip"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="mailingAddressIterator1" id="country2">
+      <AttrNames>
+        <Item Value="country"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="availableDocumentIterator" id="availableDocument">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsDocumentDetailsPojo" Name="availableDocument0">
+        <AttrNames>
+          <Item Value="docName"/>
+          <Item Value="received"/>
+          <Item Value="requested"/>
+          <Item Value="requestedDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="upsertProps" RequiresUpdateModel="true" Action="invokeMethod" MethodName="upsertProps"
+                  IsViewObjectMethod="false" DataControl="PropsDC"
+                  InstanceName="bindings.upsertProps.dataControl.dataProvider"
+                  ReturnName="data.PropsDC.methodResults.upsertProps_upsertProps_dataControl_dataProvider_upsertProps_result">
+      <NamedData NDName="p0" NDType="java.lang.Integer"/>
+      <NamedData NDName="p1" NDType="java.lang.Integer"/>
+    </methodAction>
+    <tree IterBinding="ParameterIterator" id="Parameter">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.Parameter" Name="Parameter0">
+        <AttrNames>
+          <Item Value="Name"/>
+          <Item Value="Value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction IterBinding="taskIterator" id="update" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="update" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="transferorContactDtlIterator" id="extn">
+      <AttrNames>
+        <Item Value="extn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeQuestionnarieContactInfoIterator" id="doDSpousePartner">
+      <AttrNames>
+        <Item Value="doDSpousePartner"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeQuestionnarieContactInfoIterator" id="marriageDate">
+      <AttrNames>
+        <Item Value="marriageDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="transfereeContactDtlIterator" id="extn1">
+      <AttrNames>
+        <Item Value="extn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="title">
+      <AttrNames>
+        <Item Value="title"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="taskIterator" id="UpdateAction" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="UpdateAction" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true">
+      <NamedData NDName="action" NDType="java.lang.String"/>
+    </methodAction>
+    <navigationlist IterBinding="systemActionsIterator" ListOperMode="navigation" ListIter="systemActionsIterator"
+                    id="systemActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <attributeValues IterBinding="systemAttributesIterator" id="digitalSignatureRequired">
+      <AttrNames>
+        <Item Value="digitalSignatureRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="passwordRequiredOnUpdate">
+      <AttrNames>
+        <Item Value="passwordRequiredOnUpdate"/>
+      </AttrNames>
+    </attributeValues>
+    <navigationlist IterBinding="customActionsIterator" ListOperMode="navigation" ListIter="customActionsIterator"
+                    id="customActions">
+      <AttrNames>
+        <Item Value="action"/>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </navigationlist>
+    <methodAction IterBinding="taskIterator" id="Claim" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Claim" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Acknowledge" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Acknowledge" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Resume" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Resume" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="Withdraw" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="Withdraw" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="SubmitForCorrespondenceApproval" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SubmitForCorrespondenceApproval" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="taskIterator" id="SubmitForCorrespondenceRelease" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="SubmitForCorrespondenceRelease" IsViewObjectMethod="false"
+                  DataControl="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="taskIterator" id="creator">
+      <AttrNames>
+        <Item Value="creator"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUser">
+      <AttrNames>
+        <Item Value="ownerUser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="priority">
+      <AttrNames>
+        <Item Value="priority"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="dueDate">
+      <AttrNames>
+        <Item Value="dueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="creatorDisplayName">
+      <AttrNames>
+        <Item Value="creatorDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="taskIterator" id="ownerUserDisplayName">
+      <AttrNames>
+        <Item Value="ownerUserDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="acquiredBy">
+      <AttrNames>
+        <Item Value="acquiredBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="assignedDate">
+      <AttrNames>
+        <Item Value="assignedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="createdDate">
+      <AttrNames>
+        <Item Value="createdDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="expirationDate">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="outcome">
+      <AttrNames>
+        <Item Value="outcome"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="state3">
+      <AttrNames>
+        <Item Value="state"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="taskNumber">
+      <AttrNames>
+        <Item Value="taskNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="updatedDate">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="actionDisplayName">
+      <AttrNames>
+        <Item Value="actionDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="activityId">
+      <AttrNames>
+        <Item Value="activityId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="acquiredByDisplayName">
+      <AttrNames>
+        <Item Value="acquiredByDisplayName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="fromUserIterator" id="displayName">
+      <AttrNames>
+        <Item Value="displayName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="assigneesIterator" id="assignees">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="EventType">
+      <AttrNames>
+        <Item Value="EventType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="BusinessEventType">
+      <AttrNames>
+        <Item Value="BusinessEventType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="EventSource">
+      <AttrNames>
+        <Item Value="EventSource"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Category">
+      <AttrNames>
+        <Item Value="Category"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Subcategory">
+      <AttrNames>
+        <Item Value="Subcategory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="DocumentId">
+      <AttrNames>
+        <Item Value="DocumentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="AggregatedId">
+      <AttrNames>
+        <Item Value="AggregatedId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="District">
+      <AttrNames>
+        <Item Value="District"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Region">
+      <AttrNames>
+        <Item Value="Region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Cluster">
+      <AttrNames>
+        <Item Value="Cluster"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="PackageId">
+      <AttrNames>
+        <Item Value="PackageId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="PSRId">
+      <AttrNames>
+        <Item Value="PSRId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="EventDate">
+      <AttrNames>
+        <Item Value="EventDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="PSRNumber">
+      <AttrNames>
+        <Item Value="PSRNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="WorkUnitId">
+      <AttrNames>
+        <Item Value="WorkUnitId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="WorkUnitName">
+      <AttrNames>
+        <Item Value="WorkUnitName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="IsReview">
+      <AttrNames>
+        <Item Value="IsReview"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="InstanceId">
+      <AttrNames>
+        <Item Value="InstanceId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="TransactionId">
+      <AttrNames>
+        <Item Value="TransactionId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="MasterWorkUnitId">
+      <AttrNames>
+        <Item Value="MasterWorkUnitId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="ReviewWorkUnitId">
+      <AttrNames>
+        <Item Value="ReviewWorkUnitId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="DCAId">
+      <AttrNames>
+        <Item Value="DCAId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="Message">
+      <AttrNames>
+        <Item Value="Message"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="IsValidationRequired">
+      <AttrNames>
+        <Item Value="IsValidationRequired"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="WCCId">
+      <AttrNames>
+        <Item Value="WCCId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="BarCode">
+      <AttrNames>
+        <Item Value="BarCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="BusinessFunctionId">
+      <AttrNames>
+        <Item Value="BusinessFunctionId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AMPWorkTaskIterator" id="BusinessFunctionName">
+      <AttrNames>
+        <Item Value="BusinessFunctionName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PropertyIdentificationIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="PropertyIdentificationIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="PropertyIdentificationIterator" id="PropertyIdentification">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.PropertyIdentificationType"
+                      Name="PropertyIdentification0">
+        <AttrNames>
+          <Item Value="AIN"/>
+          <Item Value="AOID"/>
+          <Item Value="PropertyType"/>
+          <Item Value="IsPrimary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="WorkTaskDetailsIterator" id="WorkTaskIsReviewTitle">
+      <AttrNames>
+        <Item Value="WorkTaskIsReviewTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WorkTaskDetailsIterator" id="WorkTaskTitle">
+      <AttrNames>
+        <Item Value="WorkTaskTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WorkTaskDetailsIterator" id="WorkTaskName">
+      <AttrNames>
+        <Item Value="WorkTaskName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WorkTaskDetailsIterator" id="Milestone">
+      <AttrNames>
+        <Item Value="Milestone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NextAssigneeIterator" id="UserId">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NextAssigneeIterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NextAssigneeIterator" id="Level">
+      <AttrNames>
+        <Item Value="Level"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NextAssigneeIterator" id="UserType">
+      <AttrNames>
+        <Item Value="UserType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NextAssigneeIterator" id="ActionType">
+      <AttrNames>
+        <Item Value="ActionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NextAssigneeIterator" id="RoleName">
+      <AttrNames>
+        <Item Value="RoleName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAssigneeIterator" id="UserId1">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAssigneeIterator" id="UserName1">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAssigneeIterator" id="Level1">
+      <AttrNames>
+        <Item Value="Level"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAssigneeIterator" id="UserType1">
+      <AttrNames>
+        <Item Value="UserType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAssigneeIterator" id="ActionType1">
+      <AttrNames>
+        <Item Value="ActionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PreviousAssigneeIterator" id="RoleName1">
+      <AttrNames>
+        <Item Value="RoleName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ParameterIterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ParameterIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ParameterIterator" id="Parameter1">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.Parameter" Name="Parameter10">
+        <AttrNames>
+          <Item Value="Name"/>
+          <Item Value="Value"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="userCommentIterator" id="userComment">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.commentType">
+        <AttrNames>
+          <Item Value="comment"/>
+          <Item Value="updatedDate"/>
+          <Item Value="displayNameLanguage"/>
+          <Item Value="action"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="isSystemComment"/>
+          <Item Value="taskId"/>
+          <Item Value="commentScope"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="updatedBy"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="userCommentIterator" id="CreateInsert2" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="userCommentIterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="userCommentIterator" id="comment">
+      <AttrNames>
+        <Item Value="comment"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="userCommentIterator" id="commentScope">
+      <AttrNames>
+        <Item Value="commentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="updatedByIterator" id="updatedBy">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.attachmentType">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.ucmMetadataItemType">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="attachmentIterator" id="CreateInsert3" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="attachmentIterator" id="Delete3" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="attachmentIterator" id="content">
+      <AttrNames>
+        <Item Value="content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="mimeType">
+      <AttrNames>
+        <Item Value="mimeType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedBy1">
+      <AttrNames>
+        <Item Value="updatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="URI">
+      <AttrNames>
+        <Item Value="URI"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="updatedDate1">
+      <AttrNames>
+        <Item Value="updatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="description">
+      <AttrNames>
+        <Item Value="description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="ucmDocType">
+      <AttrNames>
+        <Item Value="ucmDocType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="securityGroup">
+      <AttrNames>
+        <Item Value="securityGroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="account">
+      <AttrNames>
+        <Item Value="account"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="revision">
+      <AttrNames>
+        <Item Value="revision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="releaseDate">
+      <AttrNames>
+        <Item Value="releaseDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="expirationDate1">
+      <AttrNames>
+        <Item Value="expirationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="attachmentIterator" id="attachmentScope">
+      <AttrNames>
+        <Item Value="attachmentScope"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ucmMetadataItemIterator" id="CreateInsert4" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="ucmMetadataItemIterator" id="Delete4" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.ucmMetadataItemType">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="systemAttributesIterator" id="numberOfTimesModified">
+      <AttrNames>
+        <Item Value="numberOfTimesModified"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="systemAttributesIterator" id="version">
+      <AttrNames>
+        <Item Value="version"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="userCommentIterator" id="userComment1">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.commentType">
+        <AttrNames>
+          <Item Value="comment"/>
+          <Item Value="updatedDate"/>
+          <Item Value="displayNameLanguage"/>
+          <Item Value="action"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="isSystemComment"/>
+          <Item Value="taskId"/>
+          <Item Value="commentScope"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="updatedBy"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="updatedByIterator" id="updatedBy2">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="attachmentIterator" id="attachment1">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.attachmentType">
+        <AttrNames>
+          <Item Value="content"/>
+          <Item Value="mimeType"/>
+          <Item Value="name"/>
+          <Item Value="updatedBy"/>
+          <Item Value="URI"/>
+          <Item Value="systemVersionFlag"/>
+          <Item Value="taskId"/>
+          <Item Value="version"/>
+          <Item Value="acl"/>
+          <Item Value="doesBelongToParent"/>
+          <Item Value="updatedDate"/>
+          <Item Value="correlationId"/>
+          <Item Value="size"/>
+          <Item Value="description"/>
+          <Item Value="storageType"/>
+          <Item Value="ucmDocType"/>
+          <Item Value="securityGroup"/>
+          <Item Value="account"/>
+          <Item Value="revision"/>
+          <Item Value="releaseDate"/>
+          <Item Value="expirationDate"/>
+          <Item Value="title"/>
+          <Item Value="attachmentScope"/>
+          <Item Value="isContentEncoded"/>
+          <Item Value="updatedByDisplayName"/>
+          <Item Value="id"/>
+          <Item Value="operation"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.ucmMetadataItemType">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ucmMetadataItemIterator" id="ucmMetadataItem1">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.ucmMetadataItemType">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="value"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="claimInfoIterator" id="exemptionEligibility1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject" StaticList="false" ListIter="propsExemptionEligibilitiesListIterator">
+      <AttrNames>
+        <Item Value="exemptionEligibility"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="legend"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="assigneeUsersIterator" id="id1">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="assigneesIterator" id="assignees1">
+      <nodeDefinition DefName="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask.identityType" Name="assignees10">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="displayName"/>
+          <Item Value="type"/>
+          <Item Value="systemVersionFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

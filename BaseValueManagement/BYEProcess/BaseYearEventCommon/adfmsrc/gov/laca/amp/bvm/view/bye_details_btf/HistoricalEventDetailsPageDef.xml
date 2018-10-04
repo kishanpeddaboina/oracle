@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="ByeDetailsPageDef"
+                Package="gov.laca.amp.bvm.view.bye_details_btf">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="InitiateBaseYearEvent"
+              id="InitiateBaseYearEventIterator"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="filteredCurrentEventsList" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="filteredCurrentEventsListIterator"
+                      CacheResults="true" Refresh="ifNeeded">
+      <sortCriteria>
+        <sort attribute="effectiveEndDate" ascending="false"/>
+        <sort attribute="eventDate" ascending="false"/>
+        <sort attribute="sequenceNumber" ascending="false"/>
+      </sortCriteria>
+    </accessorIterator>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="filteredHistoricalEventsList" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="filteredHistoricalEventsListIterator"
+                      Refresh="deferred">
+      <sortCriteria>
+        <sort attribute="effectiveEndDate" ascending="false"/>
+        <sort attribute="eventDate" ascending="false"/>
+        <sort attribute="sequenceNumber" ascending="false"/>
+      </sortCriteria>
+    </accessorIterator>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="originialHistoricalEvent" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="originialHistoricalEventIterator"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="selectedHistoricalEvent" RangeSize="25"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.data.BaseYearEventDO"
+                      id="selectedHistoricalEventIterator"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="eventNameLov" RangeSize="-1"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.LookupItem"
+                      id="eventNameLovIterator"/>
+    <accessorIterator MasterBinding="InitiateBaseYearEventIterator"
+                      Binds="eventDescriptionLov" RangeSize="-1"
+                      DataControl="InitiateBaseYearEvent"
+                      BeanClass="gov.laca.amp.bvm.model.LookupItem"
+                      id="eventDescriptionLovIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="originialHistoricalEventIterator" id="byeId">
+      <AttrNames>
+        <Item Value="byeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator" id="ain">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="eventDescriptionKey">
+      <AttrNames>
+        <Item Value="eventDescriptionKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator" id="eventDate">
+      <AttrNames>
+        <Item Value="eventDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator" id="baseYear">
+      <AttrNames>
+        <Item Value="baseYear"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="originalAIN">
+      <AttrNames>
+        <Item Value="originalAIN"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="eventNameKey">
+      <AttrNames>
+        <Item Value="eventNameKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="ppAssessmentNumber">
+      <AttrNames>
+        <Item Value="ppAssessmentNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator" id="ain1">
+      <AttrNames>
+        <Item Value="ain"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator" id="byeId1">
+      <AttrNames>
+        <Item Value="byeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="ppAssessmentNumber1">
+      <AttrNames>
+        <Item Value="ppAssessmentNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="eventDate1">
+      <AttrNames>
+        <Item Value="eventDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="baseYear1">
+      <AttrNames>
+        <Item Value="baseYear"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="originalAIN1">
+      <AttrNames>
+        <Item Value="originalAIN"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="ownershipCode">
+      <AttrNames>
+        <Item Value="ownershipCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="documentNumber">
+      <AttrNames>
+        <Item Value="documentNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="recordingDate">
+      <AttrNames>
+        <Item Value="recordingDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="sequenceNumber">
+      <AttrNames>
+        <Item Value="sequenceNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="percentOwnership">
+      <AttrNames>
+        <Item Value="percentOwnership"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="newConstructionDate">
+      <AttrNames>
+        <Item Value="newConstructionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="partiallyCompleteNumber">
+      <AttrNames>
+        <Item Value="partiallyCompleteNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="subUnitDescription">
+      <AttrNames>
+        <Item Value="subUnitDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="subUnitNumber">
+      <AttrNames>
+        <Item Value="subUnitNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="personalPropertyType">
+      <AttrNames>
+        <Item Value="personalPropertyType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="ownershipCode1">
+      <AttrNames>
+        <Item Value="ownershipCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="documentNumber1">
+      <AttrNames>
+        <Item Value="documentNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="recordingDate1">
+      <AttrNames>
+        <Item Value="recordingDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="sequenceNumber1">
+      <AttrNames>
+        <Item Value="sequenceNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="percentOwnership1">
+      <AttrNames>
+        <Item Value="percentOwnership"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="newConstructionDate1">
+      <AttrNames>
+        <Item Value="newConstructionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="partiallyCompleteNumber1">
+      <AttrNames>
+        <Item Value="partiallyCompleteNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="subUnitDescription1">
+      <AttrNames>
+        <Item Value="subUnitDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="subUnitNumber1">
+      <AttrNames>
+        <Item Value="subUnitNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="personalPropertyType1">
+      <AttrNames>
+        <Item Value="personalPropertyType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="ppDescription1">
+      <AttrNames>
+        <Item Value="ppDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="percentageAppliedToValue">
+      <AttrNames>
+        <Item Value="percentageAppliedToValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="landValue">
+      <AttrNames>
+        <Item Value="landValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="landReasonCodeKey">
+      <AttrNames>
+        <Item Value="landReasonCodeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="improvementReasonCodeKey">
+      <AttrNames>
+        <Item Value="improvementReasonCodeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="improvementValue">
+      <AttrNames>
+        <Item Value="improvementValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="totalValue">
+      <AttrNames>
+        <Item Value="totalValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="percentageAppliedToValue1">
+      <AttrNames>
+        <Item Value="percentageAppliedToValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="landValue1">
+      <AttrNames>
+        <Item Value="landValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="landReasonCodeKey1">
+      <AttrNames>
+        <Item Value="landReasonCodeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="improvementValue1">
+      <AttrNames>
+        <Item Value="improvementValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="improvementReasonCodeKey1">
+      <AttrNames>
+        <Item Value="improvementReasonCodeKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="totalValue1">
+      <AttrNames>
+        <Item Value="totalValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="effectiveBeginDate1">
+      <AttrNames>
+        <Item Value="effectiveBeginDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="effectiveEndDate1">
+      <AttrNames>
+        <Item Value="effectiveEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="verificationDate1">
+      <AttrNames>
+        <Item Value="verificationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="inactiveDate1">
+      <AttrNames>
+        <Item Value="inactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="retainedLandValue1">
+      <AttrNames>
+        <Item Value="retainedLandValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="retainedImprovementValue1">
+      <AttrNames>
+        <Item Value="retainedImprovementValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="retainedTotalValue1">
+      <AttrNames>
+        <Item Value="retainedTotalValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="retainedLandValue">
+      <AttrNames>
+        <Item Value="retainedLandValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="retainedImprovementValue">
+      <AttrNames>
+        <Item Value="retainedImprovementValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="retainedTotalValue">
+      <AttrNames>
+        <Item Value="retainedTotalValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="effectiveBeginDate">
+      <AttrNames>
+        <Item Value="effectiveBeginDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="effectiveEndDate">
+      <AttrNames>
+        <Item Value="effectiveEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="verificationDate">
+      <AttrNames>
+        <Item Value="verificationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="inactiveDate">
+      <AttrNames>
+        <Item Value="inactiveDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="totalAdjAcquisitionCost1">
+      <AttrNames>
+        <Item Value="totalAdjAcquisitionCost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="percentageFixture1">
+      <AttrNames>
+        <Item Value="percentageFixture"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="fixtureValue1">
+      <AttrNames>
+        <Item Value="fixtureValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="retainedFixtureValue1">
+      <AttrNames>
+        <Item Value="retainedFixtureValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="totalAdjAcquisitionCost">
+      <AttrNames>
+        <Item Value="totalAdjAcquisitionCost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="percentageFixture">
+      <AttrNames>
+        <Item Value="percentageFixture"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="fixtureValue">
+      <AttrNames>
+        <Item Value="fixtureValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="retainedFixtureValue">
+      <AttrNames>
+        <Item Value="retainedFixtureValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="ppDescription">
+      <AttrNames>
+        <Item Value="ppDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator" id="notes1">
+      <AttrNames>
+        <Item Value="notes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator" id="notes">
+      <AttrNames>
+        <Item Value="notes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="originialHistoricalEventIterator"
+                     id="verifiedBy">
+      <AttrNames>
+        <Item Value="verifiedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="verifiedBy1">
+      <AttrNames>
+        <Item Value="verifiedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="selectedHistoricalEventIterator" id="verified1"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="verified"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="true"/>
+        <Item Value="false"/>
+      </ValueList>
+    </button>
+    <methodAction id="onClose" InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="onClose"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.InitiateBaseYearEvent.methodResults.onClose_InitiateBaseYearEvent_dataProvider_onClose_result">
+      <NamedData NDName="eventType" NDValue="#{pageFlowScope.eventType}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="isNew" NDValue="#{pageFlowScope.isNew}"
+                 NDType="java.lang.Boolean"/>
+    </methodAction>
+    <methodAction id="cancel" InstanceName="InitiateBaseYearEvent.dataProvider"
+                  DataControl="InitiateBaseYearEvent" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="cancel"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="isNew" NDValue="#{pageFlowScope.isNew}"
+                 NDType="java.lang.Boolean"/>
+      <NamedData NDName="eventType" NDValue="#{pageFlowScope.eventType}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="selectedHistoricalEventIterator"
+                     id="transactionType">
+      <AttrNames>
+        <Item Value="transactionType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InitiateBaseYearEventIterator" id="userId">
+      <AttrNames>
+        <Item Value="userId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="selectedHistoricalEventIterator" id="eventNameKey1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="eventNameLovIterator"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="eventNameKey"/>
+        <Item Value="eventNameLegend"/>
+        <Item Value="eventNameId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+        <Item Value="legend"/>
+        <Item Value="id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="key"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="selectedHistoricalEventIterator"
+          id="eventDescriptionKey1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject" StaticList="false"
+          ListIter="eventDescriptionLovIterator"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="eventDescriptionKey"/>
+        <Item Value="eventDescriptionLegend"/>
+        <Item Value="eventDescriptionId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="key"/>
+        <Item Value="legend"/>
+        <Item Value="id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="key"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="originialHistoricalEventIterator" id="blendedValueFlag"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="true"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="blendedValueFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value=" "/>
+        <Item Value="N"/>
+        <Item Value="Y"/>
+      </ValueList>
+    </list>
+    <list IterBinding="selectedHistoricalEventIterator" id="blendedValueFlag1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="true"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="blendedValueFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value=" "/>
+        <Item Value="N"/>
+        <Item Value="Y"/>
+      </ValueList>
+    </list>
+  </bindings>
+</pageDefinition>

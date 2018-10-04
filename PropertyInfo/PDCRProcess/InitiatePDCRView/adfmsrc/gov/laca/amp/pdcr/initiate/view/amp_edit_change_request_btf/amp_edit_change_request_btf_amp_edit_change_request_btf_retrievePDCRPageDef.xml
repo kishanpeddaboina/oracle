@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73"
+                id="amp_edit_change_request_btf_amp_edit_change_request_btf_retrievePDCRPageDef"
+                Package="gov.laca.amp.pdcr.initiate.view.amp_edit_change_request_btf"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="RetrieveRealPropertyInfo"
+                  InstanceName="ChangeRequestDC.dataProvider"
+                  DataControl="ChangeRequestDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="RetrieveRealPropertyInfo"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="ain" NDValue="#{param.ain}" NDType="java.lang.String"/>
+      <NamedData NDName="dataSource" NDValue="SOA" NDType="java.lang.String"/>
+      <NamedData NDName="sourceType" NDValue="EditPDCR"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="isExternalUser"
+                 NDValue="#{pageFlowScope.PDCRBean.isExternalUser}"
+                 NDType="java.lang.Boolean"/>
+      <NamedData NDName="isClericalUser"
+                 NDValue="#{pageFlowScope.PDCRBean.isClericalUser}"
+                 NDType="java.lang.Boolean"/>
+      <NamedData NDName="isCheckLock" NDValue="true"
+                 NDType="java.lang.Boolean"/>
+      <NamedData NDName="userGroups"
+                 NDValue="#{pageFlowScope.PDCRBean.userGroups}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="wccattrdataPageDef"
+                Package="gov.laca.amp.datacapturewccuiapp.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="populateAttributeModel_Return" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.populateAttributeModel.result}"/>
+      <variable Type="java.lang.String" Name="populateAttributeModel_dDocName" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="populateAttributeModel_category" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="populateAttributeModel_subCategory" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="root" RangeSize="25" DataControl="DataCaptureWCCUIDC" id="DataCaptureWCCUIDCIterator"/>
+    <accessorIterator MasterBinding="DataCaptureWCCUIDCIterator" Binds="attrModelList" RangeSize="25"
+                      DataControl="DataCaptureWCCUIDC" BeanClass="gov.laca.amp.datacapturewccuiapp.model.data.Attribute"
+                      id="attrModelListIterator"/>
+ <!--   <taskFlow id="wccdocDtlflow1"
+              taskFlowId="/WEB-INF/gov/laca/amp/datacapturewccuiapp/pageflows/wcc-docDtl-flow.xml#wcc-docDtl-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="documentId" value="WCCD_006133"/>
+        <parameter id="category" value="Exclusions"/>
+        <parameter id="subCategory" value="Prop 193"/>
+      </parameters>
+    </taskFlow> -->
+  </executables>
+  <bindings>
+    <tree IterBinding="attrModelListIterator" id="attrModelList">
+      <nodeDefinition DefName="gov.laca.amp.datacapturewccuiapp.model.data.Attribute" Name="attrModelList0">
+        <AttrNames>
+          <Item Value="id"/>
+          <Item Value="name"/>
+          <Item Value="visible"/>
+          <Item Value="required"/>
+          <Item Value="value"/>
+          <Item Value="validationMessage"/>
+          <Item Value="attributeType"/>
+          <Item Value="component"/>
+          <Item Value="order"/>
+          <Item Value="dataType"/>
+          <Item Value="maxLength"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="populateAttributeModel" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="populateAttributeModel" IsViewObjectMethod="false" DataControl="DataCaptureWCCUIDC"
+                  InstanceName="bindings.populateAttributeModel.dataControl.dataProvider"
+                  ReturnName="data.DataCaptureWCCUIDC.methodResults.populateAttributeModel_populateAttributeModel_dataControl_dataProvider_populateAttributeModel_result">
+      <NamedData NDName="dDocName" NDType="java.lang.String" NDValue="${bindings.populateAttributeModel_dDocName}"/>
+      <NamedData NDName="category" NDType="java.lang.String" NDValue="${bindings.populateAttributeModel_category}"/>
+      <NamedData NDName="subCategory" NDType="java.lang.String"
+                 NDValue="${bindings.populateAttributeModel_subCategory}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="dDocName">
+      <AttrNames>
+        <Item Value="populateAttributeModel_dDocName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="category">
+      <AttrNames>
+        <Item Value="populateAttributeModel_category"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="subCategory">
+      <AttrNames>
+        <Item Value="populateAttributeModel_subCategory"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

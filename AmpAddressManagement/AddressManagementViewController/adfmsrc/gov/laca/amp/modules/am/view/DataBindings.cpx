@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.12.24" id="DataBindings"
+             SeparateXMLFiles="false" Package="gov.laca.amp.modules.am.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/test/test.jspx" usageId="gov_laca_amp_modules_am_view_testPageDef"/>
+    <page path="/am/amp-address-change-request-btf/amp-address-change-request.jsff"
+          usageId="gov_laca_amp_modules_am_view_amp_address_change_requestPageDef"/>
+    <page path="/WEB-INF/btf/amp-address-change-request-btf.xml#amp-address-change-request-btf@initilize"
+          usageId="gov_laca_amp_modules_am_view_amp_address_change_request_btf_amp_address_change_request_btf_initilizePageDef"/>
+    <page path="/WEB-INF/btf/amp-address-change-request-btf.xml#amp-address-change-request-btf@fetchAccessLink"
+          usageId="gov_laca_amp_modules_am_view_amp_address_change_request_btf_amp_address_change_request_btf_fetchAccessLinkPageDef"/>
+    <page path="/test/external.jspx" usageId="gov_laca_amp_modules_am_view_externalPageDef"/>
+    <page path="/am/amp-address-change-request-external-btf/ainpinval.jsff"
+          usageId="gov_laca_amp_modules_am_view_ainpinvalPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="gov_laca_amp_modules_am_view_testPageDef" path="test.testPageDef"/>
+    <page id="gov_laca_amp_modules_am_view_amp_address_change_requestPageDef"
+          path="am.amp_address_change_request_btf.amp_address_change_requestPageDef"/>
+    <page id="gov_laca_amp_modules_am_view_amp_address_change_request_btf_amp_address_change_request_btf_initilizePageDef"
+          path="btf.amp_address_change_request_btf_amp_address_change_request_btf_initilizePageDef"/>
+    <page id="gov_laca_amp_modules_am_view_amp_address_change_request_btf_amp_address_change_request_btf_fetchAccessLinkPageDef"
+          path="btf.amp_address_change_request_btf_amp_address_change_request_btf_fetchAccessLinkPageDef"/>
+    <page id="gov_laca_amp_modules_am_view_externalPageDef" path="test.externalPageDef"/>
+    <page id="gov_laca_amp_modules_am_view_ainpinvalPageDef"
+          path="am.amp_address_change_request_external_btf.ainpinvalPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="AddressManagementDC" path="gov.laca.amp.modules.am.model.AddressManagementDC"/>
+  </dataControlUsages>
+</Application>

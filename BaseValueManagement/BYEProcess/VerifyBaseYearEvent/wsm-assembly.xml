@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<orawsp:wsm-assembly xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy">
+  <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
+                   appliesTo="SCA-REFERENCE()"
+                   attachTo="REFERENCE('DeriveUserDetails') and PORT('IdentityLookupService_pt')" orawsp:highId="1"
+                   xml:id="SCA-REFERENCE__REFERENCE__DeriveUserDetails___and_PORT__IdentityLookupService_pt__">
+    <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                         DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc"
+                         URI="oracle/wss10_saml_token_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+  </sca11:policySet>
+  <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
+                   appliesTo="SCA-REFERENCE()"
+                   attachTo="REFERENCE('EscalationRule') and PORT('BaseYearEventRulesService_pt')" orawsp:highId="1"
+                   xml:id="SCA-REFERENCE__REFERENCE__EscalationRule___and_PORT__BaseYearEventRulesService_pt__">
+    <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                         DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc"
+                         URI="oracle/wss10_saml_token_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+  </sca11:policySet>
+  <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
+                   appliesTo="SCA-REFERENCE()"
+                   attachTo="REFERENCE('ProcessStatus') and PORT('ProcessStatusMgmtService_pt')" orawsp:highId="1"
+                   xml:id="SCA-REFERENCE__REFERENCE__ProcessStatus___and_PORT__ProcessStatusMgmtService_pt__">
+    <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                         DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc"
+                         URI="oracle/wss10_saml_token_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+  </sca11:policySet>
+  <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
+                   appliesTo="SCA-REFERENCE()"
+                   attachTo="REFERENCE('ReleaseLock') and PORT('BaseYearEventMgmtService_pt')" orawsp:highId="1"
+                   xml:id="SCA-REFERENCE__REFERENCE__ReleaseLock___and_PORT__BaseYearEventMgmtService_pt__">
+    <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                         DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc"
+                         URI="oracle/wss10_saml_token_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+  </sca11:policySet>
+  <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
+                   appliesTo="SCA-REFERENCE()"
+                   attachTo="REFERENCE('RetriveBYEDetails') and PORT('BaseYearEventMgmtService_pt')" orawsp:highId="1"
+                   xml:id="SCA-REFERENCE__REFERENCE__RetriveBYEDetails___and_PORT__BaseYearEventMgmtService_pt__">
+    <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                         DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc"
+                         URI="oracle/wss10_saml_token_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+  </sca11:policySet>
+  <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
+                   appliesTo="SCA-REFERENCE()" attachTo="REFERENCE('WorkflowLogging') and PORT('WorkFlowLogService_pt')"
+                   orawsp:highId="1"
+                   xml:id="SCA-REFERENCE__REFERENCE__WorkflowLogging___and_PORT__WorkFlowLogService_pt__">
+    <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                         DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc"
+                         URI="oracle/wss10_saml_token_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+  </sca11:policySet>
+  <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
+                   appliesTo="SCA-REFERENCE()"
+                   attachTo="REFERENCE('WorkflowManagementService') and PORT('WorkflowMgmtService_pt')"
+                   orawsp:highId="1"
+                   xml:id="SCA-REFERENCE__REFERENCE__WorkflowManagementService___and_PORT__WorkflowMgmtService_pt__">
+    <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                         DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc"
+                         URI="oracle/wss10_saml_token_client_policy" orawsp:status="enabled" orawsp:id="1"/>
+  </sca11:policySet>
+  <sca11:policySet xmlns:sca11="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="policySet"
+                   appliesTo="SCA-SERVICE()"
+                   attachTo="SERVICE('VerifyBaseYearEvent.service') and PORT('VerifyBaseYearEventPort')"
+                   orawsp:highId="1"
+                   xml:id="SCA-SERVICE__SERVICE__VerifyBaseYearEvent_service___and_PORT__VerifyBaseYearEventPort__">
+    <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                         DigestAlgorithm="http://www.w3.org/ns/ws-policy/Sha1Exc"
+                         URI="oracle/wss10_saml_token_service_policy" orawsp:status="enabled" orawsp:id="1"/>
+  </sca11:policySet>
+</orawsp:wsm-assembly>

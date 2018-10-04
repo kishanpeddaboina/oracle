@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="customtable">
+    <default-activity id="__1">methodCall1</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name id="__4">customtablebean</managed-bean-name>
+      <managed-bean-class id="__3">log.poc.view.CustomTableBean</managed-bean-class>
+      <managed-bean-scope id="__2">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="customtable1">
+      <page>/customtable.jspx</page>
+    </view>
+    <method-call id="methodCall1">
+      <method>#{pageFlowScope.customtablebean.initialize}</method>
+      <outcome id="__6">
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="customtable2">
+      <page>/customtable2.jspx</page>
+    </view>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">methodCall1</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">success</from-outcome>
+        <to-activity-id id="__9">customtable1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility id="__12">
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

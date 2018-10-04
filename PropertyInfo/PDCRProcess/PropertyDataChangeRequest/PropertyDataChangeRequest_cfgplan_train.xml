@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAConfigPlan xmlns:jca="http://platform.integration.oracle/blocks/adapter/fw/metadata"
+               xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+               xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
+               xmlns:edl="http://schemas.oracle.com/events/edl"
+               xmlns="http://schemas.oracle.com/soa/configplan">
+   <composite name="PropertyDataChangeRequest">
+      <!--Add search and replace rules for the import section of a composite
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>-->
+      <import>
+         <searchReplace>
+            <search>http://ampsoad01.isd.lacounty.gov:8001</search>
+            <replace>http://ampwttrn01.isd.lacounty.gov:7777</replace>
+         </searchReplace>
+         <searchReplace>
+            <search>http://ampwtd01.isd.lacounty.gov:7777</search>
+            <replace>http://ampwttrn01.isd.lacounty.gov:7777</replace>
+         </searchReplace>
+      </import>
+      <service name="PropertyDataChangeRequest.service">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/PropertyDataChangeRequest#wsdl.endpoint(PropertyDataChangeRequest.service/PropertyDataChangeRequestPort)</replace>
+            </attribute>
+         </binding>
+      </service>
+      <property name="productVersion">
+         <replace>12.2.1.2.0.161003</replace>
+      </property>
+      <property name="oracle.composite.faultPolicyFile">
+         <replace>oramds:/apps/amp/faultpolicies/fault-policies.xml</replace>
+      </property>
+      <property name="oracle.composite.faultBindingFile">
+         <replace>oramds:/apps/amp/faultpolicies/fault-bindings.xml</replace>
+      </property>
+      <!--Add search and replace rules for the component properties
+	For components and service/reference bindings, you can add policy references.
+	Example:
+	<component name="*">
+		<wsp:PolicyReference orawsp:category="management" orawsp:status="enabled" URI="oracle/log_policy"/>
+	</component>-->
+      <!--<reference name="GetUserDetails">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://xmlns.oracle.com/bpel/services/IdentityService#wsdl.endpoint(IdentityService/IdentityServicePort)</replace>
+            </attribute>
+            <attribute name="location">
+               <searchReplace>
+                  <search>http://ampsoad01.isd.lacounty.gov:8001/integration/services/IdentityService/identity?wsdl</search>
+                  <replace>http://ampwttrn01.isd.lacounty.gov:7777/integration/services/IdentityService/identity?wsdl</replace>
+               </searchReplace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+         <callback>
+            <binding type="ws">
+               <attribute name="port">
+                  <replace>http://xmlns.oracle.com/bpel/services/IdentityService#wsdl.endpoint(IdentityService/IdentityServicePortType_pt)</replace>
+               </attribute>
+            </binding>
+         </callback>
+      </reference>-->
+      <reference name="ProcessStatusMgmtService">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/ao/ProcessStatusMgmtService/v1.0#wsdl.endpoint(ProcessStatusMgmtService_ep/ProcessStatusMgmtService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <searchReplace>
+                  <search>http://ampsoad01.isd.lacounty.gov:8001/soa-infra/services/amp/ProcessStatusMgmtService/ProcessStatusMgmtService_ep?WSDL</search>
+                  <replace>http://ampwttrn01.isd.lacounty.gov:7777/soa-infra/services/amp/ProcessStatusMgmtService/ProcessStatusMgmtService_ep?WSDL</replace>
+               </searchReplace>
+               <searchReplace>
+                  <search>http://ampwtd01.isd.lacounty.gov:7777/soa-infra/services/amp/ProcessStatusMgmtService/ProcessStatusMgmtService_ep?WSDL</search>
+                  <replace>http://ampwttrn01.isd.lacounty.gov:7777/soa-infra/services/amp/ProcessStatusMgmtService/ProcessStatusMgmtService_ep?WSDL</replace>
+               </searchReplace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="AIMLockMgmtService">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/ao/AINLockMgmtService/v1.0#wsdl.endpoint(AINLockMgmtService_ep/AINLockMgmtService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <searchReplace>
+                  <search>http://ampsoad01.isd.lacounty.gov:8001/soa-infra/services/amp/AINLockMgmtService/AINLockMgmtService_ep?WSDL</search>
+                  <replace>http://ampwttrn01.isd.lacounty.gov:7777/soa-infra/services/amp/AINLockMgmtService/AINLockMgmtService_ep?WSDL</replace>
+               </searchReplace>
+               <searchReplace>
+                  <search>http://ampwtd01.isd.lacounty.gov:7777/soa-infra/services/amp/AINLockMgmtService/AINLockMgmtService_ep?WSDL</search>
+                  <replace>http://ampwttrn01.isd.lacounty.gov:7777/soa-infra/services/amp/AINLockMgmtService/AINLockMgmtService_ep?WSDL</replace>
+               </searchReplace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="PDCRMgmtService">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/ao/PDCRMgmtService/v1.0#wsdl.endpoint(PDCRMgmtService_ep/PDCRMgmtService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <searchReplace>
+                  <search>http://ampsoad01.isd.lacounty.gov:8001/soa-infra/services/amp/PDCRMgmtService/PDCRMgmtService_ep?WSDL</search>
+                  <replace>http://ampwttrn01.isd.lacounty.gov:7777/soa-infra/services/amp/PDCRMgmtService/PDCRMgmtService_ep?WSDL</replace>
+               </searchReplace>
+               <searchReplace>
+                  <search>http://ampwtd01.isd.lacounty.gov:7777/soa-infra/services/amp/PDCRMgmtService/PDCRMgmtService_ep?WSDL</search>
+                  <replace>http://ampwttrn01.isd.lacounty.gov:7777/soa-infra/services/amp/PDCRMgmtService/PDCRMgmtService_ep?WSDL</replace>
+               </searchReplace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="BPM-NotificationService">
+         <binding type="wsif"/>
+      </reference>
+      <reference name="DeriveUserDetails">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/common/id/IdentityLookupService/v1.0#wsdl.endpoint(IdentityLookupService_ep/IdentityLookupService_pt)</replace>
+            </attribute>
+           <attribute name="location">
+               <replace>http://ampwttrn01.isd.lacounty.gov:7777/soa-infra/services/amp/IdentityLookupService/IdentityLookupService_ep?WSDL</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="WorkFlowLogAsyncService">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://assessor.lacounty.gov/amp/wsdl/ao/WorkFlowLogAsyncService/v1.0#wsdl.endpoint(WorkFlowLogAsyncService_ep/WorkFlowLogService_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://ampwttrn01.isd.lacounty.gov:7777/soa-infra/services/amp/WorkFlowLogService/WorkFlowLogAsyncService_ep?WSDL</replace>
+            </attribute>
+            <property name="weblogic.wsee.wsat.transaction.flowOption">
+               <replace>WSDLDriven</replace>
+            </property>
+         </binding>
+      </reference>
+   </composite>
+   <!--To configure monitor.config: 
+	<property name="enabled"><replace>true</replace></property>
+	<property name="dataObjectsFolder"><searchReplace><search>mydev</search><replace>myproduction</replace></searchReplace></property>
+	
+	sample properties to configure for adapter: 
+	<jca:property name="QueueName"><replace>medmq1</replace></jca:property>
+	
+	To add search and replace rules for wsdls, xsd and jca files
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>
+	-->
+   <wsdlAndSchema name="businessCatalog/BusinessException/MissingMappingFault.wsdl|businessCatalog/BusinessException/MissingMappingFault.xsd|businessCatalog/BusinessException/PDCRBusinessException.wsdl|businessCatalog/BusinessException/PDCRBusinessException.xsd|businessCatalog/Data/AINAttributesBO.wsdl|businessCatalog/Data/AINAttributesBO.xsd|businessCatalog/Data/AssignToUserOrGroupBO.wsdl|businessCatalog/Data/AssignToUserOrGroupBO.xsd|businessCatalog/Data/ErrorBO.wsdl|businessCatalog/Data/ErrorBO.xsd|businessCatalog/Data/ExecDataWFLogBO.wsdl|businessCatalog/Data/InitiatorInfoBO.wsdl|businessCatalog/Data/InitiatorInfoBO.xsd|businessCatalog/Data/ManagePDCRReqBO.wsdl|businessCatalog/Data/ManagePDCRRespBO.wsdl|businessCatalog/Data/PDCRHumanTaskBO.wsdl|businessCatalog/Data/PDCRHumanTaskBO.xsd|businessCatalog/Data/PDCRHumanTaskReqBO.wsdl|businessCatalog/Data/PDCRHumanTaskReqBO.xsd|businessCatalog/Data/PDCRHumanTaskRespBO.wsdl|businessCatalog/Data/PDCRHumanTaskRespBO.xsd|businessCatalog/Data/ProcessStatusBO.wsdl|businessCatalog/Data/ReturnToBO.wsdl|businessCatalog/Data/ReturnToBO.xsd|businessCatalog/Data/SortPDCRBO.wsdl|businessCatalog/Data/SortPDCRBO.xsd|project_properties.wsdl|PropertyDataChangeRequest.wsdl|xsd/DecisionServicePrimitiveTypes.xsd|xsd/DSManagePropertyDataChangeRequestWorkflowTask.xsd|xsd/DSReviewPropertyDataChangeRequestTaskWorkflowTask.xsd|xsd/DSReviewPropertyDataChangeRequestWorkflowTask.xsd|xsd/execData.xsd|xsd/ManagePropertyDataChangeRequestPayload.xsd|xsd/ManagePropertyDataChangeRequestWorkflowTask.xsd|xsd/NotifyAdminOfIssuePayload.xsd|xsd/NotifyAdminOfIssueWorkflowTask.xsd|xsd/NotifyInternalUserTaskPayload.xsd|xsd/NotifyInternalUserTaskWorkflowTask.xsd|xsd/ReviewPDCROracleRules_DecisionServiceMessageTypes.xsd|xsd/ReviewPDCROracleRules_DecisionServiceTypes.xsd|xsd/ReviewPDCRRules_DecisionServiceMessageTypes.xsd|xsd/ReviewPDCRRules_DecisionServiceTypes.xsd|xsd/ReviewPropertyDataChangeRequestPayload.xsd|xsd/ReviewPropertyDataChangeRequestTaskPayload.xsd|xsd/ReviewPropertyDataChangeRequestWorkflowTask.xsd|xsd/RoutingSlipList.xsd|xsd/SortPDCR.xsd|xsd/SubmitPropertyDataChangeRequestPayload.xsd|xsd/SubmitPropertyDataChangeRequestWorkflowTask.xsd|xsd/TaskStateMachine.xsd">
+      <searchReplace>
+         <search>http://ampsoad01.isd.lacounty.gov:8001</search>
+         <replace>http://ampwttrn01.isd.lacounty.gov:7777</replace>
+      </searchReplace>
+      <searchReplace>
+         <search>http://ampwtd01.isd.lacounty.gov:7777</search>
+         <replace>http://ampwttrn01.isd.lacounty.gov:7777</replace>
+      </searchReplace>
+   </wsdlAndSchema>
+</SOAConfigPlan>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="propclaimperformworktaskui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/PropClaimPerformWorkTask_TaskDetails.jspx"
+          usageId="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskDetailsPageDef"/>
+    <page path="/amp-bpm-correspondence-btf/correspondence.jsff"
+          usageId="propclaimperformworktaskui_correspondencePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="propclaimperformworktaskui_PropClaimPerformWorkTask_TaskDetailsPageDef"
+          path="propclaimperformworktaskui.pageDefs.PropClaimPerformWorkTask_TaskDetailsPageDef"/>
+    <page id="propclaimperformworktaskui_correspondencePageDef"
+          path="amp_bpm_correspondence_btf.correspondencePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"
+        path="propclaimperformworktaskui.PropClaimPerformWorkTaskUI_PropClaimPerformWorkTask"/>
+  </dataControlUsages>
+</Application>

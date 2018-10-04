@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="TAMAssignmentPojo" Package="gov.laca.amp.tam.model.pojo"
+          BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+          isJavaBased="true">
+  <Attribute Name="selected" Type="java.lang.Boolean"/>
+  <Attribute Name="aoid" Type="java.math.BigInteger" PrecisionRule="false"
+             Precision="0" Scale="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.aoid_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="ain" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.ain_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="useType" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.useType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="useCodeRef" Type="java.math.BigInteger"/>
+  <Attribute Name="useCodeKey" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.useCodeKey_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="useCodeDescription" Type="java.lang.String"/>
+  <Attribute Name="regionRef" Type="java.math.BigInteger"/>
+  <Attribute Name="region" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.region_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="regionName" Type="java.lang.String" PrecisionRule="false"
+             Precision="0" Scale="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.regionName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="districtName" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.districtName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="clusterRouteRef" Type="java.math.BigInteger"/>
+  <Attribute Name="clusterRoute" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.clusterRoute_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="clusterRouteName" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.clusterRouteName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamId" Type="java.math.BigInteger"/>
+  <Attribute Name="tamProcessType" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamProcessType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamAssignedStatus" Type="java.lang.String"
+             PrecisionRule="false" Precision="0" Scale="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamAssignedStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamAssignedTo" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamAssignedTo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamAssignedToRole" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamAssignedToRole_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamAssignedBy" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamAssignedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamAssignedByRole" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamAssignedByRole_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamSource" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamSource_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamCreatedBy" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamCreatedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamCreatedDateTime" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamCreatedDateTime_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamModifiedBy" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamModifiedBy_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="tamModifiedDateTime" Type="java.util.Date">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.tamModifiedDateTime_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="byeCount" Type="java.math.BigInteger">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo.byeCount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="pojoRowId" Type="long"/>
+  <Attribute Name="isReassignAllowed" Type="java.lang.Boolean"/>
+  <Attribute Name="message" Type="java.lang.String"/>
+  <Attribute Name="tamCreatedDateTimeStr" Type="java.lang.String"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     id="TAMAssignmentPojo">
+    <ParameterInfo id="selected" Type="java.lang.Boolean" isStructured="false"/>
+    <ParameterInfo id="isReassignAllowed" Type="java.lang.Boolean"
+                   isStructured="false"/>
+    <ParameterInfo id="message" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="aoid" Type="java.math.BigInteger" isStructured="false"/>
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="useType" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="useCodeRef" Type="java.math.BigInteger"
+                   isStructured="false"/>
+    <ParameterInfo id="useCodeKey" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="useCodeDescription" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="regionRef" Type="java.math.BigInteger"
+                   isStructured="false"/>
+    <ParameterInfo id="region" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="regionName" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="districtName" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="clusterRouteRef" Type="java.math.BigInteger"
+                   isStructured="false"/>
+    <ParameterInfo id="clusterRoute" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="clusterRouteName" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="tamId" Type="java.math.BigInteger" isStructured="false"/>
+    <ParameterInfo id="tamProcessType" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="tamAssignedStatus" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="tamAssignedTo" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="tamAssignedToRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="tamAssignedBy" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="tamAssignedByRole" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="tamSource" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="tamCreatedBy" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="tamCreatedDateTime" Type="java.util.Date"
+                   isStructured="false"/>
+    <ParameterInfo id="tamModifiedBy" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="tamModifiedDateTime" Type="java.util.Date"
+                   isStructured="false"/>
+    <ParameterInfo id="byeCount" Type="java.math.BigInteger"
+                   isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     id="TAMAssignmentPojo">
+    <ParameterInfo id="selected" Type="java.lang.Boolean" isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     id="TAMAssignmentPojo"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     BeanClass="gov.laca.amp.tam.model.pojo.TAMAssignmentPojo"
+                     id="TAMAssignmentPojo">
+    <ParameterInfo id="selected" Type="java.lang.Boolean" isStructured="false"/>
+    <ParameterInfo id="aoid" Type="java.math.BigInteger" isStructured="false"/>
+    <ParameterInfo id="ain" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="region" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="districtName" Type="java.lang.String"
+                   isStructured="false"/>
+    <ParameterInfo id="clusterRouteName" Type="java.lang.String"
+                   isStructured="false"/>
+  </ConstructorMethod>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="gov.laca.amp.tam.model.TAMModelBundle"/>
+  </ResourceBundle>
+</JavaBean>

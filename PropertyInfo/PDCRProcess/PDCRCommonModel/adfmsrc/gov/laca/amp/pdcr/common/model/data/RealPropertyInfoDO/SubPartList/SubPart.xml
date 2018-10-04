@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.66.73"
+          id="SubPart"
+          Package="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.SubPartList"
+          BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.SubPartList.SubPart"
+          isJavaBased="true">
+  <Attribute Name="dbUniqueId" Type="java.lang.String"/>
+  <Attribute Name="ain" Type="java.lang.String"/>
+  <Attribute Name="aoid" Type="java.math.BigInteger"/>
+  <Attribute Name="transactionType" Type="java.lang.String"/>
+  <Attribute Name="improvementNumber" Type="java.math.BigInteger"/>
+  <Attribute Name="subPartNumber" Type="java.lang.String"/>
+  <Attribute Name="rcnYearChange" Type="java.math.BigInteger"/>
+  <Attribute Name="designTypeRef" Type="java.math.BigInteger"/>
+  <Attribute Name="designTypeKey" Type="java.lang.String"/>
+  <Attribute Name="designTypeLegend" Type="java.lang.String"/>
+  <Attribute Name="qualityClass" Type="java.lang.String"/>
+  <Attribute Name="yearBuilt" Type="java.math.BigInteger"/>
+  <Attribute Name="effectiveYearBuilt" Type="java.math.BigInteger"/>
+  <Attribute Name="depreciationTable" Type="java.lang.String"/>
+  <Attribute Name="numberOfUnits" Type="java.math.BigInteger"/>
+  <Attribute Name="bedroomCount" Type="java.math.BigInteger"/>
+  <Attribute Name="bathroomCount" Type="java.math.BigInteger"/>
+  <Attribute Name="improvementSizeSqft" Type="java.lang.Double"/>
+  <Attribute Name="rcnOtherTotal" Type="java.lang.Double"/>
+  <Attribute Name="costFactor" Type="java.lang.Double"/>
+  <Attribute Name="rcnMain" Type="java.lang.Double"/>
+  <Attribute Name="percentGood" Type="java.math.BigDecimal"/>
+  <Attribute Name="addedDepreciationTypeRef" Type="java.math.BigInteger"/>
+  <Attribute Name="addedDepreciationTypeKey" Type="java.lang.String"/>
+  <Attribute Name="addedDepreciationTypeLegend" Type="java.lang.String"/>
+  <Attribute Name="addedDepreciationPercent" Type="java.math.BigDecimal"/>
+  <Attribute Name="rcnLessDepreciation" Type="java.lang.Double"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.SubPartList.SubPart"
+                     BeanClass="gov.laca.amp.pdcr.common.model.data.RealPropertyInfoDO.SubPartList.SubPart"
+                     id="SubPart"/>
+</JavaBean>

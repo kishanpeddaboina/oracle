@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="amp-tam-manage-unverified-ain-btf">
+    <template-reference>
+      <document id="__2">/WEB-INF/tftemplates/ampportal-task-flow-template.xml</document>
+      <id id="__1">ampportal-task-flow-template</id>
+    </template-reference>
+    
+    <default-activity id="__3">executeInitializations</default-activity>
+    <input-parameter-definition id="__18">
+      <name id="__19">inputParameter1</name>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__5">
+      <managed-bean-name id="__6">tamAssignmentManagedBean</managed-bean-name>
+      <managed-bean-class id="__4">gov.laca.amp.tam.view.beans.TamAssignmentManagedBean</managed-bean-class>
+      <managed-bean-scope id="__7">view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__10">
+      <managed-bean-name id="__8">tamAssignedManagedBean</managed-bean-name>
+      <managed-bean-class id="__11">gov.laca.amp.tam.view.beans.TamAssignedManagedBean</managed-bean-class>
+      <managed-bean-scope id="__9">view</managed-bean-scope>
+    </managed-bean>
+  <!-- <managed-bean id="__25">
+      <managed-bean-name id="__28">ampBusinessUserProfile</managed-bean-name>
+      <managed-bean-class  id="__26">gov.laca.amp.portal.extension.AmpBusinessUserProfile</managed-bean-class>
+      <managed-bean-scope id="__27">session</managed-bean-scope>
+    </managed-bean> 
+ -->
+    <view id="TamAssignment">
+      <page>/TamAssignment.jsff</page>
+    </view>
+    <method-call id="executeInitializations">
+      <method>#{bindings.executeInitializations.execute}</method>
+      <outcome id="__12">
+        <fixed-outcome>executeInitializations</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__13">
+      <from-activity-id id="__14">executeInitializations</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome id="__17">executeInitializations</from-outcome>
+        <to-activity-id id="__15">TamAssignment</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

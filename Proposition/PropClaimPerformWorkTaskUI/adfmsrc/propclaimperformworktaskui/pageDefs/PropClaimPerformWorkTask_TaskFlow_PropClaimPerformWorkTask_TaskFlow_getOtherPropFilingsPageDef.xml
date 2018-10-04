@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_getOtherPropFilingsPageDef"
+                Package="propclaimperformworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="root" RangeSize="25" DataControl="PropsDC" id="PropsDCIterator"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsPojo" RangeSize="10" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsPojo" id="propsPojoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="qualification" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsQualificationPojo"
+                      id="qualificationIterator"/>
+    <accessorIterator MasterBinding="qualificationIterator" Binds="otherPropList" RangeSize="10" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsOtherPropPojo" id="otherPropListIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getOtherPropFilings" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getOtherPropFilings" IsViewObjectMethod="false" DataControl="PropsDC"
+                  InstanceName="bindings.getOtherPropFilings.dataControl.dataProvider">
+      <NamedData NDName="p0" NDType="java.lang.Integer"/>
+    </methodAction>
+    <tree IterBinding="propsPojoIterator" id="propsPojo">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsPojo" Name="propsPojo0">
+        <AttrNames>
+          <Item Value="ain"/>
+          <Item Value="aoid"/>
+          <Item Value="documentRefId"/>
+          <Item Value="propertyType"/>
+          <Item Value="propsID"/>
+          <Item Value="source"/>
+          <Item Value="wuid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="otherPropListIterator" id="otherPropList">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsOtherPropPojo" Name="otherPropList0">
+        <AttrNames>
+          <Item Value="propsPartyID"/>
+          <Item Value="ain"/>
+          <Item Value="claimantFullName"/>
+          <Item Value="claimResult"/>
+          <Item Value="claimSignedDate"/>
+          <Item Value="claimStatus"/>
+          <Item Value="claimType"/>
+          <Item Value="exclusionAmount"/>
+          <Item Value="percentTransfer"/>
+          <Item Value="printedName"/>
+          <Item Value="propsID"/>
+          <Item Value="ssnTaxNumber"/>
+          <Item Value="totExclusionAmount"/>
+          <Item Value="transferEventDate"/>
+          <Item Value="transferorFullName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

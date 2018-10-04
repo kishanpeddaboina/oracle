@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48"
+                id="PropClaimPerformWorkTask_TaskFlow_PropClaimPerformWorkTask_TaskFlow_loadPropsDataPageDef"
+                Package="propclaimperformworktaskui.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PropsDC" id="PropsDCIterator"/>
+    <accessorIterator MasterBinding="PropsDCIterator" Binds="propsPojo" RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsPojo" id="propsPojoIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="conclusion" RangeSize="10" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsConclusionPojo" id="conclusionIterator"/>
+    <accessorIterator MasterBinding="propsPojoIterator" Binds="propsTransferorPojoInfo" RangeSize="25"
+                      DataControl="PropsDC" BeanClass="gov.laca.amp.common.model.props.pojo.PropsTransferorPojo"
+                      id="propsTransferorPojoInfoIterator"/>
+    <accessorIterator id="transferorNameIterator" MasterBinding="propsTransferorPojoInfoIterator" Binds="transferorName"
+                      RangeSize="25" DataControl="PropsDC"
+                      BeanClass="gov.laca.amp.common.model.props.pojo.PropsNamePojo"/>
+  </executables>
+  <bindings>
+    <methodAction id="retrievePropsDetails" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="retrievePropsDetails" IsViewObjectMethod="false" DataControl="PropsDC"
+                  InstanceName="bindings.retrievePropsDetails.dataControl.dataProvider">
+      <NamedData NDName="wuid" NDType="java.lang.Integer"/>
+    </methodAction>
+    <tree IterBinding="conclusionIterator" id="conclusion">
+      <nodeDefinition DefName="gov.laca.amp.common.model.props.pojo.PropsConclusionPojo" Name="conclusion0">
+        <AttrNames>
+          <Item Value="claimResult"/>
+          <Item Value="approvalType"/>
+          <Item Value="assignedTo"/>
+          <Item Value="claimApprovalDate"/>
+          <Item Value="claimCompletionDate"/>
+          <Item Value="claimReceivedDate"/>
+          <Item Value="claimSignedDate"/>
+          <Item Value="completedBy"/>
+          <Item Value="exclusionAmount"/>
+          <Item Value="impFBV"/>
+          <Item Value="landFBV"/>
+          <Item Value="notificationDate"/>
+          <Item Value="notificationMethod"/>
+          <Item Value="partialInterestApproved"/>
+          <Item Value="reason"/>
+          <Item Value="reliefDate"/>
+          <Item Value="reliefType"/>
+          <Item Value="totalFBV"/>
+          <Item Value="transferDate"/>
+          <Item Value="transferStatus"/>
+          <Item Value="valuationFlag"/>
+          <Item Value="valuationInstructions"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
